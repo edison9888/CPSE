@@ -16,3 +16,5 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+/CPSE.xcodeproj/project.xcworkspace/xcuserdata/perry.xcuserdatad/UserInterfaceState.xcuserstate
+/CPSE.xcodeproj/xcuserdata/perry.xcuserdatad/xcschemes/FTXClient.xcscheme
