@@ -10,12 +10,45 @@
 		C2005FAB178A8E0700200E1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAA178A8E0700200E1E /* UIKit.framework */; };
 		C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAC178A8E0700200E1E /* Foundation.framework */; };
 		C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAE178A8E0700200E1E /* CoreGraphics.framework */; };
-		C2005FB5178A8E0700200E1E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2005FB3178A8E0700200E1E /* InfoPlist.strings */; };
-		C2005FB7178A8E0700200E1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FB6178A8E0700200E1E /* main.m */; };
-		C2005FBB178A8E0700200E1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FBA178A8E0700200E1E /* AppDelegate.m */; };
-		C2005FBD178A8E0700200E1E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FBC178A8E0700200E1E /* Default.png */; };
-		C2005FBF178A8E0700200E1E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FBE178A8E0700200E1E /* Default@2x.png */; };
-		C2005FC1178A8E0700200E1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FC0178A8E0700200E1E /* Default-568h@2x.png */; };
+		C2005FD1178A925A00200E1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCA178A925A00200E1E /* Default-568h@2x.png */; };
+		C2005FD2178A925A00200E1E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCB178A925A00200E1E /* Default.png */; };
+		C2005FD3178A925A00200E1E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCC178A925A00200E1E /* Default@2x.png */; };
+		C2005FD4178A925A00200E1E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCD178A925A00200E1E /* InfoPlist.strings */; };
+		C2005FD5178A925A00200E1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FCF178A925A00200E1E /* main.m */; };
+		C2006022178A926700200E1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FD9178A926700200E1E /* AppDelegate.m */; };
+		C2006023178A926700200E1E /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FE2178A926700200E1E /* AFHTTPClient.m */; };
+		C2006024178A926700200E1E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FE4178A926700200E1E /* AFHTTPRequestOperation.m */; };
+		C2006025178A926700200E1E /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FE6178A926700200E1E /* AFImageRequestOperation.m */; };
+		C2006026178A926700200E1E /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FE8178A926700200E1E /* AFJSONRequestOperation.m */; };
+		C2006027178A926700200E1E /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FEA178A926700200E1E /* AFNetworkActivityIndicatorManager.m */; };
+		C2006028178A926700200E1E /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FED178A926700200E1E /* AFPropertyListRequestOperation.m */; };
+		C2006029178A926700200E1E /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FEF178A926700200E1E /* AFURLConnectionOperation.m */; };
+		C200602A178A926700200E1E /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FF1178A926700200E1E /* AFXMLRequestOperation.m */; };
+		C200602B178A926700200E1E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FF3178A926700200E1E /* UIImageView+AFNetworking.m */; };
+		C200602C178A926700200E1E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FF6178A926700200E1E /* FMDatabase.m */; };
+		C200602D178A926700200E1E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FF8178A926700200E1E /* FMDatabaseAdditions.m */; };
+		C200602E178A926700200E1E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FFA178A926700200E1E /* FMDatabasePool.m */; };
+		C200602F178A926700200E1E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FFC178A926700200E1E /* FMDatabaseQueue.m */; };
+		C2006030178A926700200E1E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FFE178A926700200E1E /* FMResultSet.m */; };
+		C2006031178A926700200E1E /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006000178A926700200E1E /* libMobClickLibrary.a */; };
+		C2006032178A926700200E1E /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006001178A926700200E1E /* libUMFeedback.a */; };
+		C2006033178A926700200E1E /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006007178A926700200E1E /* libWeChatSDK_armv7_armv7s.a */; };
+		C2006034178A926700200E1E /* libUMSocial_Sdk_2.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006015178A926700200E1E /* libUMSocial_Sdk_2.1.3.a */; };
+		C2006035178A926700200E1E /* libUMSocial_Sdk_Comment_2.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006016178A926700200E1E /* libUMSocial_Sdk_Comment_2.1.3.a */; };
+		C2006036178A926700200E1E /* UMSCommentDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2006018178A926700200E1E /* UMSCommentDetailController.xib */; };
+		C2006037178A926700200E1E /* UMSCommentInputController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2006019178A926700200E1E /* UMSCommentInputController.xib */; };
+		C2006038178A926700200E1E /* UMSCommentInputControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200601A178A926700200E1E /* UMSCommentInputControlleriPad.xib */; };
+		C2006039178A926700200E1E /* UMShareEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200601B178A926700200E1E /* UMShareEditViewController.xib */; };
+		C200603A178A926700200E1E /* UMShareEditViewControlleriPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200601C178A926700200E1E /* UMShareEditViewControlleriPad.xib */; };
+		C200603B178A926700200E1E /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200601D178A926700200E1E /* UMSnsAccountViewController.xib */; };
+		C200603C178A926700200E1E /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C200601E178A926700200E1E /* UMSShareListController.xib */; };
+		C200603D178A926700200E1E /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C200601F178A926700200E1E /* UMSocialSDKResources.bundle */; };
+		C200603F178A939700200E1E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C200603E178A939700200E1E /* MobileCoreServices.framework */; };
+		C2006041178A93A000200E1E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006040178A93A000200E1E /* libz.dylib */; };
+		C2006043178A93A800200E1E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006042178A93A800200E1E /* libsqlite3.dylib */; };
+		C2006045178A93AF00200E1E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006044178A93AF00200E1E /* MediaPlayer.framework */; };
+		C2006047178A93B900200E1E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006046178A93B900200E1E /* SystemConfiguration.framework */; };
+		C2006049178A93C000200E1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006048178A93C000200E1E /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,15 +56,77 @@
 		C2005FAA178A8E0700200E1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2005FAC178A8E0700200E1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2005FAE178A8E0700200E1E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C2005FB2178A8E0700200E1E /* CPSE-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CPSE-Info.plist"; sourceTree = "<group>"; };
-		C2005FB4178A8E0700200E1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C2005FB6178A8E0700200E1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C2005FB8178A8E0700200E1E /* CPSE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPSE-Prefix.pch"; sourceTree = "<group>"; };
-		C2005FB9178A8E0700200E1E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C2005FBA178A8E0700200E1E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C2005FBC178A8E0700200E1E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C2005FBE178A8E0700200E1E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C2005FC0178A8E0700200E1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C2005FC8178A925A00200E1E /* CPSE-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CPSE-Info.plist"; sourceTree = "<group>"; };
+		C2005FC9178A925A00200E1E /* CPSE-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPSE-Prefix.pch"; sourceTree = "<group>"; };
+		C2005FCA178A925A00200E1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C2005FCB178A925A00200E1E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C2005FCC178A925A00200E1E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C2005FCE178A925A00200E1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C2005FCF178A925A00200E1E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C2005FD8178A926700200E1E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C2005FD9178A926700200E1E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C2005FE1178A926700200E1E /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
+		C2005FE2178A926700200E1E /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
+		C2005FE3178A926700200E1E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		C2005FE4178A926700200E1E /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		C2005FE5178A926700200E1E /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageRequestOperation.h; sourceTree = "<group>"; };
+		C2005FE6178A926700200E1E /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageRequestOperation.m; sourceTree = "<group>"; };
+		C2005FE7178A926700200E1E /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		C2005FE8178A926700200E1E /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		C2005FE9178A926700200E1E /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		C2005FEA178A926700200E1E /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		C2005FEB178A926700200E1E /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		C2005FEC178A926700200E1E /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		C2005FED178A926700200E1E /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		C2005FEE178A926700200E1E /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		C2005FEF178A926700200E1E /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		C2005FF0178A926700200E1E /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		C2005FF1178A926700200E1E /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		C2005FF2178A926700200E1E /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		C2005FF3178A926700200E1E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		C2005FF5178A926700200E1E /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		C2005FF6178A926700200E1E /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		C2005FF7178A926700200E1E /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		C2005FF8178A926700200E1E /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		C2005FF9178A926700200E1E /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		C2005FFA178A926700200E1E /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		C2005FFB178A926700200E1E /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		C2005FFC178A926700200E1E /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		C2005FFD178A926700200E1E /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		C2005FFE178A926700200E1E /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		C2006000178A926700200E1E /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		C2006001178A926700200E1E /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		C2006002178A926700200E1E /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		C2006003178A926700200E1E /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
+		C2006007178A926700200E1E /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
+		C2006008178A926700200E1E /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		C2006009178A926700200E1E /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		C200600B178A926700200E1E /* UMSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocial.h; sourceTree = "<group>"; };
+		C200600C178A926700200E1E /* UMSocialAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialAccountManager.h; sourceTree = "<group>"; };
+		C200600D178A926700200E1E /* UMSocialBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialBar.h; sourceTree = "<group>"; };
+		C200600E178A926700200E1E /* UMSocialConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialConfig.h; sourceTree = "<group>"; };
+		C200600F178A926700200E1E /* UMSocialControllerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialControllerService.h; sourceTree = "<group>"; };
+		C2006010178A926700200E1E /* UMSocialControllerServiceComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialControllerServiceComment.h; sourceTree = "<group>"; };
+		C2006011178A926700200E1E /* UMSocialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialData.h; sourceTree = "<group>"; };
+		C2006012178A926700200E1E /* UMSocialDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialDataService.h; sourceTree = "<group>"; };
+		C2006013178A926700200E1E /* UMSocialSnsPlatformManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsPlatformManager.h; sourceTree = "<group>"; };
+		C2006014178A926700200E1E /* UMSocialSnsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSnsService.h; sourceTree = "<group>"; };
+		C2006015178A926700200E1E /* libUMSocial_Sdk_2.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_2.1.3.a; sourceTree = "<group>"; };
+		C2006016178A926700200E1E /* libUMSocial_Sdk_Comment_2.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_Comment_2.1.3.a; sourceTree = "<group>"; };
+		C2006018178A926700200E1E /* UMSCommentDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentDetailController.xib; sourceTree = "<group>"; };
+		C2006019178A926700200E1E /* UMSCommentInputController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputController.xib; sourceTree = "<group>"; };
+		C200601A178A926700200E1E /* UMSCommentInputControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSCommentInputControlleriPad.xib; sourceTree = "<group>"; };
+		C200601B178A926700200E1E /* UMShareEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewController.xib; sourceTree = "<group>"; };
+		C200601C178A926700200E1E /* UMShareEditViewControlleriPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMShareEditViewControlleriPad.xib; sourceTree = "<group>"; };
+		C200601D178A926700200E1E /* UMSnsAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSnsAccountViewController.xib; sourceTree = "<group>"; };
+		C200601E178A926700200E1E /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
+		C200601F178A926700200E1E /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		C200603E178A939700200E1E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C2006040178A93A000200E1E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C2006042178A93A800200E1E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C2006044178A93AF00200E1E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		C2006046178A93B900200E1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C2006048178A93C000200E1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,9 +134,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2006049178A93C000200E1E /* QuartzCore.framework in Frameworks */,
+				C2006047178A93B900200E1E /* SystemConfiguration.framework in Frameworks */,
+				C2006045178A93AF00200E1E /* MediaPlayer.framework in Frameworks */,
+				C2006043178A93A800200E1E /* libsqlite3.dylib in Frameworks */,
+				C2006041178A93A000200E1E /* libz.dylib in Frameworks */,
+				C200603F178A939700200E1E /* MobileCoreServices.framework in Frameworks */,
 				C2005FAB178A8E0700200E1E /* UIKit.framework in Frameworks */,
 				C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */,
 				C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */,
+				C2006031178A926700200E1E /* libMobClickLibrary.a in Frameworks */,
+				C2006032178A926700200E1E /* libUMFeedback.a in Frameworks */,
+				C2006033178A926700200E1E /* libWeChatSDK_armv7_armv7s.a in Frameworks */,
+				C2006034178A926700200E1E /* libUMSocial_Sdk_2.1.3.a in Frameworks */,
+				C2006035178A926700200E1E /* libUMSocial_Sdk_Comment_2.1.3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +157,11 @@
 		C2005F9E178A8E0700200E1E = {
 			isa = PBXGroup;
 			children = (
-				C2005FB0178A8E0700200E1E /* CPSE */,
+				C2005FD6178A926700200E1E /* Assets */,
+				C2005FD7178A926700200E1E /* CPSE */,
 				C2005FA9178A8E0700200E1E /* Frameworks */,
 				C2005FA8178A8E0700200E1E /* Products */,
+				C2005FC7178A925A00200E1E /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +176,12 @@
 		C2005FA9178A8E0700200E1E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2006048178A93C000200E1E /* QuartzCore.framework */,
+				C2006046178A93B900200E1E /* SystemConfiguration.framework */,
+				C2006044178A93AF00200E1E /* MediaPlayer.framework */,
+				C2006042178A93A800200E1E /* libsqlite3.dylib */,
+				C2006040178A93A000200E1E /* libz.dylib */,
+				C200603E178A939700200E1E /* MobileCoreServices.framework */,
 				C2005FAA178A8E0700200E1E /* UIKit.framework */,
 				C2005FAC178A8E0700200E1E /* Foundation.framework */,
 				C2005FAE178A8E0700200E1E /* CoreGraphics.framework */,
@@ -75,28 +189,218 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C2005FB0178A8E0700200E1E /* CPSE */ = {
+		C2005FC7178A925A00200E1E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C2005FB9178A8E0700200E1E /* AppDelegate.h */,
-				C2005FBA178A8E0700200E1E /* AppDelegate.m */,
-				C2005FB1178A8E0700200E1E /* Supporting Files */,
+				C2005FC8178A925A00200E1E /* CPSE-Info.plist */,
+				C2005FC9178A925A00200E1E /* CPSE-Prefix.pch */,
+				C2005FCA178A925A00200E1E /* Default-568h@2x.png */,
+				C2005FCB178A925A00200E1E /* Default.png */,
+				C2005FCC178A925A00200E1E /* Default@2x.png */,
+				C2005FCD178A925A00200E1E /* InfoPlist.strings */,
+				C2005FCF178A925A00200E1E /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2005FD6178A926700200E1E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C2005FD7178A926700200E1E /* CPSE */ = {
+			isa = PBXGroup;
+			children = (
+				C2005FD8178A926700200E1E /* AppDelegate.h */,
+				C2005FD9178A926700200E1E /* AppDelegate.m */,
+				C2005FDA178A926700200E1E /* Classes */,
+				C2005FDD178A926700200E1E /* Controllers */,
+				C2005FDE178A926700200E1E /* Models */,
+				C2005FDF178A926700200E1E /* Vendors */,
+				C2006020178A926700200E1E /* Views */,
 			);
 			path = CPSE;
 			sourceTree = "<group>";
 		};
-		C2005FB1178A8E0700200E1E /* Supporting Files */ = {
+		C2005FDA178A926700200E1E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C2005FB2178A8E0700200E1E /* CPSE-Info.plist */,
-				C2005FB3178A8E0700200E1E /* InfoPlist.strings */,
-				C2005FB6178A8E0700200E1E /* main.m */,
-				C2005FB8178A8E0700200E1E /* CPSE-Prefix.pch */,
-				C2005FBC178A8E0700200E1E /* Default.png */,
-				C2005FBE178A8E0700200E1E /* Default@2x.png */,
-				C2005FC0178A8E0700200E1E /* Default-568h@2x.png */,
+				C2005FDB178A926700200E1E /* Extensions */,
+				C2005FDC178A926700200E1E /* Helpers */,
 			);
-			name = "Supporting Files";
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C2005FDB178A926700200E1E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C2005FDC178A926700200E1E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C2005FDD178A926700200E1E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C2005FDE178A926700200E1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2005FDF178A926700200E1E /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				C2005FE0178A926700200E1E /* AFNetworking */,
+				C2005FF4178A926700200E1E /* fmdb */,
+				C2005FFF178A926700200E1E /* UMeng */,
+				C2006004178A926700200E1E /* UMSocial_Sdk_2.1.3 */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		C2005FE0178A926700200E1E /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				C2005FE1178A926700200E1E /* AFHTTPClient.h */,
+				C2005FE2178A926700200E1E /* AFHTTPClient.m */,
+				C2005FE3178A926700200E1E /* AFHTTPRequestOperation.h */,
+				C2005FE4178A926700200E1E /* AFHTTPRequestOperation.m */,
+				C2005FE5178A926700200E1E /* AFImageRequestOperation.h */,
+				C2005FE6178A926700200E1E /* AFImageRequestOperation.m */,
+				C2005FE7178A926700200E1E /* AFJSONRequestOperation.h */,
+				C2005FE8178A926700200E1E /* AFJSONRequestOperation.m */,
+				C2005FE9178A926700200E1E /* AFNetworkActivityIndicatorManager.h */,
+				C2005FEA178A926700200E1E /* AFNetworkActivityIndicatorManager.m */,
+				C2005FEB178A926700200E1E /* AFNetworking.h */,
+				C2005FEC178A926700200E1E /* AFPropertyListRequestOperation.h */,
+				C2005FED178A926700200E1E /* AFPropertyListRequestOperation.m */,
+				C2005FEE178A926700200E1E /* AFURLConnectionOperation.h */,
+				C2005FEF178A926700200E1E /* AFURLConnectionOperation.m */,
+				C2005FF0178A926700200E1E /* AFXMLRequestOperation.h */,
+				C2005FF1178A926700200E1E /* AFXMLRequestOperation.m */,
+				C2005FF2178A926700200E1E /* UIImageView+AFNetworking.h */,
+				C2005FF3178A926700200E1E /* UIImageView+AFNetworking.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		C2005FF4178A926700200E1E /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				C2005FF5178A926700200E1E /* FMDatabase.h */,
+				C2005FF6178A926700200E1E /* FMDatabase.m */,
+				C2005FF7178A926700200E1E /* FMDatabaseAdditions.h */,
+				C2005FF8178A926700200E1E /* FMDatabaseAdditions.m */,
+				C2005FF9178A926700200E1E /* FMDatabasePool.h */,
+				C2005FFA178A926700200E1E /* FMDatabasePool.m */,
+				C2005FFB178A926700200E1E /* FMDatabaseQueue.h */,
+				C2005FFC178A926700200E1E /* FMDatabaseQueue.m */,
+				C2005FFD178A926700200E1E /* FMResultSet.h */,
+				C2005FFE178A926700200E1E /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		C2005FFF178A926700200E1E /* UMeng */ = {
+			isa = PBXGroup;
+			children = (
+				C2006000178A926700200E1E /* libMobClickLibrary.a */,
+				C2006001178A926700200E1E /* libUMFeedback.a */,
+				C2006002178A926700200E1E /* MobClick.h */,
+				C2006003178A926700200E1E /* UMFeedback.h */,
+			);
+			path = UMeng;
+			sourceTree = "<group>";
+		};
+		C2006004178A926700200E1E /* UMSocial_Sdk_2.1.3 */ = {
+			isa = PBXGroup;
+			children = (
+				C2006005178A926700200E1E /* frameworks */,
+				C200600A178A926700200E1E /* Header */,
+				C2006015178A926700200E1E /* libUMSocial_Sdk_2.1.3.a */,
+				C2006016178A926700200E1E /* libUMSocial_Sdk_Comment_2.1.3.a */,
+				C2006017178A926700200E1E /* SocialSDKXib */,
+				C200601F178A926700200E1E /* UMSocialSDKResources.bundle */,
+			);
+			path = UMSocial_Sdk_2.1.3;
+			sourceTree = "<group>";
+		};
+		C2006005178A926700200E1E /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2006006178A926700200E1E /* Wechat */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		C2006006178A926700200E1E /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				C2006007178A926700200E1E /* libWeChatSDK_armv7_armv7s.a */,
+				C2006008178A926700200E1E /* WXApi.h */,
+				C2006009178A926700200E1E /* WXApiObject.h */,
+			);
+			path = Wechat;
+			sourceTree = "<group>";
+		};
+		C200600A178A926700200E1E /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C200600B178A926700200E1E /* UMSocial.h */,
+				C200600C178A926700200E1E /* UMSocialAccountManager.h */,
+				C200600D178A926700200E1E /* UMSocialBar.h */,
+				C200600E178A926700200E1E /* UMSocialConfig.h */,
+				C200600F178A926700200E1E /* UMSocialControllerService.h */,
+				C2006010178A926700200E1E /* UMSocialControllerServiceComment.h */,
+				C2006011178A926700200E1E /* UMSocialData.h */,
+				C2006012178A926700200E1E /* UMSocialDataService.h */,
+				C2006013178A926700200E1E /* UMSocialSnsPlatformManager.h */,
+				C2006014178A926700200E1E /* UMSocialSnsService.h */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		C2006017178A926700200E1E /* SocialSDKXib */ = {
+			isa = PBXGroup;
+			children = (
+				C2006018178A926700200E1E /* UMSCommentDetailController.xib */,
+				C2006019178A926700200E1E /* UMSCommentInputController.xib */,
+				C200601A178A926700200E1E /* UMSCommentInputControlleriPad.xib */,
+				C200601B178A926700200E1E /* UMShareEditViewController.xib */,
+				C200601C178A926700200E1E /* UMShareEditViewControlleriPad.xib */,
+				C200601D178A926700200E1E /* UMSnsAccountViewController.xib */,
+				C200601E178A926700200E1E /* UMSShareListController.xib */,
+			);
+			path = SocialSDKXib;
+			sourceTree = "<group>";
+		};
+		C2006020178A926700200E1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2006021178A926700200E1E /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C2006021178A926700200E1E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +454,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2005FB5178A8E0700200E1E /* InfoPlist.strings in Resources */,
-				C2005FBD178A8E0700200E1E /* Default.png in Resources */,
-				C2005FBF178A8E0700200E1E /* Default@2x.png in Resources */,
-				C2005FC1178A8E0700200E1E /* Default-568h@2x.png in Resources */,
+				C2005FD1178A925A00200E1E /* Default-568h@2x.png in Resources */,
+				C2005FD2178A925A00200E1E /* Default.png in Resources */,
+				C2005FD3178A925A00200E1E /* Default@2x.png in Resources */,
+				C2005FD4178A925A00200E1E /* InfoPlist.strings in Resources */,
+				C2006036178A926700200E1E /* UMSCommentDetailController.xib in Resources */,
+				C2006037178A926700200E1E /* UMSCommentInputController.xib in Resources */,
+				C2006038178A926700200E1E /* UMSCommentInputControlleriPad.xib in Resources */,
+				C2006039178A926700200E1E /* UMShareEditViewController.xib in Resources */,
+				C200603A178A926700200E1E /* UMShareEditViewControlleriPad.xib in Resources */,
+				C200603B178A926700200E1E /* UMSnsAccountViewController.xib in Resources */,
+				C200603C178A926700200E1E /* UMSShareListController.xib in Resources */,
+				C200603D178A926700200E1E /* UMSocialSDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,18 +476,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2005FB7178A8E0700200E1E /* main.m in Sources */,
-				C2005FBB178A8E0700200E1E /* AppDelegate.m in Sources */,
+				C2005FD5178A925A00200E1E /* main.m in Sources */,
+				C2006022178A926700200E1E /* AppDelegate.m in Sources */,
+				C2006023178A926700200E1E /* AFHTTPClient.m in Sources */,
+				C2006024178A926700200E1E /* AFHTTPRequestOperation.m in Sources */,
+				C2006025178A926700200E1E /* AFImageRequestOperation.m in Sources */,
+				C2006026178A926700200E1E /* AFJSONRequestOperation.m in Sources */,
+				C2006027178A926700200E1E /* AFNetworkActivityIndicatorManager.m in Sources */,
+				C2006028178A926700200E1E /* AFPropertyListRequestOperation.m in Sources */,
+				C2006029178A926700200E1E /* AFURLConnectionOperation.m in Sources */,
+				C200602A178A926700200E1E /* AFXMLRequestOperation.m in Sources */,
+				C200602B178A926700200E1E /* UIImageView+AFNetworking.m in Sources */,
+				C200602C178A926700200E1E /* FMDatabase.m in Sources */,
+				C200602D178A926700200E1E /* FMDatabaseAdditions.m in Sources */,
+				C200602E178A926700200E1E /* FMDatabasePool.m in Sources */,
+				C200602F178A926700200E1E /* FMDatabaseQueue.m in Sources */,
+				C2006030178A926700200E1E /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C2005FB3178A8E0700200E1E /* InfoPlist.strings */ = {
+		C2005FCD178A925A00200E1E /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C2005FB4178A8E0700200E1E /* en */,
+				C2005FCE178A925A00200E1E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -243,8 +569,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPSE/CPSE-Prefix.pch";
-				INFOPLIST_FILE = "CPSE/CPSE-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/CPSE-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/CPSE/Vendors/UMeng\"",
+					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_2.1.3/frameworks/Wechat\"",
+					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_2.1.3\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -254,8 +586,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CPSE/CPSE-Prefix.pch";
-				INFOPLIST_FILE = "CPSE/CPSE-Info.plist";
+				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
+				INFOPLIST_FILE = "Supporting Files/CPSE-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/CPSE/Vendors/UMeng\"",
+					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_2.1.3/frameworks/Wechat\"",
+					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_2.1.3\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
