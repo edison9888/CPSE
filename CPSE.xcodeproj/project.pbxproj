@@ -49,6 +49,13 @@
 		C2006045178A93AF00200E1E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006044178A93AF00200E1E /* MediaPlayer.framework */; };
 		C2006047178A93B900200E1E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006046178A93B900200E1E /* SystemConfiguration.framework */; };
 		C2006049178A93C000200E1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006048178A93C000200E1E /* QuartzCore.framework */; };
+		C25CC6C9178A979A0055E82A /* NetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6C7178A979A0055E82A /* NetWorkReachability.m */; };
+		C25CC6D5178A98C20055E82A /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6CC178A98C20055E82A /* GTMNSString+HTML.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C25CC6D6178A98C20055E82A /* UIColor+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6CE178A98C20055E82A /* UIColor+BR.m */; };
+		C25CC6D7178A98C20055E82A /* UIImage+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6D0178A98C20055E82A /* UIImage+BR.m */; };
+		C25CC6D8178A98C20055E82A /* UINavigationBar+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6D2178A98C20055E82A /* UINavigationBar+BR.m */; };
+		C25CC6D9178A98C20055E82A /* UIView+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6D4178A98C20055E82A /* UIView+BR.m */; };
+		C25CC6DC178A992B0055E82A /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6DB178A992B0055E82A /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +134,24 @@
 		C2006044178A93AF00200E1E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C2006046178A93B900200E1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C2006048178A93C000200E1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C25CC6C4178A979A0055E82A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C25CC6C5178A979A0055E82A /* Enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enums.h; sourceTree = "<group>"; };
+		C25CC6C6178A979A0055E82A /* NetWorkReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkReachability.h; sourceTree = "<group>"; };
+		C25CC6C7178A979A0055E82A /* NetWorkReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkReachability.m; sourceTree = "<group>"; };
+		C25CC6C8178A979A0055E82A /* UserDefaultsKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsKeys.h; sourceTree = "<group>"; };
+		C25CC6CA178A98C20055E82A /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		C25CC6CB178A98C20055E82A /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		C25CC6CC178A98C20055E82A /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		C25CC6CD178A98C20055E82A /* UIColor+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BR.h"; sourceTree = "<group>"; };
+		C25CC6CE178A98C20055E82A /* UIColor+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BR.m"; sourceTree = "<group>"; };
+		C25CC6CF178A98C20055E82A /* UIImage+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BR.h"; sourceTree = "<group>"; };
+		C25CC6D0178A98C20055E82A /* UIImage+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BR.m"; sourceTree = "<group>"; };
+		C25CC6D1178A98C20055E82A /* UINavigationBar+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+BR.h"; sourceTree = "<group>"; };
+		C25CC6D2178A98C20055E82A /* UINavigationBar+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+BR.m"; sourceTree = "<group>"; };
+		C25CC6D3178A98C20055E82A /* UIView+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BR.h"; sourceTree = "<group>"; };
+		C25CC6D4178A98C20055E82A /* UIView+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BR.m"; sourceTree = "<group>"; };
+		C25CC6DA178A992A0055E82A /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		C25CC6DB178A992B0055E82A /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +254,8 @@
 			children = (
 				C2005FDB178A926700200E1E /* Extensions */,
 				C2005FDC178A926700200E1E /* Helpers */,
+				C25CC6DA178A992A0055E82A /* DataManager.h */,
+				C25CC6DB178A992B0055E82A /* DataManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -236,6 +263,17 @@
 		C2005FDB178A926700200E1E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C25CC6CA178A98C20055E82A /* GTMDefines.h */,
+				C25CC6CB178A98C20055E82A /* GTMNSString+HTML.h */,
+				C25CC6CC178A98C20055E82A /* GTMNSString+HTML.m */,
+				C25CC6CD178A98C20055E82A /* UIColor+BR.h */,
+				C25CC6CE178A98C20055E82A /* UIColor+BR.m */,
+				C25CC6CF178A98C20055E82A /* UIImage+BR.h */,
+				C25CC6D0178A98C20055E82A /* UIImage+BR.m */,
+				C25CC6D1178A98C20055E82A /* UINavigationBar+BR.h */,
+				C25CC6D2178A98C20055E82A /* UINavigationBar+BR.m */,
+				C25CC6D3178A98C20055E82A /* UIView+BR.h */,
+				C25CC6D4178A98C20055E82A /* UIView+BR.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,6 +281,11 @@
 		C2005FDC178A926700200E1E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C25CC6C4178A979A0055E82A /* Constants.h */,
+				C25CC6C5178A979A0055E82A /* Enums.h */,
+				C25CC6C6178A979A0055E82A /* NetWorkReachability.h */,
+				C25CC6C7178A979A0055E82A /* NetWorkReachability.m */,
+				C25CC6C8178A979A0055E82A /* UserDefaultsKeys.h */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -492,6 +535,13 @@
 				C200602E178A926700200E1E /* FMDatabasePool.m in Sources */,
 				C200602F178A926700200E1E /* FMDatabaseQueue.m in Sources */,
 				C2006030178A926700200E1E /* FMResultSet.m in Sources */,
+				C25CC6C9178A979A0055E82A /* NetWorkReachability.m in Sources */,
+				C25CC6D5178A98C20055E82A /* GTMNSString+HTML.m in Sources */,
+				C25CC6D6178A98C20055E82A /* UIColor+BR.m in Sources */,
+				C25CC6D7178A98C20055E82A /* UIImage+BR.m in Sources */,
+				C25CC6D8178A98C20055E82A /* UINavigationBar+BR.m in Sources */,
+				C25CC6D9178A98C20055E82A /* UIView+BR.m in Sources */,
+				C25CC6DC178A992B0055E82A /* DataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +668,7 @@
 				C2005FC6178A8E0700200E1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

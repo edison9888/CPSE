@@ -13,6 +13,10 @@
     #import <Foundation/Foundation.h>
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
+    #import "Enums.h"
+    #import "Constants.h"
+    #import "UserDefaultsKeys.h"
+    #import "DataManager.h"
 #endif
 
 #ifdef DEBUG
@@ -32,3 +36,4 @@ static inline BOOL isEmpty(id thing) {
 }
 
 #define UserDefaults [NSUserDefaults standardUserDefaults]
+#define DataMgr [DataManager sharedManager]
