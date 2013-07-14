@@ -11,6 +11,7 @@
 #import "BannerViewController.h"
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
+#import "ChannelIconButton.h"
 
 @interface HomeViewController ()
 {
@@ -35,8 +36,67 @@
     [self.view applyNoiseWithOpacity:.05];
     
     _banner = [[BannerViewController alloc] init];
-    _banner.view.frame = CGRectMake(0, 0, 320, 185);
     [self.view addSubview:_banner.view];
+    
+    CGRect rect = [UIScreen mainScreen].applicationFrame;
+    CGFloat h = (CGRectGetHeight(rect) - 44 - kBannerHeight - 20) / 3.0;
+    
+    // 1st row
+    ChannelIconButton *button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(5, kBannerHeight+5, 100, h)];
+    [button setTitle:@"新闻" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-news"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelNews) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(110, kBannerHeight+5, 100, h)];
+    [button setTitle:@"展商" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-exhibitor"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelExhibitor) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(215, kBannerHeight+5, 100, h)];
+    [button setTitle:@"日程" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-calendar"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelCalendar) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    // 2nd row
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(5, kBannerHeight+10+h, 100, h)];
+    [button setTitle:@"展位图" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-map"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelMap) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(110, kBannerHeight+10+h, 100, h)];
+    [button setTitle:@"参观申请" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-subscribe"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelSubscribe) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(215, kBannerHeight+10+h, 100, h)];
+    [button setTitle:@"消息" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-notification"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelNotification) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    // 3rd row
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(5, kBannerHeight+15+2*h, 100, h)];
+    [button setTitle:@"咨询" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-faq"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelFaq) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(110, kBannerHeight+15+2*h, 100, h)];
+    [button setTitle:@"简介" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-intro"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelIntro) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
+    button = [[ChannelIconButton alloc] initWithFrame:CGRectMake(215, kBannerHeight+15+2*h, 100, h)];
+    [button setTitle:@"图片" forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"button-icon-picture"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(tapChannelPicture) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -78,12 +138,48 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAccountChangeNotification object:DataMgr];
 }
 
 - (void)tapRightBarButton {
     DLog(@"tap right button");
+}
+
+#pragma mark - channel actions
+- (void)tapChannelNews {
+    
+}
+
+- (void)tapChannelExhibitor {
+    
+}
+
+- (void)tapChannelCalendar {
+    
+}
+
+- (void)tapChannelMap {
+    
+}
+
+- (void)tapChannelSubscribe {
+    
+}
+
+- (void)tapChannelNotification {
+    
+}
+
+- (void)tapChannelFaq {
+    
+}
+
+- (void)tapChannelIntro {
+    
+}
+
+- (void)tapChannelPicture {
+    
 }
 
 @end

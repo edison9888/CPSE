@@ -19,7 +19,7 @@
 @implementation BannerViewController
 
 - (void)loadView {
-    [super loadView];
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kBannerHeight)];
     
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -33,26 +33,26 @@
     _pageControl = [[UIPageControl alloc] init];
     _pageControl.numberOfPages = 4;
     _pageControl.currentPage = 0;
-    _pageControl.center = CGPointMake(160, 130);
+    _pageControl.center = CGPointMake(160, 170);
     [self.view addSubview:_pageControl];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 185)];
+
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kBannerHeight)];
     v.backgroundColor = [UIColor colorWithHex:0xd03044];
     [_scrollView addSubview:v];
     
-    v = [[UIView alloc] initWithFrame:CGRectMake(320, 0, 320, 185)];
+    v = [[UIView alloc] initWithFrame:CGRectMake(320, 0, 320, kBannerHeight)];
     v.backgroundColor = [UIColor yellowColor];
     [_scrollView addSubview:v];
     
-    v = [[UIView alloc] initWithFrame:CGRectMake(640, 0, 320, 185)];
+    v = [[UIView alloc] initWithFrame:CGRectMake(640, 0, 320, kBannerHeight)];
     v.backgroundColor = [UIColor purpleColor];
     [_scrollView addSubview:v];
     
-    v = [[UIView alloc] initWithFrame:CGRectMake(960, 0, 320, 185)];
+    v = [[UIView alloc] initWithFrame:CGRectMake(960, 0, 320, kBannerHeight)];
     v.backgroundColor = [UIColor cyanColor];
     [_scrollView addSubview:v];
     
