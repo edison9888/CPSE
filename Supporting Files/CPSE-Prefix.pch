@@ -17,6 +17,7 @@
     #import "Constants.h"
     #import "UserDefaultsKeys.h"
     #import "DataManager.h"
+    #import "CPSEAFClient.h"
 #endif
 
 #ifdef DEBUG
@@ -37,3 +38,6 @@ static inline BOOL isEmpty(id thing) {
 
 #define UserDefaults [NSUserDefaults standardUserDefaults]
 #define DataMgr [DataManager sharedManager]
+#define AFClient [CPSEAFClient sharedClient]
+
+#define StagingApiBase @"http://api.cps.com.cn/"

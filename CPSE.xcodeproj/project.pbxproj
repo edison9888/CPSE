@@ -88,6 +88,12 @@
 		C27F978B179250CD00E79A78 /* button-icon-subscribe.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F9779179250CD00E79A78 /* button-icon-subscribe.png */; };
 		C27F978C179250CD00E79A78 /* button-icon-subscribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */; };
 		C27F978F17925A8400E79A78 /* ChannelIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C27F978E17925A8400E79A78 /* ChannelIconButton.m */; };
+		C2E4B57C1797776600388B11 /* BaseChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B57B1797776600388B11 /* BaseChannelViewController.m */; };
+		C2E4B57F1797784E00388B11 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57D1797784E00388B11 /* icon-back.png */; };
+		C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57E1797784E00388B11 /* icon-back@2x.png */; };
+		C2E4B583179778A000388B11 /* NewsChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B582179778A000388B11 /* NewsChannelViewController.m */; };
+		C2E4B589179778E100388B11 /* ExhibitorChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B588179778E100388B11 /* ExhibitorChannelViewController.m */; };
+		C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B5911797A05900388B11 /* CPSEAFClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,6 +226,16 @@
 		C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-icon-subscribe@2x.png"; sourceTree = "<group>"; };
 		C27F978D17925A8400E79A78 /* ChannelIconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelIconButton.h; sourceTree = "<group>"; };
 		C27F978E17925A8400E79A78 /* ChannelIconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelIconButton.m; sourceTree = "<group>"; };
+		C2E4B57A1797776600388B11 /* BaseChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChannelViewController.h; sourceTree = "<group>"; };
+		C2E4B57B1797776600388B11 /* BaseChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChannelViewController.m; sourceTree = "<group>"; };
+		C2E4B57D1797784E00388B11 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
+		C2E4B57E1797784E00388B11 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
+		C2E4B581179778A000388B11 /* NewsChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsChannelViewController.h; sourceTree = "<group>"; };
+		C2E4B582179778A000388B11 /* NewsChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsChannelViewController.m; sourceTree = "<group>"; };
+		C2E4B587179778E100388B11 /* ExhibitorChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorChannelViewController.h; sourceTree = "<group>"; };
+		C2E4B588179778E100388B11 /* ExhibitorChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorChannelViewController.m; sourceTree = "<group>"; };
+		C2E4B5901797A05900388B11 /* CPSEAFClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSEAFClient.h; sourceTree = "<group>"; };
+		C2E4B5911797A05900388B11 /* CPSEAFClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSEAFClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +369,8 @@
 			isa = PBXGroup;
 			children = (
 				C25CC6C4178A979A0055E82A /* Constants.h */,
+				C2E4B5901797A05900388B11 /* CPSEAFClient.h */,
+				C2E4B5911797A05900388B11 /* CPSEAFClient.m */,
 				C25CC6C5178A979A0055E82A /* Enums.h */,
 				C25CC6C6178A979A0055E82A /* NetWorkReachability.h */,
 				C25CC6C7178A979A0055E82A /* NetWorkReachability.m */,
@@ -366,8 +384,14 @@
 			children = (
 				C27F975C179233E400E79A78 /* BannerViewController.h */,
 				C27F975D179233E400E79A78 /* BannerViewController.m */,
+				C2E4B57A1797776600388B11 /* BaseChannelViewController.h */,
+				C2E4B57B1797776600388B11 /* BaseChannelViewController.m */,
+				C2E4B587179778E100388B11 /* ExhibitorChannelViewController.h */,
+				C2E4B588179778E100388B11 /* ExhibitorChannelViewController.m */,
 				C20931721790F72400F91BB5 /* HomeViewController.h */,
 				C20931731790F72400F91BB5 /* HomeViewController.m */,
+				C2E4B581179778A000388B11 /* NewsChannelViewController.h */,
+				C2E4B582179778A000388B11 /* NewsChannelViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -546,6 +570,8 @@
 				C27F9778179250CD00E79A78 /* button-icon-picture@2x.png */,
 				C27F9779179250CD00E79A78 /* button-icon-subscribe.png */,
 				C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */,
+				C2E4B57D1797784E00388B11 /* icon-back.png */,
+				C2E4B57E1797784E00388B11 /* icon-back@2x.png */,
 				C20931641790F71100F91BB5 /* icon-profile-online.png */,
 				C20931651790F71100F91BB5 /* icon-profile-online@2x.png */,
 				C20931661790F71100F91BB5 /* icon-profile.png */,
@@ -649,6 +675,8 @@
 				C27F978A179250CD00E79A78 /* button-icon-picture@2x.png in Resources */,
 				C27F978B179250CD00E79A78 /* button-icon-subscribe.png in Resources */,
 				C27F978C179250CD00E79A78 /* button-icon-subscribe@2x.png in Resources */,
+				C2E4B57F1797784E00388B11 /* icon-back.png in Resources */,
+				C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,6 +714,10 @@
 				C27F975E179233E400E79A78 /* BannerViewController.m in Sources */,
 				C27F9768179245F500E79A78 /* UIView+JMNoise.m in Sources */,
 				C27F978F17925A8400E79A78 /* ChannelIconButton.m in Sources */,
+				C2E4B57C1797776600388B11 /* BaseChannelViewController.m in Sources */,
+				C2E4B583179778A000388B11 /* NewsChannelViewController.m in Sources */,
+				C2E4B589179778E100388B11 /* ExhibitorChannelViewController.m in Sources */,
+				C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

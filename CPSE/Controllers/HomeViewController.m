@@ -12,6 +12,8 @@
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
 #import "ChannelIconButton.h"
+#import "NewsChannelViewController.h"
+#import "ExhibitorChannelViewController.h"
 
 @interface HomeViewController ()
 {
@@ -99,11 +101,27 @@
     [self.view addSubview:button];
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [AFClient getPath:@"api.php?action=adlist&count=5"
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  NSArray *data = [JSON valueForKeyPath:@"data"];
+                  [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+                      DLog(@"image=%@, url=%@", obj[@"img"], obj[@"url"]);
+                  }];
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DLog(@"error: %@", [error description]);
+              }];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     CGRect buttonRect = CGRectMake(0, 0, 44, 44);
-    buttonRect = CGRectInset(buttonRect, 4, 4);
+    buttonRect = CGRectInset(buttonRect, 7, 7);
     
     // left view
     UIImageView *leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo-and-text"]];
@@ -147,11 +165,15 @@
 
 #pragma mark - channel actions
 - (void)tapChannelNews {
-    
+    NewsChannelViewController *vc = [[NewsChannelViewController alloc] init];
+    vc.title = @"新闻";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelExhibitor {
-    
+    ExhibitorChannelViewController *vc = [[ExhibitorChannelViewController alloc] init];
+    vc.title = @"参展商";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelCalendar {
