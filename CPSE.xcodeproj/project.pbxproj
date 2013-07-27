@@ -49,6 +49,15 @@
 		C2006045178A93AF00200E1E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006044178A93AF00200E1E /* MediaPlayer.framework */; };
 		C2006047178A93B900200E1E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006046178A93B900200E1E /* SystemConfiguration.framework */; };
 		C2006049178A93C000200E1E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2006048178A93C000200E1E /* QuartzCore.framework */; };
+		C201387017A372E1009CEA7F /* MHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C201386F17A372E1009CEA7F /* MHTabBarController.m */; };
+		C201387317A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C201387217A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m */; };
+		C201387617A3742A009CEA7F /* ExhibitorsByIndustryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */; };
+		C201387917A3743B009CEA7F /* ExhibitorsByAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C201387817A3743B009CEA7F /* ExhibitorsByAreaViewController.m */; };
+		C201387C17A3757E009CEA7F /* BaseChannelWithTabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C201387B17A3757E009CEA7F /* BaseChannelWithTabsViewController.m */; };
+		C201387F17A37B46009CEA7F /* MHTabBarContainerBgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C201387D17A37B46009CEA7F /* MHTabBarContainerBgPattern.png */; };
+		C201388017A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */; };
+		C201388317A37BE0009CEA7F /* MHTabBarActiveBgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */; };
+		C201388417A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */; };
 		C209316A1790F71100F91BB5 /* bg-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931621790F71100F91BB5 /* bg-pattern.png */; };
 		C209316B1790F71100F91BB5 /* bg-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931631790F71100F91BB5 /* bg-pattern@2x.png */; };
 		C209316C1790F71100F91BB5 /* icon-profile-online.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931641790F71100F91BB5 /* icon-profile-online.png */; };
@@ -92,7 +101,6 @@
 		C2E4B57F1797784E00388B11 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57D1797784E00388B11 /* icon-back.png */; };
 		C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57E1797784E00388B11 /* icon-back@2x.png */; };
 		C2E4B583179778A000388B11 /* NewsChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B582179778A000388B11 /* NewsChannelViewController.m */; };
-		C2E4B589179778E100388B11 /* ExhibitorChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B588179778E100388B11 /* ExhibitorChannelViewController.m */; };
 		C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B5911797A05900388B11 /* CPSEAFClient.m */; };
 /* End PBXBuildFile section */
 
@@ -172,6 +180,20 @@
 		C2006044178A93AF00200E1E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		C2006046178A93B900200E1E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C2006048178A93C000200E1E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C201386E17A372E1009CEA7F /* MHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTabBarController.h; sourceTree = "<group>"; };
+		C201386F17A372E1009CEA7F /* MHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTabBarController.m; sourceTree = "<group>"; };
+		C201387117A373E0009CEA7F /* ExhibitorsByAlphabetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorsByAlphabetViewController.h; sourceTree = "<group>"; };
+		C201387217A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorsByAlphabetViewController.m; sourceTree = "<group>"; };
+		C201387417A37429009CEA7F /* ExhibitorsByIndustryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorsByIndustryViewController.h; sourceTree = "<group>"; };
+		C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorsByIndustryViewController.m; sourceTree = "<group>"; };
+		C201387717A3743B009CEA7F /* ExhibitorsByAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorsByAreaViewController.h; sourceTree = "<group>"; };
+		C201387817A3743B009CEA7F /* ExhibitorsByAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorsByAreaViewController.m; sourceTree = "<group>"; };
+		C201387A17A3757E009CEA7F /* BaseChannelWithTabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChannelWithTabsViewController.h; sourceTree = "<group>"; };
+		C201387B17A3757E009CEA7F /* BaseChannelWithTabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChannelWithTabsViewController.m; sourceTree = "<group>"; };
+		C201387D17A37B46009CEA7F /* MHTabBarContainerBgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarContainerBgPattern.png; sourceTree = "<group>"; };
+		C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarContainerBgPattern@2x.png"; sourceTree = "<group>"; };
+		C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarActiveBgPattern.png; sourceTree = "<group>"; };
+		C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarActiveBgPattern@2x.png"; sourceTree = "<group>"; };
 		C20931621790F71100F91BB5 /* bg-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-pattern.png"; sourceTree = "<group>"; };
 		C20931631790F71100F91BB5 /* bg-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-pattern@2x.png"; sourceTree = "<group>"; };
 		C20931641790F71100F91BB5 /* icon-profile-online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-profile-online.png"; sourceTree = "<group>"; };
@@ -232,8 +254,6 @@
 		C2E4B57E1797784E00388B11 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		C2E4B581179778A000388B11 /* NewsChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsChannelViewController.h; sourceTree = "<group>"; };
 		C2E4B582179778A000388B11 /* NewsChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsChannelViewController.m; sourceTree = "<group>"; };
-		C2E4B587179778E100388B11 /* ExhibitorChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorChannelViewController.h; sourceTree = "<group>"; };
-		C2E4B588179778E100388B11 /* ExhibitorChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorChannelViewController.m; sourceTree = "<group>"; };
 		C2E4B5901797A05900388B11 /* CPSEAFClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSEAFClient.h; sourceTree = "<group>"; };
 		C2E4B5911797A05900388B11 /* CPSEAFClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSEAFClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -382,12 +402,13 @@
 		C2005FDD178A926700200E1E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C201386917A372D1009CEA7F /* Exhibitors */,
 				C27F975C179233E400E79A78 /* BannerViewController.h */,
 				C27F975D179233E400E79A78 /* BannerViewController.m */,
 				C2E4B57A1797776600388B11 /* BaseChannelViewController.h */,
 				C2E4B57B1797776600388B11 /* BaseChannelViewController.m */,
-				C2E4B587179778E100388B11 /* ExhibitorChannelViewController.h */,
-				C2E4B588179778E100388B11 /* ExhibitorChannelViewController.m */,
+				C201387A17A3757E009CEA7F /* BaseChannelWithTabsViewController.h */,
+				C201387B17A3757E009CEA7F /* BaseChannelWithTabsViewController.m */,
 				C20931721790F72400F91BB5 /* HomeViewController.h */,
 				C20931731790F72400F91BB5 /* HomeViewController.m */,
 				C2E4B581179778A000388B11 /* NewsChannelViewController.h */,
@@ -408,6 +429,7 @@
 			children = (
 				C2005FE0178A926700200E1E /* AFNetworking */,
 				C2005FF4178A926700200E1E /* fmdb */,
+				C201386D17A372E1009CEA7F /* MHTabBarController */,
 				C2005FFF178A926700200E1E /* UMeng */,
 				C2006004178A926700200E1E /* UMSocial_Sdk_2.1.3 */,
 			);
@@ -547,6 +569,28 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		C201386917A372D1009CEA7F /* Exhibitors */ = {
+			isa = PBXGroup;
+			children = (
+				C201387117A373E0009CEA7F /* ExhibitorsByAlphabetViewController.h */,
+				C201387217A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m */,
+				C201387717A3743B009CEA7F /* ExhibitorsByAreaViewController.h */,
+				C201387817A3743B009CEA7F /* ExhibitorsByAreaViewController.m */,
+				C201387417A37429009CEA7F /* ExhibitorsByIndustryViewController.h */,
+				C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */,
+			);
+			path = Exhibitors;
+			sourceTree = "<group>";
+		};
+		C201386D17A372E1009CEA7F /* MHTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				C201386E17A372E1009CEA7F /* MHTabBarController.h */,
+				C201386F17A372E1009CEA7F /* MHTabBarController.m */,
+			);
+			path = MHTabBarController;
+			sourceTree = "<group>";
+		};
 		C20931611790F71100F91BB5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +622,10 @@
 				C20931671790F71100F91BB5 /* icon-profile@2x.png */,
 				C27F97621792431100E79A78 /* logo-and-text.png */,
 				C27F97631792431100E79A78 /* logo-and-text@2x.png */,
+				C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */,
+				C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */,
+				C201387D17A37B46009CEA7F /* MHTabBarContainerBgPattern.png */,
+				C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */,
 				C20931681790F71100F91BB5 /* navigation-bar-bg.png */,
 				C20931691790F71100F91BB5 /* navigation-bar-bg@2x.png */,
 			);
@@ -677,6 +725,10 @@
 				C27F978C179250CD00E79A78 /* button-icon-subscribe@2x.png in Resources */,
 				C2E4B57F1797784E00388B11 /* icon-back.png in Resources */,
 				C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */,
+				C201387F17A37B46009CEA7F /* MHTabBarContainerBgPattern.png in Resources */,
+				C201388017A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png in Resources */,
+				C201388317A37BE0009CEA7F /* MHTabBarActiveBgPattern.png in Resources */,
+				C201388417A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,8 +768,12 @@
 				C27F978F17925A8400E79A78 /* ChannelIconButton.m in Sources */,
 				C2E4B57C1797776600388B11 /* BaseChannelViewController.m in Sources */,
 				C2E4B583179778A000388B11 /* NewsChannelViewController.m in Sources */,
-				C2E4B589179778E100388B11 /* ExhibitorChannelViewController.m in Sources */,
 				C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */,
+				C201387017A372E1009CEA7F /* MHTabBarController.m in Sources */,
+				C201387317A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m in Sources */,
+				C201387617A3742A009CEA7F /* ExhibitorsByIndustryViewController.m in Sources */,
+				C201387917A3743B009CEA7F /* ExhibitorsByAreaViewController.m in Sources */,
+				C201387C17A3757E009CEA7F /* BaseChannelWithTabsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

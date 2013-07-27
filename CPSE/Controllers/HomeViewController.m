@@ -13,7 +13,9 @@
 #import "UIView+JMNoise.h"
 #import "ChannelIconButton.h"
 #import "NewsChannelViewController.h"
-#import "ExhibitorChannelViewController.h"
+#import "ExhibitorsByAlphabetViewController.h"
+#import "ExhibitorsByAreaViewController.h"
+#import "ExhibitorsByIndustryViewController.h"
 
 @interface HomeViewController ()
 {
@@ -171,8 +173,17 @@
 }
 
 - (void)tapChannelExhibitor {
-    ExhibitorChannelViewController *vc = [[ExhibitorChannelViewController alloc] init];
+    ExhibitorsByAlphabetViewController *vc1 = [[ExhibitorsByAlphabetViewController alloc] init];
+    ExhibitorsByIndustryViewController *vc2 = [[ExhibitorsByIndustryViewController alloc] init];
+    ExhibitorsByAreaViewController *vc3 = [[ExhibitorsByAreaViewController alloc] init];
+    
+    vc1.title = @"按字母搜索";
+    vc2.title = @"按行业搜索";
+    vc3.title = @"按地区搜索";
+    
+    BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
     vc.title = @"参展商";
+    vc.viewControllers = @[vc1, vc2, vc3];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
