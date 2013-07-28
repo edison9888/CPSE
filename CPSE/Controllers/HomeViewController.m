@@ -12,10 +12,10 @@
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
 #import "ChannelIconButton.h"
-#import "NewsChannelViewController.h"
 #import "ExhibitorsByAlphabetViewController.h"
 #import "ExhibitorsByAreaViewController.h"
 #import "ExhibitorsByIndustryViewController.h"
+#import "NewsListViewController.h"
 
 @interface HomeViewController ()
 {
@@ -167,8 +167,14 @@
 
 #pragma mark - channel actions
 - (void)tapChannelNews {
-    NewsChannelViewController *vc = [[NewsChannelViewController alloc] init];
+    NewsListViewController *vc1 = [[NewsListViewController alloc] initWithType:@"cpse"];
+    NewsListViewController *vc2 = [[NewsListViewController alloc] initWithType:@"industry"];
+    vc1.title = @"安博会新闻";
+    vc2.title = @"行业新闻";
+    
+    BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
     vc.title = @"新闻";
+    vc.viewControllers = @[vc1, vc2];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
