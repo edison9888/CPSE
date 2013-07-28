@@ -6,6 +6,6 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface ExhibitorsByAlphabetViewController : UIViewController
+@interface ExhibitorsByAlphabetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
