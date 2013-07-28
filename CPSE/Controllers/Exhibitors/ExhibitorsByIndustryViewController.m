@@ -16,7 +16,6 @@
 
 - (void)loadView {
     [super loadView];
-    self.view.backgroundColor = [UIColor cyanColor];
 }
 
 @end

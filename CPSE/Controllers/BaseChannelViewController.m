@@ -57,6 +57,23 @@
     [rightView addSubview:rightButton];
     rightButton.center = CGPointMake(CGRectGetWidth(buttonRect)/2, CGRectGetHeight(buttonRect)/2);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+    
+    // title
+    NSString *title = self.title;
+    CGSize size = [title sizeWithFont:[UIFont boldSystemFontOfSize:20]];
+    if (size.width > 222 && size.width < 330) {
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 222, 44)];
+        titleLabel.adjustsFontSizeToFitWidth = YES;
+        titleLabel.backgroundColor = [UIColor clearColor];
+        titleLabel.font = [UIFont boldSystemFontOfSize:20];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.text = title;
+        self.navigationItem.titleView = titleLabel;
+    }
+    else {
+        self.title = title;
+    }
 }
 
 - (void)tapLeftBarButton {

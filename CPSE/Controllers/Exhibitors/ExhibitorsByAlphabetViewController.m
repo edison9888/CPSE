@@ -9,6 +9,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ExhibitorsByAlphabetViewController.h"
 #import "UIColor+BR.h"
+#import "ExhibitorInfoViewController.h"
+
+#define kCellSeparatorLineTag 1
 
 @interface ExhibitorsByAlphabetViewController ()
 {
@@ -37,10 +40,11 @@
     [self.view addSubview:_searchBar];
     
     _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 320, self.view.bounds.size.height-44)];
-    _table.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _table.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _table.backgroundView = nil;
     _table.dataSource = self;
     _table.delegate = self;
+    _table.separatorColor = [UIColor clearColor];
     [self.view addSubview:_table];
 }
 
@@ -52,12 +56,17 @@
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _data = JSON[@"data"];
                   _sortedAlphabets = [[_data allKeys] sortedArrayUsingSelector:@selector(compare:)];
-                  DLog(@"%@", _sortedAlphabets);
                   [_table reloadData];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
               }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [_table deselectRowAtIndexPath:[_table indexPathForSelectedRow] animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -96,11 +105,20 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont systemFontOfSize:14];
+        
+        UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
+        line.backgroundColor = [UIColor colorWithHex:0xcccccc];
+        line.tag = kCellSeparatorLineTag;
+        [cell addSubview:line];
     }
+    
     NSString *key = [_sortedAlphabets objectAtIndex:indexPath.section];
     NSArray *array = _data[key];
     NSDictionary *dict = array[indexPath.row];
     cell.textLabel.text = dict[@"name"];
+    
+    [cell viewWithTag:kCellSeparatorLineTag].hidden = indexPath.row == [array count] - 1;
+    
     return cell;
 }
 
@@ -111,8 +129,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [_searchBar resignFirstResponder];
+    
+    NSString *key = [_sortedAlphabets objectAtIndex:indexPath.section];
+    NSArray *array = _data[key];
+    NSDictionary *dict = array[indexPath.row];
+    ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
+    vc.title = dict[@"name"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
