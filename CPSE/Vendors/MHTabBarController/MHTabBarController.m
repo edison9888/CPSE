@@ -155,7 +155,7 @@ static const NSInteger TagOffset = 1000;
 {
 	CGRect rect = indicatorImageView.frame;
 	rect.origin.x = button.center.x - floorf(indicatorImageView.frame.size.width/2.0f);
-	rect.origin.y = self.tabBarHeight - indicatorImageView.frame.size.height;
+	rect.origin.y = tabButtonsContainerView.frame.origin.y - indicatorImageView.frame.size.height + 5;
 	indicatorImageView.frame = rect;
 	indicatorImageView.hidden = NO;
 }
@@ -323,7 +323,7 @@ static const NSInteger TagOffset = 1000;
 
 - (void)tabButtonPressed:(UIButton *)sender
 {
-	[self setSelectedIndex:sender.tag - TagOffset animated:YES];
+	[self setSelectedIndex:sender.tag - TagOffset animated:NO];
 }
 
 #pragma mark - Change these methods to customize the look of the buttons

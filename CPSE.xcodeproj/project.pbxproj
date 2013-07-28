@@ -103,6 +103,13 @@
 		C2D5153217A4F49300119089 /* cell-image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5153017A4F49300119089 /* cell-image-placeholder.png */; };
 		C2D5153317A4F49300119089 /* cell-image-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5153117A4F49300119089 /* cell-image-placeholder@2x.png */; };
 		C2D5153617A4FD7100119089 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5153517A4FD7100119089 /* NewsTableViewCell.m */; };
+		C2D5153917A513C300119089 /* MHTabBarIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5153717A513C300119089 /* MHTabBarIndicator.png */; };
+		C2D5153A17A513C300119089 /* MHTabBarIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5153817A513C300119089 /* MHTabBarIndicator@2x.png */; };
+		C2D5153E17A5185000119089 /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5153D17A5185000119089 /* EventListViewController.m */; };
+		C2D5154117A518AD00119089 /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154017A518AD00119089 /* EventTableViewCell.m */; };
+		C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154317A518F300119089 /* EventInfoViewController.m */; };
+		C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154617A51ADB00119089 /* CalendarViewController.m */; };
+		C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154917A51BD400119089 /* ExhibitorViewController.m */; };
 		C2E4B57C1797776600388B11 /* BaseChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B57B1797776600388B11 /* BaseChannelViewController.m */; };
 		C2E4B57F1797784E00388B11 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57D1797784E00388B11 /* icon-back.png */; };
 		C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57E1797784E00388B11 /* icon-back@2x.png */; };
@@ -263,6 +270,18 @@
 		C2D5153117A4F49300119089 /* cell-image-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-image-placeholder@2x.png"; sourceTree = "<group>"; };
 		C2D5153417A4FD7100119089 /* NewsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		C2D5153517A4FD7100119089 /* NewsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		C2D5153717A513C300119089 /* MHTabBarIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarIndicator.png; sourceTree = "<group>"; };
+		C2D5153817A513C300119089 /* MHTabBarIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarIndicator@2x.png"; sourceTree = "<group>"; };
+		C2D5153C17A5185000119089 /* EventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
+		C2D5153D17A5185000119089 /* EventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
+		C2D5153F17A518AD00119089 /* EventTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		C2D5154017A518AD00119089 /* EventTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
+		C2D5154217A518F300119089 /* EventInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventInfoViewController.h; sourceTree = "<group>"; };
+		C2D5154317A518F300119089 /* EventInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInfoViewController.m; sourceTree = "<group>"; };
+		C2D5154517A51ADB00119089 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		C2D5154617A51ADB00119089 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
+		C2D5154817A51BD300119089 /* ExhibitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorViewController.h; sourceTree = "<group>"; };
+		C2D5154917A51BD400119089 /* ExhibitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorViewController.m; sourceTree = "<group>"; };
 		C2E4B57A1797776600388B11 /* BaseChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChannelViewController.h; sourceTree = "<group>"; };
 		C2E4B57B1797776600388B11 /* BaseChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChannelViewController.m; sourceTree = "<group>"; };
 		C2E4B57D1797784E00388B11 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
@@ -415,6 +434,7 @@
 		C2005FDD178A926700200E1E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2D5153B17A517BE00119089 /* Calendar */,
 				C201386917A372D1009CEA7F /* Exhibitors */,
 				C2D5152617A4EB1F00119089 /* News */,
 				C27F975C179233E400E79A78 /* BannerViewController.h */,
@@ -592,6 +612,8 @@
 				C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */,
 				C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */,
 				C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */,
+				C2D5154817A51BD300119089 /* ExhibitorViewController.h */,
+				C2D5154917A51BD400119089 /* ExhibitorViewController.m */,
 			);
 			path = Exhibitors;
 			sourceTree = "<group>";
@@ -642,6 +664,8 @@
 				C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */,
 				C201387D17A37B46009CEA7F /* MHTabBarContainerBgPattern.png */,
 				C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */,
+				C2D5153717A513C300119089 /* MHTabBarIndicator.png */,
+				C2D5153817A513C300119089 /* MHTabBarIndicator@2x.png */,
 				C20931681790F71100F91BB5 /* navigation-bar-bg.png */,
 				C20931691790F71100F91BB5 /* navigation-bar-bg@2x.png */,
 			);
@@ -651,14 +675,29 @@
 		C2D5152617A4EB1F00119089 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				C2D5152717A4EB6700119089 /* NewsListViewController.h */,
-				C2D5152817A4EB6700119089 /* NewsListViewController.m */,
 				C2D5152D17A4EE4500119089 /* NewsInfoViewController.h */,
 				C2D5152E17A4EE4500119089 /* NewsInfoViewController.m */,
+				C2D5152717A4EB6700119089 /* NewsListViewController.h */,
+				C2D5152817A4EB6700119089 /* NewsListViewController.m */,
 				C2D5153417A4FD7100119089 /* NewsTableViewCell.h */,
 				C2D5153517A4FD7100119089 /* NewsTableViewCell.m */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		C2D5153B17A517BE00119089 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5154517A51ADB00119089 /* CalendarViewController.h */,
+				C2D5154617A51ADB00119089 /* CalendarViewController.m */,
+				C2D5154217A518F300119089 /* EventInfoViewController.h */,
+				C2D5154317A518F300119089 /* EventInfoViewController.m */,
+				C2D5153C17A5185000119089 /* EventListViewController.h */,
+				C2D5153D17A5185000119089 /* EventListViewController.m */,
+				C2D5153F17A518AD00119089 /* EventTableViewCell.h */,
+				C2D5154017A518AD00119089 /* EventTableViewCell.m */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -760,6 +799,8 @@
 				C201388417A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png in Resources */,
 				C2D5153217A4F49300119089 /* cell-image-placeholder.png in Resources */,
 				C2D5153317A4F49300119089 /* cell-image-placeholder@2x.png in Resources */,
+				C2D5153917A513C300119089 /* MHTabBarIndicator.png in Resources */,
+				C2D5153A17A513C300119089 /* MHTabBarIndicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,6 +849,11 @@
 				C2D5152917A4EB6700119089 /* NewsListViewController.m in Sources */,
 				C2D5152F17A4EE4500119089 /* NewsInfoViewController.m in Sources */,
 				C2D5153617A4FD7100119089 /* NewsTableViewCell.m in Sources */,
+				C2D5153E17A5185000119089 /* EventListViewController.m in Sources */,
+				C2D5154117A518AD00119089 /* EventTableViewCell.m in Sources */,
+				C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */,
+				C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */,
+				C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

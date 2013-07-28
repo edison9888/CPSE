@@ -12,10 +12,9 @@
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
 #import "ChannelIconButton.h"
-#import "ExhibitorsByAlphabetViewController.h"
-#import "ExhibitorsByAreaViewController.h"
-#import "ExhibitorsByIndustryViewController.h"
 #import "NewsListViewController.h"
+#import "ExhibitorViewController.h"
+#import "CalendarViewController.h"
 
 @interface HomeViewController ()
 {
@@ -179,22 +178,15 @@
 }
 
 - (void)tapChannelExhibitor {
-    ExhibitorsByAlphabetViewController *vc1 = [[ExhibitorsByAlphabetViewController alloc] init];
-    ExhibitorsByIndustryViewController *vc2 = [[ExhibitorsByIndustryViewController alloc] init];
-    ExhibitorsByAreaViewController *vc3 = [[ExhibitorsByAreaViewController alloc] init];
-    
-    vc1.title = @"按字母搜索";
-    vc2.title = @"按行业搜索";
-    vc3.title = @"按地区搜索";
-    
-    BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
+    ExhibitorViewController *vc = [[ExhibitorViewController alloc] init];
     vc.title = @"参展商";
-    vc.viewControllers = @[vc1, vc2, vc3];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelCalendar {
-    
+    CalendarViewController *vc = [[CalendarViewController alloc] init];
+    vc.title = @"日程";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelMap {
