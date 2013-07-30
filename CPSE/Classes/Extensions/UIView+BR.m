@@ -19,4 +19,35 @@
     return img;
 }
 
+- (UIView *)findFirstResponder
+{
+	if ([self isFirstResponder]) {
+		return self;
+	}
+	
+	for (UIView *subview in [self subviews]) {
+		UIView *firstResponder = [subview findFirstResponder];
+		if (nil != firstResponder) {
+			return firstResponder;
+		}
+	}
+	return nil;
+}
+
+- (UIViewController *)firstAvailableUIViewController {
+    // convenience function for casting and to "mask" the recursive function
+    return (UIViewController *)[self traverseResponderChainForUIViewController];
+}
+
+- (id)traverseResponderChainForUIViewController {
+    id nextResponder = [self nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        return nextResponder;
+    } else if ([nextResponder isKindOfClass:[UIView class]]) {
+        return [nextResponder traverseResponderChainForUIViewController];
+    } else {
+        return nil;
+    }
+}
+
 @end

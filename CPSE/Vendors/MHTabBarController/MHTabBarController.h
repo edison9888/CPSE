@@ -28,6 +28,7 @@
  */
 @interface MHTabBarController : UIViewController
 
+@property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, copy) NSArray *viewControllers;
 @property (nonatomic, weak) UIViewController *selectedViewController;
 @property (nonatomic, assign) NSUInteger selectedIndex;

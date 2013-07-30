@@ -15,7 +15,6 @@
 
 @interface ExhibitorsByAlphabetViewController ()
 {
-    UISearchBar *_searchBar;
     UITableView *_table;
     NSDictionary *_data;
     NSArray *_sortedAlphabets;
@@ -33,13 +32,7 @@
 - (void)loadView {
     [super loadView];
     
-    _searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    _searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    _searchBar.tintColor = [UIColor blackColor];
-    _searchBar.placeholder = @"输入全称或首字母查询";
-    [self.view addSubview:_searchBar];
-    
-    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 320, self.view.bounds.size.height-44)];
+    _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 00, 320, self.view.bounds.size.height)];
     _table.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _table.backgroundView = nil;
     _table.dataSource = self;
@@ -129,8 +122,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [_searchBar resignFirstResponder];
-    
     NSString *key = [_sortedAlphabets objectAtIndex:indexPath.section];
     NSArray *array = _data[key];
     NSDictionary *dict = array[indexPath.row];

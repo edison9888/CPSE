@@ -37,7 +37,22 @@ static const NSInteger TagOffset = 1000;
 
 	self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-	contentContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarHeight)];
+    CGFloat height = self.view.bounds.size.height - self.tabBarHeight;
+    CGFloat originY = 0.0f;
+
+    if (self.headerView) {
+        CGRect rect = self.headerView.frame;
+        rect.origin = CGPointMake(0, 0);
+        rect.size.width = self.view.bounds.size.width;
+        self.headerView.frame = rect;
+        self.headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        [self.view addSubview:self.headerView];
+        
+        height -= rect.size.height;
+        originY += rect.size.height;
+    }
+    
+	contentContainerView = [[UIView alloc] initWithFrame:CGRectMake(0, originY, self.view.bounds.size.width, height)];
 	contentContainerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	[self.view addSubview:contentContainerView];
 

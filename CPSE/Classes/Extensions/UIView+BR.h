@@ -10,5 +10,7 @@
 @interface UIView (BR)
 
 - (UIImage *)imageFromSelf;
+- (UIView *)findFirstResponder;
+- (UIViewController *)firstAvailableUIViewController;
 
 @end
