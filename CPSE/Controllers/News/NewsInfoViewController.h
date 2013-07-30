@@ -8,6 +8,8 @@
 
 #import "BaseChannelViewController.h"
 
-@interface NewsInfoViewController : BaseChannelViewController
+@interface NewsInfoViewController : BaseChannelViewController <UIWebViewDelegate>
+
+- (id)initWithId:(NSUInteger)id;
 
 @end

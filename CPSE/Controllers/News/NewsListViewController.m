@@ -68,8 +68,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    NSDictionary *dict = _data[indexPath.row];
-    NewsInfoViewController *vc = [[NewsInfoViewController alloc] init];
+    NSDictionary *dict = _data[indexPath.row];
+    NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
     vc.title = @"新闻内容";
     [self.navigationController pushViewController:vc animated:YES];
 }
