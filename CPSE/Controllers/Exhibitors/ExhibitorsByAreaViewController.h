@@ -6,6 +6,6 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface ExhibitorsByAreaViewController : UIViewController
+@interface ExhibitorsByAreaViewController : UITableViewController
 
 @end

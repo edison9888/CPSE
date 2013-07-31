@@ -1,34 +1,51 @@
 //
-//  ExhibitorsByIndustryViewController.m
+//  ExhibitorListViewController.m
 //  CPSE
 //
-//  Created by Lei Perry on 7/27/13.
+//  Created by Lei Perry on 7/31/13.
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-#import "ExhibitorsByIndustryViewController.h"
+#import "ExhibitorListViewController.h"
 #import "UIColor+BR.h"
+#import "ExhibitorInfoViewController.h"
 
-@interface ExhibitorsByIndustryViewController ()
+@interface ExhibitorListViewController ()
 {
+    UITableView *_table;
+    NSString *_action;
     NSArray *_data;
 }
 @end
 
-@implementation ExhibitorsByIndustryViewController
+@implementation ExhibitorListViewController
+
+- (id)initWithAction:(NSString *)action {
+    if (self = [super init]) {
+        _action = action;
+    }
+    return self;
+}
 
 - (void)loadView {
     [super loadView];
+
+    _table = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _table.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _table.backgroundColor = [UIColor clearColor];
+    _table.dataSource = self;
+    _table.delegate = self;
+    [self.view addSubview:_table];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:@"api.php?action=industry"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=%@", _action]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _data = JSON[@"data"];
-                  [self.tableView reloadData];
+                  [_table reloadData];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
@@ -38,7 +55,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [_table deselectRowAtIndexPath:[_table indexPathForSelectedRow] animated:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -59,13 +76,16 @@
     return cell;
 }
 
-
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = _data[indexPath.row];
+    ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
+    vc.title = dict[@"name"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

@@ -67,6 +67,7 @@
 		C20931701790F71100F91BB5 /* navigation-bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931681790F71100F91BB5 /* navigation-bar-bg.png */; };
 		C20931711790F71100F91BB5 /* navigation-bar-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931691790F71100F91BB5 /* navigation-bar-bg@2x.png */; };
 		C20931741790F72400F91BB5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C20931731790F72400F91BB5 /* HomeViewController.m */; };
+		C21879B117A90DB60075554F /* ExhibitorListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C21879B017A90DB60075554F /* ExhibitorListViewController.m */; };
 		C22133F917A77A68006622F2 /* newsStyle.css in Resources */ = {isa = PBXBuildFile; fileRef = C22133F817A77A68006622F2 /* newsStyle.css */; };
 		C22133FC17A77CA1006622F2 /* icon-comment.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FA17A77CA1006622F2 /* icon-comment.png */; };
 		C22133FD17A77CA1006622F2 /* icon-comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FB17A77CA1006622F2 /* icon-comment@2x.png */; };
@@ -221,6 +222,8 @@
 		C20931691790F71100F91BB5 /* navigation-bar-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-bg@2x.png"; sourceTree = "<group>"; };
 		C20931721790F72400F91BB5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		C20931731790F72400F91BB5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C21879AF17A90DB60075554F /* ExhibitorListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorListViewController.h; sourceTree = "<group>"; };
+		C21879B017A90DB60075554F /* ExhibitorListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorListViewController.m; sourceTree = "<group>"; };
 		C22133F817A77A68006622F2 /* newsStyle.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = newsStyle.css; sourceTree = "<group>"; };
 		C22133FA17A77CA1006622F2 /* icon-comment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-comment.png"; sourceTree = "<group>"; };
 		C22133FB17A77CA1006622F2 /* icon-comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-comment@2x.png"; sourceTree = "<group>"; };
@@ -623,6 +626,8 @@
 				C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */,
 				C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */,
 				C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */,
+				C21879AF17A90DB60075554F /* ExhibitorListViewController.h */,
+				C21879B017A90DB60075554F /* ExhibitorListViewController.m */,
 				C2D5154817A51BD300119089 /* ExhibitorViewController.h */,
 				C2D5154917A51BD400119089 /* ExhibitorViewController.m */,
 			);
@@ -874,6 +879,7 @@
 				C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */,
 				C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */,
 				C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */,
+				C21879B117A90DB60075554F /* ExhibitorListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -971,8 +977,8 @@
 		C2005FC6178A8E0700200E1E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: huang xiang (FERGMNJM8N)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: huang xiang (FERGMNJM8N)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/CPSE-Info.plist";
