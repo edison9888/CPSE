@@ -203,6 +203,8 @@
 
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
+    _actingEntry = textField;
+
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         NSUInteger ii[2] = {0, textField.tag};
@@ -211,13 +213,12 @@
         rect = [self.tableView convertRect:rect toView:self.scrollView];
         [self.scrollView scrollRectToVisible:rect animated:YES];
         
-        _actingEntry = textField;
         [self updatePrevNextStatus];
     });
     
     
     if (textField.returnKeyType == UIReturnKeyDefault) {
-        UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyDone : UIReturnKeyNext;
+        UIReturnKeyType returnType = ([self findNextElementToFocusOn]!=nil) ? UIReturnKeyNext : UIReturnKeyDone;
         textField.returnKeyType = returnType;
     }
 }

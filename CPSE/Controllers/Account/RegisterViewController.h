@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-#import "BaseChannelViewController.h"
+#import "BaseEntryViewController.h"
 
-@interface RegisterViewController : BaseChannelViewController
+@interface RegisterViewController : BaseEntryViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
