@@ -131,37 +131,11 @@
     leftView.layer.shadowOffset = CGSizeMake(0, 1);
     leftView.layer.shadowOpacity = .3;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
-    
-    // right bar button
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.clipsToBounds = YES;
-    rightButton.layer.cornerRadius = 4;
-    [rightButton setFrame:CGRectMake(0, 0, 44, 44)];
-    [rightButton setImage:[UIImage imageNamed:@"icon-profile"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(tapRightBarButton) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIView *rightView = [[UIView alloc] initWithFrame:buttonRect];
-    rightView.backgroundColor = [UIColor colorWithWhite:1 alpha:.12];
-    rightView.layer.cornerRadius = 5;
-    [rightView addSubview:rightButton];
-    rightButton.center = CGPointMake(CGRectGetWidth(buttonRect)/2, CGRectGetHeight(buttonRect)/2);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProfileStatus) name:kAccountChangeNotification object:DataMgr];
-    
-    // update profile icon status
-    UIView *view = self.navigationItem.rightBarButtonItem.customView;
-    UIButton *button = (UIButton *)view.subviews[0];
-    [button setImage:[UIImage imageNamed:@"icon-profile"] forState:UIControlStateNormal];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAccountChangeNotification object:DataMgr];
-}
-
-- (void)tapRightBarButton {
-    DLog(@"tap right button");
 }
 
 #pragma mark - channel actions

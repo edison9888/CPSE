@@ -6,8 +6,12 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
+#import "Account.h"
+
 @interface DataManager : NSObject
 
 + (DataManager *)sharedManager;
+
+@property (nonatomic, strong) Account *currentAccount;
 
 @end

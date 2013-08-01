@@ -10,6 +10,7 @@
 #import "BaseChannelViewController.h"
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
+#import "LoginViewController.h"
 
 @interface BaseChannelViewController ()
 
@@ -81,6 +82,11 @@
 }
 
 - (void)tapRightBarButton {
+    if (DataMgr.currentAccount == nil) {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        vc.title = @"用户登录";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

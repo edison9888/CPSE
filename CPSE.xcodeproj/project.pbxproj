@@ -58,6 +58,7 @@
 		C201388017A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */; };
 		C201388317A37BE0009CEA7F /* MHTabBarActiveBgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */; };
 		C201388417A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */; };
+		C206C4CC17A9FAB400853B59 /* CustomIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C206C4CB17A9FAB400853B59 /* CustomIconButton.m */; };
 		C209316A1790F71100F91BB5 /* bg-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931621790F71100F91BB5 /* bg-pattern.png */; };
 		C209316B1790F71100F91BB5 /* bg-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931631790F71100F91BB5 /* bg-pattern@2x.png */; };
 		C209316C1790F71100F91BB5 /* icon-profile-online.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931641790F71100F91BB5 /* icon-profile-online.png */; };
@@ -116,6 +117,17 @@
 		C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154317A518F300119089 /* EventInfoViewController.m */; };
 		C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154617A51ADB00119089 /* CalendarViewController.m */; };
 		C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154917A51BD400119089 /* ExhibitorViewController.m */; };
+		C2D76DB917A93ADA0013D089 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DB817A93ADA0013D089 /* LoginViewController.m */; };
+		C2D76DBC17A942CA0013D089 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DBB17A942CA0013D089 /* RegisterViewController.m */; };
+		C2D76DC517A944F40013D089 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DC417A944F40013D089 /* Account.m */; };
+		C2D76DCC17A94BAB0013D089 /* check-button-checked.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D76DC617A94BAB0013D089 /* check-button-checked.png */; };
+		C2D76DCD17A94BAB0013D089 /* check-button-checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D76DC717A94BAB0013D089 /* check-button-checked@2x.png */; };
+		C2D76DCE17A94BAB0013D089 /* check-button-unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D76DC817A94BAB0013D089 /* check-button-unchecked.png */; };
+		C2D76DCF17A94BAB0013D089 /* check-button-unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D76DC917A94BAB0013D089 /* check-button-unchecked@2x.png */; };
+		C2D76DD017A94BAB0013D089 /* dash-line.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D76DCA17A94BAB0013D089 /* dash-line.png */; };
+		C2D76DD117A94BAB0013D089 /* dash-line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D76DCB17A94BAB0013D089 /* dash-line@2x.png */; };
+		C2D76DD417A95A440013D089 /* BREntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DD317A95A440013D089 /* BREntryTableViewCell.m */; };
+		C2D76DD717A95F990013D089 /* BaseEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DD617A95F980013D089 /* BaseEntryViewController.m */; };
 		C2E4B57C1797776600388B11 /* BaseChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B57B1797776600388B11 /* BaseChannelViewController.m */; };
 		C2E4B57F1797784E00388B11 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57D1797784E00388B11 /* icon-back.png */; };
 		C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57E1797784E00388B11 /* icon-back@2x.png */; };
@@ -212,6 +224,8 @@
 		C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarContainerBgPattern@2x.png"; sourceTree = "<group>"; };
 		C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarActiveBgPattern.png; sourceTree = "<group>"; };
 		C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarActiveBgPattern@2x.png"; sourceTree = "<group>"; };
+		C206C4CA17A9FAB400853B59 /* CustomIconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIconButton.h; sourceTree = "<group>"; };
+		C206C4CB17A9FAB400853B59 /* CustomIconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIconButton.m; sourceTree = "<group>"; };
 		C20931621790F71100F91BB5 /* bg-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-pattern.png"; sourceTree = "<group>"; };
 		C20931631790F71100F91BB5 /* bg-pattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-pattern@2x.png"; sourceTree = "<group>"; };
 		C20931641790F71100F91BB5 /* icon-profile-online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-profile-online.png"; sourceTree = "<group>"; };
@@ -295,6 +309,22 @@
 		C2D5154617A51ADB00119089 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		C2D5154817A51BD300119089 /* ExhibitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorViewController.h; sourceTree = "<group>"; };
 		C2D5154917A51BD400119089 /* ExhibitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorViewController.m; sourceTree = "<group>"; };
+		C2D76DB717A93ADA0013D089 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C2D76DB817A93ADA0013D089 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		C2D76DBA17A942CA0013D089 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C2D76DBB17A942CA0013D089 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C2D76DC317A944F40013D089 /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		C2D76DC417A944F40013D089 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		C2D76DC617A94BAB0013D089 /* check-button-checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-button-checked.png"; sourceTree = "<group>"; };
+		C2D76DC717A94BAB0013D089 /* check-button-checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-button-checked@2x.png"; sourceTree = "<group>"; };
+		C2D76DC817A94BAB0013D089 /* check-button-unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-button-unchecked.png"; sourceTree = "<group>"; };
+		C2D76DC917A94BAB0013D089 /* check-button-unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-button-unchecked@2x.png"; sourceTree = "<group>"; };
+		C2D76DCA17A94BAB0013D089 /* dash-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-line.png"; sourceTree = "<group>"; };
+		C2D76DCB17A94BAB0013D089 /* dash-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-line@2x.png"; sourceTree = "<group>"; };
+		C2D76DD217A95A440013D089 /* BREntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BREntryTableViewCell.h; sourceTree = "<group>"; };
+		C2D76DD317A95A440013D089 /* BREntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BREntryTableViewCell.m; sourceTree = "<group>"; };
+		C2D76DD517A95F980013D089 /* BaseEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEntryViewController.h; sourceTree = "<group>"; };
+		C2D76DD617A95F980013D089 /* BaseEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEntryViewController.m; sourceTree = "<group>"; };
 		C2E4B57A1797776600388B11 /* BaseChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChannelViewController.h; sourceTree = "<group>"; };
 		C2E4B57B1797776600388B11 /* BaseChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseChannelViewController.m; sourceTree = "<group>"; };
 		C2E4B57D1797784E00388B11 /* icon-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back.png"; sourceTree = "<group>"; };
@@ -448,6 +478,7 @@
 		C2005FDD178A926700200E1E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2D76DB617A93ABD0013D089 /* Account */,
 				C2D5153B17A517BE00119089 /* Calendar */,
 				C201386917A372D1009CEA7F /* Exhibitors */,
 				C2D5152617A4EB1F00119089 /* News */,
@@ -466,6 +497,8 @@
 		C2005FDE178A926700200E1E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C2D76DC317A944F40013D089 /* Account.h */,
+				C2D76DC417A944F40013D089 /* Account.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -609,8 +642,12 @@
 		C2006021178A926700200E1E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C2D76DD217A95A440013D089 /* BREntryTableViewCell.h */,
+				C2D76DD317A95A440013D089 /* BREntryTableViewCell.m */,
 				C27F978D17925A8400E79A78 /* ChannelIconButton.h */,
 				C27F978E17925A8400E79A78 /* ChannelIconButton.m */,
+				C206C4CA17A9FAB400853B59 /* CustomIconButton.h */,
+				C206C4CB17A9FAB400853B59 /* CustomIconButton.m */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -668,6 +705,12 @@
 				C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */,
 				C2D5153017A4F49300119089 /* cell-image-placeholder.png */,
 				C2D5153117A4F49300119089 /* cell-image-placeholder@2x.png */,
+				C2D76DC617A94BAB0013D089 /* check-button-checked.png */,
+				C2D76DC717A94BAB0013D089 /* check-button-checked@2x.png */,
+				C2D76DC817A94BAB0013D089 /* check-button-unchecked.png */,
+				C2D76DC917A94BAB0013D089 /* check-button-unchecked@2x.png */,
+				C2D76DCA17A94BAB0013D089 /* dash-line.png */,
+				C2D76DCB17A94BAB0013D089 /* dash-line@2x.png */,
 				C2E4B57D1797784E00388B11 /* icon-back.png */,
 				C2E4B57E1797784E00388B11 /* icon-back@2x.png */,
 				C22133FA17A77CA1006622F2 /* icon-comment.png */,
@@ -718,6 +761,19 @@
 				C2D5154017A518AD00119089 /* EventTableViewCell.m */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		C2D76DB617A93ABD0013D089 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C2D76DD517A95F980013D089 /* BaseEntryViewController.h */,
+				C2D76DD617A95F980013D089 /* BaseEntryViewController.m */,
+				C2D76DB717A93ADA0013D089 /* LoginViewController.h */,
+				C2D76DB817A93ADA0013D089 /* LoginViewController.m */,
+				C2D76DBA17A942CA0013D089 /* RegisterViewController.h */,
+				C2D76DBB17A942CA0013D089 /* RegisterViewController.m */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -826,6 +882,12 @@
 				C22133FD17A77CA1006622F2 /* icon-comment@2x.png in Resources */,
 				C221340017A77CAB006622F2 /* icon-share.png in Resources */,
 				C221340117A77CAB006622F2 /* icon-share@2x.png in Resources */,
+				C2D76DCC17A94BAB0013D089 /* check-button-checked.png in Resources */,
+				C2D76DCD17A94BAB0013D089 /* check-button-checked@2x.png in Resources */,
+				C2D76DCE17A94BAB0013D089 /* check-button-unchecked.png in Resources */,
+				C2D76DCF17A94BAB0013D089 /* check-button-unchecked@2x.png in Resources */,
+				C2D76DD017A94BAB0013D089 /* dash-line.png in Resources */,
+				C2D76DD117A94BAB0013D089 /* dash-line@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +942,12 @@
 				C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */,
 				C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */,
 				C21879B117A90DB60075554F /* ExhibitorListViewController.m in Sources */,
+				C2D76DB917A93ADA0013D089 /* LoginViewController.m in Sources */,
+				C2D76DBC17A942CA0013D089 /* RegisterViewController.m in Sources */,
+				C2D76DC517A944F40013D089 /* Account.m in Sources */,
+				C2D76DD417A95A440013D089 /* BREntryTableViewCell.m in Sources */,
+				C2D76DD717A95F990013D089 /* BaseEntryViewController.m in Sources */,
+				C206C4CC17A9FAB400853B59 /* CustomIconButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -961,6 +1029,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/CPSE-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/CPSE/Vendors/UMeng\"",
@@ -982,6 +1051,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/CPSE-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/CPSE/Vendors/UMeng\"",
