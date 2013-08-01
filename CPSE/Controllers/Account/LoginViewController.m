@@ -16,6 +16,8 @@
     UIScrollView *_scrollView;
     UITableView *_tableView;
     CustomIconButton *_rememberButton;
+    
+    UITextField *_userField, *_pwdField;
 }
 @end
 
@@ -25,7 +27,8 @@
     if (self = [super init]) {
         _rememberButton = [CustomIconButton buttonWithType:UIButtonTypeCustom];
         _rememberButton.imageOriginX = 0;
-        _rememberButton.titleOriginX = 25;
+        _rememberButton.titleOriginX = 30;
+        _rememberButton.selected = YES;
         _rememberButton.frame = CGRectMake(10, 0, 200, 44);
         _rememberButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_rememberButton addTarget:self action:@selector(toggleRememberButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -45,18 +48,33 @@
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_scrollView];
     
-    CGRect frame = CGRectMake(10, 20, CGRectGetWidth(rect)-20, 260);
+    CGRect frame = CGRectMake(10, 20, CGRectGetWidth(rect)-20, 220);
     _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.backgroundView = nil;
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.scrollEnabled = NO;
     [_scrollView addSubview:_tableView];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    
+    UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 260, CGRectGetWidth(rect), 2)];
+    line.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    line.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dash-line"]];
+    [_scrollView addSubview:line];
+    
+    UIImage *buttonBg = [UIImage imageNamed:@"red-button-bg"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    button.frame = CGRectMake(CGRectGetWidth(rect)/2-buttonBg.size.width/2, 280, buttonBg.size.width, buttonBg.size.height);
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.titleLabel.textColor = [UIColor whiteColor];
+    [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
+    [button setTitle:@"登   录" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollView addSubview:button];
+    
+    _scrollView.contentSize = CGSizeMake(CGRectGetWidth(rect), CGRectGetMaxY(button.frame)+10);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,6 +89,45 @@
 
 - (void)toggleRememberButton:(UIButton *)button {
     button.selected = !button.selected;
+}
+
+- (void)loginAction {
+    if ([_userField.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入用户名" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [_userField becomeFirstResponder];
+        return;
+    }
+    if ([_pwdField.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入密码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [_pwdField becomeFirstResponder];
+        return;
+    }
+
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", _userField.text, _pwdField.text]
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  if ([JSON[@"errno"] boolValue]) {
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                      [alert show];
+                  }
+                  else {
+                      DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
+                      [self.navigationController popViewControllerAnimated:YES];
+                  }
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DLog(@"error: %@", [error description]);
+              }];
+}
+
+- (UIScrollView *)scrollView {
+    return _scrollView;
+}
+
+- (UITableView *)tableView {
+    return _tableView;
 }
 
 #pragma mark - UITableViewDataSource
@@ -103,6 +160,7 @@
                 entry.textColor = [UIColor colorWithHex:0x666666];
                 entry.frame = rect;
                 [cell.contentView addSubview:entry];
+                _userField = entry;
             }
                 break;
             case 1: {
@@ -112,10 +170,10 @@
                 entry.textColor = [UIColor colorWithHex:0x666666];
                 entry.frame = rect;
                 [cell.contentView addSubview:entry];
+                _pwdField = entry;
             }
                 break;
             case 2: {
-                DLog(@"%@, %@", NSStringFromCGRect(cell.contentView.frame), NSStringFromCGRect(_rememberButton.frame));
                 [cell.contentView addSubview:_rememberButton];
             }
             break;

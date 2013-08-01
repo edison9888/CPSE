@@ -10,6 +10,7 @@
 
 @interface BaseEntryViewController : BaseChannelViewController <UITextFieldDelegate>
 
+@property (nonatomic, readonly) UIScrollView *scrollView;
 @property (nonatomic, readonly) UITableView *tableView;
 
 - (void)updatePrevNextStatus;

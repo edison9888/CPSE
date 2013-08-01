@@ -29,9 +29,15 @@
 
 - (id)init {
     if (self = [super init]) {
+        _resizeWhenKeyboardPresented = YES;
         _textEntries = [NSMutableArray array];
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    _viewOnScreen = YES;
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -40,6 +46,11 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    _viewOnScreen = NO;
+    [super viewWillDisappear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -182,9 +193,10 @@
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
                      animations:^{
                          CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-                         const UIEdgeInsets oldInset = _tableView.contentInset;
-                         _tableView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  up ? keyboardFrame.size.height : 0, oldInset.right);
-                         _tableView.scrollIndicatorInsets = _tableView.contentInset;
+                         const UIEdgeInsets oldInset = self.scrollView.contentInset;
+                         CGFloat bottom = up ? keyboardFrame.size.height : 0;
+                         self.scrollView.contentInset = UIEdgeInsetsMake(oldInset.top, oldInset.left,  bottom, oldInset.right);
+                         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
                      }
                      completion:NULL];
 }
@@ -195,7 +207,9 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         NSUInteger ii[2] = {0, textField.tag};
         NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
-        [_tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        CGRect rect = [self.tableView rectForRowAtIndexPath:indexPath];
+        rect = [self.tableView convertRect:rect toView:self.scrollView];
+        [self.scrollView scrollRectToVisible:rect animated:YES];
         
         _actingEntry = textField;
         [self updatePrevNextStatus];
