@@ -173,6 +173,23 @@
 }
 
 - (void)resizeForKeyboard:(NSNotification*)notification {
+    UIWindow* tempWindow;
+    //Because we can’t get access to the UIKeyboard through the SDK we will just use UIView.
+    //UIKeyboard is a subclass of UIView anyways
+    UIView* keyboard;
+    //Check each window in our application
+    for(int c = 0; c < [[[UIApplication sharedApplication] windows] count]; c ++)
+    {
+        //Get a reference of the current window
+        tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:c];
+        //Get a reference of the current view
+        for(int i = 0; i < [tempWindow.subviews count]; i++)
+        {
+            keyboard = [tempWindow.subviews objectAtIndex:i];
+            DLog(@"%@", [keyboard description]);
+        }
+    }
+    
     if (!_viewOnScreen)
         return;
     
@@ -189,6 +206,19 @@
     [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
     [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
     [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    for (int i=0; i<[[UIApplication sharedApplication].windows count]; i++) {
+        UIWindow *w = [UIApplication sharedApplication].windows[i];
+        for (int j=0; j<[w.subviews count]; j++) {
+            UIView *v = w.subviews[i];
+            DLog(@"%@", [v description]);
+        }
+    }
+    
+    UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(window.frame), CGRectGetWidth(window.frame), CGRectGetHeight(window.frame))];
+    view.backgroundColor = [UIColor yellowColor];
+    [window addSubview:view];
     
     [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
                      animations:^{
