@@ -106,6 +106,7 @@
 		C27F978B179250CD00E79A78 /* button-icon-subscribe.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F9779179250CD00E79A78 /* button-icon-subscribe.png */; };
 		C27F978C179250CD00E79A78 /* button-icon-subscribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */; };
 		C27F978F17925A8400E79A78 /* ChannelIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C27F978E17925A8400E79A78 /* ChannelIconButton.m */; };
+		C293319F17AB8C05004C6F77 /* ItemPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */; };
 		C2D5151F17A4D73E00119089 /* ExhibitorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */; };
 		C2D5152917A4EB6700119089 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152817A4EB6700119089 /* NewsListViewController.m */; };
 		C2D5152F17A4EE4500119089 /* NewsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152E17A4EE4500119089 /* NewsInfoViewController.m */; };
@@ -291,6 +292,8 @@
 		C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-icon-subscribe@2x.png"; sourceTree = "<group>"; };
 		C27F978D17925A8400E79A78 /* ChannelIconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelIconButton.h; sourceTree = "<group>"; };
 		C27F978E17925A8400E79A78 /* ChannelIconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelIconButton.m; sourceTree = "<group>"; };
+		C293319D17AB8C05004C6F77 /* ItemPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPickerViewController.h; sourceTree = "<group>"; };
+		C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPickerViewController.m; sourceTree = "<group>"; };
 		C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorInfoViewController.h; sourceTree = "<group>"; };
 		C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorInfoViewController.m; sourceTree = "<group>"; };
 		C2D5152717A4EB6700119089 /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
@@ -774,6 +777,8 @@
 			children = (
 				C2D76DD517A95F980013D089 /* BaseEntryViewController.h */,
 				C2D76DD617A95F980013D089 /* BaseEntryViewController.m */,
+				C293319D17AB8C05004C6F77 /* ItemPickerViewController.h */,
+				C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */,
 				C2D76DB717A93ADA0013D089 /* LoginViewController.h */,
 				C2D76DB817A93ADA0013D089 /* LoginViewController.m */,
 				C2D76DBA17A942CA0013D089 /* RegisterViewController.h */,
@@ -956,6 +961,7 @@
 				C2D76DD417A95A440013D089 /* BREntryTableViewCell.m in Sources */,
 				C2D76DD717A95F990013D089 /* BaseEntryViewController.m in Sources */,
 				C206C4CC17A9FAB400853B59 /* CustomIconButton.m in Sources */,
+				C293319F17AB8C05004C6F77 /* ItemPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "UIColor+BR.h"
+#import "ItemPickerViewController.h"
 
 @interface RegisterViewController ()
 {
@@ -15,6 +16,7 @@
     UITableView *_tableView;
     NSArray *_data;
     UITextField *_userField, *_emailField, *_realnameField, *_pwdField, *_confirmPwdField, *_companyField, *_departmentField, *_positionField, *_cellField;
+    NSArray *_dataCountries, *_dataAreas;
 }
 @end
 
@@ -24,6 +26,36 @@
     if (self = [super init]) {
         _data = @[@"用  户  名：", @"电子邮箱：", @"真实姓名：", @"登录密码：", @"重复密码：",
                   @"国       家：", @"公司名称：", @"部       门：", @"职       位：", @"手       机：", @"您感兴趣的领域："];
+        _dataCountries = @[[NSMutableDictionary dictionaryWithObjectsAndKeys:@"中国大陆", @"name", @"0", @"selected", nil],
+                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"澳      门", @"name", @"0", @"selected", nil],
+                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"香      港", @"name", @"0", @"selected", nil],
+                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"台      湾", @"name", @"0", @"selected", nil],
+                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"其他国家及地区", @"name", @"0", @"selected", nil]];
+        
+        _dataAreas = @[[NSMutableDictionary dictionaryWithObjectsAndKeys:@"视频监控", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"防盗报警", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"楼宇对讲", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"一卡通", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能分析", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能家具", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"公共广播", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"视频会议", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防线缆", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"传输设备", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"显示设备", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"存储设备", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防综合平台", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防系统集成", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"芯片级解决方案", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能交通", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"警用设备", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"消防设备", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安检排爆", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"元器件", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"五金器材", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"媒体/协会", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"公安部门", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"研究院", @"name", @"0", @"selected", nil]];
     }
     return self;
 }
@@ -72,7 +104,12 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [_tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
+    NSIndexPath *indexPath = [_tableView indexPathForSelectedRow];
+    DLog(@"selected=%d", indexPath.row);
+    if (indexPath.row > 0) {
+        [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [_tableView reloadData];
+    }
 }
 
 - (void)toggleRememberButton:(UIButton *)button {
@@ -91,6 +128,25 @@
     return _tableView;
 }
 
+- (NSString *)getSelectedCountry {
+    for (int i=0; i<[_dataCountries count]; i++) {
+        NSDictionary *dict = _dataCountries[i];
+        if ([dict[@"selected"] boolValue])
+            return dict[@"name"];
+    }
+    return @"";
+}
+
+- (NSString *)getInterestedAreas {
+    NSMutableArray *areas = [NSMutableArray array];
+    for (int i=0; i<[_dataAreas count]; i++) {
+        NSDictionary *dict = _dataAreas[i];
+        if ([dict[@"selected"] boolValue])
+            [areas addObject:dict[@"name"]];
+    }
+    return [areas componentsJoinedByString:@", "];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_data count];
@@ -103,21 +159,36 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.textLabel.textColor = [UIColor colorWithHex:0x666666];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
-    cell.accessoryType = (indexPath.row==5 || indexPath.row==10) ? UITableViewCellAccessoryDisclosureIndicator : UITableViewCellAccessoryNone;
-
     cell.textLabel.text = _data[indexPath.row];
+
     CGSize size = [cell.textLabel.text sizeWithFont:cell.textLabel.font];
     CGRect rect = cell.contentView.frame;
     rect.origin.x = size.width + 10;
-    rect.size.width -= size.width + 10;
+    rect.size.width -= size.width + 15;
     
     UITextField *entry = [self createTextEntryWithTag:indexPath.row];
     entry.textColor = [UIColor colorWithHex:0x666666];
     entry.frame = rect;
     [cell.contentView addSubview:entry];
+    
+    if (indexPath.row == 5 || indexPath.row == 10) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        
+        entry.userInteractionEnabled = NO;
+        entry.textAlignment = NSTextAlignmentRight;
+        
+        if (indexPath.row == 5)
+            entry.text = [self getSelectedCountry];
+        if (indexPath.row == 10)
+            entry.text = [self getInterestedAreas];
+    }
+    else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
@@ -125,6 +196,19 @@
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 5) {
+        ItemPickerViewController *vc = [[ItemPickerViewController alloc] initWithDataSource:_dataCountries multipleSelectable:NO];
+        vc.title = @"选择国家";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (indexPath.row == 10) {
+        ItemPickerViewController *vc = [[ItemPickerViewController alloc] initWithDataSource:_dataAreas multipleSelectable:YES];
+        vc.title = @"选择您感兴趣的领域";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

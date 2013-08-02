@@ -153,7 +153,7 @@
     UITextField *previousElement = nil;
     for (int i=[_textEntries count]-1; i>=0; i--) {
         previousElement = _textEntries[i];
-        if (previousElement.tag < _actingEntry.tag)
+        if (previousElement.tag < _actingEntry.tag && previousElement.userInteractionEnabled)
             return previousElement;
     }
     return nil;
@@ -166,7 +166,7 @@
     UITextField *nextElement = nil;
     for (int i=0; i<[_textEntries count]; i++) {
         nextElement = _textEntries[i];
-        if (nextElement.tag > _actingEntry.tag)
+        if (nextElement.tag > _actingEntry.tag && nextElement.userInteractionEnabled)
             return nextElement;
     }
     return nil;
