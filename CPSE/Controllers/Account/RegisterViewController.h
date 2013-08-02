@@ -8,6 +8,6 @@
 
 #import "BaseEntryViewController.h"
 
-@interface RegisterViewController : BaseEntryViewController <UITableViewDataSource, UITableViewDelegate>
+@interface RegisterViewController : BaseEntryViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 
 @end

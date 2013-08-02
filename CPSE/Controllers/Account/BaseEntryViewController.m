@@ -20,7 +20,6 @@
 @implementation BaseEntryViewController
 {
     UISegmentedControl *_prevNext;
-    NSMutableArray *_textEntries;
     UITextField *_actingEntry;
     
     BOOL _keyboardVisible;
@@ -106,11 +105,10 @@
     
     textField.tag = tag;
     int idx = 0;
-    for (int i=0; i<[_textEntries count]; i++) {
+    for (int i=0; i<[_textEntries count]; i++, idx=i) {
         UITextField *entry = _textEntries[i];
         if (entry.tag > tag)
             break;
-        idx = i;
     }
     [_textEntries insertObject:textField atIndex:idx];
     
@@ -207,12 +205,13 @@
     
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSUInteger ii[2] = {0, textField.tag};
+        NSUInteger ii[2] = {0, textField.tag-1};
         NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
         CGRect rect = [self.tableView rectForRowAtIndexPath:indexPath];
         rect = [self.tableView convertRect:rect toView:self.scrollView];
-        [self.scrollView scrollRectToVisible:rect animated:YES];
-        
+        CGFloat visibleHeight = CGRectGetHeight(self.view.frame) - self.scrollView.contentInset.bottom;
+        CGPoint offset = CGPointMake(0, MAX(0, CGRectGetMidY(rect)-visibleHeight/2));
+        [self.scrollView setContentOffset:offset animated:YES];
         [self updatePrevNextStatus];
     });
     

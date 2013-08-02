@@ -12,6 +12,7 @@
 
 @property (nonatomic, readonly) UIScrollView *scrollView;
 @property (nonatomic, readonly) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *textEntries;
 
 - (void)updatePrevNextStatus;
 
