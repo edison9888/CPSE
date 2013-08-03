@@ -7,7 +7,7 @@
 //
 #import "BaseChannelViewController.h"
 
-@interface AccountInfoViewController : BaseChannelViewController<UIWebViewDelegate>
+@interface AccountInfoViewController : BaseChannelViewController
 
 //- (id)initWithId:(NSInteger)exhibitorId;
 
