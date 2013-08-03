@@ -75,6 +75,14 @@
     else {
         self.title = title;
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProfileStatus) name:kAccountChangeNotification object:DataMgr];
+    [self updateProfileStatus];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kAccountChangeNotification object:DataMgr];
 }
 
 - (void)tapLeftBarButton {
@@ -86,6 +94,17 @@
         LoginViewController *vc = [[LoginViewController alloc] init];
         vc.title = @"用户登录";
         [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+- (void)updateProfileStatus {
+    if (self.navigationItem.rightBarButtonItem) {
+        UIView *view = self.navigationItem.rightBarButtonItem.customView;
+        UIButton *button = (UIButton *)view.subviews[0];
+        if (DataMgr.currentAccount != nil)
+            [button setImage:[UIImage imageNamed:@"icon-profile-online"] forState:UIControlStateNormal];
+        else
+            [button setImage:[UIImage imageNamed:@"icon-profile"] forState:UIControlStateNormal];
     }
 }
 

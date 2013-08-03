@@ -28,7 +28,7 @@
         _rememberButton = [CustomIconButton buttonWithType:UIButtonTypeCustom];
         _rememberButton.imageOriginX = 0;
         _rememberButton.titleOriginX = 30;
-        _rememberButton.selected = YES;
+        _rememberButton.selected = [UserDefaults boolForKey:kUCLoginRememberMe];
         _rememberButton.frame = CGRectMake(10, 0, 200, 44);
         _rememberButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_rememberButton addTarget:self action:@selector(toggleRememberButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -89,6 +89,8 @@
 
 - (void)toggleRememberButton:(UIButton *)button {
     button.selected = !button.selected;
+    [UserDefaults setBool:button.selected forKey:kUCLoginRememberMe];
+    [UserDefaults synchronize];
 }
 
 - (void)loginAction {
@@ -105,21 +107,7 @@
         return;
     }
 
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", _userField.text, _pwdField.text]
-           parameters:nil
-              success:^(AFHTTPRequestOperation *operation, id JSON) {
-                  if ([JSON[@"errno"] boolValue]) {
-                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                      [alert show];
-                  }
-                  else {
-                      DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
-                      [self.navigationController popViewControllerAnimated:YES];
-                  }
-              }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  DLog(@"error: %@", [error description]);
-              }];
+    [DataMgr loginWithUsername:_userField.text password:_pwdField.text popViewController:self];
 }
 
 - (UIScrollView *)scrollView {
