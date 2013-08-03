@@ -10,6 +10,7 @@
 #import "UIColor+BR.h"
 #import "RegisterViewController.h"
 #import "CustomIconButton.h"
+#import "AccountInfoViewController.h"
 
 @interface LoginViewController ()
 {
@@ -107,7 +108,28 @@
         return;
     }
 
+<<<<<<< HEAD
     [DataMgr loginWithUsername:_userField.text password:_pwdField.text popViewController:self];
+=======
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", _userField.text, _pwdField.text]
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  if ([JSON[@"errno"] boolValue]) {
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                      [alert show];
+                  }
+                  else {
+                      DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
+//                      [self.navigationController popViewControllerAnimated:YES];
+                      AccountInfoViewController* acccountInfo = [[AccountInfoViewController alloc] initWithId:DataMgr.currentAccount.id userName:DataMgr.currentAccount.name];
+                      [self.navigationController pushViewController:acccountInfo
+                                                           animated:YES];
+                  }
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DLog(@"error: %@", [error description]);
+              }];
+>>>>>>> eabf596921ab06fb0166252d3167ce41e05d77c0
 }
 
 - (UIScrollView *)scrollView {
