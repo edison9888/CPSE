@@ -15,7 +15,6 @@
 {
     NSInteger _userId;
     NSString* _userName;
-    //    NSDictionary *_data;
     
     UIScrollView *_scrollView;
     UILabel *_userIdLabel;
@@ -24,7 +23,6 @@
     UILabel *_operationLabel;
     
     UIImageView* _barImageView;
-    //    UIWebView *_webView;
 }
 @end
 
@@ -134,29 +132,5 @@
     
     _scrollView.contentSize = CGSizeMake(rect.size.width, CGRectGetMaxY(_descriptionLabel.frame));
 }
-
-
-//
-//- (void)webViewDidStartLoad:(UIWebView *)webView
-//{
-//    NSLog(@"start load.");
-//}
-//- (void)webViewDidFinishLoad:(UIWebView *)webView
-//{
-//    NSLog(@"finish load.");
-//
-//    CGSize layerSize = self.view.bounds.size;
-//    if ([UIScreen instancesRespondToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2.0f) {
-//        UIGraphicsBeginImageContextWithOptions(layerSize, NO, 2.0f);
-//    } else {
-//        UIGraphicsBeginImageContext(layerSize);
-//    }
-//
-//    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    UIImageWriteToSavedPhotosAlbum(viewImage,nil,NULL,NULL);
-//
-//}
 
 @end

@@ -9,8 +9,6 @@
 
 @interface AccountInfoViewController : BaseChannelViewController
 
-//- (id)initWithId:(NSInteger)exhibitorId;
-
 - (id)initWithId:(NSInteger)userId userName:(NSString*)userName ;
 
 @end

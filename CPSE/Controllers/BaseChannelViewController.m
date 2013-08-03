@@ -11,6 +11,7 @@
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
 #import "LoginViewController.h"
+#import "AccountInfoViewController.h"
 
 @interface BaseChannelViewController ()
 
@@ -93,6 +94,11 @@
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
         vc.title = @"用户登录";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithId:DataMgr.currentAccount.id userName:DataMgr.currentAccount.name];
+        vc.title = @"用户中心";
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
