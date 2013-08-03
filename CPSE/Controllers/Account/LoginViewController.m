@@ -10,6 +10,7 @@
 #import "UIColor+BR.h"
 #import "RegisterViewController.h"
 #import "CustomIconButton.h"
+#import "AccountInfoViewController.h"
 
 @interface LoginViewController ()
 {
@@ -114,7 +115,10 @@
                   }
                   else {
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
-                      [self.navigationController popViewControllerAnimated:YES];
+//                      [self.navigationController popViewControllerAnimated:YES];
+                      AccountInfoViewController* acccountInfo = [[AccountInfoViewController alloc] initWithId:DataMgr.currentAccount.id userName:DataMgr.currentAccount.name];
+                      [self.navigationController pushViewController:acccountInfo
+                                                           animated:YES];
                   }
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {

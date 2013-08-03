@@ -214,6 +214,8 @@
 		4F7F9ED917ACC93A009F613F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9ED817ACC93A009F613F /* CoreMedia.framework */; };
 		4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDA17ACC946009F613F /* CoreVideo.framework */; };
 		4F7F9EDD17ACC94F009F613F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDC17ACC94F009F613F /* ImageIO.framework */; };
+		4F7F9EE117ACF97C009F613F /* accountInfo.html in Resources */ = {isa = PBXBuildFile; fileRef = 4F7F9EE017ACF97C009F613F /* accountInfo.html */; };
+		4F7F9EE217ACFBCF009F613F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */; };
 		C2005FAB178A8E0700200E1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAA178A8E0700200E1E /* UIKit.framework */; };
 		C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAC178A8E0700200E1E /* Foundation.framework */; };
 		C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAE178A8E0700200E1E /* CoreGraphics.framework */; };
@@ -766,6 +768,9 @@
 		4F7F9ED817ACC93A009F613F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4F7F9EDA17ACC946009F613F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		4F7F9EDC17ACC94F009F613F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		4F7F9EDE17ACF751009F613F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
+		4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
+		4F7F9EE017ACF97C009F613F /* accountInfo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = accountInfo.html; sourceTree = "<group>"; };
 		C2005FA7178A8E0700200E1E /* CPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2005FAA178A8E0700200E1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2005FAC178A8E0700200E1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1975,10 +1980,10 @@
 				C201387217A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m */,
 				C201387717A3743B009CEA7F /* ExhibitorsByAreaViewController.h */,
 				C201387817A3743B009CEA7F /* ExhibitorsByAreaViewController.m */,
-				C201387417A37429009CEA7F /* ExhibitorsByIndustryViewController.h */,
-				C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */,
 				C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */,
 				C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */,
+				C201387417A37429009CEA7F /* ExhibitorsByIndustryViewController.h */,
+				C201387517A3742A009CEA7F /* ExhibitorsByIndustryViewController.m */,
 				C21879AF17A90DB60075554F /* ExhibitorListViewController.h */,
 				C21879B017A90DB60075554F /* ExhibitorListViewController.m */,
 				C2D5154817A51BD300119089 /* ExhibitorViewController.h */,
@@ -2084,6 +2089,9 @@
 		C2D76DB617A93ABD0013D089 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				4F7F9EE017ACF97C009F613F /* accountInfo.html */,
+				4F7F9EDE17ACF751009F613F /* AccountInfoViewController.h */,
+				4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */,
 				C2D76DD517A95F980013D089 /* BaseEntryViewController.h */,
 				C2D76DD617A95F980013D089 /* BaseEntryViewController.m */,
 				C293319D17AB8C05004C6F77 /* ItemPickerViewController.h */,
@@ -2211,6 +2219,7 @@
 				C247032517AA049E007C99E1 /* red-button-bg.png in Resources */,
 				C247032617AA049E007C99E1 /* red-button-bg@2x.png in Resources */,
 				4F7F9EC717ACC8EC009F613F /* README.md in Resources */,
+				4F7F9EE117ACF97C009F613F /* accountInfo.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2251,6 +2260,7 @@
 				C2E4B57C1797776600388B11 /* BaseChannelViewController.m in Sources */,
 				C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */,
 				C201387017A372E1009CEA7F /* MHTabBarController.m in Sources */,
+				4F7F9EE217ACFBCF009F613F /* AccountInfoViewController.m in Sources */,
 				C201387317A373E0009CEA7F /* ExhibitorsByAlphabetViewController.m in Sources */,
 				C201387617A3742A009CEA7F /* ExhibitorsByIndustryViewController.m in Sources */,
 				C201387917A3743B009CEA7F /* ExhibitorsByAreaViewController.m in Sources */,
