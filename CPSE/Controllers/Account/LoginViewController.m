@@ -117,7 +117,9 @@
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
 //                      [self.navigationController popViewControllerAnimated:YES];
                       AccountInfoViewController* acccountInfo = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
-                      [self.navigationController pushViewController:acccountInfo
+                      UINavigationController *navController = self.navigationController;
+                      [navController popViewControllerAnimated:NO];
+                      [navController pushViewController:acccountInfo
                                                            animated:YES];
                   }
               }
