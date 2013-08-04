@@ -346,6 +346,7 @@
 		C2E4B57F1797784E00388B11 /* icon-back.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57D1797784E00388B11 /* icon-back.png */; };
 		C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57E1797784E00388B11 /* icon-back@2x.png */; };
 		C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B5911797A05900388B11 /* CPSEAFClient.m */; };
+		C2E80ECC17AE7A3100AD67E9 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E80ECB17AE7A3100AD67E9 /* CommentTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -976,6 +977,8 @@
 		C2E4B57E1797784E00388B11 /* icon-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-back@2x.png"; sourceTree = "<group>"; };
 		C2E4B5901797A05900388B11 /* CPSEAFClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSEAFClient.h; sourceTree = "<group>"; };
 		C2E4B5911797A05900388B11 /* CPSEAFClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSEAFClient.m; sourceTree = "<group>"; };
+		C2E80ECA17AE7A3100AD67E9 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		C2E80ECB17AE7A3100AD67E9 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2078,6 +2081,8 @@
 		C2D5152617A4EB1F00119089 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C2E80ECA17AE7A3100AD67E9 /* CommentTableViewCell.h */,
+				C2E80ECB17AE7A3100AD67E9 /* CommentTableViewCell.m */,
 				C2D5152D17A4EE4500119089 /* NewsInfoViewController.h */,
 				C2D5152E17A4EE4500119089 /* NewsInfoViewController.m */,
 				C2D5152717A4EB6700119089 /* NewsListViewController.h */,
@@ -2502,6 +2507,7 @@
 				C28FE14917AD798900ED05BB /* ZXResultPoint.m in Sources */,
 				C28FE14A17AD798900ED05BB /* ZXRGBLuminanceSource.m in Sources */,
 				C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */,
+				C2E80ECC17AE7A3100AD67E9 /* CommentTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

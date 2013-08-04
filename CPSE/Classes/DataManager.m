@@ -7,6 +7,7 @@
 //
 
 #import "DataManager.h"
+#import "GTMNSString+HTML.h"
 
 @implementation DataManager
 
@@ -45,6 +46,30 @@
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
               }];
+}
+
+- (NSString *)parseText:(NSString *)s {
+    // replace <p></p>
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<p(.*?)>(.*?)<\\/p>"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    s = [regex stringByReplacingMatchesInString:s
+                                        options:0
+                                          range:NSMakeRange(0, [s length])
+                                   withTemplate:@"$2\n"];
+    
+    // replace <br>, <br/>
+    regex = [NSRegularExpression regularExpressionWithPattern:@"<br\\s*\\/?>"
+                                                      options:NSRegularExpressionCaseInsensitive
+                                                        error:nil];
+    s = [regex stringByReplacingMatchesInString:s
+                                        options:0
+                                          range:NSMakeRange(0, [s length])
+                                   withTemplate:@"\n"];
+    
+    s = [s stringByStrippingHTML];
+    s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return s;
 }
 
 @end

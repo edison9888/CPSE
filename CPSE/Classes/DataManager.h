@@ -16,4 +16,6 @@
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password popViewController:(UIViewController *)viewController;
 
+- (NSString *)parseText:(NSString *)s;
+
 @end
