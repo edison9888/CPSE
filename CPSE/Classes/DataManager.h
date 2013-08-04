@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) Account *currentAccount;
 
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password popViewController:(UIViewController *)viewController;
+
 @end

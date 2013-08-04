@@ -30,6 +30,13 @@
     self.window.rootViewController = _navigationController;
     [self.window makeKeyAndVisible];
     
+    // auto login
+    if ([UserDefaults boolForKey:kUCLoginRememberMe] && !isEmpty([UserDefaults stringForKey:kUCLoginUsername])) {
+        [DataMgr loginWithUsername:[UserDefaults stringForKey:kUCLoginUsername]
+                          password:[UserDefaults stringForKey:kUCLoginPassword]
+                 popViewController:nil];
+    }
+    
     return YES;
 }
 
@@ -42,6 +49,9 @@
 }
 
 - (void)setupUserDefaults {
+    NSDictionary *dict = @{kUCLoginRememberMe: @YES};
+    [UserDefaults registerDefaults:dict];
+    [UserDefaults synchronize];
 }
 
 @end

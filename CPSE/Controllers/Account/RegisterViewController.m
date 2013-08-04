@@ -114,10 +114,6 @@
     }
 }
 
-- (void)toggleRememberButton:(UIButton *)button {
-    button.selected = !button.selected;
-}
-
 - (UIScrollView *)scrollView {
     return _scrollView;
 }
