@@ -116,7 +116,7 @@
                   else {
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
 //                      [self.navigationController popViewControllerAnimated:YES];
-                      AccountInfoViewController* acccountInfo = [[AccountInfoViewController alloc] initWithId:DataMgr.currentAccount.id userName:DataMgr.currentAccount.name];
+                      AccountInfoViewController* acccountInfo = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
                       [self.navigationController pushViewController:acccountInfo
                                                            animated:YES];
                   }

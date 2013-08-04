@@ -11,6 +11,6 @@
 
 //- (id)initWithId:(NSInteger)exhibitorId;
 
-- (id)initWithId:(NSInteger)userId userName:(NSString*)userName ;
+- (id)initWithAccount:(Account*)account ;
 
 @end
