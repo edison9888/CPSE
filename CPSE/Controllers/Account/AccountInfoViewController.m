@@ -72,7 +72,7 @@
     _descriptionLabel.textColor = [UIColor colorWithHex:0x999999];
     [_scrollView addSubview:_descriptionLabel];
     
-    _barImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 200, 60)];
+    _barImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-200,0, 200, 60)];
     _barImageView.backgroundColor = [UIColor colorWithHex:0xcecece];
     _barImageView.userInteractionEnabled = YES;
     [_scrollView addSubview:_barImageView];
