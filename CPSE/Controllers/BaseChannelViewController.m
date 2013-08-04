@@ -97,7 +97,8 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
-        AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithId:DataMgr.currentAccount.id userName:DataMgr.currentAccount.name];
+        AccountInfoViewController *vc = [[AccountInfoViewController alloc]
+                                         initWithAccount:DataMgr.currentAccount];
         vc.title = @"用户中心";
         [self.navigationController pushViewController:vc animated:YES];
     }
