@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 #import "BaseChannelViewController.h"
+#import "MBProgressHUD.h"
 
 @interface AccountInfoViewController : BaseChannelViewController
 
