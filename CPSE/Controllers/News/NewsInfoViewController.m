@@ -61,7 +61,7 @@
     _webView.scrollView.bounces = NO;
     [_scrollView addSubview:_webView];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 0)];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-320, 0, 320, 0)];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.backgroundView = nil;
@@ -172,6 +172,7 @@
     
     CGRect rect = _tableView.frame;
     rect.origin.y = CGRectGetMaxY(frame) + 10;
+    rect.origin.x = 0;
     _tableView.frame = rect;
     
     _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
