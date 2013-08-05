@@ -16,6 +16,7 @@
 #import "ExhibitorViewController.h"
 #import "CalendarViewController.h"
 #import "IntroViewController.h"
+#import "VenuesViewController.h"
 
 @interface HomeViewController ()
 {
@@ -165,7 +166,9 @@
 }
 
 - (void)tapChannelMap {
-    
+    VenuesViewController *vc = [[VenuesViewController alloc] init];
+    vc.title = @"展位图";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelSubscribe {
