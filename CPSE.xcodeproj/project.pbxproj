@@ -12,7 +12,6 @@
 		4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDA17ACC946009F613F /* CoreVideo.framework */; };
 		4F7F9EDD17ACC94F009F613F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDC17ACC94F009F613F /* ImageIO.framework */; };
 		4F7F9EE217ACFBCF009F613F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */; };
-		4F7F9EE617AF8C2E009F613F /* CommentEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7F9EE517AF8C2D009F613F /* CommentEditorViewController.m */; };
 		C2005FAB178A8E0700200E1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAA178A8E0700200E1E /* UIKit.framework */; };
 		C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAC178A8E0700200E1E /* Foundation.framework */; };
 		C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAE178A8E0700200E1E /* CoreGraphics.framework */; };
@@ -326,6 +325,8 @@
 		C2BD02BA17AF480D00429EED /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B917AF480D00429EED /* IntroViewController.m */; };
 		C2BD02BC17AF4BE600429EED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BD02BB17AF4BE600429EED /* CoreLocation.framework */; };
 		C2BD02BE17AF4BEC00429EED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BD02BD17AF4BEC00429EED /* MapKit.framework */; };
+		C2BD02C217AF741600429EED /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02C117AF741600429EED /* VenuesViewController.m */; };
+		C2BD02C517AF77D300429EED /* VenueCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02C417AF77D300429EED /* VenueCellView.m */; };
 		C2D5151F17A4D73E00119089 /* ExhibitorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */; };
 		C2D5152917A4EB6700119089 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152817A4EB6700119089 /* NewsListViewController.m */; };
 		C2D5152F17A4EE4500119089 /* NewsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152E17A4EE4500119089 /* NewsInfoViewController.m */; };
@@ -364,8 +365,6 @@
 		4F7F9EDC17ACC94F009F613F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4F7F9EDE17ACF751009F613F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
-		4F7F9EE417AF8C2D009F613F /* CommentEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentEditorViewController.h; sourceTree = "<group>"; };
-		4F7F9EE517AF8C2D009F613F /* CommentEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentEditorViewController.m; sourceTree = "<group>"; };
 		C2005FA7178A8E0700200E1E /* CPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2005FAA178A8E0700200E1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2005FAC178A8E0700200E1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -955,6 +954,10 @@
 		C2BD02B917AF480D00429EED /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
 		C2BD02BB17AF4BE600429EED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C2BD02BD17AF4BEC00429EED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C2BD02C017AF741600429EED /* VenuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
+		C2BD02C117AF741600429EED /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
+		C2BD02C317AF77D300429EED /* VenueCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueCellView.h; sourceTree = "<group>"; };
+		C2BD02C417AF77D300429EED /* VenueCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCellView.m; sourceTree = "<group>"; };
 		C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorInfoViewController.h; sourceTree = "<group>"; };
 		C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorInfoViewController.m; sourceTree = "<group>"; };
 		C2D5152717A4EB6700119089 /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
@@ -1164,6 +1167,7 @@
 				C2D5153B17A517BE00119089 /* Calendar */,
 				C201386917A372D1009CEA7F /* Exhibitors */,
 				C2BD02A817AF462000429EED /* Intro */,
+				C2BD02BF17AF733D00429EED /* Map */,
 				C2D5152617A4EB1F00119089 /* News */,
 				C27F975C179233E400E79A78 /* BannerViewController.h */,
 				C27F975D179233E400E79A78 /* BannerViewController.m */,
@@ -2122,6 +2126,17 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		C2BD02BF17AF733D00429EED /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C2BD02C317AF77D300429EED /* VenueCellView.h */,
+				C2BD02C417AF77D300429EED /* VenueCellView.m */,
+				C2BD02C017AF741600429EED /* VenuesViewController.h */,
+				C2BD02C117AF741600429EED /* VenuesViewController.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		C2D5152617A4EB1F00119089 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -2133,8 +2148,6 @@
 				C2D5152817A4EB6700119089 /* NewsListViewController.m */,
 				C2D5153417A4FD7100119089 /* NewsTableViewCell.h */,
 				C2D5153517A4FD7100119089 /* NewsTableViewCell.m */,
-				4F7F9EE417AF8C2D009F613F /* CommentEditorViewController.h */,
-				4F7F9EE517AF8C2D009F613F /* CommentEditorViewController.m */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -2559,7 +2572,8 @@
 				C2BD02B417AF476C00429EED /* ContactsInfoViewController.m in Sources */,
 				C2BD02B717AF479300429EED /* TrafficInfoViewController.m in Sources */,
 				C2BD02BA17AF480D00429EED /* IntroViewController.m in Sources */,
-				4F7F9EE617AF8C2E009F613F /* CommentEditorViewController.m in Sources */,
+				C2BD02C217AF741600429EED /* VenuesViewController.m in Sources */,
+				C2BD02C517AF77D300429EED /* VenueCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
