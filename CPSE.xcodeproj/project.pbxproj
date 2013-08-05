@@ -318,6 +318,13 @@
 		C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A3368F17AE6FB800420689 /* MBProgressHUD.m */; };
 		C2A3369317AE701700420689 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369117AE701700420689 /* 37x-Checkmark.png */; };
 		C2A3369417AE701700420689 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */; };
+		C2BD02AE17AF472700429EED /* ExhibitsScopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02AD17AF472700429EED /* ExhibitsScopeViewController.m */; };
+		C2BD02B117AF473C00429EED /* ExhibitsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B017AF473C00429EED /* ExhibitsInfoViewController.m */; };
+		C2BD02B417AF476C00429EED /* ContactsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B317AF476C00429EED /* ContactsInfoViewController.m */; };
+		C2BD02B717AF479300429EED /* TrafficInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B617AF479300429EED /* TrafficInfoViewController.m */; };
+		C2BD02BA17AF480D00429EED /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B917AF480D00429EED /* IntroViewController.m */; };
+		C2BD02BC17AF4BE600429EED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BD02BB17AF4BE600429EED /* CoreLocation.framework */; };
+		C2BD02BE17AF4BEC00429EED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BD02BD17AF4BEC00429EED /* MapKit.framework */; };
 		C2D5151F17A4D73E00119089 /* ExhibitorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */; };
 		C2D5152917A4EB6700119089 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152817A4EB6700119089 /* NewsListViewController.m */; };
 		C2D5152F17A4EE4500119089 /* NewsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152E17A4EE4500119089 /* NewsInfoViewController.m */; };
@@ -933,6 +940,18 @@
 		C2A3368F17AE6FB800420689 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C2A3369117AE701700420689 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		C2BD02AC17AF472700429EED /* ExhibitsScopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsScopeViewController.h; sourceTree = "<group>"; };
+		C2BD02AD17AF472700429EED /* ExhibitsScopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitsScopeViewController.m; sourceTree = "<group>"; };
+		C2BD02AF17AF473C00429EED /* ExhibitsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsInfoViewController.h; sourceTree = "<group>"; };
+		C2BD02B017AF473C00429EED /* ExhibitsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitsInfoViewController.m; sourceTree = "<group>"; };
+		C2BD02B217AF476C00429EED /* ContactsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsInfoViewController.h; sourceTree = "<group>"; };
+		C2BD02B317AF476C00429EED /* ContactsInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsInfoViewController.m; sourceTree = "<group>"; };
+		C2BD02B517AF479300429EED /* TrafficInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficInfoViewController.h; sourceTree = "<group>"; };
+		C2BD02B617AF479300429EED /* TrafficInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficInfoViewController.m; sourceTree = "<group>"; };
+		C2BD02B817AF480D00429EED /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroViewController.h; sourceTree = "<group>"; };
+		C2BD02B917AF480D00429EED /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroViewController.m; sourceTree = "<group>"; };
+		C2BD02BB17AF4BE600429EED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C2BD02BD17AF4BEC00429EED /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorInfoViewController.h; sourceTree = "<group>"; };
 		C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorInfoViewController.m; sourceTree = "<group>"; };
 		C2D5152717A4EB6700119089 /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
@@ -986,6 +1005,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2BD02BE17AF4BEC00429EED /* MapKit.framework in Frameworks */,
+				C2BD02BC17AF4BE600429EED /* CoreLocation.framework in Frameworks */,
 				4F7F9EDD17ACC94F009F613F /* ImageIO.framework in Frameworks */,
 				4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */,
 				4F7F9ED917ACC93A009F613F /* CoreMedia.framework in Frameworks */,
@@ -1038,6 +1059,8 @@
 				C2006042178A93A800200E1E /* libsqlite3.dylib */,
 				C2006040178A93A000200E1E /* libz.dylib */,
 				C200603E178A939700200E1E /* MobileCoreServices.framework */,
+				C2BD02BD17AF4BEC00429EED /* MapKit.framework */,
+				C2BD02BB17AF4BE600429EED /* CoreLocation.framework */,
 				C2005FAA178A8E0700200E1E /* UIKit.framework */,
 				C2005FAC178A8E0700200E1E /* Foundation.framework */,
 				C2005FAE178A8E0700200E1E /* CoreGraphics.framework */,
@@ -1137,6 +1160,7 @@
 				C2D76DB617A93ABD0013D089 /* Account */,
 				C2D5153B17A517BE00119089 /* Calendar */,
 				C201386917A372D1009CEA7F /* Exhibitors */,
+				C2BD02A817AF462000429EED /* Intro */,
 				C2D5152617A4EB1F00119089 /* News */,
 				C27F975C179233E400E79A78 /* BannerViewController.h */,
 				C27F975D179233E400E79A78 /* BannerViewController.m */,
@@ -2078,6 +2102,23 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		C2BD02A817AF462000429EED /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				C2BD02B217AF476C00429EED /* ContactsInfoViewController.h */,
+				C2BD02B317AF476C00429EED /* ContactsInfoViewController.m */,
+				C2BD02AF17AF473C00429EED /* ExhibitsInfoViewController.h */,
+				C2BD02B017AF473C00429EED /* ExhibitsInfoViewController.m */,
+				C2BD02AC17AF472700429EED /* ExhibitsScopeViewController.h */,
+				C2BD02AD17AF472700429EED /* ExhibitsScopeViewController.m */,
+				C2BD02B817AF480D00429EED /* IntroViewController.h */,
+				C2BD02B917AF480D00429EED /* IntroViewController.m */,
+				C2BD02B517AF479300429EED /* TrafficInfoViewController.h */,
+				C2BD02B617AF479300429EED /* TrafficInfoViewController.m */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
 		C2D5152617A4EB1F00119089 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -2508,6 +2549,11 @@
 				C28FE14A17AD798900ED05BB /* ZXRGBLuminanceSource.m in Sources */,
 				C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */,
 				C2E80ECC17AE7A3100AD67E9 /* CommentTableViewCell.m in Sources */,
+				C2BD02AE17AF472700429EED /* ExhibitsScopeViewController.m in Sources */,
+				C2BD02B117AF473C00429EED /* ExhibitsInfoViewController.m in Sources */,
+				C2BD02B417AF476C00429EED /* ContactsInfoViewController.m in Sources */,
+				C2BD02B717AF479300429EED /* TrafficInfoViewController.m in Sources */,
+				C2BD02BA17AF480D00429EED /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

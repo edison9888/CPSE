@@ -15,6 +15,7 @@
 #import "NewsListViewController.h"
 #import "ExhibitorViewController.h"
 #import "CalendarViewController.h"
+#import "IntroViewController.h"
 
 @interface HomeViewController ()
 {
@@ -180,7 +181,9 @@
 }
 
 - (void)tapChannelIntro {
-    
+    IntroViewController *vc = [[IntroViewController alloc] init];
+    vc.title = @"简介";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelPicture {
