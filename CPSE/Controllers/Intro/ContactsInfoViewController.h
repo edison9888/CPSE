@@ -8,6 +8,6 @@
 
 #import "BaseChannelViewController.h"
 
-@interface ContactsInfoViewController : BaseChannelViewController
+@interface ContactsInfoViewController : BaseChannelViewController <UIWebViewDelegate>
 
 @end
