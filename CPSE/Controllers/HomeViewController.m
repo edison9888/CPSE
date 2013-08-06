@@ -111,9 +111,12 @@
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   NSArray *data = [JSON valueForKeyPath:@"data"];
+                  NSMutableArray *imageArray = [NSMutableArray array];
                   [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
                       DLog(@"image=%@, url=%@", obj[@"img"], obj[@"url"]);
+                      [imageArray addObject:obj[@"img"]];
                   }];
+                  [_banner setImages:imageArray];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);

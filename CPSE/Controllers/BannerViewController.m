@@ -8,6 +8,7 @@
 
 #import "BannerViewController.h"
 #import "UIColor+BR.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface BannerViewController ()
 {
@@ -31,32 +32,21 @@
     [self.view addSubview:_scrollView];
     
     _pageControl = [[UIPageControl alloc] init];
-    _pageControl.numberOfPages = 4;
     _pageControl.currentPage = 0;
     _pageControl.center = CGPointMake(160, 170);
     [self.view addSubview:_pageControl];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kBannerHeight)];
-    v.backgroundColor = [UIColor colorWithHex:0xd03044];
-    [_scrollView addSubview:v];
-    
-    v = [[UIView alloc] initWithFrame:CGRectMake(320, 0, 320, kBannerHeight)];
-    v.backgroundColor = [UIColor yellowColor];
-    [_scrollView addSubview:v];
-    
-    v = [[UIView alloc] initWithFrame:CGRectMake(640, 0, 320, kBannerHeight)];
-    v.backgroundColor = [UIColor purpleColor];
-    [_scrollView addSubview:v];
-    
-    v = [[UIView alloc] initWithFrame:CGRectMake(960, 0, 320, kBannerHeight)];
-    v.backgroundColor = [UIColor cyanColor];
-    [_scrollView addSubview:v];
-    
-    _scrollView.contentSize = CGSizeMake(320*4, 185);
+- (void)setImages:(NSArray *)urls {
+    for (int i=0; i<[urls count]; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(320*i, 0, 320, kBannerHeight)];
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.userInteractionEnabled = YES;
+        [imageView setImageWithURL:[NSURL URLWithString:urls[i]]];
+        [_scrollView addSubview:imageView];
+    }
+    _scrollView.contentSize = CGSizeMake(320*[urls count], kBannerHeight);
+    _pageControl.numberOfPages = [urls count];
 }
 
 #pragma mark - UIScrollViewDelegate
