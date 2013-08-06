@@ -12,6 +12,7 @@
 
 @interface BannerViewController ()
 {
+    UIView *_loadingView;
     UIScrollView *_scrollView;
     UIPageControl *_pageControl;
 }
@@ -21,6 +22,16 @@
 
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, kBannerHeight)];
+    
+    _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _loadingView.backgroundColor = [UIColor colorWithWhite:.8 alpha:.2];
+    [self.view addSubview:_loadingView];
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithFrame:self.view.bounds];
+    indicator.color = [UIColor darkGrayColor];
+    [_loadingView addSubview:indicator];
+    [indicator startAnimating];
     
     _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -47,6 +58,7 @@
     }
     _scrollView.contentSize = CGSizeMake(320*[urls count], kBannerHeight);
     _pageControl.numberOfPages = [urls count];
+    [_loadingView removeFromSuperview];
 }
 
 #pragma mark - UIScrollViewDelegate

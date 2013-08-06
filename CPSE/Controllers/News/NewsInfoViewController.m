@@ -67,6 +67,7 @@
     _tableView.backgroundView = nil;
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _tableView.hidden = YES;
     _tableView.separatorColor = [UIColor clearColor];
     [_scrollView addSubview:_tableView];
     
@@ -174,6 +175,7 @@
     rect.origin.y = CGRectGetMaxY(frame) + 10;
     rect.origin.x = 0;
     _tableView.frame = rect;
+    _tableView.hidden = NO;
     
     _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
 }
