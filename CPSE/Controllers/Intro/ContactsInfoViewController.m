@@ -37,9 +37,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
     NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Contact" ofType:@"html"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
-    [_webView loadHTMLString:htmlString baseURL:nil];
+    [_webView loadHTMLString:htmlString baseURL:baseURL];
 }
 
 #pragma mark - UIWebViewDelegate
