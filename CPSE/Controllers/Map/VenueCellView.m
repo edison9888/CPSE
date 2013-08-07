@@ -8,6 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "VenueCellView.h"
+#import "UIColor+BR.h"
+
+@interface VenueCellView ()
+{
+    UIColor *_color;
+}
+@end
 
 @implementation VenueCellView
 
@@ -34,17 +41,31 @@
         subLabel.textAlignment = UITextAlignmentCenter;
         subLabel.textColor = [UIColor whiteColor];
         [self addSubview:subLabel];
-        
-        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCell:)];
-        [self addGestureRecognizer:gesture];
     }
     return self;
 }
 
-- (void)tapOnCell:(UIGestureRecognizer *)gesture {
-    DLog(@"tap on cell");
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [super setBackgroundColor:backgroundColor];
+    if (_color == nil)
+        _color = backgroundColor;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    self.backgroundColor = [_color darkerColor];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesEnded:touches withEvent:event];
+    self.backgroundColor = _color;
     if (self.tapHandler)
         self.tapHandler();
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesCancelled:touches withEvent:event];
+    self.backgroundColor = _color;
 }
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "VenuesViewController.h"
 #import "VenueCellView.h"
 #import "UIColor+BR.h"
@@ -75,6 +76,27 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"二楼\n6号管" subtitle:@"综合"];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     [self.view addSubview:cell];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // right bar button
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightButton.backgroundColor = [UIColor colorWithHex:0xd52626];
+    rightButton.clipsToBounds = YES;
+    rightButton.layer.cornerRadius = 4;
+    rightButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    [rightButton setFrame:CGRectMake(0, 8, 65, 28)];
+    [rightButton setTitle:@"展馆全图" forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(viewWholeMap) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+
+}
+
+- (void)viewWholeMap {
+    DLog(@"view all");
 }
 
 @end

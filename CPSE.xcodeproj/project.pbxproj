@@ -340,6 +340,11 @@
 		C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154317A518F300119089 /* EventInfoViewController.m */; };
 		C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154617A51ADB00119089 /* CalendarViewController.m */; };
 		C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154917A51BD400119089 /* ExhibitorViewController.m */; };
+		C2D71FA117B0921A00D13338 /* Intro.html in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA017B0921A00D13338 /* Intro.html */; };
+		C2D71FA317B095C600D13338 /* Contact.html in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA217B095C600D13338 /* Contact.html */; };
+		C2D71FA517B0BF2500D13338 /* weichat-barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA417B0BF2500D13338 /* weichat-barcode.png */; };
+		C2D71FA717B0C39800D13338 /* map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA617B0C39800D13338 /* map.jpg */; };
+		C2D71FAA17B0C3E400D13338 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D71FA917B0C3E400D13338 /* MapViewController.m */; };
 		C2D76DB917A93ADA0013D089 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DB817A93ADA0013D089 /* LoginViewController.m */; };
 		C2D76DBC17A942CA0013D089 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DBB17A942CA0013D089 /* RegisterViewController.m */; };
 		C2D76DC517A944F40013D089 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D76DC417A944F40013D089 /* Account.m */; };
@@ -980,6 +985,12 @@
 		C2D5154617A51ADB00119089 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		C2D5154817A51BD300119089 /* ExhibitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorViewController.h; sourceTree = "<group>"; };
 		C2D5154917A51BD400119089 /* ExhibitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorViewController.m; sourceTree = "<group>"; };
+		C2D71FA017B0921A00D13338 /* Intro.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Intro.html; sourceTree = "<group>"; };
+		C2D71FA217B095C600D13338 /* Contact.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Contact.html; sourceTree = "<group>"; };
+		C2D71FA417B0BF2500D13338 /* weichat-barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weichat-barcode.png"; sourceTree = "<group>"; };
+		C2D71FA617B0C39800D13338 /* map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpg; sourceTree = "<group>"; };
+		C2D71FA817B0C3E400D13338 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		C2D71FA917B0C3E400D13338 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		C2D76DB717A93ADA0013D089 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C2D76DB817A93ADA0013D089 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C2D76DBA17A942CA0013D089 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -2112,6 +2123,9 @@
 		C2BD02A817AF462000429EED /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				C2D71FA217B095C600D13338 /* Contact.html */,
+				C2D71FA017B0921A00D13338 /* Intro.html */,
+				C2D71FA417B0BF2500D13338 /* weichat-barcode.png */,
 				C2BD02B217AF476C00429EED /* ContactsInfoViewController.h */,
 				C2BD02B317AF476C00429EED /* ContactsInfoViewController.m */,
 				C2BD02AF17AF473C00429EED /* ExhibitsInfoViewController.h */,
@@ -2129,6 +2143,9 @@
 		C2BD02BF17AF733D00429EED /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C2D71FA617B0C39800D13338 /* map.jpg */,
+				C2D71FA817B0C3E400D13338 /* MapViewController.h */,
+				C2D71FA917B0C3E400D13338 /* MapViewController.m */,
 				C2BD02C317AF77D300429EED /* VenueCellView.h */,
 				C2BD02C417AF77D300429EED /* VenueCellView.m */,
 				C2BD02C017AF741600429EED /* VenuesViewController.h */,
@@ -2301,6 +2318,10 @@
 				C28FE13C17AD798900ED05BB /* README.md in Resources */,
 				C2A3369317AE701700420689 /* 37x-Checkmark.png in Resources */,
 				C2A3369417AE701700420689 /* 37x-Checkmark@2x.png in Resources */,
+				C2D71FA117B0921A00D13338 /* Intro.html in Resources */,
+				C2D71FA317B095C600D13338 /* Contact.html in Resources */,
+				C2D71FA517B0BF2500D13338 /* weichat-barcode.png in Resources */,
+				C2D71FA717B0C39800D13338 /* map.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2574,6 +2595,7 @@
 				C2BD02BA17AF480D00429EED /* IntroViewController.m in Sources */,
 				C2BD02C217AF741600429EED /* VenuesViewController.m in Sources */,
 				C2BD02C517AF77D300429EED /* VenueCellView.m in Sources */,
+				C2D71FAA17B0C3E400D13338 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

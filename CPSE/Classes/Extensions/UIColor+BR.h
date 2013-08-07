@@ -16,4 +16,7 @@
 - (CGFloat) blue;
 - (CGFloat) alpha;
 
+- (UIColor *)lighterColor;
+- (UIColor *)darkerColor;
+
 @end

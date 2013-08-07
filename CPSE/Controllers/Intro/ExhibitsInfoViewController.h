@@ -8,6 +8,6 @@
 
 #import "BaseChannelViewController.h"
 
-@interface ExhibitsInfoViewController : BaseChannelViewController
+@interface ExhibitsInfoViewController : BaseChannelViewController <UIWebViewDelegate>
 
 @end

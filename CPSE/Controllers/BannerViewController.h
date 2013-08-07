@@ -8,4 +8,6 @@
 
 @interface BannerViewController : UIViewController <UIScrollViewDelegate>
 
+- (void)setImages:(NSArray *)urls;
+
 @end
