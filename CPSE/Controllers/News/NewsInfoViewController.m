@@ -367,7 +367,7 @@
                       [_tableView beginUpdates];
                       NSDictionary *dict = @{@"username": DataMgr.currentAccount.name, @"content": content};
                       NSUInteger ii[2] = {0, 0};
-                      NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+                      __block NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
                       [_comments insertObject:dict atIndex:0];
                       [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                       [_tableView endUpdates];
@@ -377,7 +377,8 @@
                           frame.size.height = _tableView.contentSize.height;
                           _tableView.frame = frame;
                           _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
-                          [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 44) animated:YES];
+                          CGFloat height = [self tableView:_tableView heightForRowAtIndexPath:indexPath];
+                          [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 20 + height) animated:YES];
                       });
                   });
                   
