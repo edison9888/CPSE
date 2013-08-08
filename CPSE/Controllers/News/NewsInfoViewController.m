@@ -357,24 +357,29 @@
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   DLog(@"post done. %@", JSON);
-                  
-                  [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMaxY(_tableView.frame)-44, 320, 44) animated:YES];
-                  [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 44) animated:YES];
-                  
-                  [_tableView beginUpdates];
-                  NSDictionary *dict = @{@"username": DataMgr.currentAccount.name, @"content": _commentContentTextView.text};
-                  NSUInteger ii[2] = {0, 0};
-                  NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
-                  [_comments insertObject:dict atIndex:0];
-                  [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                  [_tableView endUpdates];
-                  
-                  CGRect frame = _tableView.frame;
-                  frame.size.height = _tableView.contentSize.height;
-                  _tableView.frame = frame;
-                  _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
-                  
-                  _commentContentTextView.text = @"";
+                  if ([JSON[@"errno"] boolValue]) {
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                      [alert show];
+                  }
+                  else{
+                      [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMaxY(_tableView.frame)-44, 320, 44) animated:YES];
+                      [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 44) animated:YES];
+                      
+                      [_tableView beginUpdates];
+                      NSDictionary *dict = @{@"username": DataMgr.currentAccount.name, @"content": _commentContentTextView.text};
+                      NSUInteger ii[2] = {0, 0};
+                      NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+                      [_comments insertObject:dict atIndex:0];
+                      [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                      [_tableView endUpdates];
+                      
+                      CGRect frame = _tableView.frame;
+                      frame.size.height = _tableView.contentSize.height;
+                      _tableView.frame = frame;
+                      _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
+                      
+                      _commentContentTextView.text = @"";
+                  }
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
