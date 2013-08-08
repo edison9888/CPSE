@@ -173,6 +173,8 @@
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _comments = [JSON[@"data"][@"content"] mutableCopy];
+                  if (isEmpty(_comments))
+                      _comments = [NSMutableArray array];
                   //DLog(@"comments: %@", _comments);
                   [_tableView reloadData];
                   CGRect frame = _tableView.frame;
@@ -359,20 +361,25 @@
                   DLog(@"post done. %@", JSON);
                   
                   [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMaxY(_tableView.frame)-44, 320, 44) animated:YES];
-                  [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 44) animated:YES];
                   
-                  [_tableView beginUpdates];
-                  NSDictionary *dict = @{@"username": DataMgr.currentAccount.name, @"content": _commentContentTextView.text};
-                  NSUInteger ii[2] = {0, 0};
-                  NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
-                  [_comments insertObject:dict atIndex:0];
-                  [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                  [_tableView endUpdates];
-                  
-                  CGRect frame = _tableView.frame;
-                  frame.size.height = _tableView.contentSize.height;
-                  _tableView.frame = frame;
-                  _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
+                  __block NSString *content = _commentContentTextView.text;
+                  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+                      [_tableView beginUpdates];
+                      NSDictionary *dict = @{@"username": DataMgr.currentAccount.name, @"content": content};
+                      NSUInteger ii[2] = {0, 0};
+                      NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+                      [_comments insertObject:dict atIndex:0];
+                      [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                      [_tableView endUpdates];
+                      
+                      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, .5 * NSEC_PER_SEC), dispatch_get_current_queue(), ^{
+                          CGRect frame = _tableView.frame;
+                          frame.size.height = _tableView.contentSize.height;
+                          _tableView.frame = frame;
+                          _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
+                          [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 44) animated:YES];
+                      });
+                  });
                   
                   _commentContentTextView.text = @"";
               }
