@@ -10,15 +10,16 @@
 #import "NewsInfoViewController.h"
 #import "UIColor+BR.h"
 #import "CommentTableViewCell.h"
+#import "LoginViewController.h"
 
 #define kCellSeparatorLineTag 1
-#define kOFFSET_FOR_KEYBOARD 170.0
+#define kCommentEditorViewHeight 120.0
 
 @interface NewsInfoViewController ()
 {
     NSUInteger _id;
     NSDictionary *_data;
-    NSArray *_comments;
+    NSMutableArray *_comments;
     
     UIScrollView *_scrollView;
     UILabel *_titleLabel;
@@ -26,12 +27,13 @@
     UIWebView *_webView;
     
     UITableView *_tableView;
-    UIView *_bar;
     
     UIView* _commentEditorView;
     UILabel *_commentNameLabel;
     UITextView *_commentContentTextView;
-    UIButton *_commentButton;
+    
+    BOOL _keyboardVisible;
+    BOOL _viewOnScreen;
 }
 @end
 
@@ -78,11 +80,10 @@
     _tableView.separatorColor = [UIColor clearColor];
     [_scrollView addSubview:_tableView];
     
-    _bar = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-44, CGRectGetWidth(self.view.frame), 44)];
-    _bar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    _bar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MHTabBarContainerBgPattern"]];
-    _bar.layer.zPosition=99;
-    [self.view addSubview:_bar];
+    UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-44, CGRectGetWidth(self.view.frame), 44)];
+    bar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    bar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MHTabBarContainerBgPattern"]];
+    [self.view addSubview:bar];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 160, 44);
@@ -92,7 +93,7 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithHex:0xaaaaaa] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(commentAction) forControlEvents:UIControlEventTouchUpInside];
-    [_bar addSubview:button];
+    [bar addSubview:button];
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(160, 0, 160, 44);
@@ -102,55 +103,61 @@
     [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor colorWithHex:0xaaaaaa] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
-    [_bar addSubview:button];
+    [bar addSubview:button];
     
     
     // post comment
-    _commentEditorView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame), CGRectGetWidth(self.view.frame), 120)];
+    _commentEditorView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame), CGRectGetWidth(self.view.frame), kCommentEditorViewHeight)];
     _commentEditorView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     _commentEditorView.backgroundColor          = [UIColor colorWithHex:0xefefef];
-    _commentEditorView.layer.shadowRadius       = 2.0;
     _commentEditorView.layer.shadowColor        = [UIColor blackColor].CGColor;
     _commentEditorView.layer.shadowOffset       = CGSizeMake(.0, -.5);
     _commentEditorView.layer.shadowOpacity      = .5f;
     _commentEditorView.layer.borderColor        = [[UIColor colorWithHex:0xeeeeee] CGColor];
-    _commentEditorView.layer.shouldRasterize    =YES;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRect:_commentEditorView.bounds];
-    _commentEditorView.layer.shadowPath = path.CGPath;
     [self.view addSubview:_commentEditorView];
     
-    _commentNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 50,50)];
+    _commentNameLabel = [[UILabel alloc] init];
     _commentNameLabel.backgroundColor = [UIColor clearColor];
     _commentNameLabel.font = [UIFont systemFontOfSize:12];
     _commentNameLabel.numberOfLines = 0;
     _commentNameLabel.textColor = [UIColor colorWithHex:0x333333];
-    _commentNameLabel.text = DataMgr.currentAccount.name;
-    CGSize size = [_commentNameLabel.text sizeWithFont:_commentNameLabel.font
-                                     constrainedToSize:CGSizeMake(50, 50)
-                                         lineBreakMode:NSLineBreakByWordWrapping];
+    _commentNameLabel.text = [NSString stringWithFormat:@"%@：", DataMgr.currentAccount.name];
+    CGSize size = [_commentNameLabel.text sizeWithFont:_commentNameLabel.font];
     _commentNameLabel.frame = CGRectMake(10, 10, size.width, size.height);
     [_commentEditorView addSubview:_commentNameLabel];
     
-    _commentContentTextView = [[UITextView alloc] initWithFrame:CGRectMake(70, 10, 240,60)];
-    _commentContentTextView.backgroundColor=[UIColor whiteColor];
+    _commentContentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10+size.width, 10, 320-size.width-10, kCommentEditorViewHeight-10-44)];
+    _commentContentTextView.backgroundColor = [UIColor clearColor];
     [_commentEditorView addSubview:_commentContentTextView];
     
-    //
-    UIImage *buttonBg = [UIImage imageNamed:@"red-button-bg"];
-    _commentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    _commentButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    _commentButton.frame = CGRectMake(CGRectGetWidth(_commentEditorView.frame)/2-buttonBg.size.width/2, 80,
-                                     buttonBg.size.width, buttonBg.size.height);
-    _commentButton.titleLabel.font = [UIFont systemFontOfSize:15];
-    _commentButton.titleLabel.textColor = [UIColor whiteColor];
-    [_commentButton setBackgroundImage:buttonBg forState:UIControlStateNormal];
-    [_commentButton setTitle:@"发表留言" forState:UIControlStateNormal];
-    [_commentButton addTarget:self action:@selector(postCommentAction) forControlEvents:UIControlEventTouchUpInside];
-    [_commentEditorView addSubview:_commentButton];
+    // UIToolBar
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, kCommentEditorViewHeight-44, 320, 44)];
+    toolBar.translucent = YES;
+    [toolBar sizeToFit];
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"")
+                                                                   style:UIBarButtonItemStyleBordered target:self
+                                                                  action:@selector(handleActionBarCancel:)];
+    
+    UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"发表评论", @"")
+                                                                   style:UIBarButtonItemStyleDone target:self
+                                                                  action:@selector(handleActionBarPost:)];
+    
+    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [toolBar setItems:@[cancelButton, flexible, postButton]];
+    [_commentEditorView addSubview:toolBar];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    _viewOnScreen = YES;
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&id=%d", _id]
            parameters:nil
@@ -165,8 +172,8 @@
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=commentsList&id=%d", _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
-                  _comments = JSON[@"data"][@"content"];
-                  DLog(@"comments: %@", _comments);
+                  _comments = [JSON[@"data"][@"content"] mutableCopy];
+                  //DLog(@"comments: %@", _comments);
                   [_tableView reloadData];
                   CGRect frame = _tableView.frame;
                   frame.size.height = _tableView.contentSize.height;
@@ -178,30 +185,12 @@
               }];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
+- (void)viewWillDisappear:(BOOL)animated {
+    _viewOnScreen = NO;
+    [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    // unregister for keyboard notifications while not visible.
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification
-                                                  object:nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification
-                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)populateInterface {
@@ -224,25 +213,6 @@
                      cssPath , _data[@"content"]];
     [_webView loadHTMLString:html baseURL:baseURL];
 }
-
-- (void)commentAction {
-    //    CommentEditorViewController* c =[[CommentEditorViewController alloc]
-    //                                     initBottomPos:_bar.frame.origin.y];
-    //    [self.view addSubview:c.view];
-    
-    [UIView animateWithDuration:0.2
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         _commentEditorView.center =
-                         CGPointMake(_commentEditorView.center.x,
-                                     _bar.frame.origin.y-CGRectGetHeight(_commentEditorView.frame)/2);
-                     }
-                     completion:^(BOOL b){
-                         [_commentContentTextView becomeFirstResponder];
-                     }];
-}
-
 
 - (void)shareAction {
     
@@ -331,7 +301,6 @@
     NSDictionary *dict = _comments[indexPath.row];
     NSString *content = [NSString stringWithFormat:@"%@： %@", dict[@"username"], [DataMgr parseText:dict[@"content"]]];
     CGSize size = [content sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(300, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    DLog(@"row %d, content:%@, height:%f", indexPath.row, content, size.height);
     return MAX(44, size.height + 20);
 }
 
@@ -339,9 +308,22 @@
 }
 
 #pragma mark - post comments
-- (void)postCommentAction {
-    DLog(@"post comment");
-    
+- (void)commentAction {
+    if (DataMgr.currentAccount == nil) {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        vc.title = @"用户登录";
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    [_commentContentTextView becomeFirstResponder];
+}
+
+- (void)handleActionBarCancel:(UIBarButtonItem *)button {
+    [_commentContentTextView resignFirstResponder];
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
+- (void)handleActionBarPost:(UIBarButtonItem *)button {
     if ([_commentContentTextView.text length] == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
                                                         message:@"请输入评论内容"
@@ -353,85 +335,86 @@
         return;
     }
     
-    _commentButton.enabled =NO;
-    // this is GET request, so request must encode text in url.
-    NSString* encodeedTitle =
-    (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                          NULL,
-                                                                          (__bridge CFStringRef) _data[@"title"],
-                                                                          NULL,
-                                                                          CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                          kCFStringEncodingUTF8));
-    NSString* encodeedContent =
-    (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                          NULL,
-                                                                          (__bridge CFStringRef) _commentContentTextView.text,
-                                                                          NULL,
-                                                                          CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                          kCFStringEncodingUTF8));
+    [_commentContentTextView resignFirstResponder];
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=comments&content=%@&contentid=%d&title=%@",encodeedContent, _id, encodeedTitle]
+    // post comment
+    // this is GET request, so request must encode text in url.
+    NSString* encodeedTitle = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                                    (__bridge CFStringRef) _data[@"title"],
+                                                                                                    NULL,
+                                                                                                    CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                                                    kCFStringEncodingUTF8));
+    NSString* encodeedContent = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                                      (__bridge CFStringRef) _commentContentTextView.text,
+                                                                                                      NULL,
+                                                                                                      CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                                                      kCFStringEncodingUTF8));
+    
+    NSString *url = [NSString stringWithFormat:@"api.php?action=comments&content=%@&contentid=%d&title=%@&userid=%d&user_name=%@", encodeedContent, _id, encodeedTitle, DataMgr.currentAccount.id, DataMgr.currentAccount.name];
+    DLog(@"url=%@", url);
+    [AFClient getPath:url
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
-                  DLog(@"post done.");
-                  [UIView animateWithDuration:0.2
-                                        delay:0
-                                      options:UIViewAnimationOptionCurveEaseOut|UIViewAnimationOptionBeginFromCurrentState
-                                   animations:^{
-                                       _commentEditorView.center =
-                                       CGPointMake(_commentEditorView.center.x,
-                                                   [UIScreen mainScreen].bounds.size.height);
-                                   }
-                                   completion:^(BOOL b){
-                                       [_commentContentTextView resignFirstResponder];
-                                       _commentContentTextView.text = @"";
-                                   }];
-                  _commentButton.enabled =YES;
+                  DLog(@"post done. %@", JSON);
+                  
+                  [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMaxY(_tableView.frame)-44, 320, 44) animated:YES];
+                  [_scrollView scrollRectToVisible:CGRectMake(0, CGRectGetMinY(_tableView.frame), 320, 44) animated:YES];
+                  
+                  [_tableView beginUpdates];
+                  NSDictionary *dict = @{@"username": DataMgr.currentAccount.name, @"content": _commentContentTextView.text};
+                  NSUInteger ii[2] = {0, 0};
+                  NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+                  [_comments insertObject:dict atIndex:0];
+                  [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                  [_tableView endUpdates];
+                  
+                  CGRect frame = _tableView.frame;
+                  frame.size.height = _tableView.contentSize.height;
+                  _tableView.frame = frame;
+                  _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(_tableView.frame));
+                  
+                  _commentContentTextView.text = @"";
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
-                  
-                  UIAlertView *alert = [[UIAlertView alloc]
-                                        initWithTitle:@""
-                                        message:[NSString stringWithFormat:@"%@", [error description] ]
-                                        delegate:nil
-                                        cancelButtonTitle:@"OK"
-                                        otherButtonTitles:nil];
+                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                  message:[NSString stringWithFormat:@"%@", [error description]]
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
                   [alert show];
-                  _commentButton.enabled =YES;
               }];
 }
 
--(void)keyboardWillShow {
-    // Animate the current view out of the way
-    [self setViewMovedUp:YES];
-}
-
--(void)keyboardWillHide {
-    [self setViewMovedUp:NO];
-}
-
-
-//method to move the view up/down whenever the keyboard is shown/dismissed
--(void)setViewMovedUp:(BOOL)movedUp
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.2]; // if you want to slide up the view
+- (void)resizeForKeyboard:(NSNotification*)notification {
+    if (!_viewOnScreen)
+        return;
     
-    CGPoint p= _commentEditorView.center;
-    if (movedUp)
-    {
-        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-        // 2. increase the size of the view so that the area behind the keyboard is covered up.
-        p.y -= kOFFSET_FOR_KEYBOARD;
-    }
-    else
-    {
-        // revert back to the normal state.
-        p.y += kOFFSET_FOR_KEYBOARD;
-    }
-    _commentEditorView.center =p;
+    BOOL up = notification.name == UIKeyboardWillShowNotification;
     
-    [UIView commitAnimations];}
+    if (_keyboardVisible == up)
+        return;
+    
+    _keyboardVisible = up;
+    NSDictionary* userInfo = [notification userInfo];
+    NSTimeInterval animationDuration;
+    UIViewAnimationOptions animationCurve;
+    CGRect keyboardEndFrame;
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    [UIView animateWithDuration:animationDuration delay:0 options:animationCurve
+                     animations:^{
+                         CGRect frame = _commentEditorView.frame;
+                         if (_keyboardVisible)
+                             frame.origin.y = CGRectGetHeight(self.view.frame) - CGRectGetHeight(keyboardEndFrame) - CGRectGetHeight(frame);
+                         else
+                             frame.origin.y = CGRectGetHeight(self.view.frame);
+                         _commentEditorView.frame = frame;
+                     }
+                     completion:NULL];
+}
 
 @end
