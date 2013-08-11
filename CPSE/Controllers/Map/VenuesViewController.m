@@ -17,8 +17,8 @@
 
 @implementation VenuesViewController
 
-- (void)loadView {
-    [super loadView];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     CGFloat gap = 5.0;
     CGFloat topOffset = gap;
@@ -26,6 +26,7 @@
     CGFloat w = CGRectGetWidth(rect) - 2*gap;
     CGFloat h = (CGRectGetHeight(rect) - 44 - 5*gap) / 4.0;
     
+    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     // 1st row
     VenueCellView *cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, (w-gap)/2, h) title:@"1号馆" subtitle:@"国际馆"];
     cell.backgroundColor = [UIColor colorWithHex:0x57b0ba];
@@ -37,6 +38,7 @@
     [self.view addSubview:cell];
     
     topOffset += h + gap;
+    DLog(@"generating one row cell views: %.2fms", 1000.0 * (CFAbsoluteTimeGetCurrent() - startTime));
     
     // 2nd row
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, w-(w-2*gap)/3-gap, h) title:@"2号馆" subtitle:@"楼宇对讲 防盗报警"];
@@ -57,11 +59,11 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"7、8号馆" subtitle:@"视频监控"];
     cell.backgroundColor = [UIColor colorWithHex:0xc08559];
     [self.view addSubview:cell];
-
+    
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"9号馆" subtitle:@"视频监控"];
     cell.backgroundColor = [UIColor colorWithHex:0xc08559];
     [self.view addSubview:cell];
-
+    
     topOffset += h + gap;
     
     // 4th row
@@ -76,6 +78,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"二楼\n6号管" subtitle:@"综合"];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     [self.view addSubview:cell];
+    DLog(@"generating all cell views: %.2fms", 1000.0 * (CFAbsoluteTimeGetCurrent() - startTime));
 }
 
 - (void)viewWillAppear:(BOOL)animated {

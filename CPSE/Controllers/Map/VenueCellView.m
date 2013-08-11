@@ -28,9 +28,9 @@
         label.text = title;
         label.textAlignment = UITextAlignmentCenter;
         label.textColor = [UIColor whiteColor];
-        label.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-        label.layer.shadowOpacity = .5;
-        label.layer.shadowOffset = CGSizeMake(0, 2);
+//        label.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+//        label.layer.shadowOpacity = .5;
+//        label.layer.shadowOffset = CGSizeMake(0, 2);
         [self addSubview:label];
         
         UILabel *subLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds)-30, CGRectGetWidth(self.bounds), 30)];
