@@ -49,6 +49,7 @@
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _data = JSON[@"data"];
                   _sortedAlphabets = [[_data allKeys] sortedArrayUsingSelector:@selector(compare:)];
+                  DLog(@"%@", _sortedAlphabets);
                   [_table reloadData];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -63,6 +64,18 @@
 }
 
 #pragma mark - UITableViewDataSource
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    return _sortedAlphabets;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return index;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return _sortedAlphabets[section];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [_sortedAlphabets count];
 }
