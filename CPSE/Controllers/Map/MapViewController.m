@@ -22,6 +22,7 @@
 
 - (void)dealloc {
     _image = nil;
+    _scrollView = nil;
 }
 
 - (void)loadView {
