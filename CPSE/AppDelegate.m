@@ -37,8 +37,19 @@
                  popViewController:nil];
     }
     
+    //notification reg
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
     return YES;
 }
+
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     [UMSocialSnsService applicationDidBecomeActive];
