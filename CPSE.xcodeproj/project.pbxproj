@@ -319,6 +319,7 @@
 		C28FE14A17AD798900ED05BB /* ZXRGBLuminanceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C28FE07E17AD798900ED05BB /* ZXRGBLuminanceSource.m */; };
 		C293319F17AB8C05004C6F77 /* ItemPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */; };
 		C29A609417B789DE00640943 /* PZPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C29A609317B789DE00640943 /* PZPhotoView.m */; };
+		C29A609717B7CF2300640943 /* UINavigationController+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C29A609617B7CF2300640943 /* UINavigationController+BR.m */; };
 		C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A3368F17AE6FB800420689 /* MBProgressHUD.m */; };
 		C2A3369317AE701700420689 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369117AE701700420689 /* 37x-Checkmark.png */; };
 		C2A3369417AE701700420689 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */; };
@@ -952,6 +953,8 @@
 		C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPickerViewController.m; sourceTree = "<group>"; };
 		C29A609217B789DE00640943 /* PZPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZPhotoView.h; sourceTree = "<group>"; };
 		C29A609317B789DE00640943 /* PZPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZPhotoView.m; sourceTree = "<group>"; };
+		C29A609517B7CF2300640943 /* UINavigationController+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BR.h"; sourceTree = "<group>"; };
+		C29A609617B7CF2300640943 /* UINavigationController+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+BR.m"; sourceTree = "<group>"; };
 		C2A3368E17AE6FB800420689 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C2A3368F17AE6FB800420689 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C2A3369117AE701700420689 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -1158,6 +1161,8 @@
 				C25CC6D0178A98C20055E82A /* UIImage+BR.m */,
 				C25CC6D1178A98C20055E82A /* UINavigationBar+BR.h */,
 				C25CC6D2178A98C20055E82A /* UINavigationBar+BR.m */,
+				C29A609517B7CF2300640943 /* UINavigationController+BR.h */,
+				C29A609617B7CF2300640943 /* UINavigationController+BR.m */,
 				C25CC6D3178A98C20055E82A /* UIView+BR.h */,
 				C25CC6D4178A98C20055E82A /* UIView+BR.m */,
 				C27F9766179245F500E79A78 /* UIView+JMNoise.h */,
@@ -2614,6 +2619,7 @@
 				C2BD02C517AF77D300429EED /* VenueCellView.m in Sources */,
 				C2D71FAA17B0C3E400D13338 /* MapViewController.m in Sources */,
 				C29A609417B789DE00640943 /* PZPhotoView.m in Sources */,
+				C29A609717B7CF2300640943 /* UINavigationController+BR.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

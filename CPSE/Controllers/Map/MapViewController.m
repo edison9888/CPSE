@@ -22,6 +22,7 @@
 
 - (void)dealloc {
     _image = nil;
+    _scrollView = nil;
 }
 
 - (void)loadView {
@@ -76,6 +77,23 @@
 }
 
 - (void)photoViewDidDoubleTwoFingerTap:(PZPhotoView *)photoView {
+}
+
+#pragma mark - rotation control
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "PZPhotoView.h"
 
-#define kZoomStep 2
+#define kZoomStep 5
 
 @interface PZPhotoView () <UIScrollViewDelegate>
 
