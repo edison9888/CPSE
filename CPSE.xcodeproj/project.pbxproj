@@ -318,6 +318,7 @@
 		C28FE14917AD798900ED05BB /* ZXResultPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = C28FE07B17AD798900ED05BB /* ZXResultPoint.m */; };
 		C28FE14A17AD798900ED05BB /* ZXRGBLuminanceSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C28FE07E17AD798900ED05BB /* ZXRGBLuminanceSource.m */; };
 		C293319F17AB8C05004C6F77 /* ItemPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */; };
+		C29A609417B789DE00640943 /* PZPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C29A609317B789DE00640943 /* PZPhotoView.m */; };
 		C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A3368F17AE6FB800420689 /* MBProgressHUD.m */; };
 		C2A3369317AE701700420689 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369117AE701700420689 /* 37x-Checkmark.png */; };
 		C2A3369417AE701700420689 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */; };
@@ -949,6 +950,8 @@
 		C28FE07F17AD798900ED05BB /* ZXWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXWriter.h; sourceTree = "<group>"; };
 		C293319D17AB8C05004C6F77 /* ItemPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPickerViewController.h; sourceTree = "<group>"; };
 		C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPickerViewController.m; sourceTree = "<group>"; };
+		C29A609217B789DE00640943 /* PZPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZPhotoView.h; sourceTree = "<group>"; };
+		C29A609317B789DE00640943 /* PZPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZPhotoView.m; sourceTree = "<group>"; };
 		C2A3368E17AE6FB800420689 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		C2A3368F17AE6FB800420689 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C2A3369117AE701700420689 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
@@ -2155,6 +2158,8 @@
 				C2D71FA617B0C39800D13338 /* map.jpg */,
 				C2D71FA817B0C3E400D13338 /* MapViewController.h */,
 				C2D71FA917B0C3E400D13338 /* MapViewController.m */,
+				C29A609217B789DE00640943 /* PZPhotoView.h */,
+				C29A609317B789DE00640943 /* PZPhotoView.m */,
 				C2BD02C317AF77D300429EED /* VenueCellView.h */,
 				C2BD02C417AF77D300429EED /* VenueCellView.m */,
 				C2BD02C017AF741600429EED /* VenuesViewController.h */,
@@ -2608,6 +2613,7 @@
 				C2BD02C217AF741600429EED /* VenuesViewController.m in Sources */,
 				C2BD02C517AF77D300429EED /* VenueCellView.m in Sources */,
 				C2D71FAA17B0C3E400D13338 /* MapViewController.m in Sources */,
+				C29A609417B789DE00640943 /* PZPhotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

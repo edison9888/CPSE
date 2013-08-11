@@ -10,6 +10,7 @@
 #import "VenuesViewController.h"
 #import "VenueCellView.h"
 #import "UIColor+BR.h"
+#import "MapViewController.h"
 
 @interface VenuesViewController ()
 
@@ -95,11 +96,12 @@
     [rightButton addTarget:self action:@selector(viewWholeMap) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
-
 }
 
 - (void)viewWholeMap {
-    DLog(@"view all");
+    MapViewController *vc = [[MapViewController alloc] init];
+    vc.title = @"展馆全图";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
