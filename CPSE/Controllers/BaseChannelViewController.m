@@ -28,6 +28,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.navigationController.navigationBar.translucent = NO;
+
     CGRect buttonRect = CGRectMake(0, 0, 44, 44);
     buttonRect = CGRectInset(buttonRect, 7, 7);
     

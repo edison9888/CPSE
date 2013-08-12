@@ -160,7 +160,7 @@
 
 - (void)startWaiting {
     if (!self.activityIndicator) {
-        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self addSubview:activityIndicator];
         [self bringSubviewToFront:activityIndicator];
         [activityIndicator stopAnimating];

@@ -10,4 +10,6 @@
 
 @interface MapViewController : BaseChannelViewController
 
+- (id)initWithVenueType:(VenueType)venueType;
+
 @end
