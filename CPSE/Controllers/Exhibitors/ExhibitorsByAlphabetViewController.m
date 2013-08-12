@@ -49,7 +49,7 @@
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _data = JSON[@"data"];
                   _sortedAlphabets = [[_data allKeys] sortedArrayUsingSelector:@selector(compare:)];
-                  DLog(@"%@", _sortedAlphabets);
+//                  DLog(@"%@", _sortedAlphabets);
                   [_table reloadData];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {

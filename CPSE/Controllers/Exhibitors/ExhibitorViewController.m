@@ -12,6 +12,7 @@
 #import "ExhibitorsByIndustryViewController.h"
 #import "UIView+BR.h"
 #import "ExhibitorListViewController.h"
+#import "AFHTTPRequestOperation.h"
 
 @interface ExhibitorViewController ()
 {
@@ -95,6 +96,7 @@
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self cancelPreviousSearch];
     if (isEmpty(searchText)) {
         [_resultList setData:@[@{@"name": @"请输入关键词"}]];
     }
@@ -113,6 +115,15 @@
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                       DLog(@"error: %@", [error description]);
                   }];
+    }
+}
+
+- (void)cancelPreviousSearch {
+    for (NSOperation *operation in [AFClient.operationQueue operations]) {
+        if (![operation isKindOfClass:[AFHTTPRequestOperation class]]) {
+            continue;
+        }
+        [operation cancel];
     }
 }
 
