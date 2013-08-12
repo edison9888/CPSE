@@ -117,7 +117,7 @@
     _descLabel.frame = CGRectMake(10, topOffset, size.width, size.height);
     _descLabel.text = desc;
     
-    _scrollView.contentSize = CGSizeMake(rect.size.width, CGRectGetMaxY(_descLabel.frame));
+    _scrollView.contentSize = CGSizeMake(rect.size.width, CGRectGetMaxY(_descLabel.frame)+10);
 }
 
 @end
