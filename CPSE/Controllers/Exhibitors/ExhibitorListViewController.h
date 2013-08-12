@@ -10,6 +10,10 @@
 
 @interface ExhibitorListViewController : BaseChannelViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, assign) UIViewController *owner;
+@property (nonatomic, strong) UITableView *table;
+
 - (id)initWithAction:(NSString *)action;
+- (void)setData:(NSArray *)data;
 
 @end

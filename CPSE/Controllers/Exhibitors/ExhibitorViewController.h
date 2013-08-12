@@ -8,6 +8,6 @@
 
 #import "BaseChannelWithTabsViewController.h"
 
-@interface ExhibitorViewController : BaseChannelWithTabsViewController
+@interface ExhibitorViewController : BaseChannelWithTabsViewController <UISearchBarDelegate>
 
 @end

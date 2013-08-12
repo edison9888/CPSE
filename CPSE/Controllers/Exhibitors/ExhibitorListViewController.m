@@ -12,7 +12,6 @@
 
 @interface ExhibitorListViewController ()
 {
-    UITableView *_table;
     NSString *_action;
     NSArray *_data;
 }
@@ -41,15 +40,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=%@", _action]
-           parameters:nil
-              success:^(AFHTTPRequestOperation *operation, id JSON) {
-                  _data = JSON[@"data"];
-                  [_table reloadData];
-              }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  DLog(@"error: %@", [error description]);
-              }];
+    if (!isEmpty(_action)) {
+        [AFClient getPath:[NSString stringWithFormat:@"api.php?action=%@", _action]
+               parameters:nil
+                  success:^(AFHTTPRequestOperation *operation, id JSON) {
+                      _data = JSON[@"data"];
+                      [_table reloadData];
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      DLog(@"error: %@", [error description]);
+                  }];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -58,7 +59,16 @@
     [_table deselectRowAtIndexPath:[_table indexPathForSelectedRow] animated:YES];
 }
 
+- (void)setData:(NSArray *)data {
+    if (isEmpty(data))
+        _data = @[];
+    else
+        _data = data;
+    [_table reloadData];
+}
+
 #pragma mark - UITableViewDataSource
+#pragma mark -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_data count];
 }
@@ -72,20 +82,28 @@
     }
     
     NSDictionary *dict = _data[indexPath.row];
+    cell.selectionStyle = [dict[@"id"] intValue] ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
     cell.textLabel.text = dict[@"name"];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
+#pragma mark -
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 44;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = _data[indexPath.row];
-    ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
-    vc.title = dict[@"name"];
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([dict[@"id"] intValue]) {
+        ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
+        vc.title = dict[@"name"];
+
+        if (self.navigationController)
+            [self.navigationController pushViewController:vc animated:YES];
+        else
+            [self.owner.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end
