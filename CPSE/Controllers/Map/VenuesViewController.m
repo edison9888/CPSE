@@ -25,7 +25,7 @@
     CGFloat topOffset = gap;
     CGRect rect = [UIScreen mainScreen].applicationFrame;
     CGFloat w = CGRectGetWidth(rect) - 2*gap;
-    CGFloat h = (CGRectGetHeight(rect) - 44 - 5*gap) / 4.0;
+    CGFloat h = (CGRectGetHeight(rect) - 44 - 5*gap) / 3.67;
     
     CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     // 1st row
@@ -102,7 +102,7 @@
     topOffset += h + gap;
     
     // 4th row
-    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, (w-2*gap)/3, h) title:@"二楼\n平台" subtitle:@"综合"];
+    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, (w-3*gap)/4, .67 * h) title:@"二楼\n平台" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
         MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueTypeGroundOn2ndFloor];
@@ -111,7 +111,7 @@
     };
     [self.view addSubview:cell];
     
-    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"二楼\n5号馆" subtitle:@"综合"];
+    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-3*gap)/4, .67 * h) title:@"二楼\n5号馆" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
         MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType5On2ndFloor];
@@ -120,7 +120,7 @@
     };
     [self.view addSubview:cell];
     
-    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"二楼\n6号管" subtitle:@"综合"];
+    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-3*gap)/4, .67 * h) title:@"二楼\n6号管" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
         MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType6On2ndFloor];
@@ -128,6 +128,16 @@
         [self.navigationController pushViewController:vc animated:YES];
     };
     [self.view addSubview:cell];
+    
+    cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-3*gap)/4, .67 * h) title:@"北广场\n11号管" subtitle:@""];
+    cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
+    cell.tapHandler = ^{
+        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType6On2ndFloor];
+        vc.title = @"北广场 11号馆";
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    [self.view addSubview:cell];
+
     DLog(@"generating all cell views: %.2fms", 1000.0 * (CFAbsoluteTimeGetCurrent() - startTime));
 }
 
