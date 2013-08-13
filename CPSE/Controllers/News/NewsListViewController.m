@@ -50,7 +50,7 @@
     NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         cell.textLabel.numberOfLines = 0;
     }
     

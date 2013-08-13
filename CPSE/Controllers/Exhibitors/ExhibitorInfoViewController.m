@@ -50,14 +50,14 @@
 
     _infoLabel = [[UILabel alloc] init];
     _infoLabel.backgroundColor = [UIColor clearColor];
-    _infoLabel.font = [UIFont systemFontOfSize:13];
+    _infoLabel.font = [UIFont systemFontOfSize:15];
     _infoLabel.numberOfLines = 0;
     _infoLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_infoLabel];
     
     _descLabel = [[UILabel alloc] init];
     _descLabel.backgroundColor = [UIColor clearColor];
-    _descLabel.font = [UIFont systemFontOfSize:12];
+    _descLabel.font = [UIFont systemFontOfSize:14];
     _descLabel.numberOfLines = 0;
     _descLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_descLabel];

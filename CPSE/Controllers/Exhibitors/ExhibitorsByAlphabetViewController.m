@@ -110,7 +110,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
         
         UILabel *line = [[UILabel alloc] initWithFrame:CGRectMake(0, 43, 320, 1)];
         line.backgroundColor = [UIColor colorWithHex:0xcccccc];

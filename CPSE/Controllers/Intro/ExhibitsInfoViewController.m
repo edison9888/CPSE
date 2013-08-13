@@ -25,8 +25,8 @@
     [self.view addSubview:_scrollView];
     
     CGRect frame = self.view.bounds;
-    frame = CGRectInset(frame, 10, 20);
     _webView = [[UIWebView alloc] initWithFrame:frame];
+    _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _webView.backgroundColor = [UIColor clearColor];
     _webView.delegate = self;
     _webView.opaque = NO;
