@@ -20,12 +20,11 @@
 - (void)loadView {
     [super loadView];
     
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)-44)];
+    _scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:_scrollView];
     
-    CGRect frame = self.view.bounds;
-    _webView = [[UIWebView alloc] initWithFrame:frame];
+    _webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _webView.backgroundColor = [UIColor clearColor];
     _webView.delegate = self;
