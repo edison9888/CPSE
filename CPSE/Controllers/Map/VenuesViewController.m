@@ -32,7 +32,7 @@
     VenueCellView *cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, (w-gap)/2, h) title:@"1号馆" subtitle:@"国际馆"];
     cell.backgroundColor = [UIColor colorWithHex:0x57b0ba];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType1];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"2013CPSE安博会展位图（1号馆）.jpg"];
         vc.title = @"1号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -41,7 +41,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-gap)/2, h) title:@"6号馆" subtitle:@"国际馆"];
     cell.backgroundColor = [UIColor colorWithHex:0x57b0ba];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType6];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"2013CPSE安博会展位图（6号馆）.jpg"];
         vc.title = @"6号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -54,7 +54,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, w-(w-2*gap)/3-gap, h) title:@"2号馆" subtitle:@"楼宇对讲 防盗报警"];
     cell.backgroundColor = [UIColor colorWithHex:0x5fb47b];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType2];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"2013CPSE安博会展位图（2号）.jpg"];
         vc.title = @"2号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -63,7 +63,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"3、4号场馆" subtitle:@"一卡通"];
     cell.backgroundColor = [UIColor colorWithHex:0xb4ad5f];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType3and4];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"3,4号馆展位图.jpg"];
         vc.title = @"3、4号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -75,7 +75,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, (w-2*gap)/3, h) title:@"5号馆" subtitle:@"视频监控"];
     cell.backgroundColor = [UIColor colorWithHex:0xc08559];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType5];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"2013CPSE安博会展位图(5号).jpg"];
         vc.title = @"5号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -84,7 +84,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"7、8号馆" subtitle:@"视频监控"];
     cell.backgroundColor = [UIColor colorWithHex:0xc08559];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType7and8];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"7,8号馆展位图.jpg"];
         vc.title = @"7、8号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -93,7 +93,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-2*gap)/3, h) title:@"9号馆" subtitle:@"视频监控"];
     cell.backgroundColor = [UIColor colorWithHex:0xc08559];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType9];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"2013CPSE安博会展位图（9号馆).jpg"];
         vc.title = @"9号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -105,7 +105,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(gap, topOffset, (w-3*gap)/4, .67 * h) title:@"二楼\n平台" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueTypeGroundOn2ndFloor];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@""];
         vc.title = @"二楼 平台";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -114,7 +114,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-3*gap)/4, .67 * h) title:@"二楼\n5号馆" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType5On2ndFloor];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"Hall5二层平台.jpg"];
         vc.title = @"二楼 5号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -123,7 +123,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-3*gap)/4, .67 * h) title:@"二楼\n6号管" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType6On2ndFloor];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"6号馆平台.jpg"];
         vc.title = @"二楼 6号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -132,7 +132,7 @@
     cell = [[VenueCellView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(cell.frame)+gap, topOffset, (w-3*gap)/4, .67 * h) title:@"北广场\n11号管" subtitle:@""];
     cell.backgroundColor = [UIColor colorWithHex:0x967bbe];
     cell.tapHandler = ^{
-        MapViewController *vc = [[MapViewController alloc] initWithVenueType:VenueType6On2ndFloor];
+        MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"CPSE安博会11号馆展位图.jpg"];
         vc.title = @"北广场 11号馆";
         [self.navigationController pushViewController:vc animated:YES];
     };
@@ -158,7 +158,7 @@
 }
 
 - (void)viewWholeMap {
-    MapViewController *vc = [[MapViewController alloc] init];
+    MapViewController *vc = [[MapViewController alloc] initWithMapFile:@"2013CPSE二楼通道展位图.jpg"];
     vc.title = @"展馆全图";
     [self.navigationController pushViewController:vc animated:YES];
 }

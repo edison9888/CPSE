@@ -10,6 +10,6 @@
 
 @interface MapViewController : BaseChannelViewController
 
-- (id)initWithVenueType:(VenueType)venueType;
+- (id)initWithMapFile:(NSString *)imageFile;
 
 @end

@@ -14,22 +14,20 @@
 @interface MapViewController () <PZPhotoViewDelegate>
 {
     PZPhotoView *_scrollView;
-    UIImage *_image;
-    VenueType _venueType;
+    NSString *_imageFile;
 }
 @end
 
 @implementation MapViewController
 
-- (id)initWithVenueType:(VenueType)venueType {
+- (id)initWithMapFile:(NSString *)imageFile {
     if (self = [super init]) {
-        _venueType = venueType;
+        _imageFile = imageFile;
     }
     return self;
 }
 
 - (void)dealloc {
-    _image = nil;
     _scrollView = nil;
 }
 
@@ -48,59 +46,14 @@
     self.navigationItem.rightBarButtonItem = nil;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [_scrollView startWaiting];
-    if (_image == nil) {
-        _image = [UIImage imageNamed:@"map.jpg"];
-    }
-    
+
+    __block UIImage *image = [UIImage imageNamed:_imageFile];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [_scrollView stopWaiting];
-        [_scrollView displayImage:_image];
-        
-        if (_venueType != VenueTypeNone) {
-            CGFloat scale = _scrollView.minimumZoomScale;
-            CGPoint center = CGPointZero;
-            switch (_venueType) {
-                case VenueType1:
-                    scale = .25;
-                    center = CGPointMake(1835, 1385);
-                    break;
-                case VenueType6:
-                    scale = .65;
-                    center = CGPointMake(2320, 796);
-                    break;
-                case VenueType2:
-                    scale = .4;
-                    center = CGPointMake(710, 1900);
-                    break;
-                case VenueType3and4:
-                    scale = .4;
-                    center = CGPointMake(710, 600);
-                    break;
-                case VenueType5:
-                    scale = .85;
-                    center = CGPointMake(1374, 790);
-                    break;
-                case VenueType7and8:
-                    scale = .45;
-                    center = CGPointMake(2943, 706);
-                    break;
-                case VenueType9:
-                    scale = .45;
-                    center = CGPointMake(2943, 1405);
-                    break;
-                case VenueTypeGroundOn2ndFloor:
-                case VenueType5On2ndFloor:
-                case VenueType6On2ndFloor:
-                default:
-                    break;
-            }
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [_scrollView updateZoomScale:scale withCenter:center];
-            });
-        }
+        [_scrollView displayImage:image];
     });
 }
 
