@@ -63,6 +63,8 @@
 		C201388017A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */; };
 		C201388317A37BE0009CEA7F /* MHTabBarActiveBgPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */; };
 		C201388417A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */; };
+		C202236E17BDDCBF005A19A9 /* cell-banner-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C202236C17BDDCBF005A19A9 /* cell-banner-placeholder.png */; };
+		C202236F17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C202236D17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png */; };
 		C206C4CC17A9FAB400853B59 /* CustomIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C206C4CB17A9FAB400853B59 /* CustomIconButton.m */; };
 		C209316A1790F71100F91BB5 /* bg-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931621790F71100F91BB5 /* bg-pattern.png */; };
 		C209316B1790F71100F91BB5 /* bg-pattern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C20931631790F71100F91BB5 /* bg-pattern@2x.png */; };
@@ -99,6 +101,8 @@
 		C266037717BC80BD00B14AE8 /* 7,8号馆展位图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036C17BC80BD00B14AE8 /* 7,8号馆展位图.jpg */; };
 		C266037817BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036D17BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg */; };
 		C266037917BC80BD00B14AE8 /* Hall5二层平台.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */; };
+		C266037D17BCC88500B14AE8 /* ConsultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C266037C17BCC88500B14AE8 /* ConsultListViewController.m */; };
+		C266038017BCC8CE00B14AE8 /* MyConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */; };
 		C26F0A6517B3699800ABEC46 /* exhibitors-areas-range.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6317B3699800ABEC46 /* exhibitors-areas-range.png */; };
 		C26F0A6617B3699800ABEC46 /* exhibitors-areas-range@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6417B3699800ABEC46 /* exhibitors-areas-range@2x.png */; };
 		C26F0A6817B36CAA00ABEC46 /* weichat-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */; };
@@ -474,6 +478,8 @@
 		C201387E17A37B46009CEA7F /* MHTabBarContainerBgPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarContainerBgPattern@2x.png"; sourceTree = "<group>"; };
 		C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarActiveBgPattern.png; sourceTree = "<group>"; };
 		C201388217A37BE0009CEA7F /* MHTabBarActiveBgPattern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarActiveBgPattern@2x.png"; sourceTree = "<group>"; };
+		C202236C17BDDCBF005A19A9 /* cell-banner-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-banner-placeholder.png"; sourceTree = "<group>"; };
+		C202236D17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-banner-placeholder@2x.png"; sourceTree = "<group>"; };
 		C206C4CA17A9FAB400853B59 /* CustomIconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIconButton.h; sourceTree = "<group>"; };
 		C206C4CB17A9FAB400853B59 /* CustomIconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIconButton.m; sourceTree = "<group>"; };
 		C20931621790F71100F91BB5 /* bg-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-pattern.png"; sourceTree = "<group>"; };
@@ -524,6 +530,10 @@
 		C266036C17BC80BD00B14AE8 /* 7,8号馆展位图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7,8号馆展位图.jpg"; sourceTree = "<group>"; };
 		C266036D17BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "CPSE安博会11号馆展位图.jpg"; sourceTree = "<group>"; };
 		C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Hall5二层平台.jpg"; sourceTree = "<group>"; };
+		C266037B17BCC88500B14AE8 /* ConsultListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultListViewController.h; sourceTree = "<group>"; };
+		C266037C17BCC88500B14AE8 /* ConsultListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultListViewController.m; sourceTree = "<group>"; };
+		C266037E17BCC8CE00B14AE8 /* MyConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConsultViewController.h; sourceTree = "<group>"; };
+		C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConsultViewController.m; sourceTree = "<group>"; };
 		C26F0A6317B3699800ABEC46 /* exhibitors-areas-range.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exhibitors-areas-range.png"; sourceTree = "<group>"; };
 		C26F0A6417B3699800ABEC46 /* exhibitors-areas-range@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exhibitors-areas-range@2x.png"; sourceTree = "<group>"; };
 		C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weichat-icon.png"; sourceTree = "<group>"; };
@@ -1210,6 +1220,7 @@
 			children = (
 				C2D76DB617A93ABD0013D089 /* Account */,
 				C2D5153B17A517BE00119089 /* Calendar */,
+				C266037A17BCC4F300B14AE8 /* Consult */,
 				C201386917A372D1009CEA7F /* Exhibitors */,
 				C2BD02A817AF462000429EED /* Intro */,
 				C2BD02BF17AF733D00429EED /* Map */,
@@ -1439,6 +1450,8 @@
 				C27F9778179250CD00E79A78 /* button-icon-picture@2x.png */,
 				C27F9779179250CD00E79A78 /* button-icon-subscribe.png */,
 				C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */,
+				C202236C17BDDCBF005A19A9 /* cell-banner-placeholder.png */,
+				C202236D17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png */,
 				C2D5153017A4F49300119089 /* cell-image-placeholder.png */,
 				C2D5153117A4F49300119089 /* cell-image-placeholder@2x.png */,
 				C2D76DC617A94BAB0013D089 /* check-button-checked.png */,
@@ -1491,6 +1504,17 @@
 				C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */,
 			);
 			path = "2013安博会展位图";
+			sourceTree = "<group>";
+		};
+		C266037A17BCC4F300B14AE8 /* Consult */ = {
+			isa = PBXGroup;
+			children = (
+				C266037B17BCC88500B14AE8 /* ConsultListViewController.h */,
+				C266037C17BCC88500B14AE8 /* ConsultListViewController.m */,
+				C266037E17BCC8CE00B14AE8 /* MyConsultViewController.h */,
+				C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */,
+			);
+			path = Consult;
 			sourceTree = "<group>";
 		};
 		C28FDEBF17AD798900ED05BB /* ZXingObjC_ARC */ = {
@@ -2392,6 +2416,8 @@
 				C266037717BC80BD00B14AE8 /* 7,8号馆展位图.jpg in Resources */,
 				C266037817BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg in Resources */,
 				C266037917BC80BD00B14AE8 /* Hall5二层平台.jpg in Resources */,
+				C202236E17BDDCBF005A19A9 /* cell-banner-placeholder.png in Resources */,
+				C202236F17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2668,6 +2694,8 @@
 				C2D71FAA17B0C3E400D13338 /* MapViewController.m in Sources */,
 				C29A609417B789DE00640943 /* PZPhotoView.m in Sources */,
 				C29A609717B7CF2300640943 /* UINavigationController+BR.m in Sources */,
+				C266037D17BCC88500B14AE8 /* ConsultListViewController.m in Sources */,
+				C266038017BCC8CE00B14AE8 /* MyConsultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

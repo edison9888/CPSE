@@ -17,6 +17,8 @@
 #import "CalendarViewController.h"
 #import "IntroViewController.h"
 #import "VenuesViewController.h"
+#import "MyConsultViewController.h"
+#import "ConsultListViewController.h"
 
 @interface HomeViewController ()
 {
@@ -175,7 +177,7 @@
 }
 
 - (void)tapChannelSubscribe {
-    
+    [self tapRightBarButton];
 }
 
 - (void)tapChannelNotification {
@@ -183,7 +185,15 @@
 }
 
 - (void)tapChannelFaq {
+    MyConsultViewController *vc1 = [[MyConsultViewController alloc] init];
+    ConsultListViewController *vc2 = [[ConsultListViewController alloc] init];
+    vc1.title = @"我的咨询";
+    vc2.title = @"全部咨询";
     
+    BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
+    vc.title = @"咨询";
+    vc.viewControllers = @[vc1, vc2];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelIntro {

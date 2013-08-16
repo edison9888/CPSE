@@ -9,11 +9,17 @@
 #import "NewsListViewController.h"
 #import "NewsInfoViewController.h"
 #import "NewsTableViewCell.h"
+#import "ExhibitorInfoViewController.h"
+
+#define kNewsTypeCPSE @"cpse"
+#define kNewsTypeIndustry @"industry"
 
 @interface NewsListViewController ()
 {
     NSString *_newstype;
-    NSArray *_data;
+    NSMutableArray *_data;
+    NSArray *_adlist;
+    UIView *_loadingView;
 }
 @end
 
@@ -29,15 +35,56 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(70, 0, 44, 44);
+    [_loadingView addSubview:indicator];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.text = @"正在努力加载数据";
+    [_loadingView addSubview:label];
+    [indicator startAnimating];
+    [self.tableView addSubview:_loadingView];
+    
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@", _newstype]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
-                  _data = JSON[@"data"];
-                  [self.tableView reloadData];
+                  _data = [JSON[@"data"] mutableCopy];
+//                  DLog(@"%@", _data);
+                  if (![_newstype isEqualToString:kNewsTypeCPSE] || !isEmpty(_adlist))
+                      [self mergeData];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
               }];
+    
+    // ad
+    if ([_newstype isEqualToString:kNewsTypeCPSE]) {
+        [AFClient getPath:@"api.php?action=adlist&option=newslist"
+               parameters:nil
+                  success:^(AFHTTPRequestOperation *operation, id JSON) {
+                      _adlist = JSON[@"data"];
+                      DLog(@"%@", _adlist);
+                      if (!isEmpty(_data))
+                          [self mergeData];
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      DLog(@"error: %@", [error description]);
+                  }];
+    }
+}
+
+- (void)mergeData {
+    for (int i=0; i<[_adlist count]; i++) {
+        int idx = 3*(i+1)-1;
+        if (idx > [_data count])
+            break;
+        [_data insertObject:_adlist[i] atIndex:idx];
+    }
+    [self.tableView reloadData];
+    
+    [_loadingView removeFromSuperview];
 }
 
 #pragma mark - UITableViewDataSource
@@ -67,11 +114,18 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSDictionary *dict = _data[indexPath.row];
-    NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
-    vc.title = @"新闻内容";
-    [self.navigationController pushViewController:vc animated:YES];
+    NSString *type = dict[@"type"];
+    if ([type isEqualToString:@"html"]) {
+        NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
+        vc.title = @"新闻内容";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"url"] intValue]];
+        vc.title = @"展商信息";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

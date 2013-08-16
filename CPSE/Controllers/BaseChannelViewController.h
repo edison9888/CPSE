@@ -8,4 +8,7 @@
 
 @interface BaseChannelViewController : UIViewController
 
+- (void)tapLeftBarButton;
+- (void)tapRightBarButton;
+
 @end
