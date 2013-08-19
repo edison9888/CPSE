@@ -11,6 +11,7 @@
 @property (readonly) NSUInteger id;
 @property (readonly) NSString *name;
 @property (readonly) NSString *type;
+@property (readonly) NSString *email;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 

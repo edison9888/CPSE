@@ -15,6 +15,7 @@
         _id = [attributes[@"userid"] intValue];
         _name = attributes[@"username"];
         _type = attributes[@"type"];
+        _email = attributes[@"email"];
     }
     return self;
 }

@@ -141,8 +141,10 @@
     
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
     dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-        NSString *q = [NSString stringWithFormat:@"api.php?action=consult&username=%@&content=%@",
-                       DataMgr.currentAccount.name, [_textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSString *q = [NSString stringWithFormat:@"api.php?action=consult&username=%@&email=%@&content=%@",
+                       DataMgr.currentAccount.name,
+                       [DataMgr.currentAccount.email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                       [_textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         [AFClient getPath:q
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
@@ -151,19 +153,32 @@
                           [alert show];
                       }
                       else {
-                          NSDictionary *dict = @{@0: @{@"data":@{
-                                                               @"id": @0,
-                                                               @"user_name": DataMgr.currentAccount.name,
-                                                               @"content": _textView.text,
-                                                               @"add_time": @([[NSDate date] timeIntervalSince1970])
-                                                               }}};
+                          NSDictionary *dict = @{@"data":@{
+                                                         @"id": @0,
+                                                         @"user_name": DataMgr.currentAccount.name,
+                                                         @"content": _textView.text,
+                                                         @"add_time": @([[NSDate date] timeIntervalSince1970])
+                                                         }};
                           ConsultSetModel *consultSet = [[ConsultSetModel alloc] initWithId:0 andAttributes:dict];
+                          CGFloat deltaHeight = [ConsultTableViewCell heightForConsultSet:consultSet];
                           [_consultSets insertObject:consultSet atIndex:0];
                           NSUInteger ii[2] = {0, 0};
                           NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
                           [_tableView beginUpdates];
                           [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                           [_tableView endUpdates];
+                          
+                          // update ui
+                          dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+                              NSUInteger iiTop[2] = {0, 1};
+                              NSIndexPath* indexPathTop = [NSIndexPath indexPathWithIndexes:iiTop length:2];
+                              [_tableView reloadRowsAtIndexPaths:@[indexPathTop] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+                              CGRect frame = _tableView.frame;
+                              frame.size.height += deltaHeight;
+                              _tableView.frame = frame;
+                              _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(frame));
+                          });
                       }
                   }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
