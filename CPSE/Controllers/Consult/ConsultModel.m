@@ -12,7 +12,7 @@
 
 static NSDateFormatter* refFormatter = nil;
 
-- (id)initWithAttributes:(NSDictionary *)attributes isQuestion:(BOOL)isQuestion {
+- (id)initWithAttributes:(NSDictionary *)attributes {
     if (self = [super init]) {
         if (nil == refFormatter) {
             refFormatter = [[NSDateFormatter alloc] init];
@@ -20,12 +20,11 @@ static NSDateFormatter* refFormatter = nil;
             refFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
         }
         
-        _isQeustion = isQuestion;
         _id = [attributes[@"id"] intValue];
         _user = attributes[@"user_name"];
         _content = attributes[@"content"];
         
-        NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:[attributes[@"add_time"] longValue]];
+        NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:[attributes[@"add_time"] intValue]];
         _time = [refFormatter stringFromDate:date];
     }
     return self;

@@ -10,7 +10,10 @@
 
 @interface ConsultSetModel : NSObject
 
-@property (nonatomic, strong) ConsultModel *question;
-@property (nonatomic, strong) NSArray *replies;
+@property (nonatomic, readonly) NSUInteger id;
+@property (nonatomic, readonly) ConsultModel *question;
+@property (nonatomic, readonly) NSArray *replies;
+
+- (id)initWithId:(NSUInteger)id andAttributes:(NSDictionary *)attributes;
 
 @end

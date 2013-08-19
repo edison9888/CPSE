@@ -19,10 +19,9 @@
     UIScrollView *_scrollView;
     UITextView *_textView;
     UITableView *_tableView;
-    
-    NSMutableArray *_questions;
-    NSMutableArray *_questionIndices;
-    NSMutableDictionary *_answers;
+    UIView *_loadingView;
+
+    NSMutableArray *_consultSets;
 }
 @end
 
@@ -77,18 +76,29 @@
     label.frame = CGRectMake(10, topOffset, size.width, size.height);
     topOffset += size.height + 10;
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, topOffset, 320, 0) style:UITableViewStylePlain];
-    _tableView.backgroundColor = [UIColor clearColor];
-    _tableView.backgroundView = nil;
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, topOffset, 320, 44) style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor colorWithHex:0xffffff];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_scrollView addSubview:_tableView];
+    
+    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(70, 0, 44, 44);
+    [_loadingView addSubview:indicator];
+    label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.text = @"正在努力加载数据";
+    [_loadingView addSubview:label];
+    [indicator startAnimating];
+    [_tableView addSubview:_loadingView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [AFClient getPath:@"api.php?action=consultlist"
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
@@ -97,23 +107,15 @@
                       [alert show];
                   }
                   else {
-                      _questions = [NSMutableArray array];
-                      _questionIndices = [NSMutableArray array];
-                      _answers = [NSMutableDictionary dictionary];
+                      _consultSets = [NSMutableArray array];
                       
                       NSDictionary *allFaqs = JSON[@"data"];
-                      int idx = 0;
-                      for (NSDictionary *faq in allFaqs.allValues) {
-                          [_questions addObject:faq[@"data"]];
-                          [_questionIndices addObject:@(idx)];
-                          
-                          NSArray *replies = faq[@"replay"];
-                          if (isEmpty(replies))
-                              replies = @[];
-                          [_answers setObject:replies forKey:faq[@"data"][@"id"]];
-                          idx += 1 + [replies count];
+                      for (NSString *idx in allFaqs.allKeys) {
+                          ConsultSetModel *set = [[ConsultSetModel alloc] initWithId:[idx intValue] andAttributes:allFaqs[idx]];
+                          [_consultSets addObject:set];
                       }
                       [_tableView reloadData];
+                      [_loadingView removeFromSuperview];
                       
                       // update ui
                       CGRect frame = _tableView.frame;
@@ -149,7 +151,19 @@
                           [alert show];
                       }
                       else {
-                          
+                          NSDictionary *dict = @{@0: @{@"data":@{
+                                                               @"id": @0,
+                                                               @"user_name": DataMgr.currentAccount.name,
+                                                               @"content": _textView.text,
+                                                               @"add_time": @([[NSDate date] timeIntervalSince1970])
+                                                               }}};
+                          ConsultSetModel *consultSet = [[ConsultSetModel alloc] initWithId:0 andAttributes:dict];
+                          [_consultSets insertObject:consultSet atIndex:0];
+                          NSUInteger ii[2] = {0, 0};
+                          NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+                          [_tableView beginUpdates];
+                          [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                          [_tableView endUpdates];
                       }
                   }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -183,13 +197,7 @@
 #pragma mark - UITableViewDataSource
 #pragma mark -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int count = 0;
-    for (int i=0; i<[_questions count]; i++) {
-        count++;
-        NSArray *replies = _answers.allValues[i];
-        count += [replies count];
-    }
-    return count;
+    return [_consultSets count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -197,32 +205,19 @@
     ConsultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[ConsultTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textLabel.numberOfLines = 0;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    for (int i=0; i<[_questions count]; i++) {
-        int idx = [_questionIndices[i] intValue];
-        if (idx == indexPath.row) {
-            cell.textLabel.text = [NSString stringWithFormat:@"%d, %@", [[_questions[i] objectForKey:@"id"] intValue], [_questions[i] objectForKey:@"content"]];
-            break;
-        }
-        else if (idx > indexPath.row) {
-            int lastIdx = [_questionIndices[i-1] intValue];
-            int delta = indexPath.row - lastIdx;
-            NSArray *replies = _answers[_questions[i-1][@"id"]];
-            cell.textLabel.text = [NSString stringWithFormat:@"回复：%@", replies[delta-1][@"content"]];
-            break;
-        }
-    }
+    ConsultSetModel *set = _consultSets[indexPath.row];
+    cell.consultSet = set;
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 #pragma mark -
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    ConsultSetModel *set = _consultSets[indexPath.row];
+    return [ConsultTableViewCell heightForConsultSet:set];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
