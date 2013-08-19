@@ -6,6 +6,6 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface MyConsultViewController : UIViewController
+@interface MyConsultViewController : UIViewController <UIScrollViewDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end

@@ -103,6 +103,7 @@
 		C266037917BC80BD00B14AE8 /* Hall5二层平台.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */; };
 		C266037D17BCC88500B14AE8 /* ConsultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C266037C17BCC88500B14AE8 /* ConsultListViewController.m */; };
 		C266038017BCC8CE00B14AE8 /* MyConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */; };
+		C26D534217C0F530009D6F8F /* ConsultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C26D534117C0F530009D6F8F /* ConsultTableViewCell.m */; };
 		C26F0A6517B3699800ABEC46 /* exhibitors-areas-range.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6317B3699800ABEC46 /* exhibitors-areas-range.png */; };
 		C26F0A6617B3699800ABEC46 /* exhibitors-areas-range@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6417B3699800ABEC46 /* exhibitors-areas-range@2x.png */; };
 		C26F0A6817B36CAA00ABEC46 /* weichat-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */; };
@@ -129,6 +130,8 @@
 		C27F978B179250CD00E79A78 /* button-icon-subscribe.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F9779179250CD00E79A78 /* button-icon-subscribe.png */; };
 		C27F978C179250CD00E79A78 /* button-icon-subscribe@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */; };
 		C27F978F17925A8400E79A78 /* ChannelIconButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C27F978E17925A8400E79A78 /* ChannelIconButton.m */; };
+		C28E3CEA17C1AED400AD6D50 /* ConsultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E3CE917C1AED400AD6D50 /* ConsultModel.m */; };
+		C28E3CED17C1B18600AD6D50 /* ConsultSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C28E3CEC17C1B18600AD6D50 /* ConsultSetModel.m */; };
 		C28FE08017AD798900ED05BB /* ZXAztecDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C28FDEC317AD798900ED05BB /* ZXAztecDecoder.m */; };
 		C28FE08117AD798900ED05BB /* ZXAztecDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C28FDEC617AD798900ED05BB /* ZXAztecDetector.m */; };
 		C28FE08217AD798900ED05BB /* ZXAztecCode.m in Sources */ = {isa = PBXBuildFile; fileRef = C28FDEC917AD798900ED05BB /* ZXAztecCode.m */; };
@@ -534,6 +537,8 @@
 		C266037C17BCC88500B14AE8 /* ConsultListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultListViewController.m; sourceTree = "<group>"; };
 		C266037E17BCC8CE00B14AE8 /* MyConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConsultViewController.h; sourceTree = "<group>"; };
 		C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConsultViewController.m; sourceTree = "<group>"; };
+		C26D534017C0F530009D6F8F /* ConsultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewCell.h; sourceTree = "<group>"; };
+		C26D534117C0F530009D6F8F /* ConsultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewCell.m; sourceTree = "<group>"; };
 		C26F0A6317B3699800ABEC46 /* exhibitors-areas-range.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exhibitors-areas-range.png"; sourceTree = "<group>"; };
 		C26F0A6417B3699800ABEC46 /* exhibitors-areas-range@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exhibitors-areas-range@2x.png"; sourceTree = "<group>"; };
 		C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weichat-icon.png"; sourceTree = "<group>"; };
@@ -563,6 +568,10 @@
 		C27F977A179250CD00E79A78 /* button-icon-subscribe@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-icon-subscribe@2x.png"; sourceTree = "<group>"; };
 		C27F978D17925A8400E79A78 /* ChannelIconButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelIconButton.h; sourceTree = "<group>"; };
 		C27F978E17925A8400E79A78 /* ChannelIconButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelIconButton.m; sourceTree = "<group>"; };
+		C28E3CE817C1AED400AD6D50 /* ConsultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultModel.h; sourceTree = "<group>"; };
+		C28E3CE917C1AED400AD6D50 /* ConsultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultModel.m; sourceTree = "<group>"; };
+		C28E3CEB17C1B18600AD6D50 /* ConsultSetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultSetModel.h; sourceTree = "<group>"; };
+		C28E3CEC17C1B18600AD6D50 /* ConsultSetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultSetModel.m; sourceTree = "<group>"; };
 		C28FDEC217AD798900ED05BB /* ZXAztecDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXAztecDecoder.h; sourceTree = "<group>"; };
 		C28FDEC317AD798900ED05BB /* ZXAztecDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXAztecDecoder.m; sourceTree = "<group>"; };
 		C28FDEC517AD798900ED05BB /* ZXAztecDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXAztecDetector.h; sourceTree = "<group>"; };
@@ -1511,6 +1520,12 @@
 			children = (
 				C266037B17BCC88500B14AE8 /* ConsultListViewController.h */,
 				C266037C17BCC88500B14AE8 /* ConsultListViewController.m */,
+				C28E3CE817C1AED400AD6D50 /* ConsultModel.h */,
+				C28E3CE917C1AED400AD6D50 /* ConsultModel.m */,
+				C28E3CEB17C1B18600AD6D50 /* ConsultSetModel.h */,
+				C28E3CEC17C1B18600AD6D50 /* ConsultSetModel.m */,
+				C26D534017C0F530009D6F8F /* ConsultTableViewCell.h */,
+				C26D534117C0F530009D6F8F /* ConsultTableViewCell.m */,
 				C266037E17BCC8CE00B14AE8 /* MyConsultViewController.h */,
 				C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */,
 			);
@@ -2696,6 +2711,9 @@
 				C29A609717B7CF2300640943 /* UINavigationController+BR.m in Sources */,
 				C266037D17BCC88500B14AE8 /* ConsultListViewController.m in Sources */,
 				C266038017BCC8CE00B14AE8 /* MyConsultViewController.m in Sources */,
+				C26D534217C0F530009D6F8F /* ConsultTableViewCell.m in Sources */,
+				C28E3CEA17C1AED400AD6D50 /* ConsultModel.m in Sources */,
+				C28E3CED17C1B18600AD6D50 /* ConsultSetModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

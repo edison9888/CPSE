@@ -19,6 +19,7 @@
 #import "VenuesViewController.h"
 #import "MyConsultViewController.h"
 #import "ConsultListViewController.h"
+#import "LoginViewController.h"
 
 @interface HomeViewController ()
 {
@@ -185,6 +186,13 @@
 }
 
 - (void)tapChannelFaq {
+    if (DataMgr.currentAccount == nil) {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        vc.title = @"用户登录";
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
     MyConsultViewController *vc1 = [[MyConsultViewController alloc] init];
     ConsultListViewController *vc2 = [[ConsultListViewController alloc] init];
     vc1.title = @"我的咨询";
