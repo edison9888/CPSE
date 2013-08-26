@@ -48,20 +48,34 @@
     [self.view addSubview:_pageControl];
 }
 
-- (void)setImages:(NSArray *)urls {
-    for (int i=0; i<[urls count]; i++) {
+- (void)setDataSource:(NSArray *)dataSource {
+    _dataSource = dataSource;
+    for (int i=0; i<[dataSource count]; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(320*i, 0, 320, kBannerHeight)];
         imageView.contentMode = UIViewContentModeScaleToFill;
         imageView.userInteractionEnabled = YES;
-        [imageView setImageWithURL:[NSURL URLWithString:urls[i]]];
+        
+        AdUriModel *adUri = dataSource[i];
+        [imageView setImageWithURL:[NSURL URLWithString:adUri.imageUrl]];
         [_scrollView addSubview:imageView];
+        
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnBanner)];
+        [imageView addGestureRecognizer:gesture];
     }
-    _scrollView.contentSize = CGSizeMake(320*[urls count], kBannerHeight);
-    _pageControl.numberOfPages = [urls count];
+    _scrollView.contentSize = CGSizeMake(320*[dataSource count], kBannerHeight);
+    _pageControl.numberOfPages = [dataSource count];
     [_loadingView removeFromSuperview];
 }
 
+- (void)tapOnBanner {
+    if ([self.delegate respondsToSelector:@selector(clickWithAdUri:)]) {
+        AdUriModel *adUrl = _dataSource[_pageControl.currentPage];
+        [self.delegate clickWithAdUri:adUrl];
+    }
+}
+
 #pragma mark - UIScrollViewDelegate
+#pragma mark -
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     // Switch the indicator when more than 50% of the previous/next page is visible
     CGFloat pageWidth = _scrollView.frame.size.width;
