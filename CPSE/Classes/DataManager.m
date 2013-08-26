@@ -27,7 +27,7 @@
 }
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password popViewController:(UIViewController *)viewController {
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", username, password]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", [DataManager encodeUrl:username], [DataManager encodeUrl:password]]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   if ([JSON[@"errno"] boolValue]) {
@@ -70,6 +70,18 @@
     s = [s stringByStrippingHTML];
     s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return s;
+}
+
++ (NSString *)encodeUrl:(NSString *)url {
+    if (url == nil) {
+        return @"";
+    }
+    return  (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                                    (__bridge CFStringRef) url,
+                                                                                                    NULL,
+                                                                                                    CFSTR("!*'();:@&=+$,/?%#[]"),
+                                                                                                    kCFStringEncodingUTF8));
+
 }
 
 @end
