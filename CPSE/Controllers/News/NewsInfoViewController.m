@@ -342,16 +342,8 @@
     
     // post comment
     // this is GET request, so request must encode text in url.
-    NSString* encodeedTitle = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                                    (__bridge CFStringRef) _data[@"title"],
-                                                                                                    NULL,
-                                                                                                    CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                                                    kCFStringEncodingUTF8));
-    NSString* encodeedContent = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                                      (__bridge CFStringRef) _commentContentTextView.text,
-                                                                                                      NULL,
-                                                                                                      CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                                                      kCFStringEncodingUTF8));
+    NSString* encodeedTitle = [DataManager encodeUrl:_data[@"title"]];
+    NSString* encodeedContent = [DataManager encodeUrl:_commentContentTextView.text];
     
     NSString *url = [NSString stringWithFormat:@"api.php?action=comments&content=%@&contentid=%d&title=%@&userid=%d&user_name=%@", encodeedContent, _id, encodeedTitle, DataMgr.currentAccount.id, DataMgr.currentAccount.name];
     DLog(@"url=%@", url);

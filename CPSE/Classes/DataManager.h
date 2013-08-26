@@ -18,4 +18,5 @@
 
 - (NSString *)parseText:(NSString *)s;
 
++ (NSString *)encodeUrl:(NSString *)url;
 @end
