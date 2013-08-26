@@ -83,6 +83,7 @@
 		C221340017A77CAB006622F2 /* icon-share.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FE17A77CAB006622F2 /* icon-share.png */; };
 		C221340117A77CAB006622F2 /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FF17A77CAB006622F2 /* icon-share@2x.png */; };
 		C23C7E0117CB5C1C00996983 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E0017CB5C1C00996983 /* WebViewController.m */; };
+		C23C7E0417CB8FC300996983 /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E0317CB8FC300996983 /* EventModel.m */; };
 		C247032517AA049E007C99E1 /* red-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C247032317AA049E007C99E1 /* red-button-bg.png */; };
 		C247032617AA049E007C99E1 /* red-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C247032417AA049E007C99E1 /* red-button-bg@2x.png */; };
 		C25CC6C9178A979A0055E82A /* NetWorkReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6C7178A979A0055E82A /* NetWorkReachability.m */; };
@@ -508,6 +509,8 @@
 		C22133FF17A77CAB006622F2 /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
 		C23C7DFF17CB5C1C00996983 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		C23C7E0017CB5C1C00996983 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		C23C7E0217CB8FC300996983 /* EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventModel.h; sourceTree = "<group>"; };
+		C23C7E0317CB8FC300996983 /* EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventModel.m; sourceTree = "<group>"; };
 		C247032317AA049E007C99E1 /* red-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button-bg.png"; sourceTree = "<group>"; };
 		C247032417AA049E007C99E1 /* red-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button-bg@2x.png"; sourceTree = "<group>"; };
 		C25CC6C4178A979A0055E82A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -1261,6 +1264,8 @@
 				C2D76DC417A944F40013D089 /* Account.m */,
 				C209E10717CB52C00068CE8B /* AdUriModel.h */,
 				C209E10817CB52C00068CE8B /* AdUriModel.m */,
+				C23C7E0217CB8FC300996983 /* EventModel.h */,
+				C23C7E0317CB8FC300996983 /* EventModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2726,6 +2731,7 @@
 				C28E3CED17C1B18600AD6D50 /* ConsultSetModel.m in Sources */,
 				C209E10917CB52C00068CE8B /* AdUriModel.m in Sources */,
 				C23C7E0117CB5C1C00996983 /* WebViewController.m in Sources */,
+				C23C7E0417CB8FC300996983 /* EventModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

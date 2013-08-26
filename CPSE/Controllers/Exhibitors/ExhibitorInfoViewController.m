@@ -103,7 +103,9 @@
     
     NSMutableString *info = [NSMutableString string];
     [info appendFormat:@"企业名称：%@\n", _data[@"name"]];
-    [info appendString:@"展位号：\n"];
+    [info appendFormat:@"展品信息：%@\n", isEmpty(_data[@"main_exhibit"]) ? @"" : _data[@"main_exhibit"]];
+    [info appendFormat:@"参展范围：%@\n", isEmpty(_data[@"exhibits_area"]) ? @"" : _data[@"exhibits_area"]];
+    [info appendFormat:@"展位号：%@\n", isEmpty(_data[@"exhibitions"]) ? @"" : _data[@"exhibitions"]];
     [info appendFormat:@"E-mail：%@\n", _data[@"email"]];
     [info appendFormat:@"联系地址：\n%@\n", _data[@"link_address"]];
 
