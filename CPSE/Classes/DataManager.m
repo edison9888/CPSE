@@ -58,6 +58,14 @@
                                           range:NSMakeRange(0, [s length])
                                    withTemplate:@"$2\n"];
     
+    // replace <span/>
+    regex = [NSRegularExpression regularExpressionWithPattern:@"<span(.*?)>(.*?)<\\/span>"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    s = [regex stringByReplacingMatchesInString:s
+                                        options:0
+                                          range:NSMakeRange(0, [s length])
+                                   withTemplate:@"$2"];
     // replace <br>, <br/>
     regex = [NSRegularExpression regularExpressionWithPattern:@"<br\\s*\\/?>"
                                                       options:NSRegularExpressionCaseInsensitive
@@ -69,6 +77,38 @@
     
     s = [s stringByStrippingHTML];
     s = [s stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return s;
+}
+
+- (NSString *)normalizeHtml:(NSString *)s {
+    // replace <p></p>
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<p(.*?)>(.*?)<\\/p>"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    s = [regex stringByReplacingMatchesInString:s
+                                        options:0
+                                          range:NSMakeRange(0, [s length])
+                                   withTemplate:@"$2<br/>"];
+    
+    // replace inline style
+    regex = [NSRegularExpression regularExpressionWithPattern:@"(font-size:[^;]*;)"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    s = [regex stringByReplacingMatchesInString:s
+                                        options:0
+                                          range:NSMakeRange(0, [s length])
+                                   withTemplate:@""];
+    
+    // replace <div/>
+    regex = [NSRegularExpression regularExpressionWithPattern:@"<div(.*?)>(.*?)<\\/div>"
+                                                      options:NSRegularExpressionCaseInsensitive
+                                                        error:nil];
+    s = [regex stringByReplacingMatchesInString:s
+                                        options:0
+                                          range:NSMakeRange(0, [s length])
+                                   withTemplate:@"$2<br/>"];
+
+    DLog(@"html=%@", s);
     return s;
 }
 

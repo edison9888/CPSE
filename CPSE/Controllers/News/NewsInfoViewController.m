@@ -17,6 +17,8 @@
 
 @interface NewsInfoViewController ()
 {
+    UIView *_loadingView;
+    
     NSUInteger _id;
     NSDictionary *_data;
     NSMutableArray *_comments;
@@ -55,9 +57,9 @@
     
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.backgroundColor = [UIColor clearColor];
-    _titleLabel.font = [UIFont systemFontOfSize:15];
+    _titleLabel.font = [UIFont systemFontOfSize:18];
     _titleLabel.numberOfLines = 0;
-    _titleLabel.textColor = [UIColor colorWithHex:0x666666];
+    _titleLabel.textColor = [UIColor colorWithHex:0x333333];
     [_scrollView addSubview:_titleLabel];
     
     _imageView = [[UIImageView alloc] init];
@@ -136,8 +138,8 @@
     [toolBar sizeToFit];
     toolBar.barStyle = UIBarStyleBlackTranslucent;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"")
-                                                                   style:UIBarButtonItemStyleBordered target:self
-                                                                  action:@selector(handleActionBarCancel:)];
+                                                                     style:UIBarButtonItemStyleBordered target:self
+                                                                    action:@selector(handleActionBarCancel:)];
     
     UIBarButtonItem *postButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"发表评论", @"")
                                                                    style:UIBarButtonItemStyleDone target:self
@@ -153,19 +155,31 @@
     [super viewWillAppear:animated];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(70, 0, 44, 44);
+    [_loadingView addSubview:indicator];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.text = @"正在努力加载数据";
+    [_loadingView addSubview:label];
+    [indicator startAnimating];
+    [self.view addSubview:_loadingView];
     
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&id=%d", _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  [_loadingView removeFromSuperview];
+                  
                   _data = [JSON[@"data"] objectForKey:[NSString stringWithFormat:@"%d", _id]];
                   [self populateInterface];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [_loadingView removeFromSuperview];
                   DLog(@"error: %@", [error description]);
               }];
     
@@ -185,6 +199,13 @@
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
               }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -211,8 +232,8 @@
     //do base url for css
 	NSString *path = [[NSBundle mainBundle] bundlePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:path];
-	NSString *html =[NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\"  href=\"%@\" type=\"text/css\"/></head><body>%@</body></html>",
-                     cssPath , _data[@"content"]];
+    NSString *html = [DataMgr normalizeHtml:_data[@"content"]];
+	html =[NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\"  href=\"%@\" type=\"text/css\"/></head><body>%@</body></html>", cssPath, html];
     [_webView loadHTMLString:html baseURL:baseURL];
 }
 

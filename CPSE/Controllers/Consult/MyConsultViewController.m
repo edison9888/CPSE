@@ -99,7 +99,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [AFClient getPath:@"api.php?action=consultlist"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=consultlist&username=%@", DataMgr.currentAccount.name]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   if ([JSON[@"errno"] boolValue]) {
