@@ -7,8 +7,9 @@
 //
 
 #import "BaseChannelViewController.h"
+#import "BannerViewController.h"
 
-@interface HomeViewController : BaseChannelViewController
+@interface HomeViewController : BaseChannelViewController <BannerViewControllerDelegate>
 
 + (HomeViewController *)sharedHome;
 

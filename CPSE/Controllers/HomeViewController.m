@@ -8,7 +8,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "HomeViewController.h"
-#import "BannerViewController.h"
 #import "UIColor+BR.h"
 #import "UIView+JMNoise.h"
 #import "ChannelIconButton.h"
@@ -20,6 +19,8 @@
 #import "MyConsultViewController.h"
 #import "ConsultListViewController.h"
 #import "LoginViewController.h"
+#import "ExhibitorInfoViewController.h"
+#import "WebViewController.h"
 
 @interface HomeViewController ()
 {
@@ -44,6 +45,7 @@
     [self.view applyNoiseWithOpacity:.05];
     
     _banner = [[BannerViewController alloc] init];
+    _banner.delegate = self;
     [self.view addSubview:_banner.view];
     
     CGRect rect = [UIScreen mainScreen].applicationFrame;
@@ -114,12 +116,13 @@
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   NSArray *data = [JSON valueForKeyPath:@"data"];
-                  NSMutableArray *imageArray = [NSMutableArray array];
+                  NSMutableArray *array = [NSMutableArray array];
                   [data enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
                       DLog(@"image=%@, url=%@", obj[@"img"], obj[@"url"]);
-                      [imageArray addObject:obj[@"img"]];
+                      AdUriModel *adUri = [[AdUriModel alloc] initWithAttributes:obj];
+                      [array addObject:adUri];
                   }];
-                  [_banner setImages:imageArray];
+                  _banner.dataSource = array;
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
@@ -146,7 +149,22 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAccountChangeNotification object:DataMgr];
 }
 
+#pragma mark - BannerViewControllerDelegate
+#pragma mark -
+- (void)clickWithAdUri:(AdUriModel *)adUri {
+    if (adUri.uriType == AdUriTypeExhibitorUrl) {
+        WebViewController *vc = [[WebViewController alloc] initWithUrl:adUri.linkUrl];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (adUri.uriType == AdUriTypeExhibitorId) {
+        ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[adUri.linkId intValue]];
+        vc.title = @"展商信息";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 #pragma mark - channel actions
+#pragma mark -
 - (void)tapChannelNews {
     NewsListViewController *vc1 = [[NewsListViewController alloc] initWithType:@"cpse"];
     NewsListViewController *vc2 = [[NewsListViewController alloc] initWithType:@"industry"];

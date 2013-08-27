@@ -8,9 +8,13 @@
 
 #import "CalendarViewController.h"
 #import "EventListViewController.h"
+#import "EventModel.h"
 
 @interface CalendarViewController ()
-
+{
+    UIView *_loadingView;
+    NSMutableArray *_eventList;
+}
 @end
 
 @implementation CalendarViewController
@@ -32,6 +36,40 @@
         self.viewControllers = @[vc1, vc2, vc3, vc4, vc5];
     }
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(70, 0, 44, 44);
+    [_loadingView addSubview:indicator];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.text = @"正在努力加载数据";
+    [_loadingView addSubview:label];
+    [indicator startAnimating];
+    [self.view addSubview:_loadingView];
+    
+    [AFClient getPath:@"api.php?action=eventlist"
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  _eventList = [NSMutableArray array];
+                  NSArray *array = [JSON valueForKeyPath:@"data"];
+                  [array enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+                      EventModel *event = [[EventModel alloc] initWithAttributes:obj];
+                      [_eventList addObject:event];
+                  }];
+                  
+                  
+                  // update ui
+                  [_loadingView removeFromSuperview];
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DLog(@"error: %@", [error description]);
+              }];
 }
 
 @end

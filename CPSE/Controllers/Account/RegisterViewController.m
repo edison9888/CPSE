@@ -243,6 +243,8 @@
                   }
                   else {
                       DLog(@"reg response: %@", JSON[@"data"]);
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你已注册成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                      [alert show];
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
                       [self.navigationController popViewControllerAnimated:YES];
                   }

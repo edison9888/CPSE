@@ -11,3 +11,8 @@ typedef NS_ENUM(NSUInteger, VenueType){
     VenueType5On2ndFloor        = 9,
     VenueType6On2ndFloor        = 10
 };
+
+typedef NS_ENUM(NSUInteger, AdUriType){
+    AdUriTypeExhibitorId        = 0,
+    AdUriTypeExhibitorUrl       = 1
+};
