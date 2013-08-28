@@ -2,20 +2,24 @@
 
 class IOSPushService {
 	private $passphrase;
+	private $pushServerUrl;
+	private $certKeyFile;
 
 	function __construct($_passphrease)
 	{
 		$this->passphrase = $_passphrease;
+		$this->pushServerUrl = 'ssl://gateway.sandbox.push.apple.com:2195';
+		$this->certKeyFile = 'ck_development.pem';
 	}
 
     public function pushNotice($deviceToken,$message){
 		$ctx = stream_context_create();
-		stream_context_set_option($ctx, 'ssl', 'local_cert', 'ck.pem');
+		stream_context_set_option($ctx, 'ssl', 'local_cert', $this->certKeyFile);
 		stream_context_set_option($ctx, 'ssl', 'passphrase', $this->passphrase);
 
 		// Open a connection to the APNS server
 		$fp = stream_socket_client(
-			'ssl://gateway.sandbox.push.apple.com:2195', $err,
+			$this->pushServerUrl, $err,
 			$errstr, 60, STREAM_CLIENT_CONNECT|STREAM_CLIENT_PERSISTENT, $ctx);
 
 		if (!$fp)
