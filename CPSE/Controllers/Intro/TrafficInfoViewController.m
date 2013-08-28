@@ -24,8 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(22.53478550, 114.06105740);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1800, 1800);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(22.53308, 114.05856);
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coordinate, 1200, 1200);
     [_mapView setRegion:region animated:YES];
 }
 
