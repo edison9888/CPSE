@@ -240,12 +240,15 @@
 }
 
 - (void)shareAction {
-    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeOther;
+    [UMSocialData defaultData].shareImage = [_webView imageFromSelf];
+    [UMSocialData defaultData].extConfig.title = _titleLabel.text;
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+    
     [UMSocialSnsService presentSnsIconSheetView:self.parentViewController
                                          appKey:kUMengAppKey
                                       shareText:_titleLabel.text
                                      shareImage:[_webView imageFromSelf]
-                                shareToSnsNames:@[UMShareToSina, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
+                                shareToSnsNames:@[UMShareToSina, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToEmail, UMShareToSms]
                                        delegate:nil];
 }
 
