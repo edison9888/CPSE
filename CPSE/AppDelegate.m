@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "MobClick.h"
 #import "UMSocial.h"
+#import "WXApi.h"
 
 @implementation AppDelegate
 
@@ -17,6 +18,7 @@
 {
     [MobClick startWithAppkey:kUMengAppKey];
     [UMSocialData setAppKey:kUMengAppKey];
+    [WXApi registerApp:@"wx93998aae889ae36b"];
     
     [self setupUserDefaults];
     

@@ -9,8 +9,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NewsInfoViewController.h"
 #import "UIColor+BR.h"
+#import "UIView+BR.h"
 #import "CommentTableViewCell.h"
 #import "LoginViewController.h"
+#import "UMSocial.h"
 
 #define kCellSeparatorLineTag 1
 #define kCommentEditorViewHeight 120.0
@@ -238,10 +240,17 @@
 }
 
 - (void)shareAction {
-    
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeOther;
+    [UMSocialSnsService presentSnsIconSheetView:self.parentViewController
+                                         appKey:kUMengAppKey
+                                      shareText:_titleLabel.text
+                                     shareImage:[_webView imageFromSelf]
+                                shareToSnsNames:@[UMShareToSina, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline]
+                                       delegate:nil];
 }
 
 #pragma mark - UIWebViewDelegate
+#pragma mark -
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     CGRect frame = webView.frame;
     CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
@@ -267,6 +276,7 @@
 }
 
 #pragma mark - UITableViewDataSource
+#pragma mark -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -320,6 +330,7 @@
 
 
 #pragma mark - UITableViewDelegate
+#pragma mark -
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = _comments[indexPath.row];
     NSString *content = [NSString stringWithFormat:@"%@： %@", dict[@"username"], [DataMgr parseText:dict[@"content"]]];
@@ -331,6 +342,7 @@
 }
 
 #pragma mark - post comments
+#pragma mark -
 - (void)commentAction {
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
