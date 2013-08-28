@@ -13,7 +13,7 @@
 - (id)initWithId:(NSUInteger)id andAttributes:(NSDictionary *)attributes {
     if (self = [super init]) {
         _id = id;
-        _question = [[ConsultModel alloc] initWithAttributes:attributes[@"data"]];
+        _question = [[ConsultModel alloc] initWithAttributes:attributes];
         
         NSMutableArray *array = [NSMutableArray array];
         NSArray *replies = attributes[@"replay"];

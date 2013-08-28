@@ -99,7 +99,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [AFClient getPath:@"api.php?action=consultlist"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=consultlist&username=%@", DataMgr.currentAccount.name]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   if ([JSON[@"errno"] boolValue]) {
@@ -109,9 +109,9 @@
                   else {
                       _consultSets = [NSMutableArray array];
                       
-                      NSDictionary *allFaqs = JSON[@"data"];
-                      for (NSString *idx in allFaqs.allKeys) {
-                          ConsultSetModel *set = [[ConsultSetModel alloc] initWithId:[idx intValue] andAttributes:allFaqs[idx]];
+                      NSArray *allFaqs = JSON[@"data"];
+                      for (NSDictionary *faq in allFaqs) {
+                          ConsultSetModel *set = [[ConsultSetModel alloc] initWithId:[faq[@"id"] intValue] andAttributes:faq];
                           [_consultSets addObject:set];
                       }
                       [_tableView reloadData];
