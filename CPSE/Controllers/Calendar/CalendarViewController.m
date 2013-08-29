@@ -66,6 +66,9 @@
                   
                   // update ui
                   [_loadingView removeFromSuperview];
+                  
+                  EventListViewController *vc = self.viewControllers[0];
+                  vc.data = _eventList;
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);

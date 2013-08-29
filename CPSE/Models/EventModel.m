@@ -8,7 +8,8 @@
 
 #import "EventModel.h"
 
-static NSDateFormatter* dateFormatter = nil;
+static NSDateFormatter *dateFormatter = nil;
+static NSDateFormatter *timeFormatter = nil;
 
 @implementation EventModel
 
@@ -17,11 +18,16 @@ static NSDateFormatter* dateFormatter = nil;
         if (nil == dateFormatter) {
             dateFormatter = [[NSDateFormatter alloc] init];
             dateFormatter.dateFormat = @"M.d号";
-            dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+            dateFormatter.locale = [NSLocale currentLocale];
+        }
+        if (nil == timeFormatter) {
+            timeFormatter = [[NSDateFormatter alloc] init];
+            timeFormatter.dateFormat = @"hh:mm";
+            timeFormatter.locale = [NSLocale currentLocale];
         }
         
         _id = [attributes[@"id"] intValue];
-        _name = @"";
+        _description = attributes[@"description"];
         _startTime = [[NSDate alloc] initWithTimeIntervalSince1970:[attributes[@"date_time_start"] intValue]];
         _endTime = [[NSDate alloc] initWithTimeIntervalSince1970:[attributes[@"date_time_end"] intValue]];
     }
@@ -30,6 +36,10 @@ static NSDateFormatter* dateFormatter = nil;
 
 - (NSString *)dateExpression {
     return [dateFormatter stringFromDate:_startTime];
+}
+
+- (NSString *)timeExpression {
+    return [NSString stringWithFormat:@"%@", [timeFormatter stringFromDate:_startTime]];
 }
 
 @end

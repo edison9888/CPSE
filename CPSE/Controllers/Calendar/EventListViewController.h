@@ -8,4 +8,6 @@
 
 @interface EventListViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *data;
+
 @end
