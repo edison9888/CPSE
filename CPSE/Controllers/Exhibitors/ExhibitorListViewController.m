@@ -14,6 +14,7 @@
 {
     NSString *_action;
     NSArray *_data;
+    UIView *_loadingView;
 }
 @end
 
@@ -22,6 +23,17 @@
 - (id)initWithAction:(NSString *)action {
     if (self = [super init]) {
         _action = action;
+        
+        _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        indicator.frame = CGRectMake(70, 0, 44, 44);
+        [_loadingView addSubview:indicator];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
+        label.backgroundColor = [UIColor clearColor];
+        label.font = [UIFont systemFontOfSize:16];
+        label.text = @"正在努力加载数据";
+        [_loadingView addSubview:label];
+        [indicator startAnimating];
     }
     return self;
 }
@@ -40,10 +52,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if (!isEmpty(_action))
+        [self.view addSubview:_loadingView];
+    
     if (!isEmpty(_action)) {
         [AFClient getPath:[NSString stringWithFormat:@"api.php?action=%@", _action]
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
+                      [_loadingView removeFromSuperview];
+                      
                       _data = JSON[@"data"];
                       [_table reloadData];
                   }

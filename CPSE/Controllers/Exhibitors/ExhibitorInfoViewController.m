@@ -21,6 +21,7 @@
 
     UIImageView *_logoView;
     UIActivityIndicatorView *_activityIndicator;
+    UIView *_loadingView;
 }
 @end
 
@@ -66,10 +67,24 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(70, 0, 44, CGRectGetHeight(self.view.bounds));
+    [_loadingView addSubview:indicator];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, CGRectGetHeight(self.view.bounds))];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.text = @"正在努力加载数据";
+    [_loadingView addSubview:label];
+    [indicator startAnimating];
+    [self.view addSubview:_loadingView];
+    
     [_activityIndicator startAnimating];
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=ccinfo&id=%d", _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  [_loadingView removeFromSuperview];
+                  
                   _data = JSON[@"data"];
                   [self populateInterface];
               }

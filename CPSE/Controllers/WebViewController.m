@@ -46,6 +46,8 @@
         theWebView.scrollView.minimumZoomScale = rw;
         theWebView.scrollView.maximumZoomScale = rw;
         theWebView.scrollView.zoomScale = rw;
+        
+        theWebView.scalesPageToFit = YES;
     }
 }
 
