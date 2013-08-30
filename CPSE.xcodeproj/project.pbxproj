@@ -375,6 +375,14 @@
 		C2E4B5801797784E00388B11 /* icon-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E4B57E1797784E00388B11 /* icon-back@2x.png */; };
 		C2E4B5921797A05900388B11 /* CPSEAFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4B5911797A05900388B11 /* CPSEAFClient.m */; };
 		C2E80ECC17AE7A3100AD67E9 /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E80ECB17AE7A3100AD67E9 /* CommentTableViewCell.m */; };
+		C2EE275D17D0BBB900DDA21D /* icon-done.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE275B17D0BBB900DDA21D /* icon-done.png */; };
+		C2EE275E17D0BBB900DDA21D /* icon-done@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE275C17D0BBB900DDA21D /* icon-done@2x.png */; };
+		C2EE276317D0BF0E00DDA21D /* icon-exit.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE275F17D0BF0E00DDA21D /* icon-exit.png */; };
+		C2EE276417D0BF0E00DDA21D /* icon-exit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE276017D0BF0E00DDA21D /* icon-exit@2x.png */; };
+		C2EE276517D0BF0E00DDA21D /* icon-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE276117D0BF0E00DDA21D /* icon-logo.png */; };
+		C2EE276617D0BF0E00DDA21D /* icon-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE276217D0BF0E00DDA21D /* icon-logo@2x.png */; };
+		C2EE276917D0BF1C00DDA21D /* icon-speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE276717D0BF1C00DDA21D /* icon-speaker.png */; };
+		C2EE276A17D0BF1C00DDA21D /* icon-speaker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2EE276817D0BF1C00DDA21D /* icon-speaker@2x.png */; };
 		C2F67B0F17CD8CEE00504DAC /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2F67AF017CD8CEE00504DAC /* UMSocialLocalizable.strings */; };
 		C2F67B1017CD8CEE00504DAC /* libWeChatSDK_armv7_armv7s.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F67AF417CD8CEE00504DAC /* libWeChatSDK_armv7_armv7s.a */; };
 		C2F67B1117CD8CEF00504DAC /* libUMSocial_Sdk_2.2.1.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F67B0217CD8CEE00504DAC /* libUMSocial_Sdk_2.2.1.1.a */; };
@@ -1054,6 +1062,14 @@
 		C2E4B5911797A05900388B11 /* CPSEAFClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSEAFClient.m; sourceTree = "<group>"; };
 		C2E80ECA17AE7A3100AD67E9 /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
 		C2E80ECB17AE7A3100AD67E9 /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		C2EE275B17D0BBB900DDA21D /* icon-done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-done.png"; sourceTree = "<group>"; };
+		C2EE275C17D0BBB900DDA21D /* icon-done@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-done@2x.png"; sourceTree = "<group>"; };
+		C2EE275F17D0BF0E00DDA21D /* icon-exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-exit.png"; sourceTree = "<group>"; };
+		C2EE276017D0BF0E00DDA21D /* icon-exit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-exit@2x.png"; sourceTree = "<group>"; };
+		C2EE276117D0BF0E00DDA21D /* icon-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-logo.png"; sourceTree = "<group>"; };
+		C2EE276217D0BF0E00DDA21D /* icon-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-logo@2x.png"; sourceTree = "<group>"; };
+		C2EE276717D0BF1C00DDA21D /* icon-speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-speaker.png"; sourceTree = "<group>"; };
+		C2EE276817D0BF1C00DDA21D /* icon-speaker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-speaker@2x.png"; sourceTree = "<group>"; };
 		C2F67AF117CD8CEE00504DAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		C2F67AF417CD8CEE00504DAC /* libWeChatSDK_armv7_armv7s.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK_armv7_armv7s.a; sourceTree = "<group>"; };
 		C2F67AF517CD8CEE00504DAC /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -1433,12 +1449,20 @@
 				C2E4B57E1797784E00388B11 /* icon-back@2x.png */,
 				C22133FA17A77CA1006622F2 /* icon-comment.png */,
 				C22133FB17A77CA1006622F2 /* icon-comment@2x.png */,
+				C2EE275B17D0BBB900DDA21D /* icon-done.png */,
+				C2EE275C17D0BBB900DDA21D /* icon-done@2x.png */,
+				C2EE275F17D0BF0E00DDA21D /* icon-exit.png */,
+				C2EE276017D0BF0E00DDA21D /* icon-exit@2x.png */,
+				C2EE276117D0BF0E00DDA21D /* icon-logo.png */,
+				C2EE276217D0BF0E00DDA21D /* icon-logo@2x.png */,
 				C20931641790F71100F91BB5 /* icon-profile-online.png */,
 				C20931651790F71100F91BB5 /* icon-profile-online@2x.png */,
 				C20931661790F71100F91BB5 /* icon-profile.png */,
 				C20931671790F71100F91BB5 /* icon-profile@2x.png */,
 				C22133FE17A77CAB006622F2 /* icon-share.png */,
 				C22133FF17A77CAB006622F2 /* icon-share@2x.png */,
+				C2EE276717D0BF1C00DDA21D /* icon-speaker.png */,
+				C2EE276817D0BF1C00DDA21D /* icon-speaker@2x.png */,
 				C27F97621792431100E79A78 /* logo-and-text.png */,
 				C27F97631792431100E79A78 /* logo-and-text@2x.png */,
 				C201388117A37BE0009CEA7F /* MHTabBarActiveBgPattern.png */,
@@ -2458,6 +2482,14 @@
 				C2F67B1917CD8CEF00504DAC /* UMSnsAccountViewController.xib in Resources */,
 				C2F67B1A17CD8CEF00504DAC /* UMSShareListController.xib in Resources */,
 				C2F67B1B17CD8CEF00504DAC /* UMSocialSDKResourcesNew.bundle in Resources */,
+				C2EE275D17D0BBB900DDA21D /* icon-done.png in Resources */,
+				C2EE275E17D0BBB900DDA21D /* icon-done@2x.png in Resources */,
+				C2EE276317D0BF0E00DDA21D /* icon-exit.png in Resources */,
+				C2EE276417D0BF0E00DDA21D /* icon-exit@2x.png in Resources */,
+				C2EE276517D0BF0E00DDA21D /* icon-logo.png in Resources */,
+				C2EE276617D0BF0E00DDA21D /* icon-logo@2x.png in Resources */,
+				C2EE276917D0BF1C00DDA21D /* icon-speaker.png in Resources */,
+				C2EE276A17D0BF1C00DDA21D /* icon-speaker@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

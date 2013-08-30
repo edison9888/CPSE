@@ -38,6 +38,8 @@
                       NSDictionary *dict = JSON[@"data"];
                       [UserDefaults setValue:dict[@"username"] forKey:kUCLoginUsername];
                       [UserDefaults setValue:password forKey:kUCLoginPassword];
+                      [UserDefaults synchronize];
+                      
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:dict];
                       if (viewController)
                           [viewController.navigationController popViewControllerAnimated:YES];

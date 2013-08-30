@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ItemPickerViewController.h"
+#import "UIColor+BR.h"
 
 @interface ItemPickerViewController ()
 {
@@ -40,8 +42,34 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationItem.rightBarButtonItem = nil;
+    
+    if (_multiple) {
+        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        rightButton.clipsToBounds = YES;
+        rightButton.layer.cornerRadius = 4;
+        [rightButton setFrame:CGRectMake(0, 0, 44, 44)];
+        [rightButton setImage:[UIImage imageNamed:@"icon-done"] forState:UIControlStateNormal];
+        [rightButton addTarget:self action:@selector(tapRightBarButton) forControlEvents:UIControlEventTouchUpInside];
+        
+        CGRect buttonRect = CGRectMake(0, 0, 44, 44);
+        buttonRect = CGRectInset(buttonRect, 7, 7);
+        
+        UIView *rightView = [[UIView alloc] initWithFrame:buttonRect];
+        rightView.backgroundColor = [UIColor colorWithHex:0xff0000 alpha:.5];
+        rightView.layer.cornerRadius = 5;
+        [rightView addSubview:rightButton];
+        rightButton.center = CGPointMake(CGRectGetWidth(buttonRect)/2, CGRectGetHeight(buttonRect)/2);
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+    }
+    else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
+
+- (void)tapRightBarButton {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
