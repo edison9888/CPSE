@@ -10,6 +10,6 @@
 
 @interface NewsInfoViewController : BaseChannelViewController <UIWebViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
-- (id)initWithId:(NSUInteger)id;
+- (id)initWithId:(NSUInteger)id andType:(NSString *)type;
 
 @end

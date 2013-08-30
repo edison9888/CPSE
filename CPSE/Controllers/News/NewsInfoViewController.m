@@ -22,6 +22,7 @@
     UIView *_loadingView;
     
     NSUInteger _id;
+    NSString *_newstype;
     NSDictionary *_data;
     NSMutableArray *_comments;
     
@@ -43,9 +44,10 @@
 
 @implementation NewsInfoViewController
 
-- (id)initWithId:(NSUInteger)id {
+- (id)initWithId:(NSUInteger)id andType:(NSString *)type {
     if (self = [super init]) {
         _id = id;
+        _newstype = type;
     }
     return self;
 }
@@ -172,7 +174,7 @@
     [indicator startAnimating];
     [self.view addSubview:_loadingView];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&id=%d", _id]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&newstype=%@&id=%d", _newstype, _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];
