@@ -177,6 +177,12 @@
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];
                   
+                  if ([JSON[@"errno"] intValue] > 0) {
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                      [alert show];
+                      return;
+                  }
+                  
                   _data = [JSON[@"data"] objectForKey:[NSString stringWithFormat:@"%d", _id]];
                   [self populateInterface];
               }

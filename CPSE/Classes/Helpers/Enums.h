@@ -16,3 +16,8 @@ typedef NS_ENUM(NSUInteger, AdUriType){
     AdUriTypeExhibitorId        = 0,
     AdUriTypeExhibitorUrl       = 1
 };
+
+typedef NS_ENUM(NSUInteger, EventType){
+    EventTypeOfficial           = 0,
+    EventTypeSpeech             = 1
+};

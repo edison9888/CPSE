@@ -12,6 +12,7 @@
 @property (nonatomic, readonly) NSString *description;
 @property (nonatomic, readonly) NSDate *startTime;
 @property (nonatomic, readonly) NSDate *endTime;
+@property (nonatomic, readonly) EventType eventType;
 
 @property (nonatomic, readonly) NSString *dateExpression;
 @property (nonatomic, readonly) NSString *timeExpression;

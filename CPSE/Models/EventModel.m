@@ -30,6 +30,8 @@ static NSDateFormatter *timeFormatter = nil;
         _description = attributes[@"description"];
         _startTime = [[NSDate alloc] initWithTimeIntervalSince1970:[attributes[@"date_time_start"] intValue]];
         _endTime = [[NSDate alloc] initWithTimeIntervalSince1970:[attributes[@"date_time_end"] intValue]];
+        
+        _eventType = arc4random() % 2;
     }
     return self;
 }

@@ -10,6 +10,7 @@
 #import "NewsInfoViewController.h"
 #import "NewsTableViewCell.h"
 #import "ExhibitorInfoViewController.h"
+#import "WebViewController.h"
 
 #define kNewsTypeCPSE @"cpse"
 #define kNewsTypeIndustry @"industry"
@@ -115,16 +116,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = _data[indexPath.row];
-    NSString *type = dict[@"type"];
-    if ([type isEqualToString:@"html"]) {
-        NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
-        vc.title = @"新闻内容";
+    if ([dict[@"jump"] boolValue]) {
+        WebViewController *vc = [[WebViewController alloc] initWithUrl:dict[@"url"]];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
-        ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"url"] intValue]];
-        vc.title = @"展商信息";
-        [self.navigationController pushViewController:vc animated:YES];
+        NSString *type = dict[@"type"];
+        if ([type isEqualToString:@"html"]) {
+            NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:[dict[@"id"] intValue]];
+            vc.title = @"新闻内容";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[dict[@"url"] intValue]];
+            vc.title = @"展商信息";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

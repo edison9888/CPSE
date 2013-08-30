@@ -39,6 +39,11 @@
     cell.textLabel.text = eventModel.timeExpression;
     cell.detailTextLabel.text = eventModel.description;
     
+    if (eventModel.eventType == EventTypeOfficial)
+        cell.imageView.image = [UIImage imageNamed:@"icon-logo"];
+    else
+        cell.imageView.image = [UIImage imageNamed:@"icon-speaker"];
+    
     return cell;
 }
 
@@ -47,7 +52,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize size1 = [@"00:00" sizeWithFont:[UIFont systemFontOfSize:15]];
     EventModel *eventModel = _data[indexPath.row];
-    CGSize size2 = [eventModel.description sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(320-size1.width-30, CGFLOAT_MAX)];
+    CGSize size2 = [eventModel.description sizeWithFont:[UIFont systemFontOfSize:15] constrainedToSize:CGSizeMake(320-size1.width-64, CGFLOAT_MAX)];
     return MAX(44, size2.height+20);
 }
 
