@@ -242,7 +242,27 @@
     //do base url for css
 	NSString *path = [[NSBundle mainBundle] bundlePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:path];
+    
     NSString *html = [DataMgr normalizeHtml:_data[@"content"]];
+    
+    // add site base url prefix
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"src=\"(\\/uploadfile[^\n]+)\""
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    html = [regex stringByReplacingMatchesInString:html
+                                           options:0
+                                             range:NSMakeRange(0, [html length])
+                                      withTemplate:@"src=\"http://images.cps.com.cn$1\""];
+    
+    // image inline style
+    regex = [NSRegularExpression regularExpressionWithPattern:@"<img "
+                                                      options:NSRegularExpressionCaseInsensitive
+                                                        error:nil];
+    html = [regex stringByReplacingMatchesInString:html
+                                           options:0
+                                             range:NSMakeRange(0, [html length])
+                                      withTemplate:@"<img style=\"width:100%;height:auto;\" "];
+    
 	html =[NSString stringWithFormat:@"<html><head><link rel=\"stylesheet\"  href=\"%@\" type=\"text/css\"/></head><body>%@</body></html>", cssPath, html];
     [_webView loadHTMLString:html baseURL:baseURL];
 }

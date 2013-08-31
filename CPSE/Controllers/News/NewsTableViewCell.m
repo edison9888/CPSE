@@ -17,6 +17,12 @@
 
 @implementation NewsTableViewCell
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSString *type = _dict[@"uritype"];
@@ -25,6 +31,8 @@
         frame.size.width = 300;
         self.imageView.frame = frame;
     }
+    else
+        self.imageView.frame = CGRectMake(10, 10, 70, 50);
 }
 
 - (void)setData:(NSDictionary *)data {
