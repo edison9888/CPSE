@@ -333,6 +333,7 @@
 		C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A3368F17AE6FB800420689 /* MBProgressHUD.m */; };
 		C2A3369317AE701700420689 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369117AE701700420689 /* 37x-Checkmark.png */; };
 		C2A3369417AE701700420689 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */; };
+		C2BC0EAA17D4E0FB009657F9 /* intro-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C2BC0EA917D4E0FB009657F9 /* intro-logo.png */; };
 		C2BD02AE17AF472700429EED /* ExhibitsScopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02AD17AF472700429EED /* ExhibitsScopeViewController.m */; };
 		C2BD02B117AF473C00429EED /* ExhibitsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B017AF473C00429EED /* ExhibitsInfoViewController.m */; };
 		C2BD02B417AF476C00429EED /* ContactsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02B317AF476C00429EED /* ContactsInfoViewController.m */; };
@@ -1005,6 +1006,7 @@
 		C2A3368F17AE6FB800420689 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C2A3369117AE701700420689 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		C2BC0EA917D4E0FB009657F9 /* intro-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "intro-logo.png"; sourceTree = "<group>"; };
 		C2BD02AC17AF472700429EED /* ExhibitsScopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsScopeViewController.h; sourceTree = "<group>"; };
 		C2BD02AD17AF472700429EED /* ExhibitsScopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitsScopeViewController.m; sourceTree = "<group>"; };
 		C2BD02AF17AF473C00429EED /* ExhibitsInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitsInfoViewController.h; sourceTree = "<group>"; };
@@ -2221,6 +2223,7 @@
 			children = (
 				C2D71FA217B095C600D13338 /* Contact.html */,
 				C2D71FA017B0921A00D13338 /* Intro.html */,
+				C2BC0EA917D4E0FB009657F9 /* intro-logo.png */,
 				C2D71FA417B0BF2500D13338 /* weichat-barcode.png */,
 				C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */,
 				C2BD02B217AF476C00429EED /* ContactsInfoViewController.h */,
@@ -2538,6 +2541,7 @@
 				C2FC0CA917D471E400E90735 /* Icon.png in Resources */,
 				C2FC0CAA17D471E400E90735 /* Icon@2x.png in Resources */,
 				C2FC0CAB17D471E400E90735 /* iTunesArtwork.png in Resources */,
+				C2BC0EAA17D4E0FB009657F9 /* intro-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
