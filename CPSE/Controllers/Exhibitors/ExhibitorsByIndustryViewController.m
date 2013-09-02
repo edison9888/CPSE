@@ -21,26 +21,34 @@
 
 - (void)loadView {
     [super loadView];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
     
-    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // loading view
+    _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.frame = CGRectMake(70, 0, 44, 44);
+    indicator.frame = CGRectMake(70, 0, 44, CGRectGetHeight(self.view.bounds));
+    indicator.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [_loadingView addSubview:indicator];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 206, CGRectGetHeight(self.view.bounds))];
+    label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:16];
     label.text = @"正在努力加载数据";
     [_loadingView addSubview:label];
     [indicator startAnimating];
-    [self.tableView addSubview:_loadingView];
+    [self.view addSubview:_loadingView];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     [AFClient getPath:@"api.php?action=industry"
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
                   [_loadingView removeFromSuperview];
                   
                   _data = JSON[@"data"];

@@ -152,6 +152,24 @@
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolBar setItems:@[cancelButton, flexible, postButton]];
     [_commentEditorView addSubview:toolBar];
+    
+    
+    // loading view
+    _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(70, 0, 44, CGRectGetHeight(self.view.bounds));
+    indicator.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    [_loadingView addSubview:indicator];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 206, CGRectGetHeight(self.view.bounds))];
+    label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.text = @"正在努力加载数据";
+    [_loadingView addSubview:label];
+    [indicator startAnimating];
+    [self.view addSubview:_loadingView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -161,18 +179,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.frame = CGRectMake(70, 0, 44, 44);
-    [_loadingView addSubview:indicator];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:16];
-    label.text = @"正在努力加载数据";
-    [_loadingView addSubview:label];
-    [indicator startAnimating];
-    [self.view addSubview:_loadingView];
     
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&newstype=%@&id=%d", _newstype, _id]
            parameters:nil
