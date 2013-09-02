@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-#import "BaseChannelWithTabsViewController.h"
+#import "BaseChannelViewController.h"
 
-@interface CalendarViewController : BaseChannelWithTabsViewController
+@interface CalendarViewController : BaseChannelViewController
 
 @end
