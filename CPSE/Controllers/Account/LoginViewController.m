@@ -108,7 +108,7 @@
         return;
     }
 
-    [DataMgr loginWithUsername:_userField.text password:_pwdField.text popViewController:self];
+    [DataMgr loginWithUsername:_userField.text password:_pwdField.text gotoAccountPageFrom:self];
 }
 
 - (UIScrollView *)scrollView {

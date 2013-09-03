@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import "GTMNSString+HTML.h"
+#import "AccountInfoViewController.h"
 
 @implementation DataManager
 
@@ -26,7 +27,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kAccountChangeNotification object:self];
 }
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password popViewController:(UIViewController *)viewController {
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password gotoAccountPageFrom:(UIViewController *)viewController {
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", [DataManager encodeUrl:username], [DataManager encodeUrl:password]]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
@@ -41,8 +42,15 @@
                       [UserDefaults synchronize];
                       
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:dict];
-                      if (viewController)
-                          [viewController.navigationController popViewControllerAnimated:YES];
+                      if (viewController) {
+                          AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
+                          vc.title = @"用户中心";
+                          [viewController.navigationController pushViewController:vc animated:YES];
+                          
+                          NSMutableArray *vcs = [NSMutableArray arrayWithArray:viewController.navigationController.viewControllers];
+                          [vcs removeObjectIdenticalTo:viewController];
+                          viewController.navigationController.viewControllers = vcs;
+                      }
                   }
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {

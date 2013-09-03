@@ -36,7 +36,7 @@
     if ([UserDefaults boolForKey:kUCLoginRememberMe] && !isEmpty([UserDefaults stringForKey:kUCLoginUsername])) {
         [DataMgr loginWithUsername:[UserDefaults stringForKey:kUCLoginUsername]
                           password:[UserDefaults stringForKey:kUCLoginPassword]
-                 popViewController:nil];
+               gotoAccountPageFrom:nil];
     }
     
     //notification reg

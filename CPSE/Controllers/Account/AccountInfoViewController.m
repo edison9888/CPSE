@@ -96,7 +96,7 @@
     buttonRect = CGRectInset(buttonRect, 7, 7);
     
     UIView *rightView = [[UIView alloc] initWithFrame:buttonRect];
-    rightView.backgroundColor = [UIColor colorWithWhite:1 alpha:.12];
+    rightView.backgroundColor = [UIColor colorWithHex:0xff0000 alpha:.5];
     rightView.layer.cornerRadius = 5;
     [rightView addSubview:rightButton];
     rightButton.center = CGPointMake(CGRectGetWidth(buttonRect)/2, CGRectGetHeight(buttonRect)/2);
