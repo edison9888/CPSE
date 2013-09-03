@@ -61,7 +61,7 @@
     
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.backgroundColor = [UIColor clearColor];
-    _titleLabel.font = [UIFont systemFontOfSize:18];
+    _titleLabel.font = [UIFont systemFontOfSize:20];
     _titleLabel.numberOfLines = 0;
     _titleLabel.textColor = [UIColor colorWithHex:0x333333];
     [_scrollView addSubview:_titleLabel];

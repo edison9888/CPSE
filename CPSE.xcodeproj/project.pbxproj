@@ -16,8 +16,6 @@
 		C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAC178A8E0700200E1E /* Foundation.framework */; };
 		C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAE178A8E0700200E1E /* CoreGraphics.framework */; };
 		C2005FD1178A925A00200E1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCA178A925A00200E1E /* Default-568h@2x.png */; };
-		C2005FD2178A925A00200E1E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCB178A925A00200E1E /* Default.png */; };
-		C2005FD3178A925A00200E1E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCC178A925A00200E1E /* Default@2x.png */; };
 		C2005FD4178A925A00200E1E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCD178A925A00200E1E /* InfoPlist.strings */; };
 		C2005FD5178A925A00200E1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FCF178A925A00200E1E /* main.m */; };
 		C2006022178A926700200E1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FD9178A926700200E1E /* AppDelegate.m */; };
@@ -423,8 +421,6 @@
 		C2005FC8178A925A00200E1E /* CPSE-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CPSE-Info.plist"; sourceTree = "<group>"; };
 		C2005FC9178A925A00200E1E /* CPSE-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPSE-Prefix.pch"; sourceTree = "<group>"; };
 		C2005FCA178A925A00200E1E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C2005FCB178A925A00200E1E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C2005FCC178A925A00200E1E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		C2005FCE178A925A00200E1E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2005FCF178A925A00200E1E /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C2005FD8178A926700200E1E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1198,8 +1194,6 @@
 				C2005FC8178A925A00200E1E /* CPSE-Info.plist */,
 				C2005FC9178A925A00200E1E /* CPSE-Prefix.pch */,
 				C2005FCA178A925A00200E1E /* Default-568h@2x.png */,
-				C2005FCB178A925A00200E1E /* Default.png */,
-				C2005FCC178A925A00200E1E /* Default@2x.png */,
 				C2005FCD178A925A00200E1E /* InfoPlist.strings */,
 				C2005FCF178A925A00200E1E /* main.m */,
 			);
@@ -2437,8 +2431,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2005FD1178A925A00200E1E /* Default-568h@2x.png in Resources */,
-				C2005FD2178A925A00200E1E /* Default.png in Resources */,
-				C2005FD3178A925A00200E1E /* Default@2x.png in Resources */,
 				C2005FD4178A925A00200E1E /* InfoPlist.strings in Resources */,
 				C209316A1790F71100F91BB5 /* bg-pattern.png in Resources */,
 				C209316B1790F71100F91BB5 /* bg-pattern@2x.png in Resources */,

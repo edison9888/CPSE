@@ -18,6 +18,6 @@ typedef NS_ENUM(NSUInteger, AdUriType){
 };
 
 typedef NS_ENUM(NSUInteger, EventType){
-    EventTypeOfficial           = 0,
-    EventTypeSpeech             = 1
+    EventTypeSpeech             = 0,
+    EventTypeOfficial           = 1
 };
