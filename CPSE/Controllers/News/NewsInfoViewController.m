@@ -15,7 +15,7 @@
 #import "UMSocial.h"
 
 #define kCellSeparatorLineTag 1
-#define kCommentEditorViewHeight 120.0
+#define kCommentEditorViewHeight 80
 
 @interface NewsInfoViewController ()
 {
@@ -132,12 +132,12 @@
     _commentNameLabel.frame = CGRectMake(10, 10, size.width, size.height);
     [_commentEditorView addSubview:_commentNameLabel];
     
-    _commentContentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10+size.width, 10, 320-size.width-10, kCommentEditorViewHeight-10-44)];
+    _commentContentTextView = [[UITextView alloc] initWithFrame:CGRectMake(10+size.width, 10, 320-size.width-10, kCommentEditorViewHeight)];
     _commentContentTextView.backgroundColor = [UIColor clearColor];
     [_commentEditorView addSubview:_commentContentTextView];
     
     // UIToolBar
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, kCommentEditorViewHeight-44, 320, 44)];
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolBar.translucent = YES;
     [toolBar sizeToFit];
     toolBar.barStyle = UIBarStyleBlackTranslucent;
@@ -151,7 +151,7 @@
     
     UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     [toolBar setItems:@[cancelButton, flexible, postButton]];
-    [_commentEditorView addSubview:toolBar];
+    _commentContentTextView.inputAccessoryView = toolBar;
     
     
     // loading view
