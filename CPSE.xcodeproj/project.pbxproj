@@ -69,6 +69,18 @@
 		C22133FD17A77CA1006622F2 /* icon-comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FB17A77CA1006622F2 /* icon-comment@2x.png */; };
 		C221340017A77CAB006622F2 /* icon-share.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FE17A77CAB006622F2 /* icon-share.png */; };
 		C221340117A77CAB006622F2 /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FF17A77CAB006622F2 /* icon-share@2x.png */; };
+		C234A3CA17D6256600E491F4 /* 1号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3BE17D6256600E491F4 /* 1号馆.jpg */; };
+		C234A3CB17D6256600E491F4 /* 2号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3BF17D6256600E491F4 /* 2号馆.jpg */; };
+		C234A3CC17D6256600E491F4 /* 3、4号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C017D6256600E491F4 /* 3、4号馆.jpg */; };
+		C234A3CD17D6256600E491F4 /* 5号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C117D6256600E491F4 /* 5号馆.jpg */; };
+		C234A3CE17D6256600E491F4 /* 6号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C217D6256600E491F4 /* 6号馆.jpg */; };
+		C234A3CF17D6256600E491F4 /* 7、8号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C317D6256600E491F4 /* 7、8号馆.jpg */; };
+		C234A3D017D6256600E491F4 /* 9号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C417D6256600E491F4 /* 9号馆.jpg */; };
+		C234A3D117D6256600E491F4 /* 二楼5号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C517D6256600E491F4 /* 二楼5号馆.jpg */; };
+		C234A3D217D6256600E491F4 /* 二楼6号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C617D6256600E491F4 /* 二楼6号馆.jpg */; };
+		C234A3D317D6256600E491F4 /* 二楼平台.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C717D6256600E491F4 /* 二楼平台.jpg */; };
+		C234A3D417D6256600E491F4 /* 北广场11号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C817D6256600E491F4 /* 北广场11号馆.jpg */; };
+		C234A3D517D6256600E491F4 /* 展馆全图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C917D6256600E491F4 /* 展馆全图.jpg */; };
 		C23C7E0117CB5C1C00996983 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E0017CB5C1C00996983 /* WebViewController.m */; };
 		C23C7E0417CB8FC300996983 /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C23C7E0317CB8FC300996983 /* EventModel.m */; };
 		C247032517AA049E007C99E1 /* red-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C247032317AA049E007C99E1 /* red-button-bg.png */; };
@@ -80,17 +92,6 @@
 		C25CC6D8178A98C20055E82A /* UINavigationBar+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6D2178A98C20055E82A /* UINavigationBar+BR.m */; };
 		C25CC6D9178A98C20055E82A /* UIView+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6D4178A98C20055E82A /* UIView+BR.m */; };
 		C25CC6DC178A992B0055E82A /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C25CC6DB178A992B0055E82A /* DataManager.m */; };
-		C266036F17BC80BD00B14AE8 /* 2013CPSE二楼通道展位图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036417BC80BD00B14AE8 /* 2013CPSE二楼通道展位图.jpg */; };
-		C266037017BC80BD00B14AE8 /* 2013CPSE安博会展位图(5号).jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036517BC80BD00B14AE8 /* 2013CPSE安博会展位图(5号).jpg */; };
-		C266037117BC80BD00B14AE8 /* 2013CPSE安博会展位图（1号馆）.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036617BC80BD00B14AE8 /* 2013CPSE安博会展位图（1号馆）.jpg */; };
-		C266037217BC80BD00B14AE8 /* 2013CPSE安博会展位图（2号）.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036717BC80BD00B14AE8 /* 2013CPSE安博会展位图（2号）.jpg */; };
-		C266037317BC80BD00B14AE8 /* 2013CPSE安博会展位图（6号馆）.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036817BC80BD00B14AE8 /* 2013CPSE安博会展位图（6号馆）.jpg */; };
-		C266037417BC80BD00B14AE8 /* 2013CPSE安博会展位图（9号馆).jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036917BC80BD00B14AE8 /* 2013CPSE安博会展位图（9号馆).jpg */; };
-		C266037517BC80BD00B14AE8 /* 3,4号馆展位图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036A17BC80BD00B14AE8 /* 3,4号馆展位图.jpg */; };
-		C266037617BC80BD00B14AE8 /* 6号馆平台.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036B17BC80BD00B14AE8 /* 6号馆平台.jpg */; };
-		C266037717BC80BD00B14AE8 /* 7,8号馆展位图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036C17BC80BD00B14AE8 /* 7,8号馆展位图.jpg */; };
-		C266037817BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036D17BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg */; };
-		C266037917BC80BD00B14AE8 /* Hall5二层平台.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */; };
 		C266037D17BCC88500B14AE8 /* ConsultListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C266037C17BCC88500B14AE8 /* ConsultListViewController.m */; };
 		C266038017BCC8CE00B14AE8 /* MyConsultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */; };
 		C26D534217C0F530009D6F8F /* ConsultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C26D534117C0F530009D6F8F /* ConsultTableViewCell.m */; };
@@ -501,6 +502,18 @@
 		C22133FB17A77CA1006622F2 /* icon-comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-comment@2x.png"; sourceTree = "<group>"; };
 		C22133FE17A77CAB006622F2 /* icon-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share.png"; sourceTree = "<group>"; };
 		C22133FF17A77CAB006622F2 /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
+		C234A3BE17D6256600E491F4 /* 1号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1号馆.jpg"; sourceTree = "<group>"; };
+		C234A3BF17D6256600E491F4 /* 2号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C017D6256600E491F4 /* 3、4号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3、4号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C117D6256600E491F4 /* 5号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "5号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C217D6256600E491F4 /* 6号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "6号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C317D6256600E491F4 /* 7、8号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7、8号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C417D6256600E491F4 /* 9号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "9号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C517D6256600E491F4 /* 二楼5号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "二楼5号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C617D6256600E491F4 /* 二楼6号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "二楼6号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C717D6256600E491F4 /* 二楼平台.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "二楼平台.jpg"; sourceTree = "<group>"; };
+		C234A3C817D6256600E491F4 /* 北广场11号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "北广场11号馆.jpg"; sourceTree = "<group>"; };
+		C234A3C917D6256600E491F4 /* 展馆全图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "展馆全图.jpg"; sourceTree = "<group>"; };
 		C23C7DFF17CB5C1C00996983 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		C23C7E0017CB5C1C00996983 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		C23C7E0217CB8FC300996983 /* EventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventModel.h; sourceTree = "<group>"; };
@@ -525,17 +538,6 @@
 		C25CC6D4178A98C20055E82A /* UIView+BR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BR.m"; sourceTree = "<group>"; };
 		C25CC6DA178A992A0055E82A /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		C25CC6DB178A992B0055E82A /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		C266036417BC80BD00B14AE8 /* 2013CPSE二楼通道展位图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013CPSE二楼通道展位图.jpg"; sourceTree = "<group>"; };
-		C266036517BC80BD00B14AE8 /* 2013CPSE安博会展位图(5号).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013CPSE安博会展位图(5号).jpg"; sourceTree = "<group>"; };
-		C266036617BC80BD00B14AE8 /* 2013CPSE安博会展位图（1号馆）.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013CPSE安博会展位图（1号馆）.jpg"; sourceTree = "<group>"; };
-		C266036717BC80BD00B14AE8 /* 2013CPSE安博会展位图（2号）.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013CPSE安博会展位图（2号）.jpg"; sourceTree = "<group>"; };
-		C266036817BC80BD00B14AE8 /* 2013CPSE安博会展位图（6号馆）.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013CPSE安博会展位图（6号馆）.jpg"; sourceTree = "<group>"; };
-		C266036917BC80BD00B14AE8 /* 2013CPSE安博会展位图（9号馆).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2013CPSE安博会展位图（9号馆).jpg"; sourceTree = "<group>"; };
-		C266036A17BC80BD00B14AE8 /* 3,4号馆展位图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3,4号馆展位图.jpg"; sourceTree = "<group>"; };
-		C266036B17BC80BD00B14AE8 /* 6号馆平台.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "6号馆平台.jpg"; sourceTree = "<group>"; };
-		C266036C17BC80BD00B14AE8 /* 7,8号馆展位图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "7,8号馆展位图.jpg"; sourceTree = "<group>"; };
-		C266036D17BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "CPSE安博会11号馆展位图.jpg"; sourceTree = "<group>"; };
-		C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Hall5二层平台.jpg"; sourceTree = "<group>"; };
 		C266037B17BCC88500B14AE8 /* ConsultListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultListViewController.h; sourceTree = "<group>"; };
 		C266037C17BCC88500B14AE8 /* ConsultListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultListViewController.m; sourceTree = "<group>"; };
 		C266037E17BCC8CE00B14AE8 /* MyConsultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConsultViewController.h; sourceTree = "<group>"; };
@@ -1496,20 +1498,21 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		C266036317BC80BD00B14AE8 /* 2013安博会展位图 */ = {
+		C234A3BD17D6256600E491F4 /* 2013安博会展位图 */ = {
 			isa = PBXGroup;
 			children = (
-				C266036417BC80BD00B14AE8 /* 2013CPSE二楼通道展位图.jpg */,
-				C266036517BC80BD00B14AE8 /* 2013CPSE安博会展位图(5号).jpg */,
-				C266036617BC80BD00B14AE8 /* 2013CPSE安博会展位图（1号馆）.jpg */,
-				C266036717BC80BD00B14AE8 /* 2013CPSE安博会展位图（2号）.jpg */,
-				C266036817BC80BD00B14AE8 /* 2013CPSE安博会展位图（6号馆）.jpg */,
-				C266036917BC80BD00B14AE8 /* 2013CPSE安博会展位图（9号馆).jpg */,
-				C266036A17BC80BD00B14AE8 /* 3,4号馆展位图.jpg */,
-				C266036B17BC80BD00B14AE8 /* 6号馆平台.jpg */,
-				C266036C17BC80BD00B14AE8 /* 7,8号馆展位图.jpg */,
-				C266036D17BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg */,
-				C266036E17BC80BD00B14AE8 /* Hall5二层平台.jpg */,
+				C234A3BE17D6256600E491F4 /* 1号馆.jpg */,
+				C234A3BF17D6256600E491F4 /* 2号馆.jpg */,
+				C234A3C017D6256600E491F4 /* 3、4号馆.jpg */,
+				C234A3C117D6256600E491F4 /* 5号馆.jpg */,
+				C234A3C217D6256600E491F4 /* 6号馆.jpg */,
+				C234A3C317D6256600E491F4 /* 7、8号馆.jpg */,
+				C234A3C417D6256600E491F4 /* 9号馆.jpg */,
+				C234A3C517D6256600E491F4 /* 二楼5号馆.jpg */,
+				C234A3C617D6256600E491F4 /* 二楼6号馆.jpg */,
+				C234A3C717D6256600E491F4 /* 二楼平台.jpg */,
+				C234A3C817D6256600E491F4 /* 北广场11号馆.jpg */,
+				C234A3C917D6256600E491F4 /* 展馆全图.jpg */,
 			);
 			path = "2013安博会展位图";
 			sourceTree = "<group>";
@@ -2237,7 +2240,7 @@
 		C2BD02BF17AF733D00429EED /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				C266036317BC80BD00B14AE8 /* 2013安博会展位图 */,
+				C234A3BD17D6256600E491F4 /* 2013安博会展位图 */,
 				C2D71FA817B0C3E400D13338 /* MapViewController.h */,
 				C2D71FA917B0C3E400D13338 /* MapViewController.m */,
 				C29A609217B789DE00640943 /* PZPhotoView.h */,
@@ -2492,17 +2495,6 @@
 				C26F0A6517B3699800ABEC46 /* exhibitors-areas-range.png in Resources */,
 				C26F0A6617B3699800ABEC46 /* exhibitors-areas-range@2x.png in Resources */,
 				C26F0A6817B36CAA00ABEC46 /* weichat-icon.png in Resources */,
-				C266036F17BC80BD00B14AE8 /* 2013CPSE二楼通道展位图.jpg in Resources */,
-				C266037017BC80BD00B14AE8 /* 2013CPSE安博会展位图(5号).jpg in Resources */,
-				C266037117BC80BD00B14AE8 /* 2013CPSE安博会展位图（1号馆）.jpg in Resources */,
-				C266037217BC80BD00B14AE8 /* 2013CPSE安博会展位图（2号）.jpg in Resources */,
-				C266037317BC80BD00B14AE8 /* 2013CPSE安博会展位图（6号馆）.jpg in Resources */,
-				C266037417BC80BD00B14AE8 /* 2013CPSE安博会展位图（9号馆).jpg in Resources */,
-				C266037517BC80BD00B14AE8 /* 3,4号馆展位图.jpg in Resources */,
-				C266037617BC80BD00B14AE8 /* 6号馆平台.jpg in Resources */,
-				C266037717BC80BD00B14AE8 /* 7,8号馆展位图.jpg in Resources */,
-				C266037817BC80BD00B14AE8 /* CPSE安博会11号馆展位图.jpg in Resources */,
-				C266037917BC80BD00B14AE8 /* Hall5二层平台.jpg in Resources */,
 				C202236E17BDDCBF005A19A9 /* cell-banner-placeholder.png in Resources */,
 				C202236F17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png in Resources */,
 				C2F67B0F17CD8CEE00504DAC /* UMSocialLocalizable.strings in Resources */,
@@ -2534,6 +2526,18 @@
 				C2FC0CAA17D471E400E90735 /* Icon@2x.png in Resources */,
 				C2FC0CAB17D471E400E90735 /* iTunesArtwork.png in Resources */,
 				C2BC0EAA17D4E0FB009657F9 /* intro-logo.png in Resources */,
+				C234A3CA17D6256600E491F4 /* 1号馆.jpg in Resources */,
+				C234A3CB17D6256600E491F4 /* 2号馆.jpg in Resources */,
+				C234A3CC17D6256600E491F4 /* 3、4号馆.jpg in Resources */,
+				C234A3CD17D6256600E491F4 /* 5号馆.jpg in Resources */,
+				C234A3CE17D6256600E491F4 /* 6号馆.jpg in Resources */,
+				C234A3CF17D6256600E491F4 /* 7、8号馆.jpg in Resources */,
+				C234A3D017D6256600E491F4 /* 9号馆.jpg in Resources */,
+				C234A3D117D6256600E491F4 /* 二楼5号馆.jpg in Resources */,
+				C234A3D217D6256600E491F4 /* 二楼6号馆.jpg in Resources */,
+				C234A3D317D6256600E491F4 /* 二楼平台.jpg in Resources */,
+				C234A3D417D6256600E491F4 /* 北广场11号馆.jpg in Resources */,
+				C234A3D517D6256600E491F4 /* 展馆全图.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
