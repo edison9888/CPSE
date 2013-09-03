@@ -138,7 +138,7 @@
         if ([dict[@"selected"] boolValue])
             [areas addObject:dict[@"name"]];
     }
-    return [areas componentsJoinedByString:@", "];
+    return [areas componentsJoinedByString:@"/"];
 }
 
 - (void)registerAction {
@@ -228,11 +228,14 @@
         return;
     }
     
-    NSString *q = [NSString stringWithFormat:@"api.php?action=reg&username=%@&email=%@&truename=%@&password=%@&repwd=%@&country=%@&cp_name=%@&mobile=%@",
+    NSString *q = [NSString stringWithFormat:@"api.php?action=reg&username=%@&email=%@&truename=%@&password=%@&repwd=%@&country=%@&cp_name=%@&mobile=%@&job=%@&productRange=%@&department=%@",
                    [_userField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _emailField.text,
                    [_realnameField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _pwdField.text, _confirmPwdField.text,
                    [_countryField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                   [_companyField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _cellField.text];
+                   [_companyField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _cellField.text,
+                   [_positionField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                   [_areasField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                   [_departmentField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     DLog(@"q=%@", q);
     [AFClient getPath:q
            parameters:nil
