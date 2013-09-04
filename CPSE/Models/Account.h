@@ -12,6 +12,7 @@
 @property (readonly) NSString *name;
 @property (readonly) NSString *type;
 @property (readonly) NSString *email;
+@property (strong) NSString *cardNumber;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 

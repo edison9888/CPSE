@@ -18,7 +18,7 @@
     NSString* _userName;
     
     UIScrollView *_scrollView;
-    UILabel *_userIdLabel;
+    UILabel *_cardNoLabel;
     UILabel *_userNameLabel;
     UILabel *_descriptionLabel;
     UILabel *_operationLabel;
@@ -52,12 +52,12 @@
     _userNameLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_userNameLabel];
     
-    _userIdLabel = [[UILabel alloc] init];
-    _userIdLabel.backgroundColor = [UIColor clearColor];
-    _userIdLabel.font = [UIFont systemFontOfSize:15];
-    _userIdLabel.numberOfLines = 0;
-    _userIdLabel.textColor = [UIColor colorWithHex:0x666666];
-    [_scrollView addSubview:_userIdLabel];
+    _cardNoLabel = [[UILabel alloc] init];
+    _cardNoLabel.backgroundColor = [UIColor clearColor];
+    _cardNoLabel.font = [UIFont systemFontOfSize:15];
+    _cardNoLabel.numberOfLines = 0;
+    _cardNoLabel.textColor = [UIColor colorWithHex:0x666666];
+    [_scrollView addSubview:_cardNoLabel];
     
     _operationLabel = [[UILabel alloc] init];
     _operationLabel.backgroundColor = [UIColor clearColor];
@@ -141,7 +141,7 @@
     /*------------------------
      barcodeStr
      ------------------------*/
-    NSString* barcodeStr = [NSString stringWithFormat:@"%i", _userId];
+    NSString* barcodeStr = [NSString stringWithFormat:@"%i", DataMgr.currentAccount.cardNumber];
     ZXMultiFormatWriter* writer = [[ZXMultiFormatWriter alloc] init];
     ZXBitMatrix* result = [writer encode:barcodeStr
                                   format:kBarcodeFormatCode128
@@ -161,10 +161,10 @@
     /*------------------------
      _userIdLabel
      ------------------------*/
-    info = [NSString stringWithFormat :@"卡号：%i", _userId];
-    size = [info sizeWithFont:_userIdLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    _userIdLabel.frame = CGRectMake(CGRectGetMinX(_barImageView.frame), topOffset, size.width, size.height);
-    _userIdLabel.text = info;
+    info = [NSString stringWithFormat :@"卡号：%@", DataMgr.currentAccount.cardNumber];
+    size = [info sizeWithFont:_cardNoLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    _cardNoLabel.frame = CGRectMake(CGRectGetMinX(_barImageView.frame), topOffset, size.width, size.height);
+    _cardNoLabel.text = info;
     topOffset += size.height + 10;
     
     /*------------------------
