@@ -7,7 +7,6 @@
 //
 
 #import "WelcomeViewController.h"
-#import "HomeViewController.h"
 
 @interface WelcomeViewController ()
 {
@@ -58,17 +57,13 @@
 }
 
 - (void)tapToEnter {
-    UINavigationController *vc = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
-    UINavigationBar *navigationBar = [vc navigationBar];
-    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-        [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
-    }
-    
-    [UIView transitionFromView:self.view
-                        toView:vc.view
-                      duration:.75
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    completion:nil];
+    [UIView animateWithDuration:.75
+                     animations:^{
+                         self.view.alpha = 0;
+                     }
+                     completion:^(BOOL finished){
+                         [self.view removeFromSuperview];
+                     }];
 }
 
 #pragma mark - UIScrollViewDelegate
