@@ -355,6 +355,15 @@
 		C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154317A518F300119089 /* EventInfoViewController.m */; };
 		C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154617A51ADB00119089 /* CalendarViewController.m */; };
 		C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5154917A51BD400119089 /* ExhibitorViewController.m */; };
+		C2D5295617D6C9B20053872E /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5295517D6C9B20053872E /* WelcomeViewController.m */; };
+		C2D5297517D6D2BA0053872E /* welcome-1-460@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5296C17D6D2BA0053872E /* welcome-1-460@2x.png */; };
+		C2D5297617D6D2BA0053872E /* welcome-2-460@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5296D17D6D2BA0053872E /* welcome-2-460@2x.png */; };
+		C2D5297717D6D2BA0053872E /* welcome-3-460@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5296E17D6D2BA0053872E /* welcome-3-460@2x.png */; };
+		C2D5297817D6D2BA0053872E /* welcome-4-460@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5296F17D6D2BA0053872E /* welcome-4-460@2x.png */; };
+		C2D5297917D6D2BA0053872E /* welcome-1-548@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5297117D6D2BA0053872E /* welcome-1-548@2x.png */; };
+		C2D5297A17D6D2BA0053872E /* welcome-2-548@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5297217D6D2BA0053872E /* welcome-2-548@2x.png */; };
+		C2D5297B17D6D2BA0053872E /* welcome-3-548@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5297317D6D2BA0053872E /* welcome-3-548@2x.png */; };
+		C2D5297C17D6D2BA0053872E /* welcome-4-548@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D5297417D6D2BA0053872E /* welcome-4-548@2x.png */; };
 		C2D71FA117B0921A00D13338 /* Intro.html in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA017B0921A00D13338 /* Intro.html */; };
 		C2D71FA317B095C600D13338 /* Contact.html in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA217B095C600D13338 /* Contact.html */; };
 		C2D71FA517B0BF2500D13338 /* weichat-barcode.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D71FA417B0BF2500D13338 /* weichat-barcode.png */; };
@@ -1043,6 +1052,16 @@
 		C2D5154617A51ADB00119089 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		C2D5154817A51BD300119089 /* ExhibitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorViewController.h; sourceTree = "<group>"; };
 		C2D5154917A51BD400119089 /* ExhibitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorViewController.m; sourceTree = "<group>"; };
+		C2D5295417D6C9B20053872E /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		C2D5295517D6C9B20053872E /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		C2D5296C17D6D2BA0053872E /* welcome-1-460@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-1-460@2x.png"; sourceTree = "<group>"; };
+		C2D5296D17D6D2BA0053872E /* welcome-2-460@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-2-460@2x.png"; sourceTree = "<group>"; };
+		C2D5296E17D6D2BA0053872E /* welcome-3-460@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-3-460@2x.png"; sourceTree = "<group>"; };
+		C2D5296F17D6D2BA0053872E /* welcome-4-460@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-4-460@2x.png"; sourceTree = "<group>"; };
+		C2D5297117D6D2BA0053872E /* welcome-1-548@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-1-548@2x.png"; sourceTree = "<group>"; };
+		C2D5297217D6D2BA0053872E /* welcome-2-548@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-2-548@2x.png"; sourceTree = "<group>"; };
+		C2D5297317D6D2BA0053872E /* welcome-3-548@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-3-548@2x.png"; sourceTree = "<group>"; };
+		C2D5297417D6D2BA0053872E /* welcome-4-548@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "welcome-4-548@2x.png"; sourceTree = "<group>"; };
 		C2D71FA017B0921A00D13338 /* Intro.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Intro.html; sourceTree = "<group>"; };
 		C2D71FA217B095C600D13338 /* Contact.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Contact.html; sourceTree = "<group>"; };
 		C2D71FA417B0BF2500D13338 /* weichat-barcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weichat-barcode.png"; sourceTree = "<group>"; };
@@ -1207,6 +1226,7 @@
 			children = (
 				C2FC0C9717D471E400E90735 /* App Icons */,
 				C20931611790F71100F91BB5 /* Images */,
+				C2D5296A17D6D2BA0053872E /* Welcome */,
 				C22133F817A77A68006622F2 /* newsStyle.css */,
 			);
 			path = Assets;
@@ -1293,6 +1313,8 @@
 				C20931731790F72400F91BB5 /* HomeViewController.m */,
 				C23C7DFF17CB5C1C00996983 /* WebViewController.h */,
 				C23C7E0017CB5C1C00996983 /* WebViewController.m */,
+				C2D5295417D6C9B20053872E /* WelcomeViewController.h */,
+				C2D5295517D6C9B20053872E /* WelcomeViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -2283,6 +2305,37 @@
 			path = Calendar;
 			sourceTree = "<group>";
 		};
+		C2D5296A17D6D2BA0053872E /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5296B17D6D2BA0053872E /* iphone4 */,
+				C2D5297017D6D2BA0053872E /* iphone5 */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		C2D5296B17D6D2BA0053872E /* iphone4 */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5296C17D6D2BA0053872E /* welcome-1-460@2x.png */,
+				C2D5296D17D6D2BA0053872E /* welcome-2-460@2x.png */,
+				C2D5296E17D6D2BA0053872E /* welcome-3-460@2x.png */,
+				C2D5296F17D6D2BA0053872E /* welcome-4-460@2x.png */,
+			);
+			path = iphone4;
+			sourceTree = "<group>";
+		};
+		C2D5297017D6D2BA0053872E /* iphone5 */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5297117D6D2BA0053872E /* welcome-1-548@2x.png */,
+				C2D5297217D6D2BA0053872E /* welcome-2-548@2x.png */,
+				C2D5297317D6D2BA0053872E /* welcome-3-548@2x.png */,
+				C2D5297417D6D2BA0053872E /* welcome-4-548@2x.png */,
+			);
+			path = iphone5;
+			sourceTree = "<group>";
+		};
 		C2D76DB617A93ABD0013D089 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -2538,6 +2591,14 @@
 				C234A3D317D6256600E491F4 /* 二楼平台.jpg in Resources */,
 				C234A3D417D6256600E491F4 /* 北广场11号馆.jpg in Resources */,
 				C234A3D517D6256600E491F4 /* 展馆全图.jpg in Resources */,
+				C2D5297517D6D2BA0053872E /* welcome-1-460@2x.png in Resources */,
+				C2D5297617D6D2BA0053872E /* welcome-2-460@2x.png in Resources */,
+				C2D5297717D6D2BA0053872E /* welcome-3-460@2x.png in Resources */,
+				C2D5297817D6D2BA0053872E /* welcome-4-460@2x.png in Resources */,
+				C2D5297917D6D2BA0053872E /* welcome-1-548@2x.png in Resources */,
+				C2D5297A17D6D2BA0053872E /* welcome-2-548@2x.png in Resources */,
+				C2D5297B17D6D2BA0053872E /* welcome-3-548@2x.png in Resources */,
+				C2D5297C17D6D2BA0053872E /* welcome-4-548@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2822,6 +2883,7 @@
 				C209E10917CB52C00068CE8B /* AdUriModel.m in Sources */,
 				C23C7E0117CB5C1C00996983 /* WebViewController.m in Sources */,
 				C23C7E0417CB8FC300996983 /* EventModel.m in Sources */,
+				C2D5295617D6C9B20053872E /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "WelcomeViewController.h"
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "WXApi.h"
@@ -22,7 +23,17 @@
     
     [self setupUserDefaults];
     
-    _navigationController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
+    if ([UserDefaults boolForKey:kUCAppRunningFirstTime]) {
+        [UserDefaults setBool:NO forKey:kUCAppRunningFirstTime];
+        [UserDefaults synchronize];
+        
+        WelcomeViewController *vc = [[WelcomeViewController alloc] init];
+        _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    }
+    else {
+        _navigationController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
+    }
+    
     UINavigationBar *navigationBar = [_navigationController navigationBar];
     if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
         [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
@@ -66,7 +77,8 @@
 }
 
 - (void)setupUserDefaults {
-    NSDictionary *dict = @{kUCLoginRememberMe: @YES};
+    NSDictionary *dict = @{kUCLoginRememberMe: @YES,
+                           kUCAppRunningFirstTime: @YES};
     [UserDefaults registerDefaults:dict];
     [UserDefaults synchronize];
 }
