@@ -15,7 +15,6 @@
 		C2005FAB178A8E0700200E1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAA178A8E0700200E1E /* UIKit.framework */; };
 		C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAC178A8E0700200E1E /* Foundation.framework */; };
 		C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAE178A8E0700200E1E /* CoreGraphics.framework */; };
-		C2005FD1178A925A00200E1E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCA178A925A00200E1E /* Default-568h@2x.png */; };
 		C2005FD4178A925A00200E1E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2005FCD178A925A00200E1E /* InfoPlist.strings */; };
 		C2005FD5178A925A00200E1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FCF178A925A00200E1E /* main.m */; };
 		C2006022178A926700200E1E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2005FD9178A926700200E1E /* AppDelegate.m */; };
@@ -2486,7 +2485,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2005FD1178A925A00200E1E /* Default-568h@2x.png in Resources */,
 				C2005FD4178A925A00200E1E /* InfoPlist.strings in Resources */,
 				C209316A1790F71100F91BB5 /* bg-pattern.png in Resources */,
 				C209316B1790F71100F91BB5 /* bg-pattern@2x.png in Resources */,
