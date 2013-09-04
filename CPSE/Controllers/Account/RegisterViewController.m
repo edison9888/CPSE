@@ -9,6 +9,8 @@
 #import "RegisterViewController.h"
 #import "UIColor+BR.h"
 #import "ItemPickerViewController.h"
+#import "AccountInfoViewController.h"
+#import "LoginViewController.h"
 
 @interface RegisterViewController ()
 {
@@ -249,7 +251,18 @@
                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你已注册成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                       [alert show];
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:JSON[@"data"]];
-                      [self.navigationController popViewControllerAnimated:YES];
+                      
+                      // goto account info page
+                      AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
+                      vc.title = @"用户中心";
+                      [self.navigationController pushViewController:vc animated:YES];
+                      
+                      NSMutableArray *vcs = [NSMutableArray array];
+                      for (UIViewController *vc in self.navigationController.viewControllers) {
+                          if (![vc isKindOfClass:[LoginViewController class]] && ![vc isKindOfClass:[RegisterViewController class]])
+                              [vcs addObject:vc];
+                      }
+                      self.navigationController.viewControllers = vcs;
                   }
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
