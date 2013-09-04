@@ -206,7 +206,9 @@
 }
 
 - (void)tapChannelNotification {
-    
+    NSString *msg = @"\"消息\"功能将在下个版本开通";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)tapChannelFaq {
@@ -235,7 +237,9 @@
 }
 
 - (void)tapChannelPicture {
-    
+    NSString *msg = @"\"图片\"功能将在下个版本开通";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end
