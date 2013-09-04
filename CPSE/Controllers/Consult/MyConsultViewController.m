@@ -153,12 +153,12 @@
                           [alert show];
                       }
                       else {
-                          NSDictionary *dict = @{@"data":@{
-                                                         @"id": @0,
-                                                         @"user_name": DataMgr.currentAccount.name,
-                                                         @"content": _textView.text,
-                                                         @"add_time": @([[NSDate date] timeIntervalSince1970])
-                                                         }};
+                          NSDictionary *dict = @{
+                                                 @"id": @0,
+                                                 @"user_name": DataMgr.currentAccount.name,
+                                                 @"content": _textView.text,
+                                                 @"add_time": @([[NSDate date] timeIntervalSince1970])
+                                                 };
                           ConsultSetModel *consultSet = [[ConsultSetModel alloc] initWithId:0 andAttributes:dict];
                           CGFloat deltaHeight = [ConsultTableViewCell heightForConsultSet:consultSet];
                           [_consultSets insertObject:consultSet atIndex:0];
@@ -179,6 +179,8 @@
                               _tableView.frame = frame;
                               _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(frame));
                           });
+                          
+                          _textView.text = @"";
                       }
                   }
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
