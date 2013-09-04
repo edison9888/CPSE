@@ -122,6 +122,7 @@
     [info appendFormat:@"参展范围：%@\n", isEmpty(_data[@"exhibits_area"]) ? @"" : _data[@"exhibits_area"]];
     [info appendFormat:@"展位号：%@\n", isEmpty(_data[@"exhibitions"]) ? @"" : _data[@"exhibitions"]];
     [info appendFormat:@"E-mail：%@\n", _data[@"email"]];
+    [info appendFormat:@"联系电话：%@\n", _data[@"phone"]];
     [info appendFormat:@"联系地址：\n%@\n", _data[@"link_address"]];
 
     CGSize size = [info sizeWithFont:_infoLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
