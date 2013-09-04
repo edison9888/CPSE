@@ -58,7 +58,17 @@
 }
 
 - (void)tapToEnter {
-    [self.navigationController pushViewController:[HomeViewController sharedHome] animated:NO];
+    UINavigationController *vc = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
+    UINavigationBar *navigationBar = [vc navigationBar];
+    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
+    }
+    
+    [UIView transitionFromView:self.view
+                        toView:vc.view
+                      duration:.75
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    completion:nil];
 }
 
 #pragma mark - UIScrollViewDelegate

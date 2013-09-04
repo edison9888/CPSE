@@ -23,24 +23,24 @@
     
     [self setupUserDefaults];
     
-    if ([UserDefaults boolForKey:kUCAppRunningFirstTime]) {
-        [UserDefaults setBool:NO forKey:kUCAppRunningFirstTime];
-        [UserDefaults synchronize];
-        
-        WelcomeViewController *vc = [[WelcomeViewController alloc] init];
-        _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    }
-    else {
+    if (![UserDefaults boolForKey:kUCAppRunningFirstTime]) {
         _navigationController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
+        UINavigationBar *navigationBar = [_navigationController navigationBar];
+        if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+            [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
+        }
     }
     
-    UINavigationBar *navigationBar = [_navigationController navigationBar];
-    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-        [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
-    }
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = _navigationController;
+    if ([UserDefaults boolForKey:kUCAppRunningFirstTime]) {
+        self.window.rootViewController = [[WelcomeViewController alloc] init];
+        [UserDefaults setBool:NO forKey:kUCAppRunningFirstTime];
+        [UserDefaults synchronize];
+    }
+    else {
+        self.window.rootViewController = _navigationController;
+    }
     [self.window makeKeyAndVisible];
     
     // auto login

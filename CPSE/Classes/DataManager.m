@@ -28,7 +28,8 @@
 }
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password gotoAccountPageFrom:(UIViewController *)viewController {
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", [DataManager encodeUrl:username], [DataManager encodeUrl:password]]
+    NSString *path = [NSString stringWithFormat:@"api.php?action=login&username=%@&pwd=%@&type=user", [DataManager encodeUrl:username], [DataManager encodeUrl:password]];
+    [AFClient getPath:path
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   if ([JSON[@"errno"] boolValue]) {
