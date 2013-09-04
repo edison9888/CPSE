@@ -23,16 +23,18 @@
     
     [self setupUserDefaults];
     
-    if ([UserDefaults boolForKey:kUCAppRunningFirstTime]) {
-        [UserDefaults setBool:NO forKey:kUCAppRunningFirstTime];
-        [UserDefaults synchronize];
-        
-        WelcomeViewController *vc = [[WelcomeViewController alloc] init];
-        _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-    }
-    else {
-        _navigationController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
-    }
+    WelcomeViewController *vc = [[WelcomeViewController alloc] init];
+    _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+//    if ([UserDefaults boolForKey:kUCAppRunningFirstTime]) {
+//        [UserDefaults setBool:NO forKey:kUCAppRunningFirstTime];
+//        [UserDefaults synchronize];
+//        
+//        WelcomeViewController *vc = [[WelcomeViewController alloc] init];
+//        _navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+//    }
+//    else {
+//        _navigationController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
+//    }
     
     UINavigationBar *navigationBar = [_navigationController navigationBar];
     if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {

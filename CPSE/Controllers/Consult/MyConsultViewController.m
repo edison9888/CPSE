@@ -102,27 +102,25 @@
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=consultlist&username=%@", DataMgr.currentAccount.name]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  _consultSets = [NSMutableArray array];
                   if ([JSON[@"errno"] boolValue]) {
-                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                      [alert show];
+                      DLog(@"error msg: %@", JSON[@"errmsg"]);
                   }
                   else {
-                      _consultSets = [NSMutableArray array];
-                      
                       NSArray *allFaqs = JSON[@"data"];
                       for (NSDictionary *faq in allFaqs) {
                           ConsultSetModel *set = [[ConsultSetModel alloc] initWithId:[faq[@"id"] intValue] andAttributes:faq];
                           [_consultSets addObject:set];
                       }
-                      [_tableView reloadData];
-                      [_loadingView removeFromSuperview];
-                      
-                      // update ui
-                      CGRect frame = _tableView.frame;
-                      frame.size.height = _tableView.contentSize.height;
-                      _tableView.frame = frame;
-                      _scrollView.contentSize = CGSizeMake(320, CGRectGetMaxY(frame));
                   }
+                  [_tableView reloadData];
+                  [_loadingView removeFromSuperview];
+                  
+                  // update ui
+                  CGRect frame = _tableView.frame;
+                  frame.size.height = _tableView.contentSize.height;
+                  _tableView.frame = frame;
+                  _scrollView.contentSize = CGSizeMake(320, MAX(CGRectGetMaxY(frame), CGRectGetHeight(self.view.bounds)+1));
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
@@ -162,16 +160,14 @@
                           ConsultSetModel *consultSet = [[ConsultSetModel alloc] initWithId:0 andAttributes:dict];
                           CGFloat deltaHeight = [ConsultTableViewCell heightForConsultSet:consultSet];
                           [_consultSets insertObject:consultSet atIndex:0];
-                          NSUInteger ii[2] = {0, 0};
-                          NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+                          NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                           [_tableView beginUpdates];
                           [_tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
                           [_tableView endUpdates];
                           
                           // update ui
                           dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-                              NSUInteger iiTop[2] = {0, 1};
-                              NSIndexPath* indexPathTop = [NSIndexPath indexPathWithIndexes:iiTop length:2];
+                              NSIndexPath* indexPathTop = [NSIndexPath indexPathForRow:0 inSection:0];
                               [_tableView reloadRowsAtIndexPaths:@[indexPathTop] withRowAnimation:UITableViewRowAnimationAutomatic];
 
                               CGRect frame = _tableView.frame;
