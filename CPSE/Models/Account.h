@@ -13,6 +13,7 @@
 @property (readonly) NSString *type;
 @property (readonly) NSString *email;
 @property (strong) NSString *cardNumber;
+@property (strong) NSString *qrCodeImageUrl;
 
 - (id)initWithAttributes:(NSDictionary *)attributes;
 

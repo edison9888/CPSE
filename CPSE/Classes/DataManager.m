@@ -44,19 +44,7 @@
                       
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:dict];
                       
-                      // get card # from qc_url
-                      NSURL *url = [NSURL URLWithString:dict[@"qc_url"]];
-                      NSString *webData = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
-                      
-                      NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@">(\\d{8})<"
-                                                                                             options:NSRegularExpressionCaseInsensitive
-                                                                                               error:nil];
-                      NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:webData options:0 range:NSMakeRange(0, [webData length])];
-                      if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
-                          NSString *cardNo = [webData substringWithRange:NSMakeRange(rangeOfFirstMatch.location+1, rangeOfFirstMatch.length-2)];
-                          DLog(@"webData: %@", cardNo);
-                          DataMgr.currentAccount.cardNumber = cardNo;
-                      }
+                      [self updateAccountInfo:dict];
                       
                       
                       if (viewController) {
@@ -75,6 +63,32 @@
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
               }];
+}
+
+- (void)updateAccountInfo:(NSDictionary *)dict {
+    // get card # from qc_url
+    NSURL *url = [NSURL URLWithString:dict[@"qc_url"]];
+    NSString *webData = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@">(\\d{8})<"
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:webData options:0 range:NSMakeRange(0, [webData length])];
+    if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
+        NSString *cardNo = [webData substringWithRange:NSMakeRange(rangeOfFirstMatch.location+1, rangeOfFirstMatch.length-2)];
+        DataMgr.currentAccount.cardNumber = cardNo;
+    }
+    
+    // get QR code image url
+    regex = [NSRegularExpression regularExpressionWithPattern:@"src=([^\\s]+)\\s{1}height="
+                                                      options:NSRegularExpressionCaseInsensitive
+                                                        error:nil];
+    rangeOfFirstMatch = [regex rangeOfFirstMatchInString:webData options:0 range:NSMakeRange(0, [webData length])];
+    if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
+        NSString *url = [webData substringWithRange:NSMakeRange(rangeOfFirstMatch.location+4, rangeOfFirstMatch.length-12)];
+        DLog(@"url=%@", url);
+        DataMgr.currentAccount.qrCodeImageUrl = url;
+    }
 }
 
 - (NSString *)parseText:(NSString *)s {

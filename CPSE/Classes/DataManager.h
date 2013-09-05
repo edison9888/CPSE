@@ -15,6 +15,7 @@
 @property (nonatomic, strong) Account *currentAccount;
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password gotoAccountPageFrom:(UIViewController *)viewController;
+- (void)updateAccountInfo:(NSDictionary *)dict;
 
 - (NSString *)parseText:(NSString *)s;
 - (NSString *)normalizeHtml:(NSString *)html;

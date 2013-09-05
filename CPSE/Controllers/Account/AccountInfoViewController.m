@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ZXingObjC.h"
 #import "LoginViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface AccountInfoViewController ()
 {
@@ -23,7 +24,8 @@
     UILabel *_descriptionLabel;
     UILabel *_operationLabel;
     
-    UIImageView* _barImageView;
+    UIImageView *_qrCodeImageView;
+    UIActivityIndicatorView *_qrCodeImageLoadingIndicator;
 }
 @end
 
@@ -32,7 +34,7 @@
 - (id)initWithAccount:(Account*)account {
     if (self = [super init]) {
         _userId = account.id;
-        _userName =account.name;
+        _userName = account.name;
     }
     return self;
 }
@@ -73,13 +75,14 @@
     _descriptionLabel.textColor = [UIColor colorWithHex:0x999999];
     [_scrollView addSubview:_descriptionLabel];
     
-    _barImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-200,0, 200, 60)];
-    _barImageView.backgroundColor = [UIColor colorWithHex:0xcecece];
-    _barImageView.userInteractionEnabled = YES;
-    [_scrollView addSubview:_barImageView];
+    _qrCodeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-200, 0, 200, 200)];
+    _qrCodeImageView.backgroundColor = [UIColor colorWithHex:0xdedede];
+    _qrCodeImageView.userInteractionEnabled = YES;
+    [_scrollView addSubview:_qrCodeImageView];
     
-    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveToAlbum)];
-    [_barImageView addGestureRecognizer:gesture];
+    _qrCodeImageLoadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _qrCodeImageLoadingIndicator.frame = _qrCodeImageView.bounds;
+    [_qrCodeImageView addSubview:_qrCodeImageLoadingIndicator];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -139,23 +142,27 @@
     
 
     /*------------------------
-     barcodeStr
+     QR code
      ------------------------*/
-    NSString* barcodeStr = [NSString stringWithFormat:@"%i", DataMgr.currentAccount.cardNumber];
-    ZXMultiFormatWriter* writer = [[ZXMultiFormatWriter alloc] init];
-    ZXBitMatrix* result = [writer encode:barcodeStr
-                                  format:kBarcodeFormatCode128
-                                   width:_barImageView.frame.size.width
-                                  height:_barImageView.frame.size.height
-                                   error:nil];
-    if (result) {
-        _barImageView.image = [UIImage imageWithCGImage:[ZXImage imageWithMatrix:result].cgimage];
-    }
-    else {
-        _barImageView.image = nil;
-    }
-    _barImageView.center = CGPointMake(_scrollView.frame.size.width/2, topOffset + _barImageView.frame.size.height/2);
-    topOffset += _barImageView.frame.size.height + 10;
+    _qrCodeImageView.center = CGPointMake(_scrollView.frame.size.width/2, topOffset + _qrCodeImageView.frame.size.height/2);
+    [_qrCodeImageLoadingIndicator startAnimating];
+    
+    __block UIActivityIndicatorView *indicator = _qrCodeImageLoadingIndicator;
+    __block AccountInfoViewController *controller = self;
+    __block UIImageView *imageView = _qrCodeImageView;
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:DataMgr.currentAccount.qrCodeImageUrl]];
+    [req addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+    [_qrCodeImageView setImageWithURLRequest:req
+                      placeholderImage:nil
+                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+                                   [indicator removeFromSuperview];
+                                   imageView.image = image;
+                                   
+                                   UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:controller action:@selector(saveToAlbum)];
+                                   [imageView addGestureRecognizer:gesture];
+                               }
+                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){}];
+    topOffset += _qrCodeImageView.frame.size.height + 10;
     
     
     /*------------------------
@@ -163,7 +170,7 @@
      ------------------------*/
     info = [NSString stringWithFormat :@"卡号：%@", DataMgr.currentAccount.cardNumber];
     size = [info sizeWithFont:_cardNoLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    _cardNoLabel.frame = CGRectMake(CGRectGetMinX(_barImageView.frame), topOffset, size.width, size.height);
+    _cardNoLabel.frame = CGRectMake(CGRectGetMinX(_qrCodeImageView.frame), topOffset, size.width, size.height);
     _cardNoLabel.text = info;
     topOffset += size.height + 10;
     
@@ -196,7 +203,7 @@
 }
 
 - (void)saveToAlbum {
-    UIImageWriteToSavedPhotosAlbum(_barImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    UIImageWriteToSavedPhotosAlbum(_qrCodeImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {

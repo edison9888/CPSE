@@ -2989,8 +2989,8 @@
 		C2005FC6178A8E0700200E1E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: huang xiang";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: huang xiang";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
 				INFOPLIST_FILE = "Supporting Files/CPSE-Info.plist";
@@ -3004,8 +3004,8 @@
 					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_2.2.1.1\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "E77CC6C8-A629-46CC-8224-8F3729BEB2E8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E77CC6C8-A629-46CC-8224-8F3729BEB2E8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
