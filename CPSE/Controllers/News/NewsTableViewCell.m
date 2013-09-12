@@ -31,8 +31,16 @@
         frame.size.width = 300;
         self.imageView.frame = frame;
     }
-    else
+    else {
         self.imageView.frame = CGRectMake(10, 10, 70, 50);
+        
+        CGRect frame = self.textLabel.frame;
+        frame.origin.x = 90;
+        frame.origin.y = 0;
+        frame.size.width = CGRectGetWidth(self.frame) - 100;
+        frame.size.height = 70;
+        self.textLabel.frame = frame;
+    }
 }
 
 - (void)setData:(NSDictionary *)data {
