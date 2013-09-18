@@ -12,6 +12,8 @@
 @property (readonly) NSString *name;
 @property (readonly) NSString *type;
 @property (readonly) NSString *email;
+@property (readonly) NSString *qcUrl;
+
 @property (strong) NSString *cardNumber;
 @property (strong) NSString *qrCodeImageUrl;
 

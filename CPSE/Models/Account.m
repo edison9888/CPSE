@@ -16,6 +16,7 @@
         _name = attributes[@"username"];
         _type = attributes[@"type"];
         _email = attributes[@"email"];
+        _qcUrl = attributes[@"qc_url"];
     }
     return self;
 }
