@@ -49,28 +49,28 @@
     
     _userNameLabel = [[UILabel alloc] init];
     _userNameLabel.backgroundColor = [UIColor clearColor];
-    _userNameLabel.font = [UIFont systemFontOfSize:15];
+    _userNameLabel.font = [UIFont systemFontOfSize:16];
     _userNameLabel.numberOfLines = 0;
     _userNameLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_userNameLabel];
     
     _cardNoLabel = [[UILabel alloc] init];
     _cardNoLabel.backgroundColor = [UIColor clearColor];
-    _cardNoLabel.font = [UIFont systemFontOfSize:15];
+    _cardNoLabel.font = [UIFont systemFontOfSize:16];
     _cardNoLabel.numberOfLines = 0;
     _cardNoLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_cardNoLabel];
     
     _operationLabel = [[UILabel alloc] init];
     _operationLabel.backgroundColor = [UIColor clearColor];
-    _operationLabel.font = [UIFont systemFontOfSize:13];
+    _operationLabel.font = [UIFont systemFontOfSize:14];
     _operationLabel.numberOfLines = 0;
     _operationLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_operationLabel];
     
     _descriptionLabel = [[UILabel alloc] init];
     _descriptionLabel.backgroundColor = [UIColor clearColor];
-    _descriptionLabel.font = [UIFont systemFontOfSize:13];
+    _descriptionLabel.font = [UIFont systemFontOfSize:14];
     _descriptionLabel.numberOfLines = 0;
     _descriptionLabel.textColor = [UIColor colorWithHex:0x999999];
     [_scrollView addSubview:_descriptionLabel];
@@ -188,9 +188,10 @@
      _descriptionLabel
      ------------------------*/
     NSMutableString *desc = [NSMutableString string];
-    [desc appendString:@"感谢您预注册参观2013中国国际公共安全博览会。为便于您能顺利入场参观，请打印本确认函并且携带至展览现场，以打印确认函在预先登记观众通道获取观众胸牌。顺祝您本次参展愉快！\n\n"];
-    [desc appendString:@"若有任何问题，欢迎随时同展览会组委会联系。组委会联系方式为：0755－88309138（深圳安博会展有限公司）。\n\n"];
-    [desc appendString:@"注：16周岁以下观众恕不招待。\n\n"];
+    [desc appendString:@"感谢您预注册参观2013中国国际社会公共安全博览会。为便于您能顺利入场参观，请按照以下流程领取观展证：\n\n"];
+    [desc appendString:@"1、使用手机“参观申请”功能获得二维码。\n"];
+    [desc appendString:@"2、携带手机到展会现场预先登记观众通道自助扫描二维码换取观展证。\n\n"];
+    [desc appendString:@"感谢您注册成为CPS中安网会员，此账号和二维码为中安网通行证，可使用其参加中安网举办的其他线下活动，并可登陆中安网（www.cps.com.cn）享受更多会员服务。\n\n"];
     [desc appendString:@"展览时间：\n开幕式：\n10月29日 09：30\n\n"];
     [desc appendString:@"参展：\n10月29日 09：30 – 17:00\n10月30日 09：30 – 17:00\n10月31日 09：30 – 17:00\n11月01日 09：30 – 12:00\n\n"];
     [desc appendString:@"地点：\n中国•深圳会展中心\n\n"];

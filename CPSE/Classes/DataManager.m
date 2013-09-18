@@ -70,12 +70,12 @@
     NSURL *url = [NSURL URLWithString:dict[@"qc_url"]];
     NSString *webData = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@">(\\d{8})<"
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(\\d{8})<"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:nil];
     NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:webData options:0 range:NSMakeRange(0, [webData length])];
     if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
-        NSString *cardNo = [webData substringWithRange:NSMakeRange(rangeOfFirstMatch.location+1, rangeOfFirstMatch.length-2)];
+        NSString *cardNo = [webData substringWithRange:NSMakeRange(rangeOfFirstMatch.location, rangeOfFirstMatch.length-1)];
         DataMgr.currentAccount.cardNumber = cardNo;
     }
     
