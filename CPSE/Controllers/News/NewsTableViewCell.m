@@ -26,7 +26,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSString *type = _dict[@"uritype"];
-    if ([type isEqualToString:@"id"]) {
+    if ([type isEqualToString:@"url"]) {
         CGRect frame = self.imageView.frame;
         frame.size.width = 300;
         self.imageView.frame = frame;

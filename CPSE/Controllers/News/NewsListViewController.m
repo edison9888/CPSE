@@ -51,8 +51,8 @@
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@", _newstype]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  DLog(@"news %@", JSON);
                   _data = [JSON[@"data"] mutableCopy];
-//                  DLog(@"%@", _data);
                   if (![_newstype isEqualToString:kNewsTypeCPSE] || !isEmpty(_adlist))
                       [self mergeData];
               }
@@ -65,6 +65,7 @@
         [AFClient getPath:@"api.php?action=adlist&option=newslist"
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
+                      DLog(@"ad %@", JSON);
                       _adlist = JSON[@"data"];
                       DLog(@"%@", _adlist);
                       if (!isEmpty(_data))
