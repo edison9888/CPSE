@@ -179,7 +179,7 @@
     
     BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
     vc.title = @"新闻";
-    vc.viewControllers = @[vc1, vc2];
+    vc.viewControllers = @[vc2, vc1];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

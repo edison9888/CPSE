@@ -10,6 +10,7 @@
 #import "NewsInfoViewController.h"
 #import "UIColor+BR.h"
 #import "UIView+BR.h"
+#import "UIImage+BR.h"
 #import "CommentTableViewCell.h"
 #import "LoginViewController.h"
 #import "UMSocial.h"
@@ -31,6 +32,7 @@
     UIImageView *_imageView;
     UIWebView *_webView;
     
+    UIButton *_starButton;
     UITableView *_tableView;
     
     UIView* _commentEditorView;
@@ -74,6 +76,7 @@
     _webView.delegate = self;
     _webView.opaque = NO;
     _webView.scrollView.bounces = NO;
+    _webView.userInteractionEnabled = NO;
     [_scrollView addSubview:_webView];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(-320, 0, 320, 0)];
@@ -88,29 +91,26 @@
     
     UIView *bar = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame)-44, CGRectGetWidth(self.view.frame), 44)];
     bar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    bar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"MHTabBarContainerBgPattern"]];
     [self.view addSubview:bar];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 160, 44);
-    button.titleLabel.font = [UIFont systemFontOfSize:15];
-    [button setImage:[UIImage imageNamed:@"icon-comment"] forState:UIControlStateNormal];
-    [button setTitle:@"发表评论" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor colorWithHex:0xaaaaaa] forState:UIControlStateHighlighted];
+    button.frame = CGRectMake(9, 0, 180, 44);
+    [button setImage:[UIImage imageNamed:@"news-post-button"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(commentAction) forControlEvents:UIControlEventTouchUpInside];
     [bar addSubview:button];
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(160, 0, 160, 44);
-    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.frame = CGRectMake(212, 0, 44, 44);
     [button setImage:[UIImage imageNamed:@"icon-share"] forState:UIControlStateNormal];
-    [button setTitle:@"分享新闻" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor colorWithHex:0xaaaaaa] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     [bar addSubview:button];
     
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(266, 0, 44, 44);
+    [button setImage:[UIImage imageNamed:@"icon-star"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(starAction) forControlEvents:UIControlEventTouchUpInside];
+    [bar addSubview:button];
+    _starButton = button;
     
     // post comment
     _commentEditorView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame), CGRectGetWidth(self.view.frame), kCommentEditorViewHeight)];
@@ -179,6 +179,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // star or not
+    if ([DataMgr.database intForQuery:@"SELECT COUNT(*) FROM Favorite WHERE id = ?", @(_id)])
+        [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
     
     [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&newstype=%@&id=%d", _newstype, _id]
            parameters:nil
@@ -284,6 +288,17 @@
                                      shareImage:[_webView imageFromSelf]
                                 shareToSnsNames:@[UMShareToSina, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToEmail, UMShareToSms]
                                        delegate:nil];
+}
+
+- (void)starAction {
+    if ([DataMgr.database intForQuery:@"SELECT COUNT(*) FROM Favorite WHERE id = ?", @(_id)] > 0) {
+        [DataMgr.database executeUpdate:@"DELETE FROM Favorite WHERE id = ?", @(_id)];
+        [_starButton setImage:[UIImage imageNamed:@"icon-star"] forState:UIControlStateNormal];
+    }
+    else {
+        [DataMgr.database executeUpdate:@"INSERT INTO Favorite VALUES (?, ?, ?)", @(_id), _titleLabel.text, [NSDate date]];
+        [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - UIWebViewDelegate

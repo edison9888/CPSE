@@ -7,11 +7,15 @@
 //
 
 #import "Account.h"
+#import "FMDatabase.h"
+#import "FMDatabaseQueue.h"
+#import "FMDatabaseAdditions.h"
 
 @interface DataManager : NSObject
 
 + (DataManager *)sharedManager;
 
+@property (nonatomic, strong, readonly) FMDatabase *database;
 @property (nonatomic, strong) Account *currentAccount;
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password gotoAccountPageFrom:(UIViewController *)viewController;
@@ -21,4 +25,5 @@
 - (NSString *)normalizeHtml:(NSString *)html;
 
 + (NSString *)encodeUrl:(NSString *)url;
+
 @end

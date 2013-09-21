@@ -12,6 +12,8 @@
 
 @implementation DataManager
 
+@synthesize database = _database;
+
 + (DataManager *)sharedManager {
     static DataManager* _instance;
     static dispatch_once_t onceToken;
@@ -20,6 +22,33 @@
         _instance = [[DataManager alloc] init];
     });
     return _instance;
+}
+
++ (void)initialize {
+    // database path
+    NSString *appDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [appDirectory stringByAppendingPathComponent: @"db.sqlite"];
+	
+    // copy to document if not exist
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    if (![fileManager fileExistsAtPath:path])
+    {
+        NSString *file = [[NSBundle bundleForClass:[self class]] pathForResource:@"db.sqlite" ofType:nil];
+        DLog(@"bundle db file: %@", file);
+        NSError *error;
+        if (![fileManager copyItemAtPath:file toPath:path error:&error])
+            DLog(@"Error copying database to document: %@", [error description]);
+    }
+}
+
+- (FMDatabase *)database {
+    if (_database == nil) {
+        NSString *appDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *path = [appDirectory stringByAppendingPathComponent: @"db.sqlite"];
+        _database = [FMDatabase databaseWithPath:path];
+        [_database open];
+    }
+    return _database;
 }
 
 - (void)setCurrentAccount:(Account *)currentAccount {
