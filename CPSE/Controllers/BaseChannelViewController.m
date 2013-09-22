@@ -12,6 +12,8 @@
 #import "UIView+JMNoise.h"
 #import "LoginViewController.h"
 #import "AccountInfoViewController.h"
+#import "KxMenu.h"
+#import "HomeViewController.h"
 
 @interface BaseChannelViewController ()
 
@@ -52,7 +54,7 @@
     rightButton.clipsToBounds = YES;
     rightButton.layer.cornerRadius = 4;
     [rightButton setFrame:CGRectMake(0, 0, 44, 44)];
-    [rightButton setImage:[UIImage imageNamed:@"icon-profile"] forState:UIControlStateNormal];
+    [rightButton setImage:[UIImage imageNamed:@"icon-menu-list"] forState:UIControlStateNormal];
     [rightButton addTarget:self action:@selector(tapRightBarButton) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *rightView = [[UIView alloc] initWithFrame:buttonRect];
@@ -80,7 +82,6 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProfileStatus) name:kAccountChangeNotification object:DataMgr];
-    [self updateProfileStatus];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -93,6 +94,30 @@
 }
 
 - (void)tapRightBarButton {
+    NSMutableArray *menuItems = [NSMutableArray arrayWithObjects:[KxMenuItem menuItem:@"首页" image:[UIImage imageNamed:@"menu-icon-home"] target:self action:@selector(menuHomeAction)],
+                                 [KxMenuItem menuItem:@"个人中心" image:[UIImage imageNamed:@"menu-icon-user"] target:self action:@selector(menuUserAction)],
+                                 [KxMenuItem menuItem:@"我的收藏" image:[UIImage imageNamed:@"menu-icon-star"] target:self action:@selector(menuFavoriteAction)],
+                                 [KxMenuItem menuItem:@"扫一扫" image:[UIImage imageNamed:@"menu-icon-scan"] target:self action:@selector(menuScanAction)],
+                                 [KxMenuItem menuItem:@"退出登录" image:[UIImage imageNamed:@"menu-icon-logout"] target:self action:@selector(menuLogoutAction)],
+                                 nil];
+    
+    // exclue home menu item if it is at home view
+    if ([self isKindOfClass:[HomeViewController class]]) {
+        [menuItems removeObjectAtIndex:0];
+    }
+    
+    if (isEmpty(DataMgr.currentAccount)) {
+        [menuItems removeLastObject];
+    }
+    
+    [KxMenu showMenuInView:self.view fromRect:CGRectMake(320-44, -44, 44, 44) menuItems:menuItems];
+}
+
+- (void)menuHomeAction {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)menuUserAction {
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
         vc.title = @"用户登录";
@@ -106,15 +131,28 @@
     }
 }
 
-- (void)updateProfileStatus {
-    if (self.navigationItem.rightBarButtonItem) {
-        UIView *view = self.navigationItem.rightBarButtonItem.customView;
-        UIButton *button = (UIButton *)view.subviews[0];
-        if (DataMgr.currentAccount != nil)
-            [button setImage:[UIImage imageNamed:@"icon-profile-online"] forState:UIControlStateNormal];
-        else
-            [button setImage:[UIImage imageNamed:@"icon-profile"] forState:UIControlStateNormal];
+- (void)menuFavoriteAction {
+    if (DataMgr.currentAccount == nil) {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        vc.title = @"用户登录";
+        [self.navigationController pushViewController:vc animated:YES];
     }
+    else {
+    }
+}
+
+- (void)menuScanAction {
+    
+}
+
+- (void)menuLogoutAction {
+    DataMgr.currentAccount = nil;
+    [UserDefaults setValue:nil forKey:kUCLoginUsername];
+    [UserDefaults setValue:nil forKey:kUCLoginPassword];
+    [UserDefaults synchronize];
+}
+
+- (void)updateProfileStatus {
 }
 
 #pragma mark - rotation control

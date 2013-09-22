@@ -87,43 +87,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightButton.clipsToBounds = YES;
-    rightButton.layer.cornerRadius = 4;
-    [rightButton setFrame:CGRectMake(0, 0, 44, 44)];
-    [rightButton setImage:[UIImage imageNamed:@"icon-exit"] forState:UIControlStateNormal];
-    [rightButton addTarget:self action:@selector(tapRightBarButton) forControlEvents:UIControlEventTouchUpInside];
-    
-    CGRect buttonRect = CGRectMake(0, 0, 44, 44);
-    buttonRect = CGRectInset(buttonRect, 7, 7);
-    
-    UIView *rightView = [[UIView alloc] initWithFrame:buttonRect];
-    rightView.backgroundColor = [UIColor colorWithHex:0xff0000 alpha:.5];
-    rightView.layer.cornerRadius = 5;
-    [rightView addSubview:rightButton];
-    rightButton.center = CGPointMake(CGRectGetWidth(buttonRect)/2, CGRectGetHeight(buttonRect)/2);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self populateInterface];
-}
-
-- (void)tapRightBarButton {
-    DataMgr.currentAccount = nil;
-    [UserDefaults setValue:nil forKey:kUCLoginUsername];
-    [UserDefaults setValue:nil forKey:kUCLoginPassword];
-    [UserDefaults synchronize];
-    
-    LoginViewController *vc = [[LoginViewController alloc] init];
-    vc.title = @"用户登录";
-    [self.navigationController pushViewController:vc animated:YES];
-    
-    NSMutableArray *vcs = [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
-    [vcs removeObjectIdenticalTo:self];
-    self.navigationController.viewControllers = vcs;
 }
 
 - (void)populateInterface {
