@@ -7,7 +7,8 @@
 //
 
 #import "MHTabBarController.h"
+#import "ZXingWidgetController.h"
 
-@interface BaseChannelWithTabsViewController : MHTabBarController
+@interface BaseChannelWithTabsViewController : MHTabBarController <ZXingDelegate>
 
 @end

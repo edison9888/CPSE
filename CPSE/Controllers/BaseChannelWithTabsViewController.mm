@@ -15,6 +15,7 @@
 #import "KxMenu.h"
 #import "HomeViewController.h"
 #import "FavoriteViewController.h"
+#import "QRCodeReader.h"
 
 @interface BaseChannelWithTabsViewController ()
 
@@ -127,7 +128,12 @@
 }
 
 - (void)menuScanAction {
-    
+    ZXingWidgetController *widController = [[ZXingWidgetController alloc] initWithDelegate:self showCancel:YES OneDMode:NO];
+    NSMutableSet *readers = [[NSMutableSet alloc] init];
+    QRCodeReader *qrcodeReader = [[QRCodeReader alloc] init];
+    [readers addObject:qrcodeReader];
+    widController.readers = readers;
+    [self presentViewController:widController animated:YES completion:nil];
 }
 
 - (void)menuLogoutAction {
@@ -155,6 +161,21 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return toInterfaceOrientation == UIInterfaceOrientationPortrait;
+}
+
+#pragma mark - ZXingDelegate
+#pragma mark -
+- (void)zxingController:(ZXingWidgetController *)controller didScanResult:(NSString *)result {
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 // output scan
+                             }];
+}
+
+- (void)zxingControllerDidCancel:(ZXingWidgetController *)controller {
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                             }];
 }
 
 @end

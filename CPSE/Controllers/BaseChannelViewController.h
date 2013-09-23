@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface BaseChannelViewController : UIViewController
+#import "ZXingWidgetController.h"
+
+@interface BaseChannelViewController : UIViewController <ZXingDelegate>
 
 - (void)tapLeftBarButton;
 - (void)tapRightBarButton;

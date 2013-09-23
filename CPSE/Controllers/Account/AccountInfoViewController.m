@@ -9,7 +9,6 @@
 #import "AccountInfoViewController.h"
 #import "UIColor+BR.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ZXingObjC.h"
 #import "LoginViewController.h"
 #import "UIImageView+AFNetworking.h"
 
