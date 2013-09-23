@@ -9,14 +9,14 @@
 #import "ExhibitorInfoViewController.h"
 #import "UIColor+BR.h"
 #import "UIImageView+AFNetworking.h"
+#import "Exhibitor.h"
 
 @interface ExhibitorInfoViewController ()
 {
     NSInteger _id;
-    NSDictionary *_data;
+    Exhibitor *_exhibitor;
     
     UIScrollView *_scrollView;
-    UILabel *_infoLabel;
     UILabel *_descLabel;
 
     UIImageView *_logoView;
@@ -49,13 +49,6 @@
     _activityIndicator.frame = _logoView.frame;
     [_scrollView addSubview:_activityIndicator];
 
-    _infoLabel = [[UILabel alloc] init];
-    _infoLabel.backgroundColor = [UIColor clearColor];
-    _infoLabel.font = [UIFont systemFontOfSize:15];
-    _infoLabel.numberOfLines = 0;
-    _infoLabel.textColor = [UIColor colorWithHex:0x666666];
-    [_scrollView addSubview:_infoLabel];
-    
     _descLabel = [[UILabel alloc] init];
     _descLabel.backgroundColor = [UIColor clearColor];
     _descLabel.font = [UIFont systemFontOfSize:14];
@@ -64,8 +57,8 @@
     [_scrollView addSubview:_descLabel];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -85,7 +78,7 @@
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];
                   
-                  _data = JSON[@"data"];
+                  _exhibitor = [[Exhibitor alloc] initWithAttributes:JSON[@"data"]];
                   [self populateInterface];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -97,7 +90,7 @@
     CGRect rect = _scrollView.bounds;
     
     // set logo
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_data[@"logo"]]];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_exhibitor.logo]];
     [req addValue:@"image/*" forHTTPHeaderField:@"Accept"];
     __block UIImageView *imageView = _logoView;
     __block UIActivityIndicatorView *indicator = _activityIndicator;
@@ -116,21 +109,163 @@
     
     CGFloat topOffset = 110.f;
     
-    NSMutableString *info = [NSMutableString string];
-    [info appendFormat:@"企业名称：%@\n", _data[@"name"]];
-    [info appendFormat:@"展品信息：%@\n", isEmpty(_data[@"main_exhibit"]) ? @"" : _data[@"main_exhibit"]];
-    [info appendFormat:@"参展范围：%@\n", isEmpty(_data[@"exhibits_area"]) ? @"" : _data[@"exhibits_area"]];
-    [info appendFormat:@"展位号：%@\n", isEmpty(_data[@"exhibitions"]) ? @"" : _data[@"exhibitions"]];
-    [info appendFormat:@"E-mail：%@\n", _data[@"email"]];
-    [info appendFormat:@"联系电话：%@\n", _data[@"phone"]];
-    [info appendFormat:@"联系地址：\n%@\n", _data[@"link_address"]];
-
-    CGSize size = [info sizeWithFont:_infoLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    _infoLabel.frame = CGRectMake(10, topOffset, size.width, size.height);
-    _infoLabel.text = info;
+    // name
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"企业名称：";
+    CGSize capSize = [label.text sizeWithFont:label.font];
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.name;
+    CGSize size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
+    topOffset += size.height;
+    
+    // product
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"展品信息：";
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.product;
+    size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
+    topOffset += size.height;
+    
+    // area
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"参展范围：";
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.area;
+    size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
+    topOffset += size.height;
+    
+    // location
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"展位号：";
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.location;
+    size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
+    topOffset += size.height;
+    
+    // email
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"E-mail：";
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.email;
+    size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
+    topOffset += size.height;
+    
+    // phone
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"联系电话：";
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.phone;
+    size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
+    topOffset += size.height;
+    
+    // address
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textAlignment = NSTextAlignmentRight;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = @"联系地址：";
+    label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
+    [_scrollView addSubview:label];
+    
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x666666];
+    label.text = _exhibitor.address;
+    size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    [_scrollView addSubview:label];
+    
     topOffset += size.height + 10;
     
-    NSString *desc = _data[@"profile"];
+        
+    NSString *desc = _exhibitor.description;
     size = [desc sizeWithFont:_descLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     _descLabel.frame = CGRectMake(10, topOffset, size.width, size.height);
     _descLabel.text = desc;
