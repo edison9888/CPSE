@@ -14,6 +14,8 @@
 #import "AccountInfoViewController.h"
 #import "KxMenu.h"
 #import "HomeViewController.h"
+#import "FavoriteViewController.h"
+#import "BaseChannelWithTabsViewController.h"
 
 @interface BaseChannelViewController ()
 
@@ -132,13 +134,16 @@
 }
 
 - (void)menuFavoriteAction {
-    if (DataMgr.currentAccount == nil) {
-        LoginViewController *vc = [[LoginViewController alloc] init];
-        vc.title = @"用户登录";
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else {
-    }
+    FavoriteViewController *vc1 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain andType:FavoriteTypeNews];
+    FavoriteViewController *vc2 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain andType:FavoriteTypeExhibitor];
+    
+    vc1.title = @"新闻";
+    vc2.title = @"展商";
+    
+    BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
+    vc.title = @"我的收藏";
+    vc.viewControllers = @[vc1, vc2];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)menuScanAction {

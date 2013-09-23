@@ -296,7 +296,7 @@
         [_starButton setImage:[UIImage imageNamed:@"icon-star"] forState:UIControlStateNormal];
     }
     else {
-        [DataMgr.database executeUpdate:@"INSERT INTO Favorite VALUES (?, ?, ?)", @(_id), _titleLabel.text, [NSDate date]];
+        [DataMgr.database executeUpdate:@"INSERT INTO Favorite VALUES (?, ?, ?, ?)", @(_id), _titleLabel.text, [NSDate date], @(FavoriteTypeNews)];
         [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
     }
 }

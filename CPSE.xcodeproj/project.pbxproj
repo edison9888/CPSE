@@ -111,6 +111,8 @@
 		C26F0A6517B3699800ABEC46 /* exhibitors-areas-range.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6317B3699800ABEC46 /* exhibitors-areas-range.png */; };
 		C26F0A6617B3699800ABEC46 /* exhibitors-areas-range@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6417B3699800ABEC46 /* exhibitors-areas-range@2x.png */; };
 		C26F0A6817B36CAA00ABEC46 /* weichat-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */; };
+		C27E8DF417EFD1DA0076B9E5 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E8DF317EFD1DA0076B9E5 /* FavoriteViewController.m */; };
+		C27E8DF717EFD5620076B9E5 /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = C27E8DF617EFD5620076B9E5 /* Favorite.m */; };
 		C27F975E179233E400E79A78 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C27F975D179233E400E79A78 /* BannerViewController.m */; };
 		C27F97641792431100E79A78 /* logo-and-text.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F97621792431100E79A78 /* logo-and-text.png */; };
 		C27F97651792431100E79A78 /* logo-and-text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C27F97631792431100E79A78 /* logo-and-text@2x.png */; };
@@ -588,6 +590,10 @@
 		C26F0A6317B3699800ABEC46 /* exhibitors-areas-range.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exhibitors-areas-range.png"; sourceTree = "<group>"; };
 		C26F0A6417B3699800ABEC46 /* exhibitors-areas-range@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exhibitors-areas-range@2x.png"; sourceTree = "<group>"; };
 		C26F0A6717B36CAA00ABEC46 /* weichat-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weichat-icon.png"; sourceTree = "<group>"; };
+		C27E8DF217EFD1DA0076B9E5 /* FavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteViewController.h; sourceTree = "<group>"; };
+		C27E8DF317EFD1DA0076B9E5 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
+		C27E8DF517EFD5620076B9E5 /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
+		C27E8DF617EFD5620076B9E5 /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		C27F975C179233E400E79A78 /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		C27F975D179233E400E79A78 /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		C27F97621792431100E79A78 /* logo-and-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-and-text.png"; sourceTree = "<group>"; };
@@ -1339,6 +1345,7 @@
 				C201386917A372D1009CEA7F /* Exhibitors */,
 				C2BD02A817AF462000429EED /* Intro */,
 				C2BD02BF17AF733D00429EED /* Map */,
+				C27E8DF117EFD1A90076B9E5 /* MenuActions */,
 				C2D5152617A4EB1F00119089 /* News */,
 				C27F975C179233E400E79A78 /* BannerViewController.h */,
 				C27F975D179233E400E79A78 /* BannerViewController.m */,
@@ -1365,6 +1372,8 @@
 				C209E10817CB52C00068CE8B /* AdUriModel.m */,
 				C23C7E0217CB8FC300996983 /* EventModel.h */,
 				C23C7E0317CB8FC300996983 /* EventModel.m */,
+				C27E8DF517EFD5620076B9E5 /* Favorite.h */,
+				C27E8DF617EFD5620076B9E5 /* Favorite.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1617,6 +1626,15 @@
 				C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */,
 			);
 			path = Consult;
+			sourceTree = "<group>";
+		};
+		C27E8DF117EFD1A90076B9E5 /* MenuActions */ = {
+			isa = PBXGroup;
+			children = (
+				C27E8DF217EFD1DA0076B9E5 /* FavoriteViewController.h */,
+				C27E8DF317EFD1DA0076B9E5 /* FavoriteViewController.m */,
+			);
+			path = MenuActions;
 			sourceTree = "<group>";
 		};
 		C28FDEBF17AD798900ED05BB /* ZXingObjC_ARC */ = {
@@ -2964,6 +2982,8 @@
 				C23C7E0417CB8FC300996983 /* EventModel.m in Sources */,
 				C2D5295617D6C9B20053872E /* WelcomeViewController.m in Sources */,
 				C23664B417EF351E0074C317 /* KxMenu.m in Sources */,
+				C27E8DF417EFD1DA0076B9E5 /* FavoriteViewController.m in Sources */,
+				C27E8DF717EFD5620076B9E5 /* Favorite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
