@@ -22,11 +22,9 @@
     UIScrollView *_scrollView;
     UILabel *_cardNoLabel;
     UILabel *_userNameLabel;
-    UILabel *_descriptionLabel;
     UILabel *_operationLabel;
     
     UIImageView *_qrCodeImageView;
-    UIActivityIndicatorView *_qrCodeImageLoadingIndicator;
 }
 @end
 
@@ -69,28 +67,16 @@
     _operationLabel.textColor = [UIColor colorWithHex:0x666666];
     [_scrollView addSubview:_operationLabel];
     
-    _descriptionLabel = [[UILabel alloc] init];
-    _descriptionLabel.backgroundColor = [UIColor clearColor];
-    _descriptionLabel.font = [UIFont systemFontOfSize:14];
-    _descriptionLabel.numberOfLines = 0;
-    _descriptionLabel.textColor = [UIColor colorWithHex:0x999999];
-    [_scrollView addSubview:_descriptionLabel];
-    
     _qrCodeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-200, 0, 200, 200)];
     _qrCodeImageView.userInteractionEnabled = YES;
     [_scrollView addSubview:_qrCodeImageView];
     
-    _qrCodeImageLoadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    _qrCodeImageLoadingIndicator.frame = _qrCodeImageView.bounds;
-    [_qrCodeImageView addSubview:_qrCodeImageLoadingIndicator];
+    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(saveToAlbum)];
+    [_qrCodeImageView addGestureRecognizer:gesture];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     [self populateInterface];
 }
 
@@ -117,24 +103,6 @@
     NSString *qrCode = [NSString stringWithFormat:@"v:%@", DataMgr.currentAccount.cardNumber];
     UIImage* qrcodeImage = [QRCodeGenerator qrImageForString:qrCode imageSize:_qrCodeImageView.bounds.size.width];
     _qrCodeImageView.image = qrcodeImage;
-    
-//    [_qrCodeImageLoadingIndicator startAnimating];
-//    
-//    __block UIActivityIndicatorView *indicator = _qrCodeImageLoadingIndicator;
-//    __block AccountInfoViewController *controller = self;
-//    __block UIImageView *imageView = _qrCodeImageView;
-//    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:DataMgr.currentAccount.qrCodeImageUrl]];
-//    [req addValue:@"image/*" forHTTPHeaderField:@"Accept"];
-//    [_qrCodeImageView setImageWithURLRequest:req
-//                      placeholderImage:nil
-//                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-//                                   [indicator removeFromSuperview];
-//                                   imageView.image = image;
-//                                   
-//                                   UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:controller action:@selector(saveToAlbum)];
-//                                   [imageView addGestureRecognizer:gesture];
-//                               }
-//                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){}];
     topOffset += _qrCodeImageView.frame.size.height + 10;
     
     
@@ -160,20 +128,58 @@
     /*------------------------
      _descriptionLabel
      ------------------------*/
+    // 1st paragraph
     NSMutableString *desc = [NSMutableString string];
     [desc appendString:@"感谢您预注册参观2013中国国际社会公共安全博览会。为便于您能顺利入场参观，请按照以下流程领取观展证：\n\n"];
     [desc appendString:@"1、使用手机“参观申请”功能获得二维码。\n"];
     [desc appendString:@"2、携带手机到展会现场预先登记观众通道自助扫描二维码换取观展证。\n\n"];
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:14];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x999999];
+    [_scrollView addSubview:label];
+
+    size = [desc sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10, topOffset, size.width, size.height);
+    label.text = desc;
+    topOffset += size.height;
+    
+    // 2nd paragraph
+    desc = [NSMutableString string];
     [desc appendString:@"感谢您注册成为CPS中安网会员，此账号和二维码为中安网通行证，可使用其参加中安网举办的其他线下活动，并可登陆中安网（www.cps.com.cn）享受更多会员服务。\n\n"];
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:15];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0xff0000];
+    [_scrollView addSubview:label];
+    
+    size = [desc sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10, topOffset, size.width, size.height);
+    label.text = desc;
+    topOffset += size.height;
+    
+    // 3rd paragraph
+    desc = [NSMutableString string];
     [desc appendString:@"展览时间：\n开幕式：\n10月29日 09：30\n\n"];
     [desc appendString:@"参展：\n10月29日 09：30 – 17:00\n10月30日 09：30 – 17:00\n10月31日 09：30 – 17:00\n11月01日 09：30 – 12:00\n\n"];
     [desc appendString:@"地点：\n中国•深圳会展中心\n\n"];
+    label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:14];
+    label.numberOfLines = 0;
+    label.textColor = [UIColor colorWithHex:0x999999];
+    [_scrollView addSubview:label];
     
-    size = [desc sizeWithFont:_descriptionLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    _descriptionLabel.frame = CGRectMake(10, topOffset, size.width, size.height);
-    _descriptionLabel.text = desc;
+    size = [desc sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
+    label.frame = CGRectMake(10, topOffset, size.width, size.height);
+    label.text = desc;
+    topOffset += size.height;
     
-    _scrollView.contentSize = CGSizeMake(rect.size.width, CGRectGetMaxY(_descriptionLabel.frame) + 10);
+    
+    _scrollView.contentSize = CGSizeMake(rect.size.width, CGRectGetMaxY(label.frame) + 10);
 }
 
 - (void)saveToAlbum {

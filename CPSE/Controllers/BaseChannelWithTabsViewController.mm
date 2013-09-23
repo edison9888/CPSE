@@ -16,6 +16,7 @@
 #import "HomeViewController.h"
 #import "FavoriteViewController.h"
 #import "QRCodeReader.h"
+#import "AccountInfoViewController.h"
 
 @interface BaseChannelWithTabsViewController ()
 
@@ -77,23 +78,26 @@
 }
 
 - (void)tapRightBarButton {
-    NSMutableArray *menuItems = [NSMutableArray arrayWithObjects:[KxMenuItem menuItem:@"首页" image:[UIImage imageNamed:@"menu-icon-home"] target:self action:@selector(menuHomeAction)],
-                                 [KxMenuItem menuItem:@"个人中心" image:[UIImage imageNamed:@"menu-icon-user"] target:self action:@selector(menuUserAction)],
-                                 [KxMenuItem menuItem:@"我的收藏" image:[UIImage imageNamed:@"menu-icon-star"] target:self action:@selector(menuFavoriteAction)],
-                                 [KxMenuItem menuItem:@"扫一扫" image:[UIImage imageNamed:@"menu-icon-scan"] target:self action:@selector(menuScanAction)],
-                                 [KxMenuItem menuItem:@"退出登录" image:[UIImage imageNamed:@"menu-icon-logout"] target:self action:@selector(menuLogoutAction)],
-                                 nil];
-    
-    // exclue home menu item if it is at home view
-    if ([self isKindOfClass:[HomeViewController class]]) {
-        [menuItems removeObjectAtIndex:0];
+    NSMutableArray *items = [NSMutableArray array];
+    if (![self isKindOfClass:[HomeViewController class]]) {
+        [items addObject:[KxMenuItem menuItem:@"首页" image:[UIImage imageNamed:@"menu-icon-home"] target:self action:@selector(menuHomeAction)]];
     }
     
-    if (isEmpty(DataMgr.currentAccount)) {
-        [menuItems removeLastObject];
+    if (![self isKindOfClass:[AccountInfoViewController class]]) {
+        [items addObject:[KxMenuItem menuItem:@"个人中心" image:[UIImage imageNamed:@"menu-icon-user"] target:self action:@selector(menuUserAction)]];
     }
     
-    [KxMenu showMenuInView:self.view fromRect:CGRectMake(320-44, -44, 44, 44) menuItems:menuItems];
+    if (![self isKindOfClass:[FavoriteViewController class]]) {
+        [items addObject:[KxMenuItem menuItem:@"我的收藏" image:[UIImage imageNamed:@"menu-icon-star"] target:self action:@selector(menuFavoriteAction)]];
+    }
+    
+    [items addObject:[KxMenuItem menuItem:@"扫一扫" image:[UIImage imageNamed:@"menu-icon-scan"] target:self action:@selector(menuScanAction)]];
+    
+    if (!isEmpty(DataMgr.currentAccount)) {
+        [items addObject:[KxMenuItem menuItem:@"退出登录" image:[UIImage imageNamed:@"menu-icon-logout"] target:self action:@selector(menuLogoutAction)]];
+    }
+    
+    [KxMenu showMenuInView:self.view fromRect:CGRectMake(320-44, -44, 44, 44) menuItems:items];
 }
 
 - (void)menuHomeAction {
@@ -141,6 +145,10 @@
     [UserDefaults setValue:nil forKey:kUCLoginUsername];
     [UserDefaults setValue:nil forKey:kUCLoginPassword];
     [UserDefaults synchronize];
+    
+    if ([self isKindOfClass:[AccountInfoViewController class]]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)updateProfileStatus {
