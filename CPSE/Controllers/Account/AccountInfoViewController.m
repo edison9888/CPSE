@@ -11,6 +11,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LoginViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "ZBarSDK.h"
+#import "QRCodeGenerator.h"
 
 @interface AccountInfoViewController ()
 {
@@ -75,7 +77,6 @@
     [_scrollView addSubview:_descriptionLabel];
     
     _qrCodeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-200, 0, 200, 200)];
-    _qrCodeImageView.backgroundColor = [UIColor colorWithHex:0xdedede];
     _qrCodeImageView.userInteractionEnabled = YES;
     [_scrollView addSubview:_qrCodeImageView];
     
@@ -112,23 +113,28 @@
      QR code
      ------------------------*/
     _qrCodeImageView.center = CGPointMake(_scrollView.frame.size.width/2, topOffset + _qrCodeImageView.frame.size.height/2);
-    [_qrCodeImageLoadingIndicator startAnimating];
     
-    __block UIActivityIndicatorView *indicator = _qrCodeImageLoadingIndicator;
-    __block AccountInfoViewController *controller = self;
-    __block UIImageView *imageView = _qrCodeImageView;
-    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:DataMgr.currentAccount.qrCodeImageUrl]];
-    [req addValue:@"image/*" forHTTPHeaderField:@"Accept"];
-    [_qrCodeImageView setImageWithURLRequest:req
-                      placeholderImage:nil
-                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-                                   [indicator removeFromSuperview];
-                                   imageView.image = image;
-                                   
-                                   UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:controller action:@selector(saveToAlbum)];
-                                   [imageView addGestureRecognizer:gesture];
-                               }
-                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){}];
+    NSString *qrCode = [NSString stringWithFormat:@"v:%@", DataMgr.currentAccount.cardNumber];
+    UIImage* qrcodeImage = [QRCodeGenerator qrImageForString:qrCode imageSize:_qrCodeImageView.bounds.size.width];
+    _qrCodeImageView.image = qrcodeImage;
+    
+//    [_qrCodeImageLoadingIndicator startAnimating];
+//    
+//    __block UIActivityIndicatorView *indicator = _qrCodeImageLoadingIndicator;
+//    __block AccountInfoViewController *controller = self;
+//    __block UIImageView *imageView = _qrCodeImageView;
+//    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:DataMgr.currentAccount.qrCodeImageUrl]];
+//    [req addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+//    [_qrCodeImageView setImageWithURLRequest:req
+//                      placeholderImage:nil
+//                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
+//                                   [indicator removeFromSuperview];
+//                                   imageView.image = image;
+//                                   
+//                                   UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:controller action:@selector(saveToAlbum)];
+//                                   [imageView addGestureRecognizer:gesture];
+//                               }
+//                               failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){}];
     topOffset += _qrCodeImageView.frame.size.height + 10;
     
     
