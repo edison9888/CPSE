@@ -179,6 +179,7 @@
 		C2BD02BE17AF4BEC00429EED /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BD02BD17AF4BEC00429EED /* MapKit.framework */; };
 		C2BD02C217AF741600429EED /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02C117AF741600429EED /* VenuesViewController.m */; };
 		C2BD02C517AF77D300429EED /* VenueCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BD02C417AF77D300429EED /* VenueCellView.m */; };
+		C2D0CCD817F1DC5600C8CBD8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D0CCD717F1DC5500C8CBD8 /* MessageUI.framework */; };
 		C2D5151F17A4D73E00119089 /* ExhibitorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */; };
 		C2D5152917A4EB6700119089 /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152817A4EB6700119089 /* NewsListViewController.m */; };
 		C2D5152F17A4EE4500119089 /* NewsInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D5152E17A4EE4500119089 /* NewsInfoViewController.m */; };
@@ -549,6 +550,7 @@
 		C2BD02C117AF741600429EED /* VenuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
 		C2BD02C317AF77D300429EED /* VenueCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueCellView.h; sourceTree = "<group>"; };
 		C2BD02C417AF77D300429EED /* VenueCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCellView.m; sourceTree = "<group>"; };
+		C2D0CCD717F1DC5500C8CBD8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		C2D5151D17A4D73E00119089 /* ExhibitorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitorInfoViewController.h; sourceTree = "<group>"; };
 		C2D5151E17A4D73E00119089 /* ExhibitorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitorInfoViewController.m; sourceTree = "<group>"; };
 		C2D5152717A4EB6700119089 /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
@@ -661,6 +663,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D0CCD817F1DC5600C8CBD8 /* MessageUI.framework in Frameworks */,
 				C2BB255917F002DB0049676D /* libZXingWidget.a in Frameworks */,
 				C2BB254B17EFFA6E0049676D /* AddressBookUI.framework in Frameworks */,
 				C2BB254917EFFA680049676D /* AddressBook.framework in Frameworks */,
@@ -734,6 +737,7 @@
 				C2006044178A93AF00200E1E /* MediaPlayer.framework */,
 				C2006042178A93A800200E1E /* libsqlite3.dylib */,
 				C2006040178A93A000200E1E /* libz.dylib */,
+				C2D0CCD717F1DC5500C8CBD8 /* MessageUI.framework */,
 				C200603E178A939700200E1E /* MobileCoreServices.framework */,
 				C2BD02BD17AF4BEC00429EED /* MapKit.framework */,
 				C2BD02BB17AF4BE600429EED /* CoreLocation.framework */,
@@ -1882,8 +1886,8 @@
 					"\"$(SRCROOT)/CPSE/Vendors/ZBarSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BD413B82-9D57-4AEB-8C42-8060EB90AA77";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BD413B82-9D57-4AEB-8C42-8060EB90AA77";
+				PROVISIONING_PROFILE = "F3154017-8446-4D72-8832-ADD93B5EAEA0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3154017-8446-4D72-8832-ADD93B5EAEA0";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};

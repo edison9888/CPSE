@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 #import "BaseChannelViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
-@interface ExhibitorInfoViewController : BaseChannelViewController
+@interface ExhibitorInfoViewController : BaseChannelViewController <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 
 - (id)initWithId:(NSInteger)exhibitorId;
 
