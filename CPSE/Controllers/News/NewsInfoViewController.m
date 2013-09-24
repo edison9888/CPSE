@@ -14,6 +14,7 @@
 #import "CommentTableViewCell.h"
 #import "LoginViewController.h"
 #import "UMSocial.h"
+#import "MBProgressHUD.h"
 
 #define kCellSeparatorLineTag 1
 #define kCommentEditorViewHeight 80
@@ -294,10 +295,26 @@
     if ([DataMgr.database intForQuery:@"SELECT COUNT(*) FROM Favorite WHERE id = ?", @(_id)] > 0) {
         [DataMgr.database executeUpdate:@"DELETE FROM Favorite WHERE id = ?", @(_id)];
         [_starButton setImage:[UIImage imageNamed:@"icon-star"] forState:UIControlStateNormal];
+        
+        MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:hud];
+        hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud-destar"]];
+        hud.mode = MBProgressHUDModeCustomView;
+        hud.labelText = @"已取消收藏";
+        [hud show:YES];
+        [hud hide:YES afterDelay:.7];
     }
     else {
         [DataMgr.database executeUpdate:@"INSERT INTO Favorite VALUES (?, ?, ?, ?)", @(_id), _titleLabel.text, [NSDate date], @(FavoriteTypeNews)];
         [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+        
+        MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:hud];
+        hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud-star"]];
+        hud.mode = MBProgressHUDModeCustomView;
+        hud.labelText = @"收藏成功";
+        [hud show:YES];
+        [hud hide:YES afterDelay:.7];
     }
 }
 

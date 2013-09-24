@@ -95,7 +95,7 @@
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
     [button setTitle:@"完成登记" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(rect), CGRectGetMaxY(button.frame)+10);
@@ -143,7 +143,7 @@
     return [areas componentsJoinedByString:@"/"];
 }
 
-- (void)registerAction {
+- (void)registerAction:(UIButton *)sender {
     NSString *message;
     UITextField *entry;
     for (int i=0; i<[self.textEntries count]; i++) {

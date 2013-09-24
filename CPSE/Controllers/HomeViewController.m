@@ -21,6 +21,7 @@
 #import "LoginViewController.h"
 #import "ExhibitorInfoViewController.h"
 #import "WebViewController.h"
+#import "AccountInfoViewController.h"
 
 @interface HomeViewController ()
 {
@@ -202,7 +203,17 @@
 }
 
 - (void)tapChannelSubscribe {
-    [self tapRightBarButton];
+    if (DataMgr.currentAccount == nil) {
+        LoginViewController *vc = [[LoginViewController alloc] init];
+        vc.title = @"用户登录";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        AccountInfoViewController *vc = [[AccountInfoViewController alloc]
+                                         initWithAccount:DataMgr.currentAccount];
+        vc.title = @"用户中心";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)tapChannelNotification {
