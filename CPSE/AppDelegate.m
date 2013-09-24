@@ -67,9 +67,10 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
-    
-    DeviceTokenManager *deviceTokenManager = [[DeviceTokenManager alloc] init];
-    [deviceTokenManager dealWithDeviceToken:[@"123456" dataUsingEncoding:NSUTF8StringEncoding]];
+
+//    only for test on simulator
+//    DeviceTokenManager *deviceTokenManager = [[DeviceTokenManager alloc] init];
+//    [deviceTokenManager dealWithDeviceToken:[@"123456" dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
