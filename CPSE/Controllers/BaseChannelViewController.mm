@@ -19,6 +19,7 @@
 #import "ZXingWidgetController.h"
 #import "QRCodeReader.h"
 #import "AccountInfoViewController.h"
+#import "ExhibitorInfoViewController.h"
 
 @interface BaseChannelViewController ()
 
@@ -199,6 +200,24 @@
     [self dismissViewControllerAnimated:YES
                              completion:^{
                                  DLog(@"%@", result);
+                                 NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"e:\\d{4}"
+                                                                                                        options:NSRegularExpressionCaseInsensitive
+                                                                                                          error:nil];
+                                 NSRange rangeOfFirstMatch = [regex rangeOfFirstMatchInString:result options:0 range:NSMakeRange(0, [result length])];
+                                 if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
+                                     NSString *id = [result substringWithRange:NSMakeRange(rangeOfFirstMatch.location+2, rangeOfFirstMatch.length-2)];
+                                     ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[id intValue]];
+                                     vc.title = @"展商详情";
+                                     [self.navigationController pushViewController:vc animated:YES];
+                                 }
+                                 else {
+                                     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
+                                     [self.view addSubview:hud];
+                                     hud.mode = MBProgressHUDModeText;
+                                     hud.labelText = @"不是一个合法的展商二维码";
+                                     [hud show:YES];
+                                     [hud hide:YES afterDelay:.7];
+                                 }
                              }];
 }
 
