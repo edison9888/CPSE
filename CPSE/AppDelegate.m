@@ -11,6 +11,7 @@
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "WXApi.h"
+#import "DeviceTokenManager.h"
 
 @implementation AppDelegate
 
@@ -59,11 +60,16 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
+    DeviceTokenManager *deviceTokenManager = [[DeviceTokenManager alloc] init];
+    [deviceTokenManager dealWithDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+    
+    DeviceTokenManager *deviceTokenManager = [[DeviceTokenManager alloc] init];
+    [deviceTokenManager dealWithDeviceToken:[@"123456" dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

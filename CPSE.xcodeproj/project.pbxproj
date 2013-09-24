@@ -12,6 +12,8 @@
 		4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDA17ACC946009F613F /* CoreVideo.framework */; };
 		4F7F9EDD17ACC94F009F613F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDC17ACC94F009F613F /* ImageIO.framework */; };
 		4F7F9EE217ACFBCF009F613F /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */; };
+		4FB1CCDE17F122D0001A64F9 /* DeviceTokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CCDD17F122D0001A64F9 /* DeviceTokenManager.m */; };
+		4FB1CCE317F12678001A64F9 /* DeviceToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FB1CCE217F12678001A64F9 /* DeviceToken.m */; };
 		C2005FAB178A8E0700200E1E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAA178A8E0700200E1E /* UIKit.framework */; };
 		C2005FAD178A8E0700200E1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAC178A8E0700200E1E /* Foundation.framework */; };
 		C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2005FAE178A8E0700200E1E /* CoreGraphics.framework */; };
@@ -279,6 +281,10 @@
 		4F7F9EDC17ACC94F009F613F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4F7F9EDE17ACF751009F613F /* AccountInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountInfoViewController.h; sourceTree = "<group>"; };
 		4F7F9EDF17ACF751009F613F /* AccountInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountInfoViewController.m; sourceTree = "<group>"; };
+		4FB1CCDC17F122D0001A64F9 /* DeviceTokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceTokenManager.h; sourceTree = "<group>"; };
+		4FB1CCDD17F122D0001A64F9 /* DeviceTokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceTokenManager.m; sourceTree = "<group>"; };
+		4FB1CCE117F12678001A64F9 /* DeviceToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceToken.h; sourceTree = "<group>"; };
+		4FB1CCE217F12678001A64F9 /* DeviceToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceToken.m; sourceTree = "<group>"; };
 		C2005FA7178A8E0700200E1E /* CPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2005FAA178A8E0700200E1E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C2005FAC178A8E0700200E1E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -679,6 +685,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4FB1CCE017F12668001A64F9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4FB1CCE117F12678001A64F9 /* DeviceToken.h */,
+				4FB1CCE217F12678001A64F9 /* DeviceToken.m */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		C2005F9E178A8E0700200E1E = {
 			isa = PBXGroup;
 			children = (
@@ -766,10 +781,13 @@
 		C2005FDA178A926700200E1E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4FB1CCE017F12668001A64F9 /* Data */,
 				C2005FDB178A926700200E1E /* Extensions */,
 				C2005FDC178A926700200E1E /* Helpers */,
 				C25CC6DA178A992A0055E82A /* DataManager.h */,
 				C25CC6DB178A992B0055E82A /* DataManager.m */,
+				4FB1CCDC17F122D0001A64F9 /* DeviceTokenManager.h */,
+				4FB1CCDD17F122D0001A64F9 /* DeviceTokenManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1703,6 +1721,8 @@
 				C25B8D0217F080090038FB5C /* rscode.c in Sources */,
 				C25B8D0317F080090038FB5C /* split.c in Sources */,
 				C29E655C17F09E7F00A8550A /* Exhibitor.m in Sources */,
+				4FB1CCDE17F122D0001A64F9 /* DeviceTokenManager.m in Sources */,
+				4FB1CCE317F12678001A64F9 /* DeviceToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1800,8 +1820,8 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Developer: huang xiang (2Z938N5Q79)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: huang xiang (2Z938N5Q79)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: borong zhou (XZU2VVDMPP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: borong zhou (XZU2VVDMPP)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1818,6 +1838,8 @@
 					"\"$(SRCROOT)/CPSE/Vendors/ZBarSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F0BB891C-876F-4B61-A444-9F23FD535EEE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0BB891C-876F-4B61-A444-9F23FD535EEE";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1828,8 +1850,8 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: huang xiang";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: huang xiang";
+				CODE_SIGN_IDENTITY = "iPhone Developer: borong zhou (XZU2VVDMPP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: borong zhou (XZU2VVDMPP)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1846,8 +1868,8 @@
 					"\"$(SRCROOT)/CPSE/Vendors/ZBarSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E77CC6C8-A629-46CC-8224-8F3729BEB2E8";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E77CC6C8-A629-46CC-8224-8F3729BEB2E8";
+				PROVISIONING_PROFILE = "F0BB891C-876F-4B61-A444-9F23FD535EEE";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0BB891C-876F-4B61-A444-9F23FD535EEE";
 				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
