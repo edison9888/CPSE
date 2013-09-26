@@ -13,16 +13,16 @@
 
 @interface FavoriteViewController ()
 {
-    FavoriteType _type;
+    BOOL _isNews;
     NSMutableArray *_data;
 }
 @end
 
 @implementation FavoriteViewController
 
-- (id)initWithStyle:(UITableViewStyle)style andType:(FavoriteType)type {
+- (id)initWithStyle:(UITableViewStyle)style isNews:(BOOL)isnews {
     if (self = [super initWithStyle:style]) {
-        _type = type;
+        _isNews = isnews;
     }
     return self;
 }
@@ -31,7 +31,11 @@
     [super viewDidAppear:animated];
     
     _data = [NSMutableArray array];
-    FMResultSet *rs = [DataMgr.database executeQuery:@"SELECT * FROM Favorite WHERE type = ?", @(_type)];
+    FMResultSet *rs;
+    if (_isNews)
+        rs = [DataMgr.database executeQuery:@"SELECT * FROM Favorite WHERE type = ? OR type = ?", @(FavoriteTypeNewsCPSE), @(FavoriteTypeNewsIndustry)];
+    else
+        rs = [DataMgr.database executeQuery:@"SELECT * FROM Favorite WHERE type = ?", @(FavoriteTypeExhibitor)];
     while ([rs next]) {
         Favorite *favorite = [[Favorite alloc] initWithId:[rs intForColumn:@"id"] title:[rs stringForColumn:@"title"] type:[rs intForColumn:@"type"]];
         [_data addObject:favorite];
@@ -67,8 +71,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Favorite *favorite = [_data objectAtIndex:indexPath.row];
-    if (_type == FavoriteTypeNews) {
-        NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:favorite.id andType:(favorite.id > 10000 ? @"industry" : @"cpse")];
+    if (favorite.type == FavoriteTypeNewsCPSE || favorite.type == FavoriteTypeNewsIndustry) {
+        NSString *type = favorite.type == FavoriteTypeNewsCPSE ? @"cpse" : @"industry";
+        NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:favorite.id andType:type];
         vc.title = @"新闻内容";
         [self.navigationController pushViewController:vc animated:YES];
     }

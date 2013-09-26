@@ -281,12 +281,12 @@
 - (void)shareAction {
     [UMSocialData defaultData].shareImage = [_webView imageFromSelf];
     [UMSocialData defaultData].extConfig.title = _titleLabel.text;
-    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeText;
     
     [UMSocialSnsService presentSnsIconSheetView:self.parentViewController
                                          appKey:kUMengAppKey
-                                      shareText:_titleLabel.text
-                                     shareImage:[_webView imageFromSelf]
+                                      shareText:[NSString stringWithFormat:@"%@ %@", _titleLabel.text, _data[@"app_url"]]
+                                     shareImage:nil
                                 shareToSnsNames:@[UMShareToSina, UMShareToQzone, UMShareToWechatSession, UMShareToWechatTimeline, UMShareToEmail, UMShareToSms]
                                        delegate:nil];
 }
@@ -305,7 +305,8 @@
         [hud hide:YES afterDelay:.7];
     }
     else {
-        [DataMgr.database executeUpdate:@"INSERT INTO Favorite VALUES (?, ?, ?, ?)", @(_id), _titleLabel.text, [NSDate date], @(FavoriteTypeNews)];
+        FavoriteType favType = ([_newstype isEqualToString:@"cpse"] ? FavoriteTypeNewsCPSE : FavoriteTypeNewsIndustry);
+        [DataMgr.database executeUpdate:@"INSERT INTO Favorite VALUES (?, ?, ?, ?)", @(_id), _titleLabel.text, [NSDate date], @(favType)];
         [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
         
         MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.navigationController.view];

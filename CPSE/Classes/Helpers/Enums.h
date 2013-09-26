@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, EventType){
 };
 
 typedef NS_ENUM(NSUInteger, FavoriteType){
-    FavoriteTypeNews            = 0,
-    FavoriteTypeExhibitor       = 1
+    FavoriteTypeNewsCPSE        = 0,
+    FavoriteTypeNewsIndustry    = 1,
+    FavoriteTypeExhibitor       = 2
 };

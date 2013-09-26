@@ -8,6 +8,6 @@
 
 @interface FavoriteViewController : UITableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style andType:(FavoriteType)type;
+- (id)initWithStyle:(UITableViewStyle)style isNews:(BOOL)isnews;
 
 @end

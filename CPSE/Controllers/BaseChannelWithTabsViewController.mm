@@ -119,8 +119,8 @@
 }
 
 - (void)menuFavoriteAction {
-    FavoriteViewController *vc1 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain andType:FavoriteTypeNews];
-    FavoriteViewController *vc2 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain andType:FavoriteTypeExhibitor];
+    FavoriteViewController *vc1 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain isNews:YES];
+    FavoriteViewController *vc2 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain isNews:NO];
     
     vc1.title = @"新闻";
     vc2.title = @"展商";
