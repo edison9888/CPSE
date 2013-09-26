@@ -85,6 +85,9 @@
 }
 
 - (void)setFooterView {
+    if (_lastId == 0)
+        return;
+    
     // if the footerView is nil, then create it, reset the position of the footer
     CGFloat height = MAX(self.tableView.contentSize.height, self.tableView.frame.size.height);
     if (_refreshFooterView && [_refreshFooterView superview]) {
@@ -212,7 +215,7 @@
         [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@", _newstype]
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
-                      DLog(@"news %@", JSON);
+                      //DLog(@"news %@", JSON);
                       _data = [JSON[@"data"] mutableCopy];
                       if ([_data count] > 0) {
                           NSDictionary *dict = [_data lastObject];
@@ -230,9 +233,8 @@
             [AFClient getPath:@"api.php?action=adlist&option=newslist"
                    parameters:nil
                       success:^(AFHTTPRequestOperation *operation, id JSON) {
-                          DLog(@"ad %@", JSON);
                           _adlist = JSON[@"data"];
-                          DLog(@"%@", _adlist);
+                          //DLog(@"%@", _adlist);
                           if (!isEmpty(_data))
                               [self mergeData];
                       }
@@ -244,7 +246,10 @@
 }
 
 - (void)getNextPageView {
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@&pull=0&id=%d", _newstype, _lastId]
+    NSString *url = [NSString stringWithFormat:@"api.php?action=newslist&newstype=%@&pull=0&id=%d", _newstype, _lastId];
+    DLog(@"next page url: %@", url);
+    
+    [AFClient getPath:url
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   NSArray *items = JSON[@"data"];
@@ -253,16 +258,25 @@
                       _lastId = [dict[@"id"] intValue];
                       
                       [_data addObjectsFromArray:items];
+                      
+                      // update interface
+                      [self.tableView reloadData];
+                      [self setFooterView];
+                      
+                      [self finishReloadingData];
                   }
                   else {
                       _lastId = 0;
+                      
+                      [self removeFooterView];
+                      [self finishReloadingData];
+                      
+                      [UIView beginAnimations:nil context:NULL];
+                      [UIView setAnimationDuration:0.2];
+                      self.tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+                      [UIView commitAnimations];
                   }
-                  
-                  // update interface
-                  [self.tableView reloadData];
-                  [self setFooterView];
-                  
-                  [self finishReloadingData];
+                  DLog(@"last id %d", _lastId);
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
