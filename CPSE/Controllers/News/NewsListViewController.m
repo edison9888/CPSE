@@ -20,7 +20,7 @@
     NSString *_newstype;
     NSMutableArray *_data;
     NSArray *_adlist;
-    UIView *_loadingView;
+    NSUInteger _lastId;
 }
 @end
 
@@ -29,6 +29,7 @@
 - (id)initWithType:(NSString *)newstype {
     if (self = [super init]) {
         _newstype = newstype;
+        _lastId = NSUIntegerMax;
     }
     return self;
 }
@@ -36,45 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _loadingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicator.frame = CGRectMake(70, 0, 44, 44);
-    [_loadingView addSubview:indicator];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:16];
-    label.text = @"正在努力加载数据";
-    [_loadingView addSubview:label];
-    [indicator startAnimating];
-    [self.tableView addSubview:_loadingView];
-    
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@", _newstype]
-           parameters:nil
-              success:^(AFHTTPRequestOperation *operation, id JSON) {
-                  DLog(@"news %@", JSON);
-                  _data = [JSON[@"data"] mutableCopy];
-                  if (![_newstype isEqualToString:kNewsTypeCPSE] || !isEmpty(_adlist))
-                      [self mergeData];
-              }
-              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                  DLog(@"error: %@", [error description]);
-              }];
-    
-    // ad
-    if ([_newstype isEqualToString:kNewsTypeCPSE]) {
-        [AFClient getPath:@"api.php?action=adlist&option=newslist"
-               parameters:nil
-                  success:^(AFHTTPRequestOperation *operation, id JSON) {
-                      DLog(@"ad %@", JSON);
-                      _adlist = JSON[@"data"];
-                      DLog(@"%@", _adlist);
-                      if (!isEmpty(_data))
-                          [self mergeData];
-                  }
-                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                      DLog(@"error: %@", [error description]);
-                  }];
-    }
+    [self createHeaderView];
+    [self refreshView:YES];
 }
 
 - (void)mergeData {
@@ -84,9 +48,225 @@
             break;
         [_data insertObject:_adlist[i] atIndex:idx];
     }
-    [self.tableView reloadData];
     
-    [_loadingView removeFromSuperview];
+    // update interface
+    [self.tableView reloadData];
+    [self setFooterView];
+    
+    [self finishReloadingData];
+    
+    // no need any more
+    if (_refreshHeaderView) {
+        [_refreshHeaderView removeFromSuperview];
+        _refreshHeaderView = nil;
+    }
+}
+
+
+#pragma mark - methods for creating and removing the header view
+#pragma mark -
+- (void)createHeaderView {
+    if (_refreshHeaderView && [_refreshHeaderView superview]) {
+        [_refreshHeaderView removeFromSuperview];
+    }
+    
+    CGRect rect = self.view.bounds;
+	_refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0, -CGRectGetHeight(rect), CGRectGetWidth(rect), CGRectGetHeight(rect))];
+    _refreshHeaderView.delegate = self;
+    
+	[self.tableView addSubview:_refreshHeaderView];
+}
+
+- (void)removeHeaderView {
+    if (_refreshHeaderView && [_refreshHeaderView superview]) {
+        [_refreshHeaderView removeFromSuperview];
+    }
+    _refreshHeaderView = nil;
+}
+
+- (void)setFooterView {
+    // if the footerView is nil, then create it, reset the position of the footer
+    CGFloat height = MAX(self.tableView.contentSize.height, self.tableView.frame.size.height);
+    if (_refreshFooterView && [_refreshFooterView superview]) {
+        // reset position
+        _refreshFooterView.frame = CGRectMake(0.0f, height, self.tableView.frame.size.width, self.view.bounds.size.height);
+    }
+    else {
+        // create the footerView
+        _refreshFooterView = [[EGORefreshTableFooterView alloc] initWithFrame:CGRectMake(0.0f, height, self.tableView.frame.size.width, self.view.bounds.size.height)];
+        _refreshFooterView.delegate = self;
+        [self.tableView addSubview:_refreshFooterView];
+    }
+}
+
+- (void)removeFooterView {
+    if (_refreshFooterView && [_refreshFooterView superview]) {
+        [_refreshFooterView removeFromSuperview];
+    }
+    _refreshFooterView = nil;
+}
+
+// force to show the refresh headerView
+-(void)showRefreshHeader:(BOOL)animated{
+	if (animated)
+	{
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDuration:0.2];
+		self.tableView.contentInset = UIEdgeInsetsMake(REFRESH_HEADER_HEIGHT, 0.0f, 0.0f, 0.0f);
+        // scroll the table view to the top region
+        [self.tableView scrollRectToVisible:CGRectMake(0, 0.0f, 1, 1) animated:NO];
+        [UIView commitAnimations];
+	}
+	else
+	{
+        self.tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f, 0.0f);
+		[self.tableView scrollRectToVisible:CGRectMake(0, 0.0f, 1, 1) animated:NO];
+	}
+    
+    [_refreshHeaderView setState:EGOOPullRefreshLoading];
+}
+
+#pragma mark - data reloading methods that must be overide by the subclass
+
+-(void)beginToReloadData:(EGORefreshPos)aRefreshPos{
+	
+	//  should be calling your tableviews data source model to reload
+	_reloading = YES;
+    
+    if (aRefreshPos == EGORefreshHeader) {
+        // pull down to refresh data
+        [self refreshView:NO];
+    }
+    else if (aRefreshPos == EGORefreshFooter) {
+        // pull up to load more data
+        [self performSelector:@selector(getNextPageView) withObject:nil afterDelay:1.0];
+    }
+    
+	// overide, the actual loading data operation is done in the subclass
+}
+
+#pragma mark - method that should be called when the refreshing is finished
+- (void)finishReloadingData{
+	
+	//  model should call this when its done loading
+	_reloading = NO;
+    
+	if (_refreshHeaderView) {
+        [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+    }
+    
+    if (_refreshFooterView) {
+        [_refreshFooterView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+        
+    }
+    
+    [self setFooterView];
+    // overide, the actula reloading tableView operation and reseting position operation is done in the subclass
+}
+
+#pragma mark - UIScrollViewDelegate Methods
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+	if (_refreshHeaderView) {
+        [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+    }
+	
+	if (_refreshFooterView) {
+        [_refreshFooterView egoRefreshScrollViewDidScroll:scrollView];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+	if (_refreshHeaderView) {
+        [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+    }
+	
+	if (_refreshFooterView) {
+        [_refreshFooterView egoRefreshScrollViewDidEndDragging:scrollView];
+    }
+}
+
+
+#pragma mark - EGORefreshTableDelegate Methods
+
+- (void)egoRefreshTableDidTriggerRefresh:(EGORefreshPos)aRefreshPos{
+	
+	[self beginToReloadData:aRefreshPos];
+	
+}
+
+- (BOOL)egoRefreshTableDataSourceIsLoading:(UIView*)view{
+	
+	return _reloading; // should return if data source model is reloading
+}
+
+- (void)refreshView:(BOOL)clean {
+    // show header view
+    self.tableView.contentOffset = CGPointMake(0, -REFRESH_HEADER_HEIGHT-5);
+    [_refreshHeaderView setState:EGOOPullRefreshLoading];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.2];
+    self.tableView.contentInset = UIEdgeInsetsMake(REFRESH_HEADER_HEIGHT, 0.0f, 0.0f, 0.0f);
+    [UIView commitAnimations];
+    
+    if (clean) {
+        [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@", _newstype]
+               parameters:nil
+                  success:^(AFHTTPRequestOperation *operation, id JSON) {
+                      DLog(@"news %@", JSON);
+                      _data = [JSON[@"data"] mutableCopy];
+                      if ([_data count] > 0) {
+                          NSDictionary *dict = [_data lastObject];
+                          _lastId = [dict[@"id"] intValue];
+                      }
+                      if (![_newstype isEqualToString:kNewsTypeCPSE] || !isEmpty(_adlist))
+                          [self mergeData];
+                  }
+                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                      DLog(@"error: %@", [error description]);
+                  }];
+        
+        // ad
+        if ([_newstype isEqualToString:kNewsTypeCPSE]) {
+            [AFClient getPath:@"api.php?action=adlist&option=newslist"
+                   parameters:nil
+                      success:^(AFHTTPRequestOperation *operation, id JSON) {
+                          DLog(@"ad %@", JSON);
+                          _adlist = JSON[@"data"];
+                          DLog(@"%@", _adlist);
+                          if (!isEmpty(_data))
+                              [self mergeData];
+                      }
+                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                          DLog(@"error: %@", [error description]);
+                      }];
+        }
+    }
+}
+
+- (void)getNextPageView {
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@&pull=0&id=%d", _newstype, _lastId]
+           parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  NSArray *items = JSON[@"data"];
+                  if ([items count] > 0) {
+                      NSDictionary *dict = [items lastObject];
+                      _lastId = [dict[@"id"] intValue];
+                      
+                      [_data addObjectsFromArray:items];
+                  }
+                  else {
+                      _lastId = 0;
+                  }
+                  
+                  // update interface
+                  [self.tableView reloadData];
+                  [self setFooterView];
+                  
+                  [self finishReloadingData];
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  DLog(@"error: %@", [error description]);
+              }];
 }
 
 #pragma mark - UITableViewDataSource

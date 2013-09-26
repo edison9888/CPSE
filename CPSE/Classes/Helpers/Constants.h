@@ -4,6 +4,8 @@
 #define kBannerHeight 185
 #define kAccountChangeNotification @"kAccountChangeNotification"
 
+#define REFRESH_HEADER_HEIGHT 70
+
 
 static inline BOOL isEmpty(id thing) {
     return thing == nil

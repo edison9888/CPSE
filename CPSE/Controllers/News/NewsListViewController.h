@@ -6,7 +6,15 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface NewsListViewController : UITableViewController
+#import "EGORefreshTableHeaderView.h"
+#import "EGORefreshTableFooterView.h"
+
+@interface NewsListViewController : UITableViewController <EGORefreshTableDelegate>
+{
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    EGORefreshTableFooterView *_refreshFooterView;
+    BOOL _reloading;
+}
 
 - (id)initWithType:(NSString *)newstype;
 

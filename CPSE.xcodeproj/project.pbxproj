@@ -178,6 +178,8 @@
 		C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A3368F17AE6FB800420689 /* MBProgressHUD.m */; };
 		C2A3369317AE701700420689 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369117AE701700420689 /* 37x-Checkmark.png */; };
 		C2A3369417AE701700420689 /* 37x-Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */; };
+		C2B9D3FA17F4196A008B7E45 /* EGORefreshTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B9D3F917F4196A008B7E45 /* EGORefreshTableFooterView.m */; };
+		C2B9D3FF17F42349008B7E45 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2B9D3FE17F42349008B7E45 /* EGORefreshTableHeaderView.m */; };
 		C2BB254517EFFA420049676D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BB254417EFFA420049676D /* AudioToolbox.framework */; };
 		C2BB254717EFFA5C0049676D /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BB254617EFFA5C0049676D /* libiconv.dylib */; };
 		C2BB254917EFFA680049676D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BB254817EFFA680049676D /* AddressBook.framework */; };
@@ -556,6 +558,11 @@
 		C2A3368F17AE6FB800420689 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		C2A3369117AE701700420689 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		C2A3369217AE701700420689 /* 37x-Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark@2x.png"; sourceTree = "<group>"; };
+		C2B9D3F817F4196A008B7E45 /* EGORefreshTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableFooterView.h; sourceTree = "<group>"; };
+		C2B9D3F917F4196A008B7E45 /* EGORefreshTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableFooterView.m; sourceTree = "<group>"; };
+		C2B9D3FC17F41A2D008B7E45 /* EGOViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOViewCommon.h; sourceTree = "<group>"; };
+		C2B9D3FD17F42349008B7E45 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		C2B9D3FE17F42349008B7E45 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		C2BB254417EFFA420049676D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C2BB254617EFFA5C0049676D /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		C2BB254817EFFA680049676D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -893,6 +900,7 @@
 				C2005FE0178A926700200E1E /* AFNetworking */,
 				C2005FF4178A926700200E1E /* fmdb */,
 				C23664B117EF351E0074C317 /* kxMenu */,
+				C2B9D3F717F4196A008B7E45 /* EGO */,
 				C2A3368D17AE6FB800420689 /* MBProgressHUD */,
 				C201386D17A372E1009CEA7F /* MHTabBarController */,
 				C2005FFF178A926700200E1E /* UMeng */,
@@ -1306,6 +1314,18 @@
 				C2A3368F17AE6FB800420689 /* MBProgressHUD.m */,
 			);
 			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		C2B9D3F717F4196A008B7E45 /* EGO */ = {
+			isa = PBXGroup;
+			children = (
+				C2B9D3F817F4196A008B7E45 /* EGORefreshTableFooterView.h */,
+				C2B9D3F917F4196A008B7E45 /* EGORefreshTableFooterView.m */,
+				C2B9D3FD17F42349008B7E45 /* EGORefreshTableHeaderView.h */,
+				C2B9D3FE17F42349008B7E45 /* EGORefreshTableHeaderView.m */,
+				C2B9D3FC17F41A2D008B7E45 /* EGOViewCommon.h */,
+			);
+			path = EGO;
 			sourceTree = "<group>";
 		};
 		C2BB254F17F002950049676D /* Products */ = {
@@ -1734,6 +1754,7 @@
 				C29A609717B7CF2300640943 /* UINavigationController+BR.m in Sources */,
 				C266037D17BCC88500B14AE8 /* ConsultListViewController.m in Sources */,
 				C266038017BCC8CE00B14AE8 /* MyConsultViewController.m in Sources */,
+				C2B9D3FA17F4196A008B7E45 /* EGORefreshTableFooterView.m in Sources */,
 				C26D534217C0F530009D6F8F /* ConsultTableViewCell.m in Sources */,
 				C28E3CEA17C1AED400AD6D50 /* ConsultModel.m in Sources */,
 				C28E3CED17C1B18600AD6D50 /* ConsultSetModel.m in Sources */,
@@ -1742,6 +1763,7 @@
 				C23C7E0417CB8FC300996983 /* EventModel.m in Sources */,
 				C2D5295617D6C9B20053872E /* WelcomeViewController.m in Sources */,
 				C23664B417EF351E0074C317 /* KxMenu.m in Sources */,
+				C2B9D3FF17F42349008B7E45 /* EGORefreshTableHeaderView.m in Sources */,
 				C27E8DF417EFD1DA0076B9E5 /* FavoriteViewController.m in Sources */,
 				C27E8DF717EFD5620076B9E5 /* Favorite.m in Sources */,
 				C25B8CFC17F080090038FB5C /* bitstream.c in Sources */,
