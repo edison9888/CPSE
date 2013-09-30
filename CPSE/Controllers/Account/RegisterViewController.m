@@ -12,6 +12,9 @@
 #import "AccountInfoViewController.h"
 #import "LoginViewController.h"
 
+#define ALERT_TAG_ERROR 101
+#define ALERT_TAG_SUCCESS 102
+
 @interface RegisterViewController ()
 {
     UIScrollView *_scrollView;
@@ -41,7 +44,7 @@
                        [NSMutableDictionary dictionaryWithObjectsAndKeys:@"楼宇对讲", @"name", @"0", @"selected", nil],
                        [NSMutableDictionary dictionaryWithObjectsAndKeys:@"一卡通", @"name", @"0", @"selected", nil],
                        [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能分析", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能家具", @"name", @"0", @"selected", nil],
+                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能家居", @"name", @"0", @"selected", nil],
                        [NSMutableDictionary dictionaryWithObjectsAndKeys:@"公共广播", @"name", @"0", @"selected", nil],
                        [NSMutableDictionary dictionaryWithObjectsAndKeys:@"视频会议", @"name", @"0", @"selected", nil],
                        [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防线缆", @"name", @"0", @"selected", nil],
@@ -233,9 +236,13 @@
     if (entry != nil && !isEmpty(message)) {
         _invalidEntry = entry;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];        
+        alert.tag = ALERT_TAG_ERROR;
+        [alert show];
         return;
     }
+    
+    // disable button before getting response
+    sender.userInteractionEnabled = sender.enabled = NO;
     
     NSString *q = [NSString stringWithFormat:@"api.php?action=reg&username=%@&email=%@&truename=%@&password=%@&repwd=%@&country=%@&cp_name=%@&mobile=%@&job=%@&productRange=%@&department=%@",
                    [_userField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _emailField.text,
@@ -249,50 +256,59 @@
     [AFClient getPath:q
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
+                  sender.userInteractionEnabled = sender.enabled = YES;
+
                   if ([JSON[@"errno"] boolValue]) {
                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:JSON[@"errmsg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                       [alert show];
                   }
                   else {
                       NSDictionary *dict = JSON[@"data"];
-                      DLog(@"reg response: %@", dict);
-                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"你已注册成功" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                      [alert show];
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:dict];
-                      
                       [DataMgr updateAccountInfo:dict];
-                      
-                      // goto account info page
-                      AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
-                      vc.title = @"用户中心";
-                      [self.navigationController pushViewController:vc animated:YES];
-                      
-                      NSMutableArray *vcs = [NSMutableArray array];
-                      for (UIViewController *vc in self.navigationController.viewControllers) {
-                          if (![vc isKindOfClass:[LoginViewController class]] && ![vc isKindOfClass:[RegisterViewController class]])
-                              [vcs addObject:vc];
-                      }
-                      self.navigationController.viewControllers = vcs;
+                      DLog(@"reg response: %@", dict);
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"感谢您注册成为CPS中安网会员，此账号和二维码为中安网通行证，可登陆中安网享受更多会员服务。"
+                                                                     delegate:self
+                                                            cancelButtonTitle:@"OK"
+                                                            otherButtonTitles:nil];
+                      alert.tag = ALERT_TAG_SUCCESS;
+                      [alert show];
                   }
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  sender.userInteractionEnabled = sender.enabled = YES;
                   DLog(@"error: %@", [error description]);
               }];
 }
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [_invalidEntry becomeFirstResponder];
-
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        NSUInteger ii[2] = {0, _invalidEntry.tag-1};
-        NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
-        CGRect rect = [self.tableView rectForRowAtIndexPath:indexPath];
-        rect = [self.tableView convertRect:rect toView:self.scrollView];
-        CGFloat visibleHeight = CGRectGetHeight(self.view.frame) - self.scrollView.contentInset.bottom;
-        CGPoint offset = CGPointMake(0, MAX(0, CGRectGetMidY(rect)-visibleHeight/2-44));
-        [self.scrollView setContentOffset:offset animated:YES];    });
+    if (alertView.tag == ALERT_TAG_ERROR) {
+        [_invalidEntry becomeFirstResponder];
+        
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            NSUInteger ii[2] = {0, _invalidEntry.tag-1};
+            NSIndexPath* indexPath = [NSIndexPath indexPathWithIndexes:ii length:2];
+            CGRect rect = [self.tableView rectForRowAtIndexPath:indexPath];
+            rect = [self.tableView convertRect:rect toView:self.scrollView];
+            CGFloat visibleHeight = CGRectGetHeight(self.view.frame) - self.scrollView.contentInset.bottom;
+            CGPoint offset = CGPointMake(0, MAX(0, CGRectGetMidY(rect)-visibleHeight/2-44));
+            [self.scrollView setContentOffset:offset animated:YES];    });
+    }
+    else if (alertView.tag == ALERT_TAG_SUCCESS) {
+        // goto account info page
+        AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
+        vc.title = @"用户中心";
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        NSMutableArray *vcs = [NSMutableArray array];
+        for (UIViewController *vc in self.navigationController.viewControllers) {
+            if (![vc isKindOfClass:[LoginViewController class]] && ![vc isKindOfClass:[RegisterViewController class]])
+                [vcs addObject:vc];
+        }
+        self.navigationController.viewControllers = vcs;
+    }
 }
 
 #pragma mark - UITableViewDataSource

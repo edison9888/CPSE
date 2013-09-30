@@ -53,7 +53,7 @@
     self.headerView = _searchBar;
     
     UIToolbar *_keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
-    _keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
+    _keyboardToolbar.barStyle = UIBarStyleDefault;
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard:)];
     barButtonItem.tintColor = [UIColor blueColor];
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];

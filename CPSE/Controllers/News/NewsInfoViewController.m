@@ -141,7 +141,7 @@
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     toolBar.translucent = YES;
     [toolBar sizeToFit];
-    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    toolBar.barStyle = UIBarStyleDefault;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", @"")
                                                                      style:UIBarButtonItemStyleBordered target:self
                                                                     action:@selector(handleActionBarCancel:)];

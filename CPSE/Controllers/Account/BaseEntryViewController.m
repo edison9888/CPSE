@@ -62,6 +62,7 @@
     if (_actionBar == nil) {
         _actionBar = [[UIToolbar alloc] init];
         _actionBar.translucent = YES;
+        _actionBar.barStyle = UIBarStyleDefault;
         [_actionBar sizeToFit];
         _actionBar.barStyle = UIBarStyleDefault;
         
