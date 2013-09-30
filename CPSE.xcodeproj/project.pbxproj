@@ -81,6 +81,7 @@
 		C221340017A77CAB006622F2 /* icon-share.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FE17A77CAB006622F2 /* icon-share.png */; };
 		C221340117A77CAB006622F2 /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FF17A77CAB006622F2 /* icon-share@2x.png */; };
 		C224F5EF17ED84D400D2079E /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C224F5EE17ED84D400D2079E /* db.sqlite */; };
+		C227903D17F9545A0055C4EF /* ConsultTableViewCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C227903C17F9545A0055C4EF /* ConsultTableViewCellContentView.m */; };
 		C234A3CA17D6256600E491F4 /* 1号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3BE17D6256600E491F4 /* 1号馆.jpg */; };
 		C234A3CB17D6256600E491F4 /* 2号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3BF17D6256600E491F4 /* 2号馆.jpg */; };
 		C234A3CC17D6256600E491F4 /* 3、4号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3C017D6256600E491F4 /* 3、4号馆.jpg */; };
@@ -391,6 +392,8 @@
 		C22133FE17A77CAB006622F2 /* icon-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share.png"; sourceTree = "<group>"; };
 		C22133FF17A77CAB006622F2 /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
 		C224F5EE17ED84D400D2079E /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
+		C227903B17F9545A0055C4EF /* ConsultTableViewCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewCellContentView.h; sourceTree = "<group>"; };
+		C227903C17F9545A0055C4EF /* ConsultTableViewCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewCellContentView.m; sourceTree = "<group>"; };
 		C234A3BE17D6256600E491F4 /* 1号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1号馆.jpg"; sourceTree = "<group>"; };
 		C234A3BF17D6256600E491F4 /* 2号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2号馆.jpg"; sourceTree = "<group>"; };
 		C234A3C017D6256600E491F4 /* 3、4号馆.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3、4号馆.jpg"; sourceTree = "<group>"; };
@@ -1292,6 +1295,8 @@
 				C28E3CEC17C1B18600AD6D50 /* ConsultSetModel.m */,
 				C26D534017C0F530009D6F8F /* ConsultTableViewCell.h */,
 				C26D534117C0F530009D6F8F /* ConsultTableViewCell.m */,
+				C227903B17F9545A0055C4EF /* ConsultTableViewCellContentView.h */,
+				C227903C17F9545A0055C4EF /* ConsultTableViewCellContentView.m */,
 				C266037E17BCC8CE00B14AE8 /* MyConsultViewController.h */,
 				C266037F17BCC8CE00B14AE8 /* MyConsultViewController.m */,
 			);
@@ -1739,6 +1744,7 @@
 				C2D76DD417A95A440013D089 /* BREntryTableViewCell.m in Sources */,
 				C2D76DD717A95F990013D089 /* BaseEntryViewController.m in Sources */,
 				C206C4CC17A9FAB400853B59 /* CustomIconButton.m in Sources */,
+				C227903D17F9545A0055C4EF /* ConsultTableViewCellContentView.m in Sources */,
 				C293319F17AB8C05004C6F77 /* ItemPickerViewController.m in Sources */,
 				C2A3369017AE6FB800420689 /* MBProgressHUD.m in Sources */,
 				C2E80ECC17AE7A3100AD67E9 /* CommentTableViewCell.m in Sources */,

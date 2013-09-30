@@ -25,7 +25,9 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
+            [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }
     return self;
 }
@@ -33,8 +35,6 @@
 - (void)loadView {
     [super loadView];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
     // loading view
     _loadingView = [[UIView alloc] initWithFrame:self.view.bounds];
     _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;

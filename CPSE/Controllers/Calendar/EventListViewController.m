@@ -18,6 +18,13 @@
 
 @implementation EventListViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+}
+
 - (void)setData:(NSArray *)data {
     _data = data;
     [self.tableView reloadData];

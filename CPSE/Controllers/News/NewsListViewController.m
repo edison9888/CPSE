@@ -37,6 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)])
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    
     [self createHeaderView];
     [self refreshView:YES];
 }
