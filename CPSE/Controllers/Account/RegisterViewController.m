@@ -101,6 +101,13 @@
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth(rect), CGRectGetMaxY(button.frame)+10);
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationItem.rightBarButtonItem = nil;

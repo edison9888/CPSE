@@ -42,7 +42,7 @@
     [super drawRect:rect];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
-    NSIndexPath *indexPath = [(UITableView *)self.superview indexPathForCell:self];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self];
     
     CGContextSetLineWidth(context, .5);
     CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);

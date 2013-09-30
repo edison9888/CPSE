@@ -63,7 +63,7 @@
         _actionBar = [[UIToolbar alloc] init];
         _actionBar.translucent = YES;
         [_actionBar sizeToFit];
-        _actionBar.barStyle = UIBarStyleBlackTranslucent;
+        _actionBar.barStyle = UIBarStyleDefault;
         
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Done", @"")
                                                                        style:UIBarButtonItemStyleDone target:self

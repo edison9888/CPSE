@@ -32,13 +32,13 @@
     _scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_scrollView];
     
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(rect)-44, 320, 44)];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)-44, 320, 44)];
     _pageControl.currentPage = 0;
     _pageControl.numberOfPages = 4;
     [self.view addSubview:_pageControl];
     
     for (int i=1; i<=4; i++) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(320*(i-1), 0, 320, CGRectGetHeight(rect))];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(320*(i-1), 0, 320, CGRectGetHeight(self.view.bounds))];
         imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"welcome-%d-%d", i, (int)CGRectGetHeight(rect)]];
         [_scrollView addSubview:imageView];
         

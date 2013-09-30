@@ -218,6 +218,7 @@
     ConsultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [[ConsultTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.tableView = _tableView;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     

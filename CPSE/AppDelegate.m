@@ -24,12 +24,7 @@
     [self setupUserDefaults];
     
     _navigationController = [[UINavigationController alloc] initWithRootViewController:[HomeViewController sharedHome]];
-    UINavigationBar *navigationBar = [_navigationController navigationBar];
-    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-        [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
-    }
-    
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = _navigationController;
     [self.window makeKeyAndVisible];

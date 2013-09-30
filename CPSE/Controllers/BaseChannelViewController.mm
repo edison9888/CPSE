@@ -84,10 +84,24 @@
         self.navigationItem.titleView = titleLabel;
     }
     else {
+        self.navigationController.navigationBar.titleTextAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
         self.title = title;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateProfileStatus) name:kAccountChangeNotification object:DataMgr];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    UINavigationBar *navigationBar = [self.navigationController navigationBar];
+    if ([navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        [navigationBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg"] forBarMetrics:UIBarMetricsDefault];
+    }
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

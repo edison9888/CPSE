@@ -11,6 +11,7 @@
 @interface ConsultTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) ConsultSetModel *consultSet;
+@property (nonatomic, assign) UITableView *tableView;
 
 + (CGFloat)heightForConsultSet:(ConsultSetModel *)consultSet;
 
