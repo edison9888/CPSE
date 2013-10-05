@@ -1884,8 +1884,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: borong zhou (XZU2VVDMPP)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/perry/projects/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
-					/Users/jimji2008/repository/meekr/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
+					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
@@ -1917,8 +1916,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen CPS Network Technology Co., Ltd. (ALCY47XLQ4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/perry/projects/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
-					/Users/jimji2008/repository/meekr/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
+					"\"$(SRCROOT)/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
