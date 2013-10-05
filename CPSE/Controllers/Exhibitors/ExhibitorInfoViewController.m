@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ExhibitorInfoViewController.h"
 #import "UIColor+BR.h"
+#import "UIImage+BR.h"
 #import "UIImageView+AFNetworking.h"
 #import "Exhibitor.h"
 #import "MBProgressHUD.h"
@@ -190,14 +192,20 @@
     [_scrollView addSubview:label];
     
     label = [[UILabel alloc] init];
-    label.backgroundColor = [UIColor clearColor];
+    label.backgroundColor = [UIColor colorWithHex:0xc9071e];
     label.font = [UIFont systemFontOfSize:16];
     label.numberOfLines = 0;
-    label.textColor = [UIColor colorWithHex:0x666666];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
     label.text = _exhibitor.location;
+    label.userInteractionEnabled = YES;
     size = [label.text sizeWithFont:label.font constrainedToSize:CGSizeMake(rect.size.width-20-capSize.width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
+    label.layer.cornerRadius = size.height/2.0;
+    label.frame = CGRectMake(10+capSize.width, topOffset, size.width+10, size.height);
     [_scrollView addSubview:label];
+    
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapExhibition:)];
+    [label addGestureRecognizer:gesture];
     
     topOffset += size.height + 5;
     
@@ -222,7 +230,7 @@
     label.frame = CGRectMake(10+capSize.width, topOffset, size.width, size.height);
     [_scrollView addSubview:label];
     
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEmail:)];
+    gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapEmail:)];
     [label addGestureRecognizer:gesture];
     
     topOffset += size.height + 5;
@@ -275,13 +283,44 @@
     
     topOffset += size.height + 10;
     
-        
+    // buttons
+    UIImage *buttonBg = [[UIImage imageNamed:@"red-button-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
+    UIImage *selectedButtonBg = [buttonBg imageTintedWithColor:[UIColor colorWithHex:0xee2222]];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(50, topOffset, 100, buttonBg.size.height);
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.titleLabel.textColor = [UIColor whiteColor];
+    [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
+    [button setBackgroundImage:selectedButtonBg forState:UIControlStateHighlighted];
+    [button setTitle:@"公司介绍" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(toggleDetailPanel:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollView addSubview:button];
+    
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(170, topOffset, 100, buttonBg.size.height);
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    button.titleLabel.textColor = [UIColor whiteColor];
+    [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
+    [button setBackgroundImage:selectedButtonBg forState:UIControlStateHighlighted];
+    [button setTitle:@"收藏" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(starOrNot:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollView addSubview:button];
+    
+    topOffset += buttonBg.size.height + 10;
+    
+    _scrollView.contentSize = CGSizeMake(rect.size.width, topOffset);
+    
     NSString *desc = _exhibitor.description;
     size = [desc sizeWithFont:_descLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     _descLabel.frame = CGRectMake(10, topOffset, size.width, size.height);
     _descLabel.text = desc;
-    
-    _scrollView.contentSize = CGSizeMake(rect.size.width, CGRectGetMaxY(_descLabel.frame)+10);
+    _descLabel.hidden = YES;
+}
+
+- (void)tapExhibition:(UIGestureRecognizer *)gesture {
+    UILabel *label = (UILabel *)gesture.view;
+    DLog(@"%@", label.text);
 }
 
 - (void)tapEmail:(UIGestureRecognizer *)gesture {
@@ -327,6 +366,23 @@
     [actionSheet showInView:self.view];
 }
 
+- (void)toggleDetailPanel:(UIButton *)button {
+    CGSize size = _scrollView.contentSize;
+    if (_descLabel.hidden) {
+        _descLabel.hidden = NO;
+        size.height += _descLabel.frame.size.height + 10;
+        _scrollView.contentSize = size;
+    }
+    else {
+        _descLabel.hidden = YES;
+        size.height -= _descLabel.frame.size.height + 10;
+        _scrollView.contentSize = size;
+    }
+}
+
+- (void)starOrNot:(UIButton *)button {
+    
+}
 
 #pragma mark - MFMailComposeViewControllerDelegate
 #pragma mark -
