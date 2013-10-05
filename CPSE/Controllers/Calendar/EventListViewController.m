@@ -64,10 +64,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    EventInfoViewController *vc = [[EventInfoViewController alloc] init];
+    EventModel *eventModel = _data[indexPath.row];
+    EventInfoViewController *vc = [[EventInfoViewController alloc] initWithId:eventModel.id];
     vc.title = @"活动内容";
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.ownerController.navigationController pushViewController:vc animated:YES];
 }
 
 

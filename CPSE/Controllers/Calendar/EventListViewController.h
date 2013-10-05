@@ -9,5 +9,6 @@
 @interface EventListViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *data;
+@property (nonatomic, assign) UIViewController *ownerController;
 
 @end

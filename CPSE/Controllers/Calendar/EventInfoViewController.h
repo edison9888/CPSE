@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 BitRice. All rights reserved.
 //
 
-@interface EventInfoViewController : UIViewController
+#import "BaseChannelViewController.h"
+
+@interface EventInfoViewController : BaseChannelViewController
+
+- (id)initWithId:(NSUInteger)id;
 
 @end

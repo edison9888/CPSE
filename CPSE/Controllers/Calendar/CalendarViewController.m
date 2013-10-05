@@ -76,11 +76,13 @@
                   EventListViewController *vc = [[EventListViewController alloc] init];
                   vc.title = @"全部";
                   vc.data = _eventList;
+                  vc.ownerController = self;
                   [viewControllers addObject:vc];
                   
                   for (NSString *date in dates) {
                       vc = [[EventListViewController alloc] init];
                       vc.title = date;
+                      vc.ownerController = self;
                       [viewControllers addObject:vc];
                       
                       // data
@@ -99,6 +101,15 @@
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   DLog(@"error: %@", [error description]);
               }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (_tabController && [_tabController.viewControllers count]) {
+        EventListViewController *vc = (EventListViewController *)_tabController.viewControllers[_tabController.selectedIndex];
+        [vc.tableView deselectRowAtIndexPath:[vc.tableView indexPathForSelectedRow] animated:YES];
+    }
 }
 
 @end
