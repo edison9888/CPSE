@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F6B93AA17FF93950075ADD6 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6B93A917FF93950075ADD6 /* TencentOpenAPI.framework */; };
 		4F7F9ED717ACC928009F613F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9ED617ACC928009F613F /* AVFoundation.framework */; };
 		4F7F9ED917ACC93A009F613F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9ED817ACC93A009F613F /* CoreMedia.framework */; };
 		4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDA17ACC946009F613F /* CoreVideo.framework */; };
@@ -102,7 +103,6 @@
 		C247032517AA049E007C99E1 /* red-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C247032317AA049E007C99E1 /* red-button-bg.png */; };
 		C247032617AA049E007C99E1 /* red-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C247032417AA049E007C99E1 /* red-button-bg@2x.png */; };
 		C247D4BB17F3EAA800F33276 /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C247D49A17F3EAA800F33276 /* UMSocialLocalizable.strings */; };
-		C247D4BC17F3EAA800F33276 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C247D49E17F3EAA800F33276 /* TencentOpenAPI.framework */; };
 		C247D4BD17F3EAA800F33276 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C247D4A017F3EAA800F33276 /* libWeChatSDK.a */; };
 		C247D4BE17F3EAA800F33276 /* libUMSocial_Sdk_3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C247D4AE17F3EAA800F33276 /* libUMSocial_Sdk_3.0.a */; };
 		C247D4BF17F3EAA900F33276 /* libUMSocial_Sdk_Comment_3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C247D4AF17F3EAA800F33276 /* libUMSocial_Sdk_Comment_3.0.a */; };
@@ -284,6 +284,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F6B93A917FF93950075ADD6 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		4F7F9ED617ACC928009F613F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4F7F9ED817ACC93A009F613F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4F7F9EDA17ACC946009F613F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -417,7 +418,6 @@
 		C247032317AA049E007C99E1 /* red-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button-bg.png"; sourceTree = "<group>"; };
 		C247032417AA049E007C99E1 /* red-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button-bg@2x.png"; sourceTree = "<group>"; };
 		C247D49B17F3EAA800F33276 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
-		C247D49E17F3EAA800F33276 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		C247D4A017F3EAA800F33276 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		C247D4A117F3EAA800F33276 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		C247D4A217F3EAA800F33276 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
@@ -680,6 +680,7 @@
 				C2BB254B17EFFA6E0049676D /* AddressBookUI.framework in Frameworks */,
 				C2BB254917EFFA680049676D /* AddressBook.framework in Frameworks */,
 				C247D4BD17F3EAA800F33276 /* libWeChatSDK.a in Frameworks */,
+				4F6B93AA17FF93950075ADD6 /* TencentOpenAPI.framework in Frameworks */,
 				C2BB254717EFFA5C0049676D /* libiconv.dylib in Frameworks */,
 				C2BB254517EFFA420049676D /* AudioToolbox.framework in Frameworks */,
 				4F7F9ED717ACC928009F613F /* AVFoundation.framework in Frameworks */,
@@ -687,7 +688,6 @@
 				C247D4BE17F3EAA800F33276 /* libUMSocial_Sdk_3.0.a in Frameworks */,
 				C2BD02BC17AF4BE600429EED /* CoreLocation.framework in Frameworks */,
 				4F7F9EDD17ACC94F009F613F /* ImageIO.framework in Frameworks */,
-				C247D4BC17F3EAA800F33276 /* TencentOpenAPI.framework in Frameworks */,
 				4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */,
 				4F7F9ED917ACC93A009F613F /* CoreMedia.framework in Frameworks */,
 				C2005FAF178A8E0700200E1E /* CoreGraphics.framework in Frameworks */,
@@ -1161,7 +1161,7 @@
 		C247D49D17F3EAA800F33276 /* TencentOpenAPI */ = {
 			isa = PBXGroup;
 			children = (
-				C247D49E17F3EAA800F33276 /* TencentOpenAPI.framework */,
+				4F6B93A917FF93950075ADD6 /* TencentOpenAPI.framework */,
 			);
 			path = TencentOpenAPI;
 			sourceTree = "<group>";
@@ -1885,6 +1885,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/perry/projects/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
+					/Users/jimji2008/repository/meekr/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
@@ -1917,6 +1918,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/perry/projects/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
+					/Users/jimji2008/repository/meekr/CPSE/CPSE/Vendors/UMSocial_Sdk_3.0/frameworks/TencentOpenAPI,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Supporting Files/CPSE-Prefix.pch";
