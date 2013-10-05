@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F6B93AA17FF93950075ADD6 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6B93A917FF93950075ADD6 /* TencentOpenAPI.framework */; };
+		4F6B93CB18000BD50075ADD6 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B93C818000BD50075ADD6 /* MessageListViewController.m */; };
+		4F6B93CC18000BD50075ADD6 /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6B93CA18000BD50075ADD6 /* MessageTableViewCell.m */; };
 		4F7F9ED717ACC928009F613F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9ED617ACC928009F613F /* AVFoundation.framework */; };
 		4F7F9ED917ACC93A009F613F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9ED817ACC93A009F613F /* CoreMedia.framework */; };
 		4F7F9EDB17ACC946009F613F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F7F9EDA17ACC946009F613F /* CoreVideo.framework */; };
@@ -285,6 +287,10 @@
 
 /* Begin PBXFileReference section */
 		4F6B93A917FF93950075ADD6 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		4F6B93C718000BD50075ADD6 /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListViewController.h; sourceTree = "<group>"; };
+		4F6B93C818000BD50075ADD6 /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListViewController.m; sourceTree = "<group>"; };
+		4F6B93C918000BD50075ADD6 /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		4F6B93CA18000BD50075ADD6 /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		4F7F9ED617ACC928009F613F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4F7F9ED817ACC93A009F613F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4F7F9EDA17ACC946009F613F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -709,6 +715,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F6B93C618000BD50075ADD6 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				4F6B93C718000BD50075ADD6 /* MessageListViewController.h */,
+				4F6B93C818000BD50075ADD6 /* MessageListViewController.m */,
+				4F6B93C918000BD50075ADD6 /* MessageTableViewCell.h */,
+				4F6B93CA18000BD50075ADD6 /* MessageTableViewCell.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		4FB1CCE017F12668001A64F9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,6 +873,7 @@
 		C2005FDD178A926700200E1E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4F6B93C618000BD50075ADD6 /* Message */,
 				C2D76DB617A93ABD0013D089 /* Account */,
 				C2D5153B17A517BE00119089 /* Calendar */,
 				C266037A17BCC4F300B14AE8 /* Consult */,
@@ -1736,6 +1754,7 @@
 				C2D5154117A518AD00119089 /* EventTableViewCell.m in Sources */,
 				C2D5154417A518F300119089 /* EventInfoViewController.m in Sources */,
 				C2D5154717A51ADB00119089 /* CalendarViewController.m in Sources */,
+				4F6B93CB18000BD50075ADD6 /* MessageListViewController.m in Sources */,
 				C2D5154A17A51BD400119089 /* ExhibitorViewController.m in Sources */,
 				C21879B117A90DB60075554F /* ExhibitorListViewController.m in Sources */,
 				C2D76DB917A93ADA0013D089 /* LoginViewController.m in Sources */,
@@ -1773,6 +1792,7 @@
 				C27E8DF417EFD1DA0076B9E5 /* FavoriteViewController.m in Sources */,
 				C27E8DF717EFD5620076B9E5 /* Favorite.m in Sources */,
 				C25B8CFC17F080090038FB5C /* bitstream.c in Sources */,
+				4F6B93CC18000BD50075ADD6 /* MessageTableViewCell.m in Sources */,
 				C25B8CFD17F080090038FB5C /* mask.c in Sources */,
 				C25B8CFE17F080090038FB5C /* QRCodeGenerator.m in Sources */,
 				C25B8CFF17F080090038FB5C /* qrencode.c in Sources */,

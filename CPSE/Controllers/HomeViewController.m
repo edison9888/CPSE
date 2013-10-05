@@ -22,6 +22,7 @@
 #import "ExhibitorInfoViewController.h"
 #import "WebViewController.h"
 #import "AccountInfoViewController.h"
+#import "MessageListViewController.h"
 
 @interface HomeViewController ()
 {
@@ -217,9 +218,9 @@
 }
 
 - (void)tapChannelNotification {
-    NSString *msg = @"\"消息\"功能将在下个版本开通";
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+    MessageListViewController *vc = [[MessageListViewController alloc] init];
+    vc.title = @"消息";
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelFaq {
