@@ -13,3 +13,70 @@
 "My Favorites" = "My Favorites";
 "Sweep" = "Sweep";
 "Log out" = "Log out";
+
+"User Login" = "User Login";
+"User Name" = "User Name";
+"Password" = "Password";
+"Remember username and password" = "Remember username and password";
+"Register as new user" = "Register as new user";
+"User Registration" = "User Registration";
+"Email" = "Email";
+"Real Name" = "Real Name";
+"Confirm Password" = "Confirm Password";
+"Country" = "Country";
+"Chinese Mainland" = "Chinese Mainland";
+"Macao" = "Macao";
+"Hong Kong" = "Hong Kong";
+"Taiwan" = "Taiwan";
+"Other countries and regions" = "Other countries and regions";
+"Company Name" = "Company Name";
+"Department" = "Department";
+"Position" = "Position";
+"Mobile Phone" = "Mobile Phone";
+"The area you are interested in" = "The area you are interested in";
+"Complete Registration" = "Complete Registration";
+
+"Card Number" = "Card Number";
+"Barcode for Admission Identification, Long Press to Save" = "Barcode for Admission Identification, Long Press to Save";
+"Thanks for your pre-registration to visit the CPSE 2013. To facilitate your success in admission, please follow the following procedure to receive your visit card:" = "Thanks for your pre-registration to visit the CPSE 2013. To facilitate your success in admission, please follow the following procedure to receive your visit card:";
+"To get the two-dimension code via “Visit Application” on your phone." = "To get the two-dimension code via “Visit Application” on your phone.";
+"To receive your visit card after sweeping your two-dimension code at the pre-registration desk." = "To receive your visit card after sweeping your two-dimension code at the pre-registration desk.";
+"Thanks for your registration of CPS member.This account and two-dimension code is your  permit for CPS website, as well as for other activities organized by CPS and more member services." = "Thanks for your registration of CPS member.This account and two-dimension code is your  permit for CPS website, as well as for other activities organized by CPS and more member services.";
+"Exhibition Time" = "Exhibition Time";
+"Date" = "Date";
+"Oct 29" = "Oct 29";
+"Oct 30" = "Oct 30";
+"Oct 31" = "Oct 31";
+"Nov 01" = "Nov 01";
+"Opening Ceremony" = "Opening Ceremony";
+"Location" = "Location";
+"Shenzhen Convention & Exhibition Centre, China" = "Shenzhen Convention & Exhibition Centre, China";
+"Saved to Album" = "Saved to Album";
+
+"Your Enquiry" = "Your Enquiry";
+"Please write your enquiry content, customer service will answer your questions." = "Please write your enquiry content, customer service will answer your questions.";
+"Submit" = "Submit";
+"Enquiry Records" = "Enquiry Records";
+"My Enquiry" = "My Enquiry";
+"All Enquiry" = "All Enquiry";
+
+"Brief Info" = "Brief Info";
+"Retrieving data" = "Retrieving data";
+"Exhibitor Info" = "Exhibitor Info";
+"Invalid exhibitor QR-code" = "Invalid exhibitor QR-code";
+"Reply" = "Reply";
+"Pull to load more" = "Pull to load more";
+"Retrieving data..." = "Retrieving data...";
+"Release to load more" = "Release to load more";
+"Push to refresh" = "Push to refresh";
+"News Content" = "News Content";
+
+"Search alphabetically" = "Search alphabetically";
+"Search by Category" = "Search by Category";
+"Search by Area" = "Search by Area";
+
+"Industry News" = "Industry News";
+"CPSE News" = "CPSE News";
+"Comments" = "Comments";
+"Post Comment" = "Post";
+"Please enter your comment" = "Please enter your comment";

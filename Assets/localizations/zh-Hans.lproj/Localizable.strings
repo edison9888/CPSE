@@ -13,3 +13,70 @@
 "My Favorites" = "我的收藏";
 "Sweep" = "扫一扫";
 "Log out" = "退出登录";
+
+"User Login" = "用户登录";
+"User Name" = "用户名";
+"Password" = "密码";
+"Remember username and password" = "记住用户名和密码";
+"Register as new user" = "新用户登记";
+"User Registration" = "用户注册";
+"Email" = "电子邮箱";
+"Real Name" = "真实姓名";
+"Confirm Password" = "重复密码";
+"Country" = "国家";
+"Chinese Mainland" = "中国大陆";
+"Macao" = "澳门";
+"Hong Kong" = "香港";
+"Taiwan" = "台湾";
+"Other countries and regions" = "其他国家及地区";
+"Company Name" = "公司名称";
+"Department" = "部门";
+"Position" = "职位";
+"Mobile Phone" = "手机";
+"The area you are interested in" = "您感兴趣的领域";
+"Complete Registration" = "完成登记";
+
+"Card Number" = "卡号";
+"Barcode for Admission Identification, Long Press to Save" = "条形码作为入场标识，长按进行保存";
+"Thanks for your pre-registration to visit the CPSE 2013. To facilitate your success in admission, please follow the following procedure to receive your visit card:" = "感谢您预注册参观2013中国国际社会公共安全博览会。为便于您能顺利入场参观，请按照以下流程领取观展证：";
+"To get the two-dimension code via “Visit Application” on your phone." = "使用手机“参观申请”功能获得二维码。";
+"To receive your visit card after sweeping your two-dimension code at the pre-registration desk." = "携带手机到展会现场预先登记观众通道自助扫描二维码换取观展证。";
+"Thanks for your registration of CPS member.This account and two-dimension code is your  permit for CPS website, as well as for other activities organized by CPS and more member services." = "感谢您注册成为CPS中安网会员，此账号和二维码为中安网通行证，可使用其参加中安网举办的其他线下活动，并可登陆中安网（www.cps.com.cn）享受更多会员服务。";
+"Exhibition Time" = "展览时间";
+"Date" = "参展";
+"Oct 29" = "10月29日";
+"Oct 30" = "10月30日";
+"Oct 31" = "10月31日";
+"Nov 01" = "11月01日";
+"Opening Ceremony" = "开幕式";
+"Location" = "地点";
+"Shenzhen Convention & Exhibition Centre, China" = "中国·深圳会展中心";
+"Saved to Album" = "保存至相册";
+
+"Your Enquiry" = "咨询内容";
+"Please write your enquiry content, customer service will answer your questions." = "请在此填写您的咨询内容，客服将为您解答";
+"Submit" = "提交咨询";
+"Enquiry Records" = "历史咨询";
+"My Enquiry" = "我的咨询";
+"All Enquiry" = "全部咨询";
+
+"Brief Info" = "基本信息";
+"Retrieving data" = "正在努力加载数据";
+"Exhibitor Info" = "展商详情";
+"Invalid exhibitor QR-code" = "不是一个合法的展商二维码";
+"Reply" = "回复";
+"Pull to load more" = "上拉加载更多";
+"Retrieving data..." = "努力加载中...";
+"Release to load more" = "释放加载更多内容";
+"Push to refresh" = "下拉刷新";
+"News Content" = "新闻内容";
+
+"Search alphabetically" = "Search alphabetically";
+"Search by Category" = "Search by Category";
+"Search by Area" = "Search by Area";
+
+"Industry News" = "行业新闻";
+"CPSE News" = "安博会新闻";
+"Comments" = "评论";
+"Post Comment" = "发表评论";
+"Please enter your comment" = "请输入评论内容";

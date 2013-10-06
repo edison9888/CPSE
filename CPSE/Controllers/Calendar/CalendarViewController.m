@@ -43,7 +43,7 @@
     label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:16];
-    label.text = @"正在努力加载数据";
+    label.text = NSLocalizedString(@"Retrieving data", nil);
     [_loadingView addSubview:label];
     [indicator startAnimating];
     [self.view addSubview:_loadingView];

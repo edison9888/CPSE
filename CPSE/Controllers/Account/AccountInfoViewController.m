@@ -87,7 +87,7 @@
     /*------------------------
      _userNameLabel
      ------------------------*/
-    NSString *info = [NSString stringWithFormat :@"用户名：%@", _userName];
+    NSString *info = [NSString stringWithFormat :@"%@：%@", NSLocalizedString(@"User Name", nil), _userName];
     CGSize size = [info sizeWithFont:_userNameLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     _userNameLabel.frame = CGRectMake(_scrollView.frame.size.width/2-size.width/2, topOffset, size.width, size.height);
     _userNameLabel.text = info;
@@ -109,7 +109,7 @@
     /*------------------------
      _userIdLabel
      ------------------------*/
-    info = [NSString stringWithFormat :@"卡号：%@", DataMgr.currentAccount.cardNumber];
+    info = [NSString stringWithFormat :@"%@：%@", NSLocalizedString(@"Card Number", nil), DataMgr.currentAccount.cardNumber];
     size = [info sizeWithFont:_cardNoLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     _cardNoLabel.frame = CGRectMake(CGRectGetMinX(_qrCodeImageView.frame), topOffset, size.width, size.height);
     _cardNoLabel.text = info;
@@ -118,7 +118,7 @@
     /*------------------------
      _operationLabel
      ------------------------*/
-    info = [NSString stringWithFormat :@"条形码作为入场标识 长按进行保存"];
+    info = NSLocalizedString(@"Barcode for Admission Identification, Long Press to Save", nil);
     size = [info sizeWithFont:_operationLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     _operationLabel.frame = CGRectMake(_scrollView.frame.size.width/2-size.width/2, topOffset, size.width, size.height);
     _operationLabel.text = info;
@@ -130,9 +130,9 @@
      ------------------------*/
     // 1st paragraph
     NSMutableString *desc = [NSMutableString string];
-    [desc appendString:@"感谢您预注册参观2013中国国际社会公共安全博览会。为便于您能顺利入场参观，请按照以下流程领取观展证：\n\n"];
-    [desc appendString:@"1、使用手机“参观申请”功能获得二维码。\n"];
-    [desc appendString:@"2、携带手机到展会现场预先登记观众通道自助扫描二维码换取观展证。\n\n"];
+    [desc appendFormat:@"%@\n\n", NSLocalizedString(@"Thanks for your pre-registration to visit the CPSE 2013. To facilitate your success in admission, please follow the following procedure to receive your visit card:", nil)];
+    [desc appendFormat:@"1、%@\n", NSLocalizedString(@"To get the two-dimension code via “Visit Application” on your phone.", nil)];
+    [desc appendFormat:@"2、%@\n\n", NSLocalizedString(@"To receive your visit card after sweeping your two-dimension code at the pre-registration desk.", nil)];
     
     UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
@@ -148,7 +148,7 @@
     
     // 2nd paragraph
     desc = [NSMutableString string];
-    [desc appendString:@"感谢您注册成为CPS中安网会员，此账号和二维码为中安网通行证，可使用其参加中安网举办的其他线下活动，并可登陆中安网（www.cps.com.cn）享受更多会员服务。\n\n"];
+    [desc appendFormat:@"%@\n\n", NSLocalizedString(@"Thanks for your registration of CPS member.This account and two-dimension code is your  permit for CPS website, as well as for other activities organized by CPS and more member services.", nil)];
     label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:15];
@@ -163,9 +163,9 @@
     
     // 3rd paragraph
     desc = [NSMutableString string];
-    [desc appendString:@"展览时间：\n开幕式：\n10月29日 09：30\n\n"];
-    [desc appendString:@"参展：\n10月29日 09：30 – 17:00\n10月30日 09：30 – 17:00\n10月31日 09：30 – 17:00\n11月01日 09：30 – 12:00\n\n"];
-    [desc appendString:@"地点：\n中国•深圳会展中心\n\n"];
+    [desc appendFormat:@"%@：\n%@：\n%@ 09：30\n\n", NSLocalizedString(@"Exhibition Time", nil), NSLocalizedString(@"Opening Ceremony", nil), NSLocalizedString(@"Oct 29", nil)];
+    [desc appendFormat:@"%@：\n%@ 09：30 – 17:00\n%@ 09：30 – 17:00\n%@ 09：30 – 17:00\n%@ 09：30 – 12:00\n\n", NSLocalizedString(@"Date", nil), NSLocalizedString(@"Oct 29", nil), NSLocalizedString(@"Oct 30", nil), NSLocalizedString(@"Oct 31", nil), NSLocalizedString(@"Nov 01", nil)];
+    [desc appendFormat:@"%@：\n%@\n\n", NSLocalizedString(@"Location", nil), NSLocalizedString(@"Shenzhen Convention & Exhibition Centre, China",  nil)];
     label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:14];
@@ -195,7 +195,7 @@
         [self.navigationController.view addSubview:hud];
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark"]];
         hud.mode = MBProgressHUDModeCustomView;
-        hud.labelText = @"保存至相册";
+        hud.labelText = NSLocalizedString(@"Saved to Album", nil);
         [hud show:YES];
         [hud hide:YES afterDelay:.7];
     }

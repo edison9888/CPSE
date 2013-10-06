@@ -64,7 +64,7 @@
     
     for (ConsultModel *reply in consultSet.replies) {
         h += 25;
-        size = [[NSString stringWithFormat:@"回复：%@", reply.content] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, CGFLOAT_MAX)];
+        size = [[NSString stringWithFormat:@"%@：%@", NSLocalizedString(@"Reply", nil), reply.content] sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, CGFLOAT_MAX)];
         h += size.height;
     }
     

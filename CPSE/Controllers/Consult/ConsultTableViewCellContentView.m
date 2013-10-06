@@ -64,12 +64,12 @@
             CGContextAddLineToPoint(context, 320, topOffset);
             CGContextStrokePath(context);
             
-            NSString *content = [NSString stringWithFormat:@"回复：%@", reply.content];
+            NSString *content = [NSString stringWithFormat:@"%@：%@", NSLocalizedString(@"Reply", nil), reply.content];
             size = [content sizeWithFont:[UIFont systemFontOfSize:14] constrainedToSize:CGSizeMake(300, CGFLOAT_MAX)];
             CGContextSetFillColorWithColor(context, [UIColor colorWithHex:0x888888].CGColor);
             [content drawInRect:CGRectMake(10, topOffset+10, size.width, size.height) withFont:[UIFont systemFontOfSize:14]];
             CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-            [@"回复：" drawInRect:CGRectMake(10, topOffset+10, size.width, size.height) withFont:[UIFont systemFontOfSize:14]];
+            [[NSString stringWithFormat:@"%@：", NSLocalizedString(@"Reply", nil)] drawInRect:CGRectMake(10, topOffset+10, size.width, size.height) withFont:[UIFont systemFontOfSize:14]];
             
             topOffset += 25 + size.height;
         }

@@ -26,9 +26,9 @@
 
 #import "EGORefreshTableFooterView.h"
 
-#define kFooterPullText @"上拉加载更多"
-#define kFooterLoadingText @"努力加载中..."
-#define kFooterReleaseText @"释放加载更多内容"
+#define kFooterPullText NSLocalizedString(@"Pull to load more", nil)
+#define kFooterLoadingText NSLocalizedString(@"Retrieving data...", nil)
+#define kFooterReleaseText NSLocalizedString(@"Release to load more", nil)
 
 @interface EGORefreshTableFooterView ()
 {

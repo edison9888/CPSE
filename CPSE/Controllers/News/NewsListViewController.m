@@ -322,7 +322,7 @@
         NSString *type = dict[@"type"];
         if ([type isEqualToString:@"html"]) {
             NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:[dict[@"id"] intValue] andType:_newstype];
-            vc.title = @"新闻内容";
+            vc.title = NSLocalizedString(@"News Content", nil);
             [self.navigationController pushViewController:vc animated:YES];
         }
         else {

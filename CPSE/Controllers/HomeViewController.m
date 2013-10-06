@@ -166,7 +166,7 @@
     }
     else if (adUri.uriType == AdUriTypeExhibitorId) {
         ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[adUri.linkId intValue]];
-        vc.title = @"展商信息";
+        vc.title = NSLocalizedString(@"Exhibitor Info", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -176,75 +176,75 @@
 - (void)tapChannelNews {
     NewsListViewController *vc1 = [[NewsListViewController alloc] initWithType:@"cpse"];
     NewsListViewController *vc2 = [[NewsListViewController alloc] initWithType:@"industry"];
-    vc1.title = @"安博会新闻";
-    vc2.title = @"行业新闻";
+    vc1.title = NSLocalizedString(@"CPSE News",  nil);
+    vc2.title = NSLocalizedString(@"Industry News", nil);
     
     BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
-    vc.title = @"新闻";
+    vc.title = NSLocalizedString(@"News", nil);
     vc.viewControllers = @[vc2, vc1];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelExhibitor {
     ExhibitorViewController *vc = [[ExhibitorViewController alloc] init];
-    vc.title = @"参展商";
+    vc.title = NSLocalizedString(@"Exhibitors", nil);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelCalendar {
     CalendarViewController *vc = [[CalendarViewController alloc] init];
-    vc.title = @"日程";
+    vc.title = NSLocalizedString(@"Schedule", nil);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelMap {
     VenuesViewController *vc = [[VenuesViewController alloc] init];
-    vc.title = @"展位图";
+    vc.title = NSLocalizedString(@"Floor Plan", nil);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelSubscribe {
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
-        vc.title = @"用户登录";
+        vc.title = NSLocalizedString(@"User Login", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         AccountInfoViewController *vc = [[AccountInfoViewController alloc]
                                          initWithAccount:DataMgr.currentAccount];
-        vc.title = @"用户中心";
+        vc.title = NSLocalizedString(@"Personal Center", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
 - (void)tapChannelNotification {
     MessageListViewController *vc = [[MessageListViewController alloc] init];
-    vc.title = @"消息";
+    vc.title = NSLocalizedString(@"Messages", nil);
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelFaq {
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
-        vc.title = @"用户登录";
+        vc.title = NSLocalizedString(@"User Login", nil);
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
     
     MyConsultViewController *vc1 = [[MyConsultViewController alloc] init];
     ConsultListViewController *vc2 = [[ConsultListViewController alloc] init];
-    vc1.title = @"我的咨询";
-    vc2.title = @"全部咨询";
+    vc1.title = NSLocalizedString(@"My Enquiry", nil);
+    vc2.title = NSLocalizedString(@"All Enquiry", nil);
     
     BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
-    vc.title = @"咨询";
+    vc.title = NSLocalizedString(@"Consult", nil);
     vc.viewControllers = @[vc1, vc2];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)tapChannelIntro {
     IntroViewController *vc = [[IntroViewController alloc] init];
-    vc.title = @"简介";
+    vc.title = NSLocalizedString(@"Introduction", nil);
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -90,7 +90,7 @@
     label = [[UILabel alloc] initWithFrame:CGRectMake(114, 0, 220, 44)];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:16];
-    label.text = @"正在努力加载数据";
+    label.text = NSLocalizedString(@"Retrieving data", nil);
     [_loadingView addSubview:label];
     [indicator startAnimating];
     [_tableView addSubview:_loadingView];

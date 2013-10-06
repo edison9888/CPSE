@@ -108,7 +108,7 @@
     label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:16];
-    label.text = @"正在努力加载数据";
+    label.text = NSLocalizedString(@"Retrieving data", nil);
     [_loadingView addSubview:label];
     [indicator startAnimating];
     [self.view addSubview:_loadingView];
@@ -209,15 +209,18 @@
     line.backgroundColor = [UIColor colorWithHex:0x8e8e8e];
     [view addSubview:line];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 1.5, 50, 17)];
+    UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor colorWithHex:0x8e8e8e];
     label.font = [UIFont systemFontOfSize:11];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor whiteColor];
-    label.text = @"评论";
+    label.text = NSLocalizedString(@"Comments", nil);
     label.layer.cornerRadius = 8.5;
     [view addSubview:label];
     
+    CGSize size = [label.text sizeWithFont:label.font];
+    label.frame = CGRectMake(10, 1.5, size.width+17, 17);
+
     return view;
 }
 

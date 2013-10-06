@@ -107,13 +107,13 @@
 - (void)menuUserAction {
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
-        vc.title = @"用户登录";
+        vc.title = NSLocalizedString(@"User Login", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         AccountInfoViewController *vc = [[AccountInfoViewController alloc]
                                          initWithAccount:DataMgr.currentAccount];
-        vc.title = @"用户中心";
+        vc.title = NSLocalizedString(@"Personal Center", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -122,11 +122,11 @@
     FavoriteViewController *vc1 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain isNews:YES];
     FavoriteViewController *vc2 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain isNews:NO];
     
-    vc1.title = @"新闻";
-    vc2.title = @"展商";
+    vc1.title = NSLocalizedString(@"News", nil);
+    vc2.title = NSLocalizedString(@"Exhibitors", nil);
     
     BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
-    vc.title = @"我的收藏";
+    vc.title = NSLocalizedString(@"My Favorites", nil);
     vc.viewControllers = @[vc1, vc2];
     [self.navigationController pushViewController:vc animated:YES];
 }

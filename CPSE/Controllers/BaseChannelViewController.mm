@@ -143,13 +143,13 @@
 - (void)menuUserAction {
     if (DataMgr.currentAccount == nil) {
         LoginViewController *vc = [[LoginViewController alloc] init];
-        vc.title = @"用户登录";
+        vc.title = NSLocalizedString(@"User Login", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         AccountInfoViewController *vc = [[AccountInfoViewController alloc]
                                          initWithAccount:DataMgr.currentAccount];
-        vc.title = @"用户中心";
+        vc.title = NSLocalizedString(@"Personal Center", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -158,11 +158,11 @@
     FavoriteViewController *vc1 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain isNews:YES];
     FavoriteViewController *vc2 = [[FavoriteViewController alloc] initWithStyle:UITableViewStylePlain isNews:NO];
     
-    vc1.title = @"新闻";
-    vc2.title = @"展商";
+    vc1.title = NSLocalizedString(@"News", nil);
+    vc2.title = NSLocalizedString(@"Exhibitors", nil);
     
     BaseChannelWithTabsViewController *vc = [[BaseChannelWithTabsViewController alloc] init];
-    vc.title = @"我的收藏";
+    vc.title = NSLocalizedString(@"My Favorites", nil);
     vc.viewControllers = @[vc1, vc2];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -221,14 +221,14 @@
                                  if (!NSEqualRanges(rangeOfFirstMatch, NSMakeRange(NSNotFound, 0))) {
                                      NSString *id = [result substringWithRange:NSMakeRange(rangeOfFirstMatch.location+2, rangeOfFirstMatch.length-2)];
                                      ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:[id intValue]];
-                                     vc.title = @"展商详情";
+                                     vc.title = NSLocalizedString(@"Exhibitor Info", nil);
                                      [self.navigationController pushViewController:vc animated:YES];
                                  }
                                  else {
                                      MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self.view];
                                      [self.view addSubview:hud];
                                      hud.mode = MBProgressHUDModeText;
-                                     hud.labelText = @"不是一个合法的展商二维码";
+                                     hud.labelText = NSLocalizedString(@"Invalid exhibitor QR-code", nil);
                                      [hud show:YES];
                                      [hud hide:YES afterDelay:.7];
                                  }

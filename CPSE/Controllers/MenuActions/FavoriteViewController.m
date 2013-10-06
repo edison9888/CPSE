@@ -74,12 +74,12 @@
     if (favorite.type == FavoriteTypeNewsCPSE || favorite.type == FavoriteTypeNewsIndustry) {
         NSString *type = favorite.type == FavoriteTypeNewsCPSE ? @"cpse" : @"industry";
         NewsInfoViewController *vc = [[NewsInfoViewController alloc] initWithId:favorite.id andType:type];
-        vc.title = @"新闻内容";
+        vc.title = NSLocalizedString(@"News Content", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         ExhibitorInfoViewController *vc = [[ExhibitorInfoViewController alloc] initWithId:favorite.id];
-        vc.title = @"展商详情";
+        vc.title = NSLocalizedString(@"News Content", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -26,9 +26,9 @@
 
 #import "EGORefreshTableHeaderView.h"
 
-#define kHeaderPullText @"下拉刷新"
-#define kHeaderLoadingText @"努力加载中..."
-#define kHeaderReleaseText @"释放加载最新内容"
+#define kHeaderPullText NSLocalizedString(@"Push to refresh", nil)
+#define kHeaderLoadingText NSLocalizedString(@"Retrieving data...", nil)
+#define kHeaderReleaseText NSLocalizedString(@"Release to refresh", nil)
 
 @interface EGORefreshTableHeaderView ()
 {
