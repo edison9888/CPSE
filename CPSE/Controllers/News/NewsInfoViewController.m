@@ -185,7 +185,7 @@
     if ([DataMgr.database intForQuery:@"SELECT COUNT(*) FROM Favorite WHERE id = ?", @(_id)])
         [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=news&newstype=%@&id=%d", _newstype, _id]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=news&newstype=%@&id=%d", NSLocalizedString(@"language_type", nil), _newstype, _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];
@@ -204,7 +204,7 @@
                   DLog(@"error: %@", [error description]);
               }];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=commentsList&id=%d", _id]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=commentsList&id=%d", NSLocalizedString(@"language_type", nil), _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _comments = [JSON[@"data"][@"content"] mutableCopy];
@@ -300,7 +300,7 @@
         [self.navigationController.view addSubview:hud];
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud-destar"]];
         hud.mode = MBProgressHUDModeCustomView;
-        hud.labelText = @"已取消收藏";
+        hud.labelText = NSLocalizedString(@"Unsubscribed", nil);
         [hud show:YES];
         [hud hide:YES afterDelay:.7];
     }
@@ -313,7 +313,7 @@
         [self.navigationController.view addSubview:hud];
         hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hud-star"]];
         hud.mode = MBProgressHUDModeCustomView;
-        hud.labelText = @"收藏成功";
+        hud.labelText = NSLocalizedString(@"Added to favorite", nil);
         [hud show:YES];
         [hud hide:YES afterDelay:.7];
     }
@@ -451,7 +451,7 @@
     NSString* encodeedTitle = [DataManager encodeUrl:_data[@"title"]];
     NSString* encodeedContent = [DataManager encodeUrl:_commentContentTextView.text];
     
-    NSString *url = [NSString stringWithFormat:@"api.php?action=comments&content=%@&contentid=%d&title=%@&userid=%d&user_name=%@", encodeedContent, _id, encodeedTitle, DataMgr.currentAccount.id, DataMgr.currentAccount.name];
+    NSString *url = [NSString stringWithFormat:@"api.php?language_type=%@&action=comments&content=%@&contentid=%d&title=%@&userid=%d&user_name=%@", NSLocalizedString(@"language_type", nil), encodeedContent, _id, encodeedTitle, DataMgr.currentAccount.id, DataMgr.currentAccount.name];
     DLog(@"url=%@", url);
     [AFClient getPath:url
            parameters:nil

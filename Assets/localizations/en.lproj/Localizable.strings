@@ -1,3 +1,5 @@
+"language_type" = "english";
+
 "News" = "News";
 "Exhibitors" = "Exhibitors";
 "Schedule" = "Schedule";
@@ -65,11 +67,12 @@
 "Exhibitor Info" = "Exhibitor Info";
 "Invalid exhibitor QR-code" = "Invalid exhibitor QR-code";
 "Reply" = "Reply";
-"Pull to load more" = "Pull to load more";
+"Pull up to load more" = "Pull to load more";
 "Retrieving data..." = "Retrieving data...";
 "Release to load more" = "Release to load more";
-"Push to refresh" = "Push to refresh";
+"Pull down to refresh" = "Push to refresh";
 "News Content" = "News Content";
+"Cancel" = "Cancel";
 
 "Search alphabetically" = "Search alphabetically";
 "Search by Category" = "Search by Category";
@@ -80,3 +83,7 @@
 "Comments" = "Comments";
 "Post Comment" = "Post";
 "Please enter your comment" = "Please enter your comment";
+
+"Added to favorite" = "Added to favorite";
+"Unsubscribed" = "Unsubscribed";
+"Favorite" = "Favorite";

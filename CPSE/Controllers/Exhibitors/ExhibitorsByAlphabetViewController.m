@@ -63,7 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:@"api.php?action=cclist"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=cclist", NSLocalizedString(@"language_type", nil)]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _table.hidden = NO;

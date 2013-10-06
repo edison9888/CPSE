@@ -45,7 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:@"api.php?action=arealist"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=arealist", NSLocalizedString(@"language_type", nil)]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;

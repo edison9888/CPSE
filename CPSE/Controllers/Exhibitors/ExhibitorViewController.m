@@ -102,7 +102,8 @@
     }
     else {
         [_resultList setData:@[@{@"name": @"正在搜索..."}]];
-        NSString *q = [NSString stringWithFormat:@"api.php?action=search&type=name&q=%@",
+        NSString *q = [NSString stringWithFormat:@"api.php?language_type=%@&action=search&type=name&q=%@",
+                       NSLocalizedString(@"language_type", nil),
                        [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         [AFClient getPath:q
                parameters:nil

@@ -78,7 +78,7 @@
     [self.view addSubview:_loadingView];
     
     [_activityIndicator startAnimating];
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=ccinfo&id=%d", _id]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=ccinfo&id=%d", NSLocalizedString(@"language_type", nil), _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];
@@ -303,7 +303,7 @@
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
     [button setBackgroundImage:selectedButtonBg forState:UIControlStateHighlighted];
-    [button setTitle:@"收藏" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Favorite", nil) forState:UIControlStateNormal];
     [button addTarget:self action:@selector(starOrNot:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
     

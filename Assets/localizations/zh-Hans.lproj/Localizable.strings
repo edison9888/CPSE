@@ -1,3 +1,5 @@
+"language_type" = "chinese";
+
 "News" = "新闻";
 "Exhibitors" = "展商";
 "Schedule" = "日程";
@@ -65,11 +67,12 @@
 "Exhibitor Info" = "展商详情";
 "Invalid exhibitor QR-code" = "不是一个合法的展商二维码";
 "Reply" = "回复";
-"Pull to load more" = "上拉加载更多";
+"Pull up to load more" = "上拉加载更多";
 "Retrieving data..." = "努力加载中...";
 "Release to load more" = "释放加载更多内容";
-"Push to refresh" = "下拉刷新";
+"Pull down to refresh" = "下拉刷新";
 "News Content" = "新闻内容";
+"Cancel" = "取消";
 
 "Search alphabetically" = "Search alphabetically";
 "Search by Category" = "Search by Category";
@@ -80,3 +83,7 @@
 "Comments" = "评论";
 "Post Comment" = "发表评论";
 "Please enter your comment" = "请输入评论内容";
+
+"Added to favorite" = "收藏成功";
+"Unsubscribed" = "取消收藏";
+"Favorite" = "收藏";

@@ -26,7 +26,7 @@
 
 #import "EGORefreshTableFooterView.h"
 
-#define kFooterPullText NSLocalizedString(@"Pull to load more", nil)
+#define kFooterPullText NSLocalizedString(@"Pull up to load more", nil)
 #define kFooterLoadingText NSLocalizedString(@"Retrieving data...", nil)
 #define kFooterReleaseText NSLocalizedString(@"Release to load more", nil)
 
@@ -50,7 +50,7 @@
         logo.center = CGPointMake(35, REFRESH_HEADER_HEIGHT/2.0);
         [footer addSubview:logo];
         
-        _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, REFRESH_HEADER_HEIGHT)];
+        _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 120, REFRESH_HEADER_HEIGHT)];
         _statusLabel.backgroundColor = [UIColor clearColor];
         _statusLabel.font = [UIFont systemFontOfSize:13];
         _statusLabel.text = kFooterPullText;

@@ -215,7 +215,7 @@
     [UIView commitAnimations];
     
     if (clean) {
-        [AFClient getPath:[NSString stringWithFormat:@"api.php?action=newslist&newstype=%@", _newstype]
+        [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=newslist&newstype=%@", NSLocalizedString(@"language_type", nil), _newstype]
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
                       //DLog(@"news %@", JSON);
@@ -233,7 +233,7 @@
         
         // ad
         if ([_newstype isEqualToString:kNewsTypeCPSE]) {
-            [AFClient getPath:@"api.php?action=adlist&option=newslist"
+            [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=adlist&option=newslist", NSLocalizedString(@"language_type", nil)]
                    parameters:nil
                       success:^(AFHTTPRequestOperation *operation, id JSON) {
                           _adlist = JSON[@"data"];
@@ -249,7 +249,7 @@
 }
 
 - (void)getNextPageView {
-    NSString *url = [NSString stringWithFormat:@"api.php?action=newslist&newstype=%@&pull=0&id=%d", _newstype, _lastId];
+    NSString *url = [NSString stringWithFormat:@"api.php?language_type=%@&action=newslist&newstype=%@&pull=0&id=%d", NSLocalizedString(@"language_type", nil), _newstype, _lastId];
     DLog(@"next page url: %@", url);
     
     [AFClient getPath:url

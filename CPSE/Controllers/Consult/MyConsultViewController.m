@@ -99,7 +99,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=consultlist&username=%@", DataMgr.currentAccount.name]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=consultlist&username=%@", NSLocalizedString(@"language_type", nil), DataMgr.currentAccount.name]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   _consultSets = [NSMutableArray array];
@@ -139,7 +139,8 @@
     
     dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, 50 * USEC_PER_SEC);
     dispatch_after(delay, dispatch_get_main_queue(), ^(void){
-        NSString *q = [NSString stringWithFormat:@"api.php?action=consult&username=%@&email=%@&content=%@",
+        NSString *q = [NSString stringWithFormat:@"api.php?language_type=%@&action=consult&username=%@&email=%@&content=%@",
+                       NSLocalizedString(@"language_type", nil),
                        DataMgr.currentAccount.name,
                        [DataMgr.currentAccount.email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                        [_textView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];

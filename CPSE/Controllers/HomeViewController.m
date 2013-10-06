@@ -114,7 +114,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:@"api.php?action=adlist&count=5"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=adlist&count=5", NSLocalizedString(@"language_type", nil)]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   NSArray *data = [JSON valueForKeyPath:@"data"];

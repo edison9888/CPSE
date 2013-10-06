@@ -52,7 +52,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:@"api.php?action=eventlist"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=eventlist", NSLocalizedString(@"language_type", nil)]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   NSMutableArray *dates = [NSMutableArray array];

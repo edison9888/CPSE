@@ -56,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=event&id=%d", _id]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=event&id=%d", NSLocalizedString(@"language_type", nil), _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];

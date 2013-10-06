@@ -56,7 +56,7 @@
         [self.view addSubview:_loadingView];
     
     if (!isEmpty(_action)) {
-        [AFClient getPath:[NSString stringWithFormat:@"api.php?action=%@", _action]
+        [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=%@", NSLocalizedString(@"language_type", nil), _action]
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
                       [_loadingView removeFromSuperview];

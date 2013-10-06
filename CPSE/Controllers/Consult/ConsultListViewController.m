@@ -56,7 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [AFClient getPath:@"api.php?action=consultlist"
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=consultlist", NSLocalizedString(@"language_type", nil)]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   if ([JSON[@"errno"] boolValue]) {

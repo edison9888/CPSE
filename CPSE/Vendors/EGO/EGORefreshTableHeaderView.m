@@ -26,7 +26,7 @@
 
 #import "EGORefreshTableHeaderView.h"
 
-#define kHeaderPullText NSLocalizedString(@"Push to refresh", nil)
+#define kHeaderPullText NSLocalizedString(@"Pull down to refresh", nil)
 #define kHeaderLoadingText NSLocalizedString(@"Retrieving data...", nil)
 #define kHeaderReleaseText NSLocalizedString(@"Release to refresh", nil)
 
@@ -50,7 +50,7 @@
         logo.center = CGPointMake(35, REFRESH_HEADER_HEIGHT/2.0);
         [header addSubview:logo];
         
-        _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, REFRESH_HEADER_HEIGHT)];
+        _statusLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 120, REFRESH_HEADER_HEIGHT)];
         _statusLabel.backgroundColor = [UIColor clearColor];
         _statusLabel.font = [UIFont systemFontOfSize:13];
         _statusLabel.text = kHeaderPullText;

@@ -244,7 +244,8 @@
     // disable button before getting response
     sender.userInteractionEnabled = sender.enabled = NO;
     
-    NSString *q = [NSString stringWithFormat:@"api.php?action=reg&username=%@&email=%@&truename=%@&password=%@&repwd=%@&country=%@&cp_name=%@&mobile=%@&job=%@&productRange=%@&department=%@",
+    NSString *q = [NSString stringWithFormat:@"api.php?language_type=%@&action=reg&username=%@&email=%@&truename=%@&password=%@&repwd=%@&country=%@&cp_name=%@&mobile=%@&job=%@&productRange=%@&department=%@",
+                   NSLocalizedString(@"language_type", nil),
                    [_userField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _emailField.text,
                    [_realnameField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], _pwdField.text, _confirmPwdField.text,
                    [_countryField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],

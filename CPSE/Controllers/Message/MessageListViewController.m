@@ -126,7 +126,7 @@
     if ([DataMgr.database intForQuery:@"SELECT COUNT(*) FROM Favorite WHERE id = ?", @(_id)])
         [_starButton setImage:[[UIImage imageNamed:@"icon-star"] imageTintedWithColor:[UIColor redColor]] forState:UIControlStateNormal];
     
-    [AFClient getPath:[NSString stringWithFormat:@"api.php?action=commentsList&id=%d", _id]
+    [AFClient getPath:[NSString stringWithFormat:@"api.php?language_type=%@&action=commentsList&id=%d", NSLocalizedString(@"language_type", nil), _id]
            parameters:nil
               success:^(AFHTTPRequestOperation *operation, id JSON) {
                   [_loadingView removeFromSuperview];
