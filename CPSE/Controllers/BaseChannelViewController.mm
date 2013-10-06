@@ -116,21 +116,21 @@
 - (void)tapRightBarButton {
     NSMutableArray *items = [NSMutableArray array];
     if (![self isKindOfClass:[HomeViewController class]]) {
-        [items addObject:[KxMenuItem menuItem:@"首页" image:[UIImage imageNamed:@"menu-icon-home"] target:self action:@selector(menuHomeAction)]];
+        [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"Home", nil) image:[UIImage imageNamed:@"menu-icon-home"] target:self action:@selector(menuHomeAction)]];
     }
     
     if (![self isKindOfClass:[AccountInfoViewController class]]) {
-        [items addObject:[KxMenuItem menuItem:@"个人中心" image:[UIImage imageNamed:@"menu-icon-user"] target:self action:@selector(menuUserAction)]];
+        [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"Personal Center", nil) image:[UIImage imageNamed:@"menu-icon-user"] target:self action:@selector(menuUserAction)]];
     }
     
     if (![self isKindOfClass:[FavoriteViewController class]]) {
-        [items addObject:[KxMenuItem menuItem:@"我的收藏" image:[UIImage imageNamed:@"menu-icon-star"] target:self action:@selector(menuFavoriteAction)]];
+        [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"My Favorites", nil) image:[UIImage imageNamed:@"menu-icon-star"] target:self action:@selector(menuFavoriteAction)]];
     }
     
-    [items addObject:[KxMenuItem menuItem:@"扫一扫" image:[UIImage imageNamed:@"menu-icon-scan"] target:self action:@selector(menuScanAction)]];
+    [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"Sweep", nil) image:[UIImage imageNamed:@"menu-icon-scan"] target:self action:@selector(menuScanAction)]];
     
     if (!isEmpty(DataMgr.currentAccount)) {
-        [items addObject:[KxMenuItem menuItem:@"退出登录" image:[UIImage imageNamed:@"menu-icon-logout"] target:self action:@selector(menuLogoutAction)]];
+        [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"Log out", nil) image:[UIImage imageNamed:@"menu-icon-logout"] target:self action:@selector(menuLogoutAction)]];
     }
     
     [KxMenu showMenuInView:self.view fromRect:CGRectMake(320-44, -44, 44, 44) menuItems:items];

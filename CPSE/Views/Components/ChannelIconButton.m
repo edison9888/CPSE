@@ -18,6 +18,8 @@
         self.clipsToBounds = NO;
         
         self.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        self.titleLabel.adjustsFontSizeToFitWidth = YES;
+        self.titleLabel.textAlignment = NSTextAlignmentCenter;
         [self setTitleColor:[UIColor colorWithHex:0x666666] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
         
@@ -39,7 +41,10 @@
         adjust = 7;
     
     self.imageView.center = CGPointMake(CGRectGetWidth(self.frame)/2.0, CGRectGetHeight(self.frame)/2.0 - adjust);
-    self.titleLabel.center = CGPointMake(CGRectGetWidth(self.frame)/2.0, CGRectGetHeight(self.frame) - 15 + adjust*.5);
+//    self.titleLabel.center = CGPointMake(CGRectGetWidth(self.frame)/2.0, CGRectGetHeight(self.frame) - 15 + adjust*.5);
+    
+    CGFloat height = 30 - adjust * .7;
+    self.titleLabel.frame = CGRectMake(5, CGRectGetHeight(self.frame)-height, CGRectGetWidth(self.frame)-10, height);
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
