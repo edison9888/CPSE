@@ -17,7 +17,7 @@ static NSDateFormatter *timeFormatter = nil;
     if (self = [super init]) {
         if (nil == dateFormatter) {
             dateFormatter = [[NSDateFormatter alloc] init];
-            dateFormatter.dateFormat = @"M.d号";
+            dateFormatter.dateFormat = NSLocalizedString(@"EVENT_formatter", nil);
             dateFormatter.locale = [NSLocale currentLocale];
         }
         if (nil == timeFormatter) {

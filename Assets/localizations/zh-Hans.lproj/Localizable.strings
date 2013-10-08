@@ -52,7 +52,7 @@
 "Please enter your mobile phone number" = "请输入手机号";
 "Please enter correct mobile phone number" = "请输入正确的手机号";
 "Please select area you are interested in" = "请选择您感兴趣的领域";
-"INDUSTRY_LIST" = "视频监控,防盗报警,楼宇对讲,一卡通,智能分析,智能家居,公共广播,视频会议,安防线缆,传输设备,显示设备,存储设备,安防配件,安防综合平台,安防系统集成,芯片级解决方案";
+"INDUSTRY_LIST" = "视频监控,防盗报警,楼宇对讲,一卡通,智能分析,智能家居,公共广播,视频会议,安防线缆,传输设备,显示设备,存储设备,安防配件,安防综合平台,安防系统集成,芯片级解决方案,智能交通,警用设备,消防设备,安检排爆,元器件,五金器材,媒体/协会,公安部门,研究院";
 "login_user" = "用户名：";
 "login_password" = "密    码：";
 "login_submit" = "登   录";
@@ -81,7 +81,6 @@
 "My Enquiry" = "我的咨询";
 "All Enquiry" = "全部咨询";
 
-"Brief Info" = "基本信息";
 "Retrieving data" = "正在努力加载数据";
 "Exhibitor Info" = "展商详情";
 "Invalid exhibitor QR-code" = "不是一个合法的展商二维码";
@@ -110,3 +109,13 @@
 "Added to favorite" = "收藏成功";
 "Unsubscribed" = "取消收藏";
 "Favorite" = "收藏";
+
+"All" = "全部";
+"EVENT_formatter" = "M.d号";
+"Reserve" = "预约";
+"Event Info" = "活动内容";
+
+"Brief Info" = "基本信息";
+"Scope of Exhibits" = "参展范围";
+"Contact Us" = "联系我们";
+"How to come" = "交通信息";

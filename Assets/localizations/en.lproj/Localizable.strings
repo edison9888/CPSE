@@ -53,7 +53,7 @@
 "Please enter your mobile phone number" = "Please enter your mobile phone number";
 "Please enter correct mobile phone number" = "Please enter correct mobile phone number";
 "Please select area you are interested in" = "Please select area you are interested in";
-"INDUSTRY_LIST" = "Video Surveillance,Burglar Alarm,Building Intercom,One Card Solution,Intelligent Analysis,Smart Home,Public Broadcasting,Video Conference,Security Cables,Transmission Equipment,Display Device,Storage Devices,Security Accessories,Integrated Management Platform,Security Systems Integration,Chip-level Solutions";
+"INDUSTRY_LIST" = "Video Surveillance,Burglar Alarm,Building Intercom,One Card Solution,Intelligent Analysis,Smart Home,Public Broadcasting,Video Conference,Security Cables,Transmission Equipment,Display Device,Storage Devices,Security Accessories,Integrated Management Platform,Security Systems Integration,Chip-level Solutions,Intelligent Transportation,Police Equipment,Fire Equipment,Security Inspection & EOD,Component,Hardware Equipment,Media,Public Security Departments,Research Institutions";
 "login_user" = "User Name:";
 "login_password" = "Password:";
 "login_submit" = "Login";
@@ -82,7 +82,6 @@
 "My Enquiry" = "My Enquiry";
 "All Enquiry" = "All Enquiry";
 
-"Brief Info" = "Brief Info";
 "Retrieving data" = "Retrieving data";
 "Exhibitor Info" = "Exhibitor Info";
 "Invalid exhibitor QR-code" = "Invalid exhibitor QR-code";
@@ -111,3 +110,13 @@
 "Added to favorite" = "Added to favorite";
 "Unsubscribed" = "Unsubscribed";
 "Favorite" = "Favorite";
+
+"All" = "All";
+"EVENT_formatter" = "M.d";
+"Reserve" = "Reserve";
+"Event Info" = "Event Info";
+
+"Brief Info" = "Brief Info";
+"Scope of Exhibits" = "Scope";
+"Contact Us" = "Contact";
+"How to come" = "Route";

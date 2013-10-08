@@ -74,7 +74,7 @@
                   NSMutableArray *viewControllers = [NSMutableArray array];
                   
                   EventListViewController *vc = [[EventListViewController alloc] init];
-                  vc.title = @"全部";
+                  vc.title = NSLocalizedString(@"All", nil);
                   vc.data = _eventList;
                   vc.ownerController = self;
                   [viewControllers addObject:vc];

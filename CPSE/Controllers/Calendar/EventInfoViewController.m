@@ -80,7 +80,7 @@
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
     [button setBackgroundImage:selectedButtonBg forState:UIControlStateHighlighted];
-    [button setTitle:@"预约" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Reserve", nil) forState:UIControlStateNormal];
     [button addTarget:self action:@selector(toggleDetailPanel:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
 }

@@ -66,7 +66,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     EventModel *eventModel = _data[indexPath.row];
     EventInfoViewController *vc = [[EventInfoViewController alloc] initWithId:eventModel.id];
-    vc.title = @"活动内容";
+    vc.title = NSLocalizedString(@"Event Info", nil);
     [self.ownerController.navigationController pushViewController:vc animated:YES];
 }
 

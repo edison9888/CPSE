@@ -78,7 +78,7 @@
                       
                       if (viewController) {
                           AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
-                          vc.title = @"用户中心";
+                          vc.title = NSLocalizedString(@"User Center", nil);
                           [viewController.navigationController pushViewController:vc animated:YES];
                           
                           NSMutableArray *vcs = [NSMutableArray arrayWithArray:viewController.navigationController.viewControllers];

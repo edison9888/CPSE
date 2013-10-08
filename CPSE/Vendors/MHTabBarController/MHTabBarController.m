@@ -117,6 +117,7 @@ static const NSInteger TagOffset = 1000;
 		UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 		button.tag = TagOffset + index;
 		button.titleLabel.font = [UIFont systemFontOfSize:16];
+        button.titleLabel.adjustsFontSizeToFitWidth = YES;
 
 		UIOffset offset = viewController.tabBarItem.titlePositionAdjustment;
 		button.titleEdgeInsets = UIEdgeInsetsMake(offset.vertical, offset.horizontal, 0.0f, 0.0f);

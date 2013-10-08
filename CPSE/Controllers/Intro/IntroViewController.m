@@ -25,10 +25,10 @@
         ContactsInfoViewController *vc3 = [[ContactsInfoViewController alloc] init];
         TrafficInfoViewController *vc4 = [[TrafficInfoViewController alloc] init];
         
-        vc1.title = @"基本信息";
-        vc2.title = @"参展范围";
-        vc3.title = @"联系方式";
-        vc4.title = @"交通信息";
+        vc1.title = NSLocalizedString(@"Brief Info", nil);
+        vc2.title = NSLocalizedString(@"Scope of Exhibits", nil);
+        vc3.title = NSLocalizedString(@"Contact Us", nil);
+        vc4.title = NSLocalizedString(@"How to come", nil);
         
         self.viewControllers = @[vc1, vc2, vc3, vc4];
     }
