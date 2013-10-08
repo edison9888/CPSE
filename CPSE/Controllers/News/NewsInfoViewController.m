@@ -96,7 +96,7 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(9, 0, 180, 44);
-    [button setImage:[UIImage imageNamed:@"news-post-button"] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:NSLocalizedString(@"post_btn_src", nil)] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(commentAction) forControlEvents:UIControlEventTouchUpInside];
     [bar addSubview:button];
     

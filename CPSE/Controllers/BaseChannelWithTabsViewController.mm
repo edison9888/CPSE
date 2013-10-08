@@ -87,7 +87,7 @@
         [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"Personal Center", nil) image:[UIImage imageNamed:@"menu-icon-user"] target:self action:@selector(menuUserAction)]];
     }
     
-    if (![self isKindOfClass:[FavoriteViewController class]]) {
+    if (![self.title isEqualToString:NSLocalizedString(@"My Favorites", nil)]) {
         [items addObject:[KxMenuItem menuItem:NSLocalizedString(@"My Favorites", nil) image:[UIImage imageNamed:@"menu-icon-star"] target:self action:@selector(menuFavoriteAction)]];
     }
     

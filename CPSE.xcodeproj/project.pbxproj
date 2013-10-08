@@ -171,6 +171,8 @@
 		C28EE67617F1A874004EC21A /* hud-destar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28EE67217F1A874004EC21A /* hud-destar@2x.png */; };
 		C28EE67717F1A874004EC21A /* hud-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28EE67317F1A874004EC21A /* hud-star@2x.png */; };
 		C293319F17AB8C05004C6F77 /* ItemPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */; };
+		C293EFD31803F38A0052B9CD /* news-post-button-en.png in Resources */ = {isa = PBXBuildFile; fileRef = C293EFD11803F38A0052B9CD /* news-post-button-en.png */; };
+		C293EFD41803F38A0052B9CD /* news-post-button-en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C293EFD21803F38A0052B9CD /* news-post-button-en@2x.png */; };
 		C29A609417B789DE00640943 /* PZPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C29A609317B789DE00640943 /* PZPhotoView.m */; };
 		C29A609717B7CF2300640943 /* UINavigationController+BR.m in Sources */ = {isa = PBXBuildFile; fileRef = C29A609617B7CF2300640943 /* UINavigationController+BR.m */; };
 		C29E655C17F09E7F00A8550A /* Exhibitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C29E655B17F09E7F00A8550A /* Exhibitor.m */; };
@@ -554,6 +556,8 @@
 		C28EE67317F1A874004EC21A /* hud-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hud-star@2x.png"; sourceTree = "<group>"; };
 		C293319D17AB8C05004C6F77 /* ItemPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemPickerViewController.h; sourceTree = "<group>"; };
 		C293319E17AB8C05004C6F77 /* ItemPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemPickerViewController.m; sourceTree = "<group>"; };
+		C293EFD11803F38A0052B9CD /* news-post-button-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news-post-button-en.png"; sourceTree = "<group>"; };
+		C293EFD21803F38A0052B9CD /* news-post-button-en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "news-post-button-en@2x.png"; sourceTree = "<group>"; };
 		C29A609217B789DE00640943 /* PZPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PZPhotoView.h; sourceTree = "<group>"; };
 		C29A609317B789DE00640943 /* PZPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PZPhotoView.m; sourceTree = "<group>"; };
 		C29A609517B7CF2300640943 /* UINavigationController+BR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+BR.h"; sourceTree = "<group>"; };
@@ -1121,6 +1125,8 @@
 				C2D5153817A513C300119089 /* MHTabBarIndicator@2x.png */,
 				C20931681790F71100F91BB5 /* navigation-bar-bg.png */,
 				C20931691790F71100F91BB5 /* navigation-bar-bg@2x.png */,
+				C293EFD11803F38A0052B9CD /* news-post-button-en.png */,
+				C293EFD21803F38A0052B9CD /* news-post-button-en@2x.png */,
 				C29E808317EC886E00722A47 /* news-post-button.png */,
 				C29E808417EC886E00722A47 /* news-post-button@2x.png */,
 				C247032317AA049E007C99E1 /* red-button-bg.png */,
@@ -1713,7 +1719,9 @@
 				C28EE67517F1A874004EC21A /* hud-destar.png in Resources */,
 				C28EE67617F1A874004EC21A /* hud-destar@2x.png in Resources */,
 				C247D4C117F3EAA900F33276 /* UMSCommentInputController.xib in Resources */,
+				C293EFD41803F38A0052B9CD /* news-post-button-en@2x.png in Resources */,
 				C28EE67717F1A874004EC21A /* hud-star@2x.png in Resources */,
+				C293EFD31803F38A0052B9CD /* news-post-button-en.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
