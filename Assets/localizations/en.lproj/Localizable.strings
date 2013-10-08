@@ -54,6 +54,9 @@
 "Please enter correct mobile phone number" = "Please enter correct mobile phone number";
 "Please select area you are interested in" = "Please select area you are interested in";
 "INDUSTRY_LIST" = "Video Surveillance,Burglar Alarm,Building Intercom,One Card Solution,Intelligent Analysis,Smart Home,Public Broadcasting,Video Conference,Security Cables,Transmission Equipment,Display Device,Storage Devices,Security Accessories,Integrated Management Platform,Security Systems Integration,Chip-level Solutions";
+"login_user" = "User Name:";
+"login_password" = "Password:";
+"login_submit" = "Login";
 
 "Card Number" = "Card Number";
 "Barcode for Admission Identification, Long Press to Save" = "Barcode for Admission Identification, Long Press to Save";

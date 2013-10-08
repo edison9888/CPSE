@@ -30,12 +30,12 @@
         _rememberButton.imageOriginX = 0;
         _rememberButton.titleOriginX = 30;
         _rememberButton.selected = [UserDefaults boolForKey:kUCLoginRememberMe];
-        _rememberButton.frame = CGRectMake(10, 0, 200, 44);
+        _rememberButton.frame = CGRectMake(10, 0, 280, 44);
         _rememberButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_rememberButton addTarget:self action:@selector(toggleRememberButton:) forControlEvents:UIControlEventTouchUpInside];
         [_rememberButton setImage:[UIImage imageNamed:@"check-button-unchecked"] forState:UIControlStateNormal];
         [_rememberButton setImage:[UIImage imageNamed:@"check-button-checked"] forState:UIControlStateSelected];
-        [_rememberButton setTitle:@"记住用户名和密码" forState:UIControlStateNormal];
+        [_rememberButton setTitle:NSLocalizedString(@"Remember username and password", nil) forState:UIControlStateNormal];
         [_rememberButton setTitleColor:[UIColor colorWithHex:0x666666] forState:UIControlStateNormal];
     }
     return self;
@@ -71,7 +71,7 @@
     button.titleLabel.font = [UIFont systemFontOfSize:15];
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
-    [button setTitle:@"登   录" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"login_submit", nil) forState:UIControlStateNormal];
     [button addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
     
@@ -103,13 +103,21 @@
 
 - (void)loginAction {
     if ([_userField.text length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入用户名" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:NSLocalizedString(@"Please enter user name", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
         [_userField becomeFirstResponder];
         return;
     }
     if ([_pwdField.text length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入密码" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:NSLocalizedString(@"Please enter password", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
         [_pwdField becomeFirstResponder];
         return;
@@ -146,12 +154,15 @@
     
     if (indexPath.section == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        CGRect rect = cell.contentView.frame;
-        rect.origin.x = 75;
-        rect.size.width -= 75;
+        
         switch (indexPath.row) {
             case 0: {
-                cell.textLabel.text = @"用户名：";
+                cell.textLabel.text = NSLocalizedString(@"login_user", nil);
+                CGSize size = [cell.textLabel.text sizeWithFont:cell.textLabel.font];
+                CGRect rect = cell.contentView.frame;
+                rect.origin.x = size.width + 15;
+                rect.size.width -= size.width + 15;
+
                 UITextField *entry = [self createTextEntryWithTag:indexPath.row];
                 entry.textColor = [UIColor colorWithHex:0x666666];
                 entry.frame = rect;
@@ -160,7 +171,12 @@
             }
                 break;
             case 1: {
-                cell.textLabel.text = @"密    码：";
+                cell.textLabel.text = NSLocalizedString(@"login_password", nil);
+                CGSize size = [cell.textLabel.text sizeWithFont:cell.textLabel.font];
+                CGRect rect = cell.contentView.frame;
+                rect.origin.x = size.width + 15;
+                rect.size.width -= size.width + 15;
+
                 UITextField *entry = [self createTextEntryWithTag:indexPath.row];
                 entry.secureTextEntry = YES;
                 entry.textColor = [UIColor colorWithHex:0x666666];
@@ -177,7 +193,7 @@
     }
     else {
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-        cell.textLabel.text = @"新用户登记";
+        cell.textLabel.text = NSLocalizedString(@"Register as new user", nil);
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
@@ -199,7 +215,7 @@
     }
     else {
         RegisterViewController *vc = [[RegisterViewController alloc] init];
-        vc.title = @"用户注册";
+        vc.title = NSLocalizedString(@"User Registration", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

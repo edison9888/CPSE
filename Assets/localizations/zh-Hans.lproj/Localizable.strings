@@ -53,6 +53,9 @@
 "Please enter correct mobile phone number" = "请输入正确的手机号";
 "Please select area you are interested in" = "请选择您感兴趣的领域";
 "INDUSTRY_LIST" = "视频监控,防盗报警,楼宇对讲,一卡通,智能分析,智能家居,公共广播,视频会议,安防线缆,传输设备,显示设备,存储设备,安防配件,安防综合平台,安防系统集成,芯片级解决方案";
+"login_user" = "用户名：";
+"login_password" = "密    码：";
+"login_submit" = "登   录";
 
 "Card Number" = "卡号";
 "Barcode for Admission Identification, Long Press to Save" = "条形码作为入场标识，长按进行保存";
