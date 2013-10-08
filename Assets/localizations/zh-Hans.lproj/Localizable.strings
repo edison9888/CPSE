@@ -76,10 +76,11 @@
 
 "Your Enquiry" = "咨询内容";
 "Please write your enquiry content, customer service will answer your questions." = "请在此填写您的咨询内容，客服将为您解答";
-"Submit" = "提交咨询";
+"Submit_Enquiry" = "提交咨询";
 "Enquiry Records" = "历史咨询";
 "My Enquiry" = "我的咨询";
 "All Enquiry" = "全部咨询";
+"Please enter your enquiry" = "请输入咨询内容";
 
 "Retrieving data" = "正在努力加载数据";
 "Exhibitor Info" = "展商详情";

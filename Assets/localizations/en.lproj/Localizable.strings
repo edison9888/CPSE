@@ -77,10 +77,11 @@
 
 "Your Enquiry" = "Your Enquiry";
 "Please write your enquiry content, customer service will answer your questions." = "Please write your enquiry content, customer service will answer your questions.";
-"Submit" = "Submit";
+"Submit_Enquiry" = "Submit";
 "Enquiry Records" = "Enquiry Records";
 "My Enquiry" = "My Enquiry";
 "All Enquiry" = "All Enquiry";
+"Please enter your enquiry" = "Please enter your enquiry";
 
 "Retrieving data" = "Retrieving data";
 "Exhibitor Info" = "Exhibitor Info";

@@ -12,7 +12,7 @@
 #import "ConsultModel.h"
 #import "ConsultSetModel.h"
 
-#define kPlaceHolderText @"请在此填写您的咨询内容，客服将为您解答"
+#define kPlaceHolderText NSLocalizedString(@"Please write your enquiry content, customer service will answer your questions.", nil)
 
 @interface MyConsultViewController ()
 {
@@ -40,7 +40,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:15];
-    label.text = @"咨询内容";
+    label.text = NSLocalizedString(@"Your Enquiry", nil);
     [_scrollView addSubview:label];
     CGSize size = [label.text sizeWithFont:label.font];
     label.frame = CGRectMake(10, topOffset, size.width, size.height);
@@ -62,7 +62,7 @@
     button.titleLabel.font = [UIFont systemFontOfSize:15];
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
-    [button setTitle:@"提交咨询" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Submit_Enquiry", nil) forState:UIControlStateNormal];
     [button addTarget:self action:@selector(submitInquiry) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
     topOffset += buttonBg.size.height + 20;
@@ -70,7 +70,7 @@
     label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:15];
-    label.text = @"历史咨询";
+    label.text = NSLocalizedString(@"Enquiry Records", nil);
     [_scrollView addSubview:label];
     size = [label.text sizeWithFont:label.font];
     label.frame = CGRectMake(10, topOffset, size.width, size.height);
@@ -129,7 +129,11 @@
 
 - (void)submitInquiry {
     if ([_textView.text length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"请输入咨询内容" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                        message:NSLocalizedString(@"Please enter your enquiry", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
         [_textView becomeFirstResponder];
         return;

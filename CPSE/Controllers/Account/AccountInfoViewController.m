@@ -120,7 +120,7 @@
      ------------------------*/
     info = NSLocalizedString(@"Barcode for Admission Identification, Long Press to Save", nil);
     size = [info sizeWithFont:_operationLabel.font constrainedToSize:CGSizeMake(rect.size.width-20, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
-    _operationLabel.frame = CGRectMake(_scrollView.frame.size.width/2-size.width/2, topOffset, size.width, size.height);
+    _operationLabel.frame = CGRectMake(10, topOffset, size.width, size.height);
     _operationLabel.text = info;
     topOffset += size.height + 10;
     
@@ -163,8 +163,8 @@
     
     // 3rd paragraph
     desc = [NSMutableString string];
-    [desc appendFormat:@"%@：\n%@：\n%@ 09：30\n\n", NSLocalizedString(@"Exhibition Time", nil), NSLocalizedString(@"Opening Ceremony", nil), NSLocalizedString(@"Oct 29", nil)];
-    [desc appendFormat:@"%@：\n%@ 09：30 – 17:00\n%@ 09：30 – 17:00\n%@ 09：30 – 17:00\n%@ 09：30 – 12:00\n\n", NSLocalizedString(@"Date", nil), NSLocalizedString(@"Oct 29", nil), NSLocalizedString(@"Oct 30", nil), NSLocalizedString(@"Oct 31", nil), NSLocalizedString(@"Nov 01", nil)];
+    [desc appendFormat:@"%@：\n%@：\n%@ 09:30\n\n", NSLocalizedString(@"Exhibition Time", nil), NSLocalizedString(@"Opening Ceremony", nil), NSLocalizedString(@"Oct 29", nil)];
+    [desc appendFormat:@"%@：\n%@ 09:30 – 17:00\n%@ 09:30 – 17:00\n%@ 09:30 – 17:00\n%@ 09:30 – 12:00\n\n", NSLocalizedString(@"Date", nil), NSLocalizedString(@"Oct 29", nil), NSLocalizedString(@"Oct 30", nil), NSLocalizedString(@"Oct 31", nil), NSLocalizedString(@"Nov 01", nil)];
     [desc appendFormat:@"%@：\n%@\n\n", NSLocalizedString(@"Location", nil), NSLocalizedString(@"Shenzhen Convention & Exhibition Centre, China",  nil)];
     label = [[UILabel alloc] init];
     label.backgroundColor = [UIColor clearColor];
