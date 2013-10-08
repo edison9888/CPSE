@@ -29,15 +29,15 @@
         ExhibitorsByIndustryViewController *vc2 = [[ExhibitorsByIndustryViewController alloc] init];
         ExhibitorsByAreaViewController *vc3 = [[ExhibitorsByAreaViewController alloc] init];
         
-        vc1.title = @"按字母搜索";
-        vc2.title = @"按行业搜索";
-        vc3.title = @"按地区搜索";
+        vc1.title = NSLocalizedString(@"Search alphabetically", nil);
+        vc2.title = NSLocalizedString(@"Search by Category", nil);
+        vc3.title = NSLocalizedString(@"Search by Area", nil);
         
         self.viewControllers = @[vc1, vc2, vc3];
         
         _resultList = [[ExhibitorListViewController alloc] init];
         _resultList.owner = self;
-        [_resultList setData:@[@{@"name": @"请输入关键词"}]];
+        [_resultList setData:@[@{@"name": NSLocalizedString(@"Please enter keyword", nil)}]];
     }
     return self;
 }
@@ -49,7 +49,7 @@
     _searchBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _searchBar.delegate = self;
     _searchBar.tintColor = [UIColor blackColor];
-    _searchBar.placeholder = @"输入全称或首字母查询";
+    _searchBar.placeholder = NSLocalizedString(@"enter name or first character to search", nil);
     self.headerView = _searchBar;
     
     UIToolbar *_keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
@@ -98,7 +98,7 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     [self cancelPreviousSearch];
     if (isEmpty(searchText)) {
-        [_resultList setData:@[@{@"name": @"请输入关键词"}]];
+        [_resultList setData:@[@{@"name": NSLocalizedString(@"Please enter keyword", nil)}]];
     }
     else {
         [_resultList setData:@[@{@"name": @"正在搜索..."}]];
@@ -109,7 +109,7 @@
                parameters:nil
                   success:^(AFHTTPRequestOperation *operation, id JSON) {
                       if (isEmpty(JSON[@"data"]))
-                          [_resultList setData:@[@{@"name": @"没有搜索到匹配的结果 :("}]];
+                          [_resultList setData:@[@{@"name": NSLocalizedString(@"no matching result found :(", nil)}]];
                       else
                           [_resultList setData:JSON[@"data"]];
                   }

@@ -96,6 +96,10 @@
 "Search alphabetically" = "Search alphabetically";
 "Search by Category" = "Search by Category";
 "Search by Area" = "Search by Area";
+"Please enter keyword" = "请输入关键词";
+"enter name or first character to search" = "输入全称或首字母查询";
+"searching..." = "正在搜索...";
+"no matching result found :(" = "没有搜索到匹配的结果 :(";
 
 "Industry News" = "行业新闻";
 "CPSE News" = "安博会新闻";

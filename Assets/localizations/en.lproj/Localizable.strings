@@ -94,9 +94,13 @@
 "News Content" = "News Content";
 "Cancel" = "Cancel";
 
-"Search alphabetically" = "Search alphabetically";
-"Search by Category" = "Search by Category";
-"Search by Area" = "Search by Area";
+"Search alphabetically" = "Alphabetically";
+"Search by Category" = "By Category";
+"Search by Area" = "By Area";
+"Please enter keyword" = "Please enter keyword";
+"enter name or first character to search" = "enter name or first character to search";
+"searching..." = "searching...";
+"no matching result found :(" = "no matching result found :(";
 
 "Industry News" = "Industry News";
 "CPSE News" = "CPSE News";
