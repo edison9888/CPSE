@@ -21,7 +21,7 @@
     UITableView *_tableView;
     NSArray *_data;
     UITextField *_userField, *_emailField, *_realnameField, *_pwdField, *_confirmPwdField, *_countryField, *_companyField, *_departmentField, *_positionField, *_cellField, *_areasField;
-    NSArray *_dataCountries, *_dataAreas;
+    NSMutableArray *_dataCountries, *_dataAreas;
     
     UITextField *_invalidEntry;
 }
@@ -31,38 +31,29 @@
 
 - (id)init {
     if (self = [super init]) {
-        _data = @[@"用  户  名：", @"电子邮箱：", @"真实姓名：", @"登录密码：", @"重复密码：",
-                  @"国       家：", @"公司名称：", @"部       门：", @"职       位：", @"手       机：", @"您感兴趣的领域："];
-        _dataCountries = @[[NSMutableDictionary dictionaryWithObjectsAndKeys:@"中国大陆", @"name", @"0", @"selected", nil],
-                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"澳      门", @"name", @"0", @"selected", nil],
-                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"香      港", @"name", @"0", @"selected", nil],
-                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"台      湾", @"name", @"0", @"selected", nil],
-                           [NSMutableDictionary dictionaryWithObjectsAndKeys:@"其他国家及地区", @"name", @"0", @"selected", nil]];
+        _data = @[NSLocalizedString(@"User Name:", nil),
+                  NSLocalizedString(@"Email:", nil),
+                  NSLocalizedString(@"Real Name:", nil),
+                  NSLocalizedString(@"Password:", nil),
+                  NSLocalizedString(@"Confirm Password:", nil),
+                  NSLocalizedString(@"Country:", nil),
+                  NSLocalizedString(@"Company:", nil),
+                  NSLocalizedString(@"Department:", nil),
+                  NSLocalizedString(@"Position:", nil),
+                  NSLocalizedString(@"Mobile:", nil),
+                  NSLocalizedString(@"The area you are interested in:", nil)];
         
-        _dataAreas = @[[NSMutableDictionary dictionaryWithObjectsAndKeys:@"视频监控", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"防盗报警", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"楼宇对讲", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"一卡通", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能分析", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能家居", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"公共广播", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"视频会议", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防线缆", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"传输设备", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"显示设备", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"存储设备", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防综合平台", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安防系统集成", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"芯片级解决方案", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"智能交通", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"警用设备", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"消防设备", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"安检排爆", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"元器件", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"五金器材", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"媒体/协会", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"公安部门", @"name", @"0", @"selected", nil],
-                       [NSMutableDictionary dictionaryWithObjectsAndKeys:@"研究院", @"name", @"0", @"selected", nil]];
+        _dataCountries = [NSMutableArray array];
+        NSArray *array = [NSLocalizedString(@"COUNTRY_LIST", nil) componentsSeparatedByString:@","];
+        [array enumerateObjectsUsingBlock:^(NSString *str, NSUInteger idx, BOOL *stop){
+            [_dataCountries addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:str, @"name", @NO, @"selected", nil]];
+        }];
+
+        _dataAreas = [NSMutableArray array];
+        array = [NSLocalizedString(@"INDUSTRY_LIST", nil) componentsSeparatedByString:@","];
+        [array enumerateObjectsUsingBlock:^(NSString *str, NSUInteger idx, BOOL *stop){
+            [_dataAreas addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:str, @"name", @NO, @"selected", nil]];
+        }];
     }
     return self;
 }
@@ -97,7 +88,7 @@
     button.titleLabel.font = [UIFont systemFontOfSize:15];
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
-    [button setTitle:@"完成登记" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Complete Registration", nil) forState:UIControlStateNormal];
     [button addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
     
@@ -159,76 +150,76 @@
     for (int i=0; i<[self.textEntries count]; i++) {
         entry = self.textEntries[i];
         if (i==0 && [entry.text length]==0) {
-            message = @"请输入用户名";
+            message = NSLocalizedString(@"Please enter user name", nil);
             break;
         }
         if (i==1) {
             if ([entry.text length]==0) {
-                message = @"请输入电子邮箱";
+                message = NSLocalizedString(@"Please enter email", nil);
                 break;
             }
             else {
                 NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
                 NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
                 if ([test evaluateWithObject:entry.text] == NO) {
-                    message = @"请输入正确的电子邮箱";
+                    message = NSLocalizedString(@"Please enter correct email", nil);
                     break;
                 }
             }
         }
         if (i==2 && [entry.text length]==0) {
-            message = @"请输入真实姓名";
+            message = NSLocalizedString(@"Please enter real name", nil);
             break;
         }
         if (i==3 && [entry.text length]==0) {
-            message = @"请输入密码";
+            message = NSLocalizedString(@"Please enter password", nil);
             break;
         }
         if (i==4) {
             if ([entry.text length]==0) {
-                message = @"请输入重复密码";
+                message = NSLocalizedString(@"Please confirm password", nil);
                 break;
             }
             else {
                 UITextField *lastEntry = self.textEntries[i-1];
                 if (![lastEntry.text isEqualToString:entry.text]) {
-                    message = @"重复密码与密码不一致";
+                    message = NSLocalizedString(@"There is a mismatch between password and confirm password", nil);
                     break;
                 }
             }
         }
         if (i==5 && [entry.text length]==0) {
-            message = @"请选择国家";
+            message = NSLocalizedString(@"Please select your country", nil);
             break;
         }
         if (i==6 && [entry.text length]==0) {
-            message = @"请输入公司名称";
+            message = NSLocalizedString(@"Please enter company name", nil);
             break;
         }
         if (i==7 && [entry.text length]==0) {
-            message = @"请输入部门";
+            message = NSLocalizedString(@"Please enter department", nil);
             break;
         }
         if (i==8 && [entry.text length]==0) {
-            message = @"请输入职位";
+            message = NSLocalizedString(@"Please enter position", nil);
             break;
         }
         if (i==9) {
             if ([entry.text length]==0) {
-                message = @"请输入手机号";
+                message = NSLocalizedString(@"Please enter your mobile phone number", nil);
                 break;
             }
             else {
                 NSString *regex = @"^(1)\\d{10}$";
                 NSPredicate *test = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
                 if ([test evaluateWithObject:entry.text] == NO) {
-                    message = @"请输入正确的手机号";
+                    message = NSLocalizedString(@"Please enter correct mobile phone number", nil);
                     break;
                 }
             }
         }
         if (i==10 && [entry.text length]==0) {
-            message = @"请选择您感兴趣的领域";
+            message = NSLocalizedString(@"Please select area you are interested in", nil);
             break;
         }
     }
@@ -268,7 +259,8 @@
                       DataMgr.currentAccount = [[Account alloc] initWithAttributes:dict];
                       [DataMgr updateAccountInfo:dict];
                       DLog(@"reg response: %@", dict);
-                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"感谢您注册成为CPS中安网会员，此账号和二维码为中安网通行证，可登陆中安网享受更多会员服务。"
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                                      message:NSLocalizedString(@"Thanks for your registration of CPS member.This account and two-dimension code is your  permit for CPS website, as well as for other activities organized by CPS and more member services.", nil)
                                                                      delegate:self
                                                             cancelButtonTitle:@"OK"
                                                             otherButtonTitles:nil];
@@ -300,7 +292,7 @@
     else if (alertView.tag == ALERT_TAG_SUCCESS) {
         // goto account info page
         AccountInfoViewController *vc = [[AccountInfoViewController alloc] initWithAccount:DataMgr.currentAccount];
-        vc.title = @"用户中心";
+        vc.title = NSLocalizedString(@"User Center", nil);
         [self.navigationController pushViewController:vc animated:YES];
         
         NSMutableArray *vcs = [NSMutableArray array];
@@ -330,7 +322,7 @@
 
     CGSize size = [cell.textLabel.text sizeWithFont:cell.textLabel.font];
     CGRect rect = cell.contentView.frame;
-    rect.origin.x = size.width + 10;
+    rect.origin.x = size.width + 15;
     rect.size.width -= size.width + 15;
     
     UITextField *entry = [self createTextEntryWithTag:indexPath.row+1];
@@ -392,12 +384,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 5) {
         ItemPickerViewController *vc = [[ItemPickerViewController alloc] initWithDataSource:_dataCountries multipleSelectable:NO];
-        vc.title = @"选择国家";
+        vc.title = NSLocalizedString(@"Select country", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (indexPath.row == 10) {
         ItemPickerViewController *vc = [[ItemPickerViewController alloc] initWithDataSource:_dataAreas multipleSelectable:YES];
-        vc.title = @"选择您感兴趣的领域";
+        vc.title = NSLocalizedString(@"Select the area you are interested in", nil);
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
