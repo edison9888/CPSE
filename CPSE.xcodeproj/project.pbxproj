@@ -83,6 +83,8 @@
 		C22133FD17A77CA1006622F2 /* icon-comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FB17A77CA1006622F2 /* icon-comment@2x.png */; };
 		C221340017A77CAB006622F2 /* icon-share.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FE17A77CAB006622F2 /* icon-share.png */; };
 		C221340117A77CAB006622F2 /* icon-share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C22133FF17A77CAB006622F2 /* icon-share@2x.png */; };
+		C223B70418040DBA00834FC6 /* Contact-en.html in Resources */ = {isa = PBXBuildFile; fileRef = C223B70318040DBA00834FC6 /* Contact-en.html */; };
+		C223B70718040DBF00834FC6 /* Intro-en.html in Resources */ = {isa = PBXBuildFile; fileRef = C223B70618040DBF00834FC6 /* Intro-en.html */; };
 		C224F5EF17ED84D400D2079E /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C224F5EE17ED84D400D2079E /* db.sqlite */; };
 		C227903D17F9545A0055C4EF /* ConsultTableViewCellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C227903C17F9545A0055C4EF /* ConsultTableViewCellContentView.m */; };
 		C234A3CA17D6256600E491F4 /* 1号馆.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C234A3BE17D6256600E491F4 /* 1号馆.jpg */; };
@@ -401,6 +403,8 @@
 		C22133FB17A77CA1006622F2 /* icon-comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-comment@2x.png"; sourceTree = "<group>"; };
 		C22133FE17A77CAB006622F2 /* icon-share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share.png"; sourceTree = "<group>"; };
 		C22133FF17A77CAB006622F2 /* icon-share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-share@2x.png"; sourceTree = "<group>"; };
+		C223B70318040DBA00834FC6 /* Contact-en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Contact-en.html"; sourceTree = "<group>"; };
+		C223B70618040DBF00834FC6 /* Intro-en.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Intro-en.html"; sourceTree = "<group>"; };
 		C224F5EE17ED84D400D2079E /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 		C227903B17F9545A0055C4EF /* ConsultTableViewCellContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultTableViewCellContentView.h; sourceTree = "<group>"; };
 		C227903C17F9545A0055C4EF /* ConsultTableViewCellContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultTableViewCellContentView.m; sourceTree = "<group>"; };
@@ -1373,7 +1377,9 @@
 		C2BD02A817AF462000429EED /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				C223B70318040DBA00834FC6 /* Contact-en.html */,
 				C2D71FA217B095C600D13338 /* Contact.html */,
+				C223B70618040DBF00834FC6 /* Intro-en.html */,
 				C2D71FA017B0921A00D13338 /* Intro.html */,
 				C2BC0EA917D4E0FB009657F9 /* intro-logo.png */,
 				C2D71FA417B0BF2500D13338 /* weichat-barcode.png */,
@@ -1657,6 +1663,7 @@
 				C202236E17BDDCBF005A19A9 /* cell-banner-placeholder.png in Resources */,
 				C202236F17BDDCBF005A19A9 /* cell-banner-placeholder@2x.png in Resources */,
 				C2EE275D17D0BBB900DDA21D /* icon-done.png in Resources */,
+				C223B70718040DBF00834FC6 /* Intro-en.html in Resources */,
 				C2EE275E17D0BBB900DDA21D /* icon-done@2x.png in Resources */,
 				C2EE276317D0BF0E00DDA21D /* icon-exit.png in Resources */,
 				C2EE276417D0BF0E00DDA21D /* icon-exit@2x.png in Resources */,
@@ -1689,6 +1696,7 @@
 				C234A3D217D6256600E491F4 /* 二楼6号馆.jpg in Resources */,
 				C234A3D317D6256600E491F4 /* 二楼平台.jpg in Resources */,
 				C234A3D417D6256600E491F4 /* 北广场11号馆.jpg in Resources */,
+				C223B70418040DBA00834FC6 /* Contact-en.html in Resources */,
 				C234A3D517D6256600E491F4 /* 展馆全图.jpg in Resources */,
 				C2D5297517D6D2BA0053872E /* welcome-1-460@2x.png in Resources */,
 				C2D5297617D6D2BA0053872E /* welcome-2-460@2x.png in Resources */,

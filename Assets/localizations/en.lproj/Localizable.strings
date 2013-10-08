@@ -123,6 +123,8 @@
 "How to come" = "Route";
 
 "post_btn_src" = "news-post-button-en";
+"page_contact_src" = "Contact-en";
+"page_intro_src" = "Intro-en";
 
 "Company Info" = "Description";
 "corp_name" = "Company：";

@@ -38,7 +38,7 @@
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSURL *baseURL = [NSURL fileURLWithPath:path];
-    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:@"Contact" ofType:@"html"];
+    NSString *htmlFile = [[NSBundle mainBundle] pathForResource:NSLocalizedString(@"page_contact_src", nil) ofType:@"html"];
     NSString* htmlString = [NSString stringWithContentsOfFile:htmlFile encoding:NSUTF8StringEncoding error:nil];
     [_webView loadHTMLString:htmlString baseURL:baseURL];
 }
