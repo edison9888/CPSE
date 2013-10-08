@@ -120,7 +120,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"企业名称：";
+    label.text = NSLocalizedString(@"corp_name", nil);
     CGSize capSize = [label.text sizeWithFont:label.font];
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
@@ -143,7 +143,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"展品信息：";
+    label.text = NSLocalizedString(@"corp_exhibits", nil);
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
     
@@ -165,7 +165,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"参展范围：";
+    label.text = NSLocalizedString(@"corp_scope", nil);
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
     
@@ -187,7 +187,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"展位号：";
+    label.text = NSLocalizedString(@"corp_location", nil);
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
     
@@ -215,7 +215,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"E-mail：";
+    label.text = NSLocalizedString(@"corp_mailbox", nil);
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
     
@@ -241,7 +241,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"联系电话：";
+    label.text = NSLocalizedString(@"corp_phone", nil);
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
     
@@ -267,7 +267,7 @@
     label.font = [UIFont systemFontOfSize:16];
     label.textAlignment = NSTextAlignmentRight;
     label.textColor = [UIColor colorWithHex:0x666666];
-    label.text = @"联系地址：";
+    label.text = NSLocalizedString(@"corp_address", nil);
     label.frame = CGRectMake(10, topOffset, capSize.width, capSize.height);
     [_scrollView addSubview:label];
     
@@ -293,7 +293,7 @@
     button.titleLabel.textColor = [UIColor whiteColor];
     [button setBackgroundImage:buttonBg forState:UIControlStateNormal];
     [button setBackgroundImage:selectedButtonBg forState:UIControlStateHighlighted];
-    [button setTitle:@"公司介绍" forState:UIControlStateNormal];
+    [button setTitle:NSLocalizedString(@"Company Info", nil) forState:UIControlStateNormal];
     [button addTarget:self action:@selector(toggleDetailPanel:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:button];
     
@@ -327,9 +327,9 @@
     UILabel *label = (UILabel *)gesture.view;
     MFMailComposeViewController *vc = [[MFMailComposeViewController alloc] init];
     vc.mailComposeDelegate = self;
-    [vc setSubject:@"问询"];
+    [vc setSubject:NSLocalizedString(@"corp_enquiry", nil)];
     [vc setToRecipients:@[label.text]];
-    [vc setMessageBody:@"你好，我从安防网看到了贵公司信息，" isHTML:NO];
+    [vc setMessageBody:NSLocalizedString(@"corp_enquiry_body", nil) isHTML:NO];
     [self presentModalViewController:vc animated:YES];
 }
 
@@ -343,23 +343,23 @@
     
     UIActionSheet *actionSheet;
     if ([numbers count] == 1) {
-        actionSheet = [[UIActionSheet alloc] initWithTitle:@"呼叫"
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"corp_calling", nil)
                                                   delegate:self
-                                         cancelButtonTitle:@"取消"
+                                         cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                     destructiveButtonTitle:nil
                                          otherButtonTitles:numbers[0], nil];
     }
     else if ([numbers count] == 2) {
-        actionSheet = [[UIActionSheet alloc] initWithTitle:@"呼叫"
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"corp_calling", nil)
                                                   delegate:self
-                                         cancelButtonTitle:@"取消"
+                                         cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                     destructiveButtonTitle:nil
                                          otherButtonTitles:numbers[0], numbers[1], nil];
     }
     else {
-        actionSheet = [[UIActionSheet alloc] initWithTitle:@"呼叫"
+        actionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"corp_calling", nil)
                                                   delegate:self
-                                         cancelButtonTitle:@"取消"
+                                         cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
                                     destructiveButtonTitle:nil
                                          otherButtonTitles:numbers[0], numbers[1], numbers[2], nil];
     }
@@ -391,19 +391,19 @@
     switch (result)
     {
         case MFMailComposeResultCancelled:
-            message = @"取消发送";
+            message = NSLocalizedString(@"corp_mail_cancel", nil);
             break;
         case MFMailComposeResultSaved:
-            message = @"邮件已保存";
+            message = NSLocalizedString(@"corp_mail_saved", nil);
             break;
         case MFMailComposeResultSent:
-            message = @"已发送";
+            message = NSLocalizedString(@"corp_mail_sent", nil);
             break;
         case MFMailComposeResultFailed:
-            message = @"发送失败";
+            message = NSLocalizedString(@"corp_mail_failed", nil);
             break;
         default:
-            message = @"未发送";
+            message = NSLocalizedString(@"corp_mail_unsent", nil);
             break;
     }
     

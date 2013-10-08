@@ -122,3 +122,20 @@
 "How to come" = "Route";
 
 "post_btn_src" = "news-post-button-en";
+
+"Company Info" = "Description";
+"corp_name" = "Company：";
+"corp_exhibits" = "Exhibits：";
+"corp_scope" = "Scope：";
+"corp_mailbox" = "E-mail：";
+"corp_location" = "Booth #：";
+"corp_phone" = "Phone #：";
+"corp_address" = "Address：";
+"corp_enquiry" = "Enquiry";
+"corp_enquiry_body" = "Hello, I got your compnay info via CPSE application, ";
+"corp_calling" = "Call";
+"corp_mail_cancel" = "Cancelled";
+"corp_mail_saved" = "Saved";
+"corp_mail_sent" = "Sent";
+"corp_mail_failed" = "Failed";
+"corp_mail_unsent" = "Unsent";

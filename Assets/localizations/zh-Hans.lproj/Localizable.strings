@@ -121,3 +121,20 @@
 "How to come" = "交通信息";
 
 "post_btn_src" = "news-post-button";
+
+"Company Info" = "公司介绍";
+"corp_name" = "企业名称：";
+"corp_exhibits" = "展品信息：";
+"corp_scope" = "参展范围：";
+"corp_mailbox" = "电子邮箱：";
+"corp_location" = "展位号：";
+"corp_phone" = "联系电话：";
+"corp_address" = "联系地址：";
+"corp_enquiry" = "问询";
+"corp_enquiry_body" = "你好，我从安防网看到了贵公司信息，";
+"corp_calling" = "呼叫";
+"corp_mail_cancel" = "取消发送";
+"corp_mail_saved" = "邮件已保存";
+"corp_mail_sent" = "已发送";
+"corp_mail_failed" = "发送失败";
+"corp_mail_unsent" = "未发送";
